@@ -1,0 +1,75 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainLayout from './components/MainLayout';
+import Home from './pages/Home';
+import About from './pages/About';
+import Methodology from './pages/Methodology';
+import Partners from './pages/Partners';
+import Insights from './pages/Insights';
+import InsightArticle from './pages/InsightArticle';
+import ImpactReport from './pages/ImpactReport';
+import Contact from './pages/Contact';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Assessment from './pages/Assessment';
+import Character from './pages/Character';
+import Competence from './pages/Competence';
+import Identity from './pages/Identity';
+import Impact from './pages/Impact';
+import SocialHackathon from './pages/SocialHackathon';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import ForOrganisations from './pages/ForOrganisations';
+import OrganisationDashboard from './pages/OrganisationDashboard';
+import Opportunities from './pages/Opportunities';
+import OpportunityDetail from './pages/OpportunityDetail';
+import ParticipantFeedback from './pages/ParticipantFeedback';
+import ForSchools from './pages/forSchools';
+import Stories from './pages/Stories';
+import CareerAccelerators from './pages/CareerAccelerators';
+import Community from './pages/Community';
+
+export default function App() {
+  return (
+    <Router>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="methodology" element={<Methodology />} />
+            <Route path="partners" element={<Partners />} />
+            <Route path="insights" element={<Insights />} />
+            <Route path="insights/:id" element={<InsightArticle />} />
+            <Route path="impact-report" element={<ImpactReport />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signin" element={<Login />} />
+            <Route path="identity" element={<Identity />} />
+            <Route path="character" element={<Character />} />
+            <Route path="competence" element={<Competence />} />
+            <Route path="impact" element={<Impact />} />
+            <Route path="social-hackathons" element={<SocialHackathon />} />
+            <Route path="privacy" element={<PrivacyPolicy />} />
+            <Route path="terms" element={<TermsOfService />} />
+            <Route path="for-organisations" element={<ForOrganisations />} />
+            <Route path="for-schools" element={<ForSchools />} />
+            <Route path="stories" element={<Stories />} />
+            <Route path="community" element={<Community />} />
+            <Route path="programmes/career-accelerators" element={<CareerAccelerators />} />
+            <Route path="opportunities" element={<Opportunities />} />
+            <Route path="opportunities/:id" element={<OpportunityDetail />} />
+            <Route path="opportunities/:id/feedback" element={<ParticipantFeedback />} />
+            <Route path="organisation/dashboard" element={<OrganisationDashboard />} />
+          </Route>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/methodology/diagnostic" element={<Assessment />} />
+          <Route path="/assessment" element={<Assessment />} />
+          <Route path="/diagnostic" element={<Assessment />} />
+        </Routes>
+    </Router>
+  );
+}

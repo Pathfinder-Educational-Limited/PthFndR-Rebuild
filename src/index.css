@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-heading: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* PthFndR Brand Colors — from the logo spec (src/config/colors.ts) */
+  --color-pth-navy: #004890;       /* Primary Navy — main text & UI anchor */
+  --color-pth-navy-deep: #0C2A5C;  /* Icon Navy — deep contrast fills (heroes, footer, CTA bands) */
+  --color-pth-green: #40D478;      /* Action green — CTAs, focus rings, accents */
+  --color-pth-teal: #5FD4D4;
+  --color-pth-cream: #F5F5F5;
+  --color-pth-warm: #FBF4EC;      /* Warm ivory — editorial hero/section fields (HEX-style warmth) */
+
+  /* Canonical brand palette — keep in sync with src/config/colors.ts */
+  --color-pth-primary-blue: #004890;
+  --color-pth-cyan: #0097b2;
+  --color-pth-lime: #7ed957;
+  --color-pth-soft-cyan: #D6F0F5;
+
+  /* Trapezium Model dimension colours */
+  --color-identity-blue: #004890;
+  --color-character-green: #40D478;
+  --color-character-purple: #8B5CF6;
+  --color-competence-orange: #F59E0B;
+  --color-impact-purple: #7C3AED;
+
+  /* PthFndR Gradients */
+  --background-image-pth-gradient: linear-gradient(to right, var(--color-pth-teal), var(--color-pth-green));
+}
+
+@layer base {
+  body {
+    @apply bg-pth-warm text-pth-navy font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+/* Editorial motif utilities */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.5px, transparent 1.6px);
+  background-size: 22px 22px;
+}
+.dot-grid-navy {
+  background-image: radial-gradient(rgba(0, 72, 144, 0.09) 1.5px, transparent 1.6px);
+  background-size: 22px 22px;
+}
