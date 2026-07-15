@@ -96,7 +96,7 @@ export default function Footer() {
                 <a href="https://www.instagram.com/pthfndrconnect" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
                   <Instagram size={24} className="md:w-5 md:h-5" aria-hidden="true" />
                 </a>
-                <a href="https://www.facebook.com/share/1AVmp7WZ5g/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
+                <a href="https://www.facebook.com/pthfndrconnect" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
                   <Facebook size={24} className="md:w-5 md:h-5" aria-hidden="true" />
                 </a>
                 <a href="https://x.com/PthFndRconnect" target="_blank" rel="noopener noreferrer" aria-label="Visit our X (Twitter) page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">

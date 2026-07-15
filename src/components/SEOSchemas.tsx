@@ -25,7 +25,7 @@ export function OrganizationSchema() {
         sameAs: [
           'https://www.linkedin.com/company/pthfndrconnect',
           'https://www.instagram.com/pthfndrconnect',
-          'https://www.facebook.com/share/1AVmp7WZ5g/',
+          'https://www.facebook.com/pthfndrconnect',
           'https://x.com/PthFndRconnect',
         ],
         contactPoint: {
