@@ -32,6 +32,7 @@ import ForSchools from './pages/forSchools';
 import Stories from './pages/Stories';
 import CareerAccelerators from './pages/CareerAccelerators';
 import Community from './pages/Community';
+import Team from './pages/Team';
 
 export default function App() {
   return (
@@ -59,6 +60,7 @@ export default function App() {
             <Route path="for-schools" element={<ForSchools />} />
             <Route path="stories" element={<Stories />} />
             <Route path="community" element={<Community />} />
+            <Route path="team" element={<Team />} />
             <Route path="programmes/career-accelerators" element={<CareerAccelerators />} />
             <Route path="opportunities" element={<Opportunities />} />
             <Route path="opportunities/:id" element={<OpportunityDetail />} />
