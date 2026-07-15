@@ -1,7 +1,9 @@
 import SEO from '../components/SEO';
-import { Building2, Users, FileText, ArrowRight, CheckCircle2, TrendingUp, Handshake, BrainCircuit } from 'lucide-react';
+import { Users, ArrowRight, CheckCircle2, TrendingUp, Handshake, BrainCircuit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PHONE_TEL_HREF, PHONE_WHATSAPP_HREF } from '../constants/contact';
+import { Eyebrow } from '../components/ui/Eyebrow';
+import { TriangleMotif } from '../components/ui/TriangleMotif';
 
 export default function ForOrganisations() {
   return (
@@ -12,33 +14,36 @@ export default function ForOrganisations() {
       />
 
       {/* HERO SECTION */}
-      <section className="bg-pth-cream pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-2xl">
-              <span className="text-sm font-bold tracking-widest text-pth-green uppercase mb-4 block">For Organisations</span>
-              <h1 className="text-5xl lg:text-7xl font-heading font-extrabold tracking-tight text-pth-navy leading-tight mb-6">
-                Access Emerging Talent & Real-World Insights.
+      <section className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
+        <TriangleMotif className="pointer-events-none absolute -top-10 -right-16 w-[360px] lg:w-[520px] text-pth-cyan/15" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            <div className="lg:col-span-7">
+              <Eyebrow tone="cyan" className="mb-6">For Organisations</Eyebrow>
+              <h1 className="font-heading font-extrabold tracking-tight text-pth-navy text-balance text-5xl sm:text-6xl lg:text-[4.5rem] leading-[0.95] mb-8">
+                Access emerging talent &amp; <span className="text-pth-cyan">real-world insights.</span>
               </h1>
-              <p className="text-xl text-slate-600 font-medium mb-10">
+              <p className="text-xl lg:text-2xl text-slate-600 font-medium max-w-xl mb-10">
                 Partner with PthFndR to develop young people, test products, or hire talent who know their purpose.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/opportunities/create" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-colors shadow-lg hover:shadow-xl inline-flex items-center">
-                  Post an Opportunity
+                <Link to="/opportunities/create" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2">
+                  Post an opportunity <ArrowRight size={20} aria-hidden="true" />
                 </Link>
-                <a href="#partnership" className="border-2 border-pth-navy text-pth-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-pth-navy hover:text-white transition-colors shadow-lg hover:shadow-xl inline-flex items-center">
-                  Build a Partnership
+                <a href="#partnership" className="border-2 border-pth-navy text-pth-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-pth-navy hover:text-white transition-all inline-flex items-center">
+                  Build a partnership
                 </a>
               </div>
             </div>
-            <div className="relative h-80 lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80" 
-                alt="Diverse organization collaboration"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-pth-navy/10 mix-blend-multiply"></div>
+            <div className="lg:col-span-5 relative">
+              <div className="absolute -bottom-5 -right-5 w-full h-full rounded-3xl bg-pth-green/20" aria-hidden="true"></div>
+              <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 bg-slate-200">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+                  alt="Diverse organization collaboration"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -47,41 +52,42 @@ export default function ForOrganisations() {
       {/* WHY PARTNER WITH PTHFNDR */}
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-heading font-bold text-pth-navy mb-6">Why Partner With Us?</h2>
-            <p className="text-xl text-slate-600">Connect with a vetted community of over 500 engaged young people ready to contribute to your organisation.</p>
+          <div className="max-w-3xl mb-16">
+            <Eyebrow className="mb-5">Why partner</Eyebrow>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-6">Why partner with us?</h2>
+            <p className="text-lg lg:text-xl text-slate-600">Connect with a vetted community of over 500 engaged young people ready to contribute to your organisation.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-pth-cream p-8 rounded-2xl">
-              <div className="h-12 w-12 bg-white rounded-xl flex items-center justify-center text-pth-green mb-6 shadow-sm">
+            <div className="group bg-pth-warm p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="h-14 w-14 bg-pth-green/10 rounded-2xl flex items-center justify-center text-pth-green mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
                 <Users size={24} />
               </div>
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Engaged Demographic</h3>
+              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Engaged Demographic</h3>
               <p className="text-slate-600">Direct access to diverse, vetted young people eager for real-world experience.</p>
             </div>
             
-            <div className="bg-pth-cream p-8 rounded-2xl">
-              <div className="h-12 w-12 bg-white rounded-xl flex items-center justify-center text-pth-green mb-6 shadow-sm">
+            <div className="group bg-pth-warm p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="h-14 w-14 bg-pth-green/10 rounded-2xl flex items-center justify-center text-pth-green mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
                 <BrainCircuit size={24} />
               </div>
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Real-World Feedback</h3>
+              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Real-World Feedback</h3>
               <p className="text-slate-600">Authentic user testing, focus groups, and beta testing from your future customers.</p>
             </div>
             
-            <div className="bg-pth-cream p-8 rounded-2xl">
-              <div className="h-12 w-12 bg-white rounded-xl flex items-center justify-center text-pth-green mb-6 shadow-sm">
+            <div className="group bg-pth-warm p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="h-14 w-14 bg-pth-green/10 rounded-2xl flex items-center justify-center text-pth-green mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
                 <TrendingUp size={24} />
               </div>
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Talent Pipeline</h3>
+              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Talent Pipeline</h3>
               <p className="text-slate-600">Hire graduates and build an early talent pipeline of self-aware young professionals.</p>
             </div>
             
-            <div className="bg-pth-cream p-8 rounded-2xl">
-              <div className="h-12 w-12 bg-white rounded-xl flex items-center justify-center text-pth-green mb-6 shadow-sm">
+            <div className="group bg-pth-warm p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="h-14 w-14 bg-pth-green/10 rounded-2xl flex items-center justify-center text-pth-green mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
                 <Handshake size={24} />
               </div>
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Social Impact</h3>
+              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Social Impact</h3>
               <p className="text-slate-600">Fulfill ESG credentials while actively contributing to youth development.</p>
             </div>
           </div>
@@ -91,9 +97,10 @@ export default function ForOrganisations() {
       {/* THREE COLLABORATION MODELS */}
       <section className="bg-pth-cream py-24" id="partnership">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-5xl font-heading font-bold text-pth-navy mb-6">Three Ways to Collaborate</h2>
-            <p className="text-xl text-slate-600">Choose the engagement model that best fits your organisation's goals.</p>
+          <div className="max-w-3xl mb-16">
+            <Eyebrow className="mb-5">Collaboration models</Eyebrow>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-6">Three ways to collaborate</h2>
+            <p className="text-lg lg:text-xl text-slate-600">Choose the engagement model that best fits your organisation's goals.</p>
           </div>
 
           <div className="space-y-12">
@@ -213,14 +220,16 @@ export default function ForOrganisations() {
       </section>
 
       {/* SUCCESS STORIES */}
-      <section className="bg-pth-navy-deep py-24 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">Success Stories</h2>
-            <p className="text-xl text-slate-300">See the impact of partnering with PthFndR.</p>
+      <section className="relative bg-pth-navy-deep py-24 lg:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0 dot-grid pointer-events-none" aria-hidden="true"></div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-16">
+            <Eyebrow tone="cyan" className="mb-5">Success stories</Eyebrow>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white text-balance leading-[1.02] mb-6">See the impact</h2>
+            <p className="text-lg lg:text-xl text-white/75">See the impact of partnering with PthFndR.</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <div className="bg-white/10 p-8 rounded-2xl border border-white/10">
               <div className="text-pth-green font-bold text-sm tracking-wider uppercase mb-2">Google</div>
               <h4 className="text-xl font-bold mb-4">Hosted a 2-Day Hackathon</h4>
@@ -246,24 +255,26 @@ export default function ForOrganisations() {
       </section>
 
       {/* CONTACT CTA */}
-      <section className="bg-white py-24 border-t border-slate-200">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-heading font-bold text-pth-navy mb-8">
-            Ready to get started?
-          </h2>
-          <p className="text-xl text-slate-600 mb-12">
-            Let's discuss how we can build a partnership that drives real impact.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a href="mailto:partnerships@pthfndr.org" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-colors shadow-lg hover:shadow-xl">
-              Email partnerships@pthfndr.org
-            </a>
-            <a href={PHONE_TEL_HREF} className="bg-pth-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#0C2A5C] transition-colors shadow-lg hover:shadow-xl">
-              Call Us
-            </a>
-            <a href={PHONE_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1ebe5b] transition-colors shadow-lg hover:shadow-xl">
-              WhatsApp Us
-            </a>
+      <section className="bg-pth-cream py-24 lg:py-32">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pth-navy-deep to-pth-navy px-8 py-16 lg:px-16 lg:py-20 text-center shadow-2xl">
+            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-pth-cyan/10 blur-3xl" aria-hidden="true"></div>
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-pth-green/10 blur-3xl" aria-hidden="true"></div>
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-6 text-white text-balance">Ready to get started?</h2>
+              <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto">Let's discuss how we can build a partnership that drives real impact.</p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="mailto:partnerships@pthfndr.org" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl">
+                  Email us
+                </a>
+                <a href={PHONE_TEL_HREF} className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
+                  Call us
+                </a>
+                <a href={PHONE_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1ebe5b] transition-all shadow-lg hover:shadow-xl">
+                  WhatsApp us
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
