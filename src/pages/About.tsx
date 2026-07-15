@@ -1,4 +1,41 @@
+import { Link } from 'react-router-dom';
+import { XCircle, Fingerprint, Wrench, Globe, Target, Heart, LineChart, Handshake, Users, Compass, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import { Eyebrow } from '../components/ui/Eyebrow';
+import { TriangleMotif } from '../components/ui/TriangleMotif';
+
+const challenges = [
+  { title: 'Young People Feel Stuck', points: ['42% unsure about career direction', 'Limited access to real experience', 'No authentic employer connections', 'Applying for jobs without clarity'] },
+  { title: 'Schools Are Overwhelmed', points: ['Careers support stretched thin', 'Limited employer relationships', 'Difficulty measuring impact', 'Students progress without direction'] },
+  { title: 'Employers Miss Talent', points: ['Talent pipeline broken', 'Diversity hiring challenges', 'Difficulty accessing entry-level talent', 'Limited time to invest'] },
+];
+
+const streams = [
+  { tag: 'Know', title: 'Identity', icon: Fingerprint, accent: 'text-pth-cyan', wrap: 'bg-pth-cyan/10', desc: 'Help young people understand themselves—their strengths, values, interests, and what matters to them. Before you can own your future, you need to know yourself.' },
+  { tag: 'Build', title: 'Capability', icon: Wrench, accent: 'text-pth-green', wrap: 'bg-pth-green/10', desc: 'Develop practical skills employers want: communication, problem-solving, professional presence, sector-specific capability. Theory meets practice. Immediately.' },
+  { tag: 'Do', title: 'Opportunity', icon: Globe, accent: 'text-pth-navy', wrap: 'bg-pth-navy/10', desc: 'Connect with real work, real companies, real impact. Move from "someday" to "right now." Build portfolio evidence. Make employer connections. Earn if you can. Explore if you want.' },
+];
+
+const stats = [
+  { value: '500+', label: 'young people supported (2024)' },
+  { value: '85%', label: 'progress to employment or further study' },
+  { value: '30+', label: 'school partners' },
+];
+
+const quotes = [
+  { text: "Our students didn't just get skills. They got confidence and real opportunity. The results speak for themselves.", who: 'School Leader' },
+  { text: 'We found emerging talent. We actually helped young people. We measured the impact. This is CSR that works.', who: 'Employer' },
+  { text: 'I went from lost to excited about my future. Real experience. Real contacts. Real confidence.', who: 'Young Person' },
+];
+
+const values = [
+  { icon: Target, title: 'Outcome-Obsessed', desc: 'We measure success by real impact: did they get hired? Did they progress? Are they confident? Not by engagement metrics or course completion.' },
+  { icon: Heart, title: 'Young Person-Centered', desc: "Every decision starts with: what's best for the young person? Not what's easiest for us or most profitable." },
+  { icon: LineChart, title: 'Evidence-Based', desc: "We test, measure, and iterate. Data informs every decision. We're transparent about what works and what doesn't." },
+  { icon: Handshake, title: 'Partnership-Driven', desc: 'We work alongside organizations we respect. We invest financially and strategically. We share responsibility for outcomes.' },
+  { icon: Users, title: 'Inclusive', desc: "Backgrounds, grades, locations—they don't matter. If you have potential and willingness, we're here." },
+  { icon: Compass, title: 'Mission-Driven', desc: 'Sterizo Research Group supports youth development organizations because social value matters more than profit.' },
+];
 
 export default function About() {
   return (
@@ -8,259 +45,182 @@ export default function About() {
         description="We're building the career development system every young person deserves — connecting young people with the support, skills, and real opportunities they need to own their future."
       />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold text-pth-navy mb-4">
-            Where Young Potential Becomes Real Impact
+      {/* HERO */}
+      <section className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
+        <TriangleMotif className="pointer-events-none absolute -top-10 -right-16 w-[380px] lg:w-[520px] text-pth-cyan/15" />
+        <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <Eyebrow tone="cyan" className="mb-6">About PthFndR</Eyebrow>
+          <h1 className="font-heading font-extrabold tracking-tight text-pth-navy text-balance text-5xl sm:text-6xl lg:text-7xl leading-[0.95] mb-8">
+            Where young potential becomes <span className="text-pth-cyan">real impact.</span>
           </h1>
-          <p className="text-2xl text-gray-600">
+          <p className="text-xl lg:text-2xl text-slate-600 font-medium max-w-2xl mx-auto">
             We're building the career development system every young person deserves.
           </p>
         </div>
       </section>
 
-      {/* Our Mission */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-pth-navy mb-8">Our Mission</h2>
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            We believe every young person has potential. Most never unlock it—not because they're not capable, but because they don't know themselves, don't have real skills, and don't know where to start.
-          </p>
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            We're here to change that.
-          </p>
-          <p className="text-xl text-gray-700 leading-relaxed">
-            PthFndR connects young people with the support, skills, and real opportunities they need to own their future. We're not another careers advice service. We're a complete ecosystem: diagnosis, development, and deployment.
-          </p>
-        </div>
-      </section>
-
-      {/* The Challenge */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-pth-navy mb-12">The Challenge We Solve</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Young People */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold text-pth-navy mb-4">Young People Feel Stuck</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>42% unsure about career direction</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Limited access to real experience</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>No authentic employer connections</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Applying for jobs without clarity</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Schools */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold text-pth-navy mb-4">Schools Are Overwhelmed</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Careers support stretched thin</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Limited employer relationships</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Difficulty measuring impact</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Students progress without direction</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Employers */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold text-pth-navy mb-4">Employers Miss Talent</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Talent pipeline broken</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Diversity hiring challenges</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Difficulty accessing entry-level talent</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3">•</span>
-                  <span>Limited time to invest</span>
-                </li>
-              </ul>
-            </div>
+      {/* MISSION */}
+      <section className="bg-white py-24 lg:py-32">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <Eyebrow className="mb-5">Our mission</Eyebrow>
+          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-10">
+            Every young person has potential. Most never unlock it.
+          </h2>
+          <div className="space-y-6 text-xl text-slate-600 leading-relaxed">
+            <p>We believe every young person has potential. Most never unlock it—not because they're not capable, but because they don't know themselves, don't have real skills, and don't know where to start.</p>
+            <p className="text-pth-navy font-heading font-bold text-2xl">We're here to change that.</p>
+            <p>PthFndR connects young people with the support, skills, and real opportunities they need to own their future. We're not another careers advice service. We're a complete ecosystem: diagnosis, development, and deployment.</p>
           </div>
         </div>
       </section>
 
-      {/* Our Approach: Three Streams */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-pth-navy mb-12 text-center">Our Approach: Three Core Streams</h2>
-          
-          <p className="text-center text-gray-600 mb-12 text-lg">
-            We approach youth development through three interconnected streams:
-          </p>
+      {/* THE CHALLENGE */}
+      <section className="bg-pth-cream py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-16">
+            <Eyebrow className="mb-5">The problem</Eyebrow>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02]">
+              The challenge we solve
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {challenges.map((c) => (
+              <div key={c.title} className="bg-white p-8 lg:p-10 rounded-3xl border border-black/5 shadow-sm">
+                <h3 className="text-2xl font-heading font-bold text-pth-navy mb-6">{c.title}</h3>
+                <ul className="space-y-4">
+                  {c.points.map((p) => (
+                    <li key={p} className="flex items-start gap-3 text-slate-600">
+                      <XCircle size={20} className="text-red-400 shrink-0 mt-0.5" aria-hidden="true" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="space-y-8">
-            {/* Know - Identity */}
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-lg border-l-4 border-blue-600">
-              <h3 className="text-2xl font-bold text-pth-navy mb-3">Know (Identity)</h3>
-              <p className="text-gray-700">
-                Help young people understand themselves—their strengths, values, interests, and what matters to them. Before you can own your future, you need to know yourself.
-              </p>
-            </div>
-
-            {/* Build - Capability */}
-            <div className="bg-gradient-to-r from-green-50 to-green-100 p-8 rounded-lg border-l-4 border-green-600">
-              <h3 className="text-2xl font-bold text-pth-navy mb-3">Build (Capability)</h3>
-              <p className="text-gray-700">
-                Develop practical skills employers want: communication, problem-solving, professional presence, sector-specific capability. Theory meets practice. Immediately.
-              </p>
-            </div>
-
-            {/* Do - Opportunity */}
-            <div className="bg-gradient-to-r from-teal-50 to-teal-100 p-8 rounded-lg border-l-4 border-teal-600">
-              <h3 className="text-2xl font-bold text-pth-navy mb-3">Do (Opportunity)</h3>
-              <p className="text-gray-700">
-                Connect with real work, real companies, real impact. Move from "someday" to "right now." Build portfolio evidence. Make employer connections. Earn if you can. Explore if you want.
-              </p>
-            </div>
+      {/* THREE CORE STREAMS */}
+      <section className="bg-white py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-16">
+            <Eyebrow className="mb-5">Our approach</Eyebrow>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02]">
+              Three core streams
+            </h2>
+            <p className="text-lg lg:text-xl text-slate-600 mt-6">We approach youth development through three interconnected streams:</p>
           </div>
 
-          <div className="mt-8 bg-gray-50 p-6 rounded-lg text-center">
-            <p className="text-gray-700 italic">
-              Identity without skill = confusion. Skill without opportunity = frustration. Opportunity without identity = random. <strong>Together? Transformation.</strong>
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-10">
+            {streams.map((s) => (
+              <div key={s.title} className="group bg-pth-warm p-8 lg:p-10 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${s.wrap}`}>
+                  <s.icon size={26} className={s.accent} aria-hidden="true" />
+                </div>
+                <span className="text-xs font-bold tracking-[0.2em] uppercase text-slate-400">{s.tag}</span>
+                <h3 className="text-2xl lg:text-3xl font-heading font-bold text-pth-navy mt-1 mb-4">{s.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-pth-navy-deep rounded-3xl p-8 lg:p-10 text-center">
+            <p className="text-white/90 text-lg lg:text-xl italic max-w-3xl mx-auto">
+              Identity without skill = confusion. Skill without opportunity = frustration. Opportunity without identity = random. <strong className="text-pth-green not-italic font-heading">Together? Transformation.</strong>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Track Record */}
-      <section className="py-20 bg-pth-navy-deep text-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center">What We've Achieved</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-green-400 mb-2">500+</div>
-              <p className="text-gray-200">young people supported (2024)</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-green-400 mb-2">85%</div>
-              <p className="text-gray-200">progress to employment or further study</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-green-400 mb-2">30+</div>
-              <p className="text-gray-200">school partners</p>
-            </div>
+      {/* TRACK RECORD */}
+      <section className="relative bg-pth-navy-deep py-24 lg:py-32 overflow-hidden text-white">
+        <div className="absolute inset-0 dot-grid pointer-events-none" aria-hidden="true"></div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-16">
+            <Eyebrow tone="cyan" className="mb-5">Track record</Eyebrow>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white text-balance leading-[1.02]">
+              What we've achieved
+            </h2>
           </div>
 
-          <div className="bg-white bg-opacity-10 p-8 rounded-lg">
-            <h3 className="font-bold mb-4">What Partners Say</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div>
-                <p className="text-sm italic mb-2">"Our students didn't just get skills. They got confidence and real opportunity. The results speak for themselves."</p>
-                <p className="text-xs text-gray-300">— School Leader</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16">
+            {stats.map((s) => (
+              <div key={s.label} className="border-t border-white/15 pt-6">
+                <p className="font-heading font-extrabold text-pth-green text-6xl lg:text-7xl leading-none mb-4 tracking-tight">{s.value}</p>
+                <p className="text-white/80 lg:text-lg">{s.label}</p>
               </div>
-              <div>
-                <p className="text-sm italic mb-2">"We found emerging talent. We actually helped young people. We measured the impact. This is CSR that works."</p>
-                <p className="text-xs text-gray-300">— Employer</p>
-              </div>
-              <div>
-                <p className="text-sm italic mb-2">"I went from lost to excited about my future. Real experience. Real contacts. Real confidence."</p>
-                <p className="text-xs text-gray-300">— Young Person</p>
-              </div>
-            </div>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {quotes.map((q) => (
+              <blockquote key={q.who} className="bg-white/5 border border-white/10 p-8 rounded-2xl">
+                <p className="italic text-white/90 mb-4">"{q.text}"</p>
+                <footer className="text-pth-cyan font-bold text-sm">— {q.who}</footer>
+              </blockquote>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-pth-navy mb-12 text-center">How We Operate</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Outcome-Obsessed</h3>
-              <p className="text-gray-700">We measure success by real impact: did they get hired? Did they progress? Are they confident? Not by engagement metrics or course completion.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Young Person-Centered</h3>
-              <p className="text-gray-700">Every decision starts with: what's best for the young person? Not what's easiest for us or most profitable.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Evidence-Based</h3>
-              <p className="text-gray-700">We test, measure, and iterate. Data informs every decision. We're transparent about what works and what doesn't.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Partnership-Driven</h3>
-              <p className="text-gray-700">We work alongside organizations we respect. We invest financially and strategically. We share responsibility for outcomes.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Inclusive</h3>
-              <p className="text-gray-700">Backgrounds, grades, locations—they don't matter. If you have potential and willingness, we're here.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-pth-navy mb-3">Mission-Driven</h3>
-              <p className="text-gray-700">Sterizo Research Group supports youth development organizations because social value matters more than profit.</p>
-            </div>
+      {/* HOW WE OPERATE */}
+      <section className="bg-pth-cream py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-16">
+            <Eyebrow className="mb-5">Our values</Eyebrow>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02]">
+              How we operate
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {values.map((v) => (
+              <div key={v.title} className="group bg-white p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="w-14 h-14 bg-pth-green/10 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
+                  <v.icon size={26} className="text-pth-green" aria-hidden="true" />
+                </div>
+                <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">{v.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Partnerships */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-pth-navy mb-8">Built Through Partnership</h2>
-          <p className="text-lg text-gray-700 mb-8">
+      {/* PARTNERSHIP */}
+      <section className="bg-white py-24 lg:py-32">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <Eyebrow className="mb-5 justify-center">Built through partnership</Eyebrow>
+          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-8">
+            We don't do this alone
+          </h2>
+          <p className="text-lg lg:text-xl text-slate-600 mb-6">
             PthFndR is shaped by our work with leading youth development organizations. We invest financially and strategically in organizations doing frontline work.
           </p>
-          <p className="text-gray-600">
+          <p className="text-slate-600">
             We partner with GIFT, Elevate Young Minds, BreakOut Charity, Loreto Schools, Prayer Storm, Flourish Together CIC, and 1 Million Mentor to ensure young people get the support they deserve.
           </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-pth-navy-deep to-blue-700 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-8">Ready to Own Your Future?</h2>
-          <p className="text-xl mb-8">Or ready to partner with us to change how young people develop?</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">
-              Explore Programmes
-            </button>
-            <button className="bg-white hover:bg-gray-100 text-pth-navy font-bold py-3 px-8 rounded-lg transition-colors">
-              Partner With Us
-            </button>
+      <section className="bg-pth-cream py-24 lg:py-32">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pth-navy-deep to-pth-navy px-8 py-16 lg:px-16 lg:py-20 text-center shadow-2xl">
+            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-pth-cyan/10 blur-3xl" aria-hidden="true"></div>
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-pth-green/10 blur-3xl" aria-hidden="true"></div>
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-6 text-white text-balance">Ready to own your future?</h2>
+              <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto">Or ready to partner with us to change how young people develop?</p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link to="/programmes/career-accelerators" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl">
+                  Explore programmes <ArrowRight size={20} aria-hidden="true" />
+                </Link>
+                <Link to="/for-organisations" className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
+                  Partner with us
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
