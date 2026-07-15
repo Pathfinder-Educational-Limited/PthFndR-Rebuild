@@ -3,6 +3,7 @@ import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Mail, Phone, MessageCircle, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import { PHONE_TEL_HREF, PHONE_WHATSAPP_HREF } from '../constants/contact';
+import { ContactPageSchema } from '../components/SEOSchemas';
 
 const TypeformStyleForm = () => {
   const [step, setStep] = useState(0);
@@ -192,11 +193,13 @@ const TypeformStyleForm = () => {
 export default function Contact() {
   return (
     <>
-      <SEO 
-        title="Contact Us | PthFndR" 
+      <SEO
+        title="Contact Us | PthFndR"
         description="Contact PthFndR at DiSH Manchester. Closing the underemployment gap through the Trapezium Model™ and dignity-infused learning at Heron House."
+        url="https://pthfndr.org/contact"
       />
-      
+      <ContactPageSchema />
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-pth-soft-cyan py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

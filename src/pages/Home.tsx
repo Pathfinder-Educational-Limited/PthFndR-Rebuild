@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import { COPY } from '../constants/copy';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
+import { HomePageSchema } from '../components/SEOSchemas';
 
 // Lazy load sections below the fold
 const ThreeStreamsSection = React.lazy(() => import('../components/ThreeStreamsSection'));
@@ -15,10 +16,12 @@ const FeaturedStoriesSection = React.lazy(() => import('../components/FeaturedSt
 export default function Home() {
   return (
     <>
-      <SEO 
-        title="Home | PthFndR" 
+      <SEO
+        title="Home | PthFndR"
         description={COPY.HERO.SUBHEADING}
+        url="https://pthfndr.org/"
       />
+      <HomePageSchema />
       
       {/* HERO SECTION */}
       <section aria-labelledby="hero-heading" className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">

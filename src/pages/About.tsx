@@ -3,6 +3,7 @@ import { XCircle, Fingerprint, Wrench, Globe, Target, Heart, LineChart, Handshak
 import SEO from '../components/SEO';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
+import { AboutPageSchema } from '../components/SEOSchemas';
 
 const challenges = [
   { title: 'Young People Feel Stuck', points: ['42% unsure about career direction', 'Limited access to real experience', 'No authentic employer connections', 'Applying for jobs without clarity'] },
@@ -43,7 +44,9 @@ export default function About() {
       <SEO
         title="About Us | PthFndR"
         description="We're building the career development system every young person deserves — connecting young people with the support, skills, and real opportunities they need to own their future."
+        url="https://pthfndr.org/about"
       />
+      <AboutPageSchema />
 
       {/* HERO */}
       <section className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">

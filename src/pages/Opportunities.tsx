@@ -1,4 +1,5 @@
 import SEO from '../components/SEO';
+import { OpportunitiesListSchema } from '../components/SEOSchemas';
 import { Search, MapPin, Clock, Calendar, Bookmark, Filter, ChevronDown, CheckSquare, Square } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -72,10 +73,12 @@ export default function Opportunities() {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Opportunities | PthFndR"
         description="Discover micro-internships, hackathons, and real-world projects."
+        url="https://pthfndr.org/opportunities"
       />
+      <OpportunitiesListSchema />
 
       {/* HERO */}
       <section className="bg-pth-navy-deep pt-16 pb-12 border-b border-slate-200">

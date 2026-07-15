@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Instagram, Twitter, ChevronDown, Phone, MessageCircle } from 'lucide-react';
+import { Linkedin, Instagram, Twitter, Facebook, ChevronDown, Phone, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import { PHONE_TEL_HREF, PHONE_WHATSAPP_HREF, CONTACT_EMAIL } from '../constants/contact';
 
@@ -90,13 +90,16 @@ export default function Footer() {
                 </li>
               </ul>
               <div className="flex gap-4 pb-4 md:pb-0">
-                <a href="#" aria-label="Visit our LinkedIn page" className="p-3 -ml-3 md:p-0 md:ml-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
+                <a href="https://www.linkedin.com/company/pthfndrconnect" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page" className="p-3 -ml-3 md:p-0 md:ml-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
                   <Linkedin size={24} className="md:w-5 md:h-5" aria-hidden="true" />
                 </a>
-                <a href="#" aria-label="Visit our Instagram page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
+                <a href="https://www.instagram.com/pthfndrconnect" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
                   <Instagram size={24} className="md:w-5 md:h-5" aria-hidden="true" />
                 </a>
-                <a href="#" aria-label="Visit our Twitter page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
+                <a href="https://www.facebook.com/share/1AVmp7WZ5g/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
+                  <Facebook size={24} className="md:w-5 md:h-5" aria-hidden="true" />
+                </a>
+                <a href="https://x.com/PthFndRconnect" target="_blank" rel="noopener noreferrer" aria-label="Visit our X (Twitter) page" className="p-3 md:p-0 text-slate-400 hover:text-[#40D478] transition-all duration-300 hover:rotate-3 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded">
                   <Twitter size={24} className="md:w-5 md:h-5" aria-hidden="true" />
                 </a>
               </div>

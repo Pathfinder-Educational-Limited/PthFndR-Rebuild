@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Application / authenticated areas — no SEO value
+Disallow: /dashboard
+Disallow: /organisation/dashboard
+Disallow: /login
+Disallow: /signin
+
+Sitemap: https://pthfndr.org/sitemap.xml

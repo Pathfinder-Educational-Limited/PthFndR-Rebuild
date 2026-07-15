@@ -4,11 +4,13 @@ import { CheckCircle2, XCircle, ChevronDown, ArrowRight, Clock } from 'lucide-re
 import SEO from '../components/SEO';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
+import { ProgrammeSchema } from '../components/SEOSchemas';
 
 export default function CareerAccelerators() {
   return (
     <>
-      <SEO title={`${C.hero.headline} | PthFndR`} description={C.hero.subheading} />
+      <SEO title={`${C.hero.headline} | PthFndR`} description={C.hero.subheading} url="https://pthfndr.org/programmes/career-accelerators" />
+      <ProgrammeSchema />
 
       {/* HERO */}
       <section className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">

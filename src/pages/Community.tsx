@@ -4,6 +4,7 @@ import { Users, Briefcase, HeartHandshake, BookOpen, Star, ArrowRight } from 'lu
 import SEO from '../components/SEO';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
+import { CommunitySchema } from '../components/SEOSchemas';
 
 const benefits = [
   { icon: Users, title: 'Peer Network', desc: 'Connect with hundreds of young people on similar journeys. Share experiences, celebrate wins, and support each other.' },
@@ -58,7 +59,9 @@ export default function Community() {
       <SEO
         title="Community | PthFndR"
         description="Join the PthFndR community of young people building their futures. Connect with peers, access exclusive opportunities, get mentorship, and discover your potential."
+        url="https://pthfndr.org/community"
       />
+      <CommunitySchema />
 
       {/* HERO */}
       <section className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-28 overflow-hidden">
