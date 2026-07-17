@@ -33,6 +33,11 @@ import Stories from './pages/Stories';
 import CareerAccelerators from './pages/CareerAccelerators';
 import Community from './pages/Community';
 import Team from './pages/Team';
+import ForSchoolsPartnerships from './pages/ForSchoolsPartnerships';
+import ForSchoolsProfessionalDevelopment from './pages/ForSchoolsProfessionalDevelopment';
+import CreateOpportunities from './pages/CreateOpportunities';
+import OrganisationPartnership from './pages/OrganisationPartnership';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -57,7 +62,11 @@ export default function App() {
             <Route path="privacy" element={<PrivacyPolicy />} />
             <Route path="terms" element={<TermsOfService />} />
             <Route path="for-organisations" element={<ForOrganisations />} />
+            <Route path="for-organisations/create-opportunities" element={<CreateOpportunities />} />
+            <Route path="for-organisations/partnerships" element={<OrganisationPartnership />} />
             <Route path="for-schools" element={<ForSchools />} />
+            <Route path="for-schools/partnerships" element={<ForSchoolsPartnerships />} />
+            <Route path="for-schools/professional-development" element={<ForSchoolsProfessionalDevelopment />} />
             <Route path="stories" element={<Stories />} />
             <Route path="community" element={<Community />} />
             <Route path="team" element={<Team />} />
@@ -66,6 +75,7 @@ export default function App() {
             <Route path="opportunities/:id" element={<OpportunityDetail />} />
             <Route path="opportunities/:id/feedback" element={<ParticipantFeedback />} />
             <Route path="organisation/dashboard" element={<OrganisationDashboard />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/methodology/diagnostic" element={<Assessment />} />

@@ -23,7 +23,7 @@ export default function OpportunityDetail() {
             
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
               <div>
-                <Link to="/organisation/techfuture" className="text-sm font-bold text-pth-green hover:underline mb-2 block">
+                <Link to="/for-organisations" className="text-sm font-bold text-pth-green hover:underline mb-2 block">
                   TechFuture Startup
                 </Link>
                 <h1 className="text-3xl md:text-5xl font-heading font-extrabold text-pth-navy mb-4 leading-tight">
@@ -199,7 +199,7 @@ export default function OpportunityDetail() {
                     TF
                   </div>
                   <div>
-                    <Link to="/organisation/techfuture" className="font-bold text-pth-navy hover:text-pth-green transition-colors">TechFuture Startup</Link>
+                    <Link to="/for-organisations" className="font-bold text-pth-navy hover:text-pth-green transition-colors">TechFuture Startup</Link>
                     <p className="text-xs text-slate-500">London, UK • Since 2024</p>
                   </div>
                 </div>

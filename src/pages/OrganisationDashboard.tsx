@@ -25,7 +25,7 @@ export default function OrganisationDashboard() {
               <h1 className="text-3xl font-heading font-bold text-pth-navy">Organisation Dashboard</h1>
               <p className="text-slate-600 mt-1">Welcome back, Acme Corp Team</p>
             </div>
-            <Link to="/opportunities/create" className="bg-pth-green text-white px-6 py-2.5 rounded-xl font-bold hover:bg-[#36b666] transition-colors flex items-center gap-2">
+            <Link to="/for-organisations/create-opportunities" className="bg-pth-green text-white px-6 py-2.5 rounded-xl font-bold hover:bg-[#36b666] transition-colors flex items-center gap-2">
               <Plus size={20} />
               Post Opportunity
             </Link>

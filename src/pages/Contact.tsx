@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Mail, Phone, MessageCircle, Clock, ArrowRight, CheckCircle } from 'lucide-react';
@@ -6,14 +7,19 @@ import { PHONE_TEL_HREF, PHONE_WHATSAPP_HREF } from '../constants/contact';
 import { ContactPageSchema } from '../components/SEOSchemas';
 
 const TypeformStyleForm = () => {
-  const [step, setStep] = useState(0);
-  const [formData, setFormData] = useState({ 
-    role: '', 
-    name: '', 
-    email: '', 
+  const [searchParams] = useSearchParams();
+  const applyRole = searchParams.get('role');   // e.g. 'applicant' (from the Team page)
+  const applyFor = searchParams.get('for');      // e.g. 'ESOL Facilitator'
+  const isApplyFlow = applyRole === 'applicant';
+
+  const [step, setStep] = useState(isApplyFlow ? 1 : 0);
+  const [formData, setFormData] = useState({
+    role: isApplyFlow ? 'applicant' : '',
+    name: '',
+    email: '',
     organisation: '',
-    interest_in: '',
-    message: '' 
+    interest_in: applyFor || '',
+    message: applyFor ? `I'd like to apply for: ${applyFor}.` : '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -25,28 +31,38 @@ const TypeformStyleForm = () => {
       { value: 'educator', label: 'Educator / Teacher' },
       { value: 'institution', label: 'Institution / Local Authority' },
       { value: 'employer', label: 'Employer' },
+      { value: 'applicant', label: 'Joining the Team / Applying' },
     ]}
   ];
 
   const getQuestions = () => {
     if (!formData.role) return roleQuestions;
-    
+    const isApplicant = formData.role === 'applicant';
+
     let q = [...roleQuestions];
     q.push({ id: 'name', label: "Great! What's your name?", type: 'text', placeholder: 'Type your name here...', options: [] });
     q.push({ id: 'email', label: "And your email address?", type: 'email', placeholder: 'name@example.com', options: [] });
-    
-    if (formData.role !== 'young_person') {
+
+    if (formData.role !== 'young_person' && !isApplicant) {
       q.push({ id: 'organisation', label: "Which organisation are you with?", type: 'text', placeholder: 'Organisation name...', options: [] });
     }
 
-    q.push({ id: 'interest_in', label: "What are you most interested in?", type: 'select', options: [
-      { value: 'find-your-path', label: 'Find Your Path Assessment' },
-      { value: 'institutional-solution', label: 'Institutional Solutions & Bootcamps' },
-      { value: 'employalingua', label: 'EmployaLingua Platform' },
-    ]});
+    if (!isApplicant) {
+      q.push({ id: 'interest_in', label: "What are you most interested in?", type: 'select', options: [
+        { value: 'find-your-path', label: 'Find Your Path Assessment' },
+        { value: 'institutional-solution', label: 'Institutional Solutions & Bootcamps' },
+        { value: 'employalingua', label: 'EmployaLingua Platform' },
+      ]});
+    }
 
-    q.push({ id: 'message', label: "Is there anything else you'd like to tell us?", type: 'textarea', placeholder: 'Tell us a bit about your goals...', options: [] });
-    
+    q.push({
+      id: 'message',
+      label: isApplicant ? 'Which role are you applying for, and a bit about you?' : "Is there anything else you'd like to tell us?",
+      type: 'textarea',
+      placeholder: isApplicant ? 'The role + a short introduction...' : 'Tell us a bit about your goals...',
+      options: [],
+    });
+
     return q;
   };
 

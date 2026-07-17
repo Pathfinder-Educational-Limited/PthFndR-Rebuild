@@ -43,9 +43,9 @@ export default function Footer() {
               <ChevronDown className={`w-5 h-5 text-white/50 transition-transform md:hidden ${openSection === 'programmes' ? 'rotate-180' : ''}`} aria-hidden="true" />
             </button>
             <ul id="footer-programmes-list" className={`space-y-1 md:space-y-3 mt-4 md:mt-0 ${openSection === 'programmes' ? 'block' : 'hidden md:block'}`}>
-              <li><Link to="/programmes/discovery" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Discovery Path</Link></li>
-              <li><Link to="/programmes/accelerator" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Career Accelerator</Link></li>
-              <li><Link to="/programmes/mentorship" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Mentorship</Link></li>
+              <li><Link to="/assessment" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Discovery Path</Link></li>
+              <li><Link to="/programmes/career-accelerators" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Career Accelerator</Link></li>
+              <li><Link to="/community" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Mentorship</Link></li>
             </ul>
           </div>
 

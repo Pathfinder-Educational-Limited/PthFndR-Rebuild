@@ -248,7 +248,7 @@ export default function Team() {
                   </span>
                   <h3 className="font-heading font-bold text-pth-navy text-lg leading-snug mb-3">{v.title}</h3>
                   <p className="text-sm text-slate-500 leading-relaxed flex-1 mb-5">{v.desc}</p>
-                  <Link to="/contact" className={`inline-flex items-center gap-1.5 self-start ${a.btn} text-white rounded-lg px-4 py-2 text-[11px] font-bold tracking-[0.1em] uppercase hover:opacity-90 transition-opacity`}>
+                  <Link to={`/contact?role=applicant&for=${encodeURIComponent(v.title)}`} className={`inline-flex items-center gap-1.5 self-start ${a.btn} text-white rounded-lg px-4 py-2 text-[11px] font-bold tracking-[0.1em] uppercase hover:opacity-90 transition-opacity`}>
                     Apply <ArrowRight size={12} aria-hidden="true" />
                   </Link>
                 </motion.div>
@@ -303,7 +303,7 @@ export default function Team() {
                   </li>
                 ))}
               </ul>
-              <Link to="/contact" className="inline-flex items-center gap-2 bg-pth-cyan text-white rounded-xl px-6 py-3 text-xs font-bold tracking-[0.09em] uppercase hover:opacity-90 transition-opacity">
+              <Link to="/contact?role=applicant&for=ESOL%20Facilitator" className="inline-flex items-center gap-2 bg-pth-cyan text-white rounded-xl px-6 py-3 text-xs font-bold tracking-[0.09em] uppercase hover:opacity-90 transition-opacity">
                 Apply for ESOL role <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </motion.div>
@@ -337,7 +337,7 @@ export default function Team() {
                   </li>
                 ))}
               </ul>
-              <Link to="/contact" className="inline-flex items-center gap-2 bg-pth-green text-white rounded-xl px-6 py-3 text-xs font-bold tracking-[0.09em] uppercase hover:opacity-90 transition-opacity">
+              <Link to="/contact?role=applicant&for=Leadership%20Development%20Facilitator" className="inline-flex items-center gap-2 bg-pth-green text-white rounded-xl px-6 py-3 text-xs font-bold tracking-[0.09em] uppercase hover:opacity-90 transition-opacity">
                 Apply for Leadership role <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </motion.div>
@@ -357,7 +357,7 @@ export default function Team() {
           <p className="text-white/70 lg:text-lg leading-relaxed mb-10">
             Whether you are applying for an advisory seat or want to contribute in another way — we want to hear from you.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-gradient-to-r from-pth-cyan to-pth-green text-pth-navy-deep px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all shadow-lg">
+          <Link to="/contact?role=applicant" className="inline-flex items-center gap-2 bg-gradient-to-r from-pth-cyan to-pth-green text-pth-navy-deep px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all shadow-lg">
             Get in touch <ArrowRight size={20} aria-hidden="true" />
           </Link>
         </div>

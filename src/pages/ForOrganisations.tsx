@@ -27,7 +27,7 @@ export default function ForOrganisations() {
                 Partner with PthFndR to develop young people, test products, or hire talent who know their purpose.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/opportunities/create" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2">
+                <Link to="/for-organisations/create-opportunities" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2">
                   Post an opportunity <ArrowRight size={20} aria-hidden="true" />
                 </Link>
                 <a href="#partnership" className="border-2 border-pth-navy text-pth-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-pth-navy hover:text-white transition-all inline-flex items-center">
@@ -132,7 +132,7 @@ export default function ForOrganisations() {
                   </div>
                 </div>
                 
-                <Link to="/opportunities/create" className="bg-pth-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-[#0C2A5C] transition-colors w-fit">
+                <Link to="/for-organisations/create-opportunities" className="bg-pth-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-[#0C2A5C] transition-colors w-fit">
                   Post Your First Opportunity
                 </Link>
               </div>

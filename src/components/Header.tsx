@@ -83,7 +83,7 @@ export default function Header() {
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-young-people">For Young People</h3>
                     <div className="space-y-1" role="group" aria-labelledby="menu-young-people">
                       <Link to="/programmes/career-accelerators" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Career Accelerators</Link>
-                      <Link to="/programmes/micro-opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Micro-Opportunities</Link>
+                      <Link to="/opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Micro-Opportunities</Link>
                       <Link to="/assessment" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Free Assessment (Trapezium Profile)</Link>
                     </div>
                   </div>
@@ -171,7 +171,7 @@ export default function Header() {
                     <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2" id="mobile-menu-young">For Young People</h3>
                     <div className="space-y-1" role="group" aria-labelledby="mobile-menu-young">
                       <Link to="/programmes/career-accelerators" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Career Accelerators</Link>
-                      <Link to="/programmes/micro-opportunities" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Micro-Opportunities</Link>
+                      <Link to="/opportunities" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Micro-Opportunities</Link>
                       <Link to="/assessment" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Free Assessment (Trapezium Profile)</Link>
                     </div>
                   </div>
