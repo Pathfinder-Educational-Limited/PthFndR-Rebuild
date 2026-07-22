@@ -43,7 +43,7 @@ export const headerContent = {
 
   cta: {
     label: "Sign In",
-    href: "/auth/signin",
+    href: "/signin",
     variant: "primary" // Green button
   }
 };

@@ -9,7 +9,7 @@ const audiences = [
     label: 'Young People',
     sub: '(16-25)',
     desc: 'Discover your potential, build real skills, and get hired by top organisations looking for your unique talent.',
-    to: '/for-young-people',
+    to: '/programmes',
     cta: 'Start your journey',
     // bold cyan card
     panel: 'bg-pth-cyan text-white',
