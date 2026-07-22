@@ -36,6 +36,9 @@ export default function CareerAccelerators() {
               <p className="text-slate-500 text-sm mt-8 flex items-center gap-2">
                 <span>✓</span> {C.hero.trustBadge}
               </p>
+              <p className="text-slate-500 text-sm mt-3 flex items-center gap-2">
+                <span>✓</span> {C.programmeDetails.moneyBackGuarantee}
+              </p>
             </div>
 
             {/* Benefits Card - Right Side */}
@@ -322,13 +325,19 @@ export default function CareerAccelerators() {
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-6 text-white text-balance">{C.cta.headline}</h2>
               <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto">{C.cta.subtitle}</p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
                 <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl">
                   {C.cta.primaryButton} <ArrowRight size={20} aria-hidden="true" />
                 </Link>
-                <Link to="/contact" className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
+                <a href="#" className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
                   {C.cta.secondaryButton}
-                </Link>
+                </a>
+                <a href="#" className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
+                  {C.cta.tertiaryButton}
+                </a>
+                <button className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
+                  {C.cta.quarternaryButton}
+                </button>
               </div>
             </div>
           </div>

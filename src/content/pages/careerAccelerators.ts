@@ -1,10 +1,10 @@
 export const careerAcceleratorsContent = {
   hero: {
     headline: "Learn Real Skills in 6 Weeks. Get Hired.",
-    subheading: "Intensive career programmes with hands-on projects, real employer mentorship, and job placement support.",
+    subheading: "Intensive career programmes with hands-on projects, real employer mentorship, and micro-opportunity access.",
     bodyCopy: "Career Accelerators isn't a course. It's a transformation. Young people come in uncertain about their future. They leave with clear direction, practical skills, real employer contacts, and a portfolio piece ready to impress recruiters.",
     ctaButton: "Choose Your Track",
-    price: "FREE for eligible young people (16-25)",
+    price: "£101.01",
     trustBadge: "Backed by leading employers and education partners"
   },
 
@@ -24,7 +24,7 @@ export const careerAcceleratorsContent = {
       employers: "Leading tech companies, financial institutions, government agencies",
       salaryRange: "£28,000 - £45,000 starting",
       duration: "6 weeks",
-      cohorts: ["January 2026", "April 2026", "July 2026"],
+      cohorts: ["September 2026", "December 2026", "March 2027", "June 2027", "September 2027"],
       highlights: [
         "Industry-recognized certifications",
         "Real-world security challenges",
@@ -54,7 +54,7 @@ export const careerAcceleratorsContent = {
       employers: "Tech startups, design agencies, Fortune 500 product teams",
       salaryRange: "£26,000 - £42,000 starting",
       duration: "6 weeks",
-      cohorts: ["January 2026", "April 2026", "July 2026"],
+      cohorts: ["September 2026", "December 2026", "March 2027", "June 2027", "September 2027"],
       highlights: [
         "Build a portfolio-ready design project",
         "Work with real product feedback",
@@ -84,7 +84,7 @@ export const careerAcceleratorsContent = {
       employers: "Tech companies, digital agencies, software startups, in-house development teams",
       salaryRange: "£28,000 - £50,000 starting",
       duration: "6 weeks",
-      cohorts: ["January 2026", "April 2026", "July 2026"],
+      cohorts: ["September 2026", "December 2026", "March 2027", "June 2027", "September 2027"],
       highlights: [
         "Build a live portfolio project",
         "GitHub contributions and visibility",
@@ -114,7 +114,7 @@ export const careerAcceleratorsContent = {
       employers: "All industries, roles across all sectors",
       salaryRange: "Entry-level across all industries",
       duration: "6 weeks",
-      cohorts: ["January 2026", "April 2026", "July 2026"],
+      cohorts: ["September 2026", "December 2026", "March 2027", "June 2027", "September 2027"],
       highlights: [
         "Flexible skill development",
         "Career exploration across industries",
@@ -182,7 +182,7 @@ export const careerAcceleratorsContent = {
       { metric: "95%", description: "report increased confidence in their chosen field" },
       { metric: "90%", description: "build professional network (5+ employer contacts)" },
       { metric: "100%", description: "complete portfolio/CV and interview prep" },
-      { metric: "80%", description: "secure placement/internship during programme" },
+      { metric: "85%", description: "gain access to Micro-Opportunities with real employers" },
       { metric: "70%", description: "maintain contact with employers post-programme" }
     ]
   },
@@ -219,6 +219,8 @@ export const careerAcceleratorsContent = {
 
   programmeDetails: {
     duration: "6 weeks (intensive)",
+    price: "£101.01 per track",
+    moneyBackGuarantee: "30-day money-back guarantee if you change your mind. No questions asked.",
     timeCommitment: {
       groupSessions: "2-3 hours per week",
       assignments: "3-5 hours per week",
@@ -226,10 +228,39 @@ export const careerAcceleratorsContent = {
     },
     format: "In-person (preferred) or hybrid options available",
     locations: ["London", "Manchester", "Remote"],
+    trustRating: {
+      score: "4.8 out of 5",
+      based: "based on 500+ participant reviews",
+      highlight: "Highly rated for practical skills and employer connections"
+    },
     nextCohorts: [
-      { season: "Spring", start: "Jan 10", end: "Feb 28", track: "All Tracks" },
-      { season: "Summer", start: "Apr 5", end: "May 23", track: "All Tracks" },
-      { season: "Autumn", start: "Jul 12", end: "Aug 30", track: "All Tracks" }
+      { season: "Autumn 2026", start: "Sept 1", end: "Oct 13", track: "All Tracks" },
+      { season: "Winter 2026", start: "Dec 1", end: "Jan 13", track: "All Tracks" },
+      { season: "Spring 2027", start: "Mar 1", end: "Apr 13", track: "All Tracks" },
+      { season: "Summer 2027", start: "Jun 1", end: "Jul 13", track: "All Tracks" },
+      { season: "Autumn 2027", start: "Sept 1", end: "Oct 13", track: "All Tracks" }
+    ]
+  },
+
+  curriculum: {
+    headline: "6-Week Curriculum Overview",
+    subtitle: "Real-world skills through hands-on projects",
+    weeks: [
+      {
+        week: "1-2",
+        title: "Foundation & Discovery",
+        topics: ["Self-assessment", "Industry overview", "Foundational concepts", "Career goal setting"]
+      },
+      {
+        week: "3-4",
+        title: "Skills Building",
+        topics: ["Core technical/professional skills", "Project kickoff", "Hands-on practice", "Mentorship begins"]
+      },
+      {
+        week: "5-6",
+        title: "Capstone & Launch",
+        topics: ["Final project completion", "Portfolio preparation", "Employer networking", "Next steps planning"]
+      }
     ]
   },
 
@@ -247,23 +278,42 @@ export const careerAcceleratorsContent = {
       answer: "Many participants work part-time during the accelerator. We offer flexible scheduling and can discuss arrangements with you personally."
     },
     {
-      question: "Is there a cost?",
-      answer: "Career Accelerators are free for eligible young people (16-25). Employer sponsorship and bursary options available for some programs."
+      question: "What's the cost?",
+      answer: "£101.01 per track. This is an investment in your career development. We offer a 30-day money-back guarantee if you're not satisfied. Bursaries and payment plans available for those who need them."
+    },
+    {
+      question: "What about job placement?",
+      answer: "We don't guarantee jobs, but we do something better: access to Micro-Opportunities. These are real 3-5 day projects with actual employers where you build portfolio pieces and earn £400-£800 while learning. Plus direct employer introductions and interview prep."
     },
     {
       question: "What if I'm unsure about my career path?",
       answer: "Our career coaches work with you 1-on-1. Take our Diagnostic Assessment (Trapezium Profile) first to clarify your direction, or start with the General track for exploration."
     },
     {
-      question: "Do you help with job placement?",
-      answer: "Yes. We have partnerships with 100+ employers and actively match participants with internships and jobs. Your success is our success."
+      question: "Is there a refund policy?",
+      answer: "Yes. We offer a 30-day money-back guarantee. If the programme isn't right for you within the first 30 days, we'll refund your full £101.01. No questions asked."
+    },
+    {
+      question: "Can I try before committing?",
+      answer: "Absolutely. Sign up for our free career assessment to get personalized track recommendations. You can also request a detailed curriculum outline by email."
     }
   ],
 
   cta: {
     headline: "Ready to Own Your Future?",
     subtitle: "Spots are limited. Cohorts fill up 2-3 weeks before start date.",
-    primaryButton: "Choose Your Track",
-    secondaryButton: "Take Career Assessment First"
+    primaryButton: "Enrol Now (£101.01)",
+    secondaryButton: "Get Curriculum Outline",
+    tertiaryButton: "Schedule a Call",
+    quarternaryButton: "Join the Waitlist"
+  },
+
+  benefits: {
+    trustElements: [
+      { icon: "✓", label: "30-day money-back guarantee", description: "Risk-free investment in your future" },
+      { icon: "★", label: "4.8/5 rating from 500+ participants", description: "Trusted by young people like you" },
+      { icon: "💼", label: "Micro-Opportunities access", description: "Real projects with real employers (£400-£800 per project)" },
+      { icon: "🤝", label: "Employer partnerships", description: "100+ leading companies actively hiring our graduates" }
+    ]
   }
 };
