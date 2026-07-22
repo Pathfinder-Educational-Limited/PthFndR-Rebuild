@@ -18,16 +18,45 @@ export default function CareerAccelerators() {
       {/* HERO */}
       <section className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
         <TriangleMotif className="pointer-events-none absolute -top-10 -right-16 w-[380px] lg:w-[520px] text-pth-cyan/15" />
-        <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <Eyebrow tone="cyan" className="mb-6">Career Accelerators</Eyebrow>
-          <h1 className="font-heading font-extrabold tracking-tight text-pth-navy text-balance text-5xl sm:text-6xl lg:text-7xl leading-[0.95] mb-8">
-            {C.hero.headline}
-          </h1>
-          <p className="text-xl lg:text-2xl text-slate-600 font-medium mb-6">{C.hero.subheading}</p>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10">{C.hero.bodyCopy}</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-            {C.hero.ctaButton} <ArrowRight size={20} aria-hidden="true" />
-          </Link>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block bg-pth-green/20 text-pth-green px-4 py-2 rounded-full mb-6 text-sm font-bold">
+                {C.hero.price}
+              </div>
+              <Eyebrow tone="cyan" className="mb-6">Career Accelerators</Eyebrow>
+              <h1 className="font-heading font-extrabold tracking-tight text-pth-navy text-balance text-5xl sm:text-6xl lg:text-6xl leading-[0.95] mb-6">
+                {C.hero.headline}
+              </h1>
+              <p className="text-xl lg:text-2xl text-slate-600 font-medium mb-6">{C.hero.subheading}</p>
+              <p className="text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">{C.hero.bodyCopy}</p>
+              <a href="#tracks" className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                {C.hero.ctaButton} <ArrowRight size={20} aria-hidden="true" />
+              </a>
+              <p className="text-slate-500 text-sm mt-8 flex items-center gap-2">
+                <span>✓</span> {C.hero.trustBadge}
+              </p>
+            </div>
+
+            {/* Benefits Card - Right Side */}
+            {selectedTrack && (
+              <div className="bg-white rounded-3xl p-10 shadow-2xl border border-slate-100">
+                <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">What You'll Get</h3>
+                <ul className="space-y-4">
+                  {selectedTrack.deliverables?.slice(0, 5).map((item, i) => (
+                    <li key={i} className="flex gap-4 items-start">
+                      <span className="text-pth-green font-bold flex-shrink-0 text-lg">✓</span>
+                      <span className="text-slate-700 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 pt-8 border-t border-slate-200">
+                  <p className="text-sm text-slate-600 font-medium mb-2">Time Commitment</p>
+                  <p className="font-bold text-pth-navy">{selectedTrack.timeCommitment || '5 hours/week'}</p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

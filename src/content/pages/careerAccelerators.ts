@@ -1,9 +1,11 @@
 export const careerAcceleratorsContent = {
   hero: {
-    headline: "Get Hired. Build Skills. Own Your Future.",
-    subheading: "A 6-week intensive programme that transforms how young people think about work, what they can do, and where they're going.",
-    bodyCopy: "Career Accelerators isn't a course. It's a transformation. Young people come in uncertain about their future. They leave with clear direction, practical skills, real employer contacts, and often with a job or university offer in hand.",
-    ctaButton: "Choose Your Track"
+    headline: "Learn Real Skills in 6 Weeks. Get Hired.",
+    subheading: "Intensive career programmes with hands-on projects, real employer mentorship, and job placement support.",
+    bodyCopy: "Career Accelerators isn't a course. It's a transformation. Young people come in uncertain about their future. They leave with clear direction, practical skills, real employer contacts, and a portfolio piece ready to impress recruiters.",
+    ctaButton: "Choose Your Track",
+    price: "FREE for eligible young people (16-25)",
+    trustBadge: "Backed by leading employers and education partners"
   },
 
   tracks: [
@@ -27,7 +29,15 @@ export const careerAcceleratorsContent = {
         "Industry-recognized certifications",
         "Real-world security challenges",
         "Mentorship from security professionals"
-      ]
+      ],
+      deliverables: [
+        "Certificate with security skill badges",
+        "Personalized reference letter from mentor",
+        "Capstone security project for portfolio",
+        "Direct employer introductions (3+ companies)",
+        "Interview prep & job placement support"
+      ],
+      timeCommitment: "5 hours/week (flexible scheduling)"
     },
     {
       id: 2,
@@ -49,7 +59,15 @@ export const careerAcceleratorsContent = {
         "Build a portfolio-ready design project",
         "Work with real product feedback",
         "Design tool certification included"
-      ]
+      ],
+      deliverables: [
+        "Design portfolio with 3+ completed projects",
+        "Figma/Adobe XD professional certification",
+        "Personalized reference letter from design mentor",
+        "Usability testing case study",
+        "Job introductions with design-focused companies"
+      ],
+      timeCommitment: "5 hours/week (flexible scheduling)"
     },
     {
       id: 3,
@@ -71,7 +89,15 @@ export const careerAcceleratorsContent = {
         "Build a live portfolio project",
         "GitHub contributions and visibility",
         "Tech interview preparation"
-      ]
+      ],
+      deliverables: [
+        "Live deployed project (GitHub + live URL)",
+        "Professional development portfolio",
+        "GitHub profile optimized for recruiters",
+        "Personalized reference letter from tech mentor",
+        "Technical interview preparation + coaching"
+      ],
+      timeCommitment: "5 hours/week (flexible scheduling)"
     },
     {
       id: 4,
@@ -93,7 +119,15 @@ export const careerAcceleratorsContent = {
         "Flexible skill development",
         "Career exploration across industries",
         "Mentor matching with your interests"
-      ]
+      ],
+      deliverables: [
+        "Career passport & exploration report",
+        "Personalized reference letter",
+        "Professional CV/resume",
+        "Career roadmap for next 2 years",
+        "Mentor network and ongoing support (6 months)"
+      ],
+      timeCommitment: "5 hours/week (flexible scheduling)"
     }
   ],
 
