@@ -2,11 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "pthfndr-rebuild",
+      "name": "dev",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "cwd": "/Users/pthfndr/Downloads/project/pthfndr-Rebuild",
-      "autoPort": true,
       "port": 3000
     }
   ]

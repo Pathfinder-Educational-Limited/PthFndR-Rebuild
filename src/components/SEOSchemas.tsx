@@ -85,13 +85,13 @@ export function ProgrammeSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'Course',
-        name: 'Career Accelerators - 12-Week Intensive Programme',
+        name: 'Career Accelerators - 6-Week Intensive Programme',
         description:
-          'Transform identity, build capability, and get hired. 12-week intensive career development programme combining self-discovery, skill-building, and real employer engagement.',
+          'Transform identity, build capability, and get hired. 6-week intensive career development programme combining self-discovery, skill-building, and real employer engagement.',
         url: `${ORIGIN}/programmes/career-accelerators`,
         provider: { '@type': 'EducationalOrganization', name: 'PthFndR', sameAs: ORIGIN },
         courseCode: 'CA-001',
-        timeRequired: 'P12W',
+        timeRequired: 'P6W',
         educationalLevel: 'Secondary/PostSecondary',
         inLanguage: 'en-GB',
         teaches: [

@@ -1,7 +1,7 @@
 export const careerAcceleratorsContent = {
   hero: {
     headline: "Get Hired. Build Skills. Own Your Future.",
-    subheading: "A 12-week intensive programme that transforms how young people think about work, what they can do, and where they're going.",
+    subheading: "A 6-week intensive programme that transforms how young people think about work, what they can do, and where they're going.",
     bodyCopy: "Career Accelerators isn't a course. It's a transformation. Young people come in uncertain about their future. They leave with clear direction, practical skills, real employer contacts, and often with a job or university offer in hand.",
     ctaButton: "Enrol Now"
   },
@@ -20,7 +20,7 @@ export const careerAcceleratorsContent = {
 
   programmeStructure: {
     headline: "What Career Accelerators Includes",
-    subtitle: "12-week Programme Structure",
+    subtitle: "6-week Programme Structure",
     phases: [
       {
         weeks: "1-3",
@@ -75,11 +75,11 @@ export const careerAcceleratorsContent = {
   ],
 
   programmeDetails: {
-    duration: "12 weeks (can be condensed to 6 weeks or extended to 16 weeks)",
+    duration: "6 weeks (can be extended to 12 weeks for deeper engagement)",
     timeCommitment: {
       groupSessions: "2-3 hours per week",
       assignments: "3-5 hours per week",
-      total: "~40 hours over 12 weeks"
+      total: "~30 hours over 6 weeks"
     },
     format: "In-person (preferred) or hybrid options available",
     nextCohorts: [

@@ -25,7 +25,7 @@ export const forSchoolsContent = {
       },
       {
         headline: "Flexible Integration",
-        copy: "6-week intensive, 12-week part-time, or customized options. Integration with existing careers provision, PSHE, or standalone. You set the pace."
+        copy: "6-week intensive or 12-week extended options. Integration with existing careers provision, PSHE, or standalone. You set the pace."
       }
     ]
   },
@@ -59,7 +59,7 @@ export const forSchoolsContent = {
     items: [
       {
         name: "Career Accelerators",
-        duration: "12 weeks",
+        duration: "6 weeks",
         description: "Intensive careers programme combining self-discovery, skill-building, and employer engagement",
         who: "Year 10-11 students, Year 12-13 students, or school leavers",
         howItWorks: [
