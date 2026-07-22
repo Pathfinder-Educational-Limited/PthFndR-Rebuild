@@ -98,7 +98,7 @@ export default function Opportunities() {
               <input
                 type="text"
                 placeholder="Search by title, organisation, or keyword..."
-                className="block w-full pl-12 pr-4 py-4 rounded-xl border-none ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-pth-green sm:text-lg shadow-sm"
+                className="block w-full pl-12 pr-4 py-4 rounded-xl border-none ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-pth-green sm:text-lg shadow-sm placeholder:text-white"
               />
               <button className="absolute inset-y-2 right-2 bg-pth-green text-white px-6 rounded-lg font-bold hover:bg-[#36b666] transition-colors">
                 Search
