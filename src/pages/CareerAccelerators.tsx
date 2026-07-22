@@ -5,8 +5,11 @@ import SEO from '../components/SEO';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
 import { ProgrammeSchema } from '../components/SEOSchemas';
+import { useState } from 'react';
 
 export default function CareerAccelerators() {
+  const [selectedTrack, setSelectedTrack] = useState(C.tracks[0]);
+
   return (
     <>
       <SEO title={`${C.hero.headline} | PthFndR`} description={C.hero.subheading} url="https://pthfndr.org/programmes/career-accelerators" />
@@ -28,31 +31,114 @@ export default function CareerAccelerators() {
         </div>
       </section>
 
-      {/* THE CHALLENGE */}
-      <section className="bg-white py-24 lg:py-32">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <Eyebrow className="mb-5">The challenge</Eyebrow>
+      {/* TRACKS SECTION */}
+      <section id="tracks" className="bg-pth-cream py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-16">
+            <Eyebrow className="mb-5">Choose Your Path</Eyebrow>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02]">
-              {C.theChallenge.headline}
+              Four Specialist Tracks
             </h2>
           </div>
-          <div className="bg-pth-cream rounded-3xl border-l-4 border-red-400 p-8 lg:p-10">
-            <ul className="space-y-4">
-              {C.theChallenge.points.map((point, i) => (
-                <li key={i} className="flex items-start gap-3 text-slate-700 text-lg">
-                  <XCircle size={22} className="text-red-400 shrink-0 mt-0.5" aria-hidden="true" />
-                  {point}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 text-slate-700 text-lg italic border-t border-black/10 pt-6">{C.theChallenge.result}</p>
+
+          {/* Track Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {C.tracks.map((track) => (
+              <button
+                key={track.id}
+                onClick={() => setSelectedTrack(track)}
+                className={`group rounded-2xl p-6 border-2 transition-all text-left ${
+                  selectedTrack.id === track.id
+                    ? 'border-pth-green bg-white shadow-lg'
+                    : 'border-slate-200 bg-white/60 hover:border-pth-green hover:bg-white'
+                }`}
+              >
+                <div className="text-5xl mb-4">{track.icon}</div>
+                <h3 className={`text-lg font-bold font-heading mb-2 ${
+                  selectedTrack.id === track.id ? 'text-pth-navy' : 'text-slate-700 group-hover:text-pth-navy'
+                }`}>
+                  {track.name}
+                </h3>
+                <p className="text-sm text-slate-600">{track.description}</p>
+              </button>
+            ))}
+          </div>
+
+          {/* Selected Track Details */}
+          <div className="bg-white rounded-3xl p-12 border border-slate-100 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="text-6xl">{selectedTrack.icon}</div>
+                  <div>
+                    <h3 className="text-3xl font-heading font-bold text-pth-navy mb-2">
+                      {selectedTrack.name}
+                    </h3>
+                    <p className="text-sm text-pth-cyan font-bold">{selectedTrack.duration}</p>
+                  </div>
+                </div>
+
+                <p className="text-lg text-slate-600 mb-8">{selectedTrack.description}</p>
+
+                <div className="mb-8">
+                  <h4 className="font-bold text-pth-navy mb-4">Key Skills You'll Learn</h4>
+                  <ul className="space-y-3">
+                    {selectedTrack.skills.map((skill, i) => (
+                      <li key={i} className="flex gap-3">
+                        <span className="text-pth-green flex-shrink-0">✓</span>
+                        <span className="text-slate-600">{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="space-y-4 pt-8 border-t border-slate-200">
+                  <div>
+                    <p className="text-sm text-slate-500 font-medium">Employer Connections</p>
+                    <p className="text-slate-700 font-medium">{selectedTrack.employers}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-500 font-medium">Starting Salary Range</p>
+                    <p className="text-slate-700 font-medium">{selectedTrack.salaryRange}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-pth-navy mb-6 text-xl">Track Highlights</h4>
+                <div className="space-y-4 mb-10">
+                  {selectedTrack.highlights.map((highlight, i) => (
+                    <div key={i} className="bg-pth-warm p-4 rounded-xl border border-black/5">
+                      <p className="text-slate-700">{highlight}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bg-pth-navy-deep text-white p-8 rounded-xl">
+                  <h4 className="font-bold mb-4">Next Cohorts</h4>
+                  <div className="space-y-3 mb-6">
+                    {selectedTrack.cohorts.map((cohort, i) => (
+                      <div key={i} className="flex justify-between items-center pb-3 border-b border-white/20 last:border-0">
+                        <span className="font-medium">{cohort}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    to={`/contact?role=applicant&for=${selectedTrack.name}`}
+                    className="inline-flex items-center gap-2 bg-pth-green text-white px-6 py-3 rounded-lg font-bold hover:bg-[#36b666] transition-all w-full justify-center"
+                  >
+                    Enrol in {selectedTrack.name}
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* PROGRAMME STRUCTURE */}
-      <section className="bg-pth-cream py-24 lg:py-32">
+      <section className="bg-white py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16">
             <Eyebrow className="mb-5">{C.programmeStructure.subtitle}</Eyebrow>
@@ -125,17 +211,18 @@ export default function CareerAccelerators() {
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {C.successStories.map((story, i) => (
-              <div key={i} className="bg-pth-cream p-8 lg:p-10 rounded-3xl border border-black/5">
-                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-                  <div>
-                    <h3 className="text-2xl font-heading font-bold text-pth-navy">{story.name}, {story.age}</h3>
-                    <p className="text-slate-500">{story.company}</p>
-                  </div>
-                  <span className="text-sm text-pth-cyan font-bold">{story.context}</span>
+              <div key={i} className="bg-pth-warm p-8 rounded-2xl border border-black/5">
+                <div className="mb-6">
+                  <div className="text-sm font-bold text-pth-cyan mb-2">{story.track}</div>
+                  <h3 className="text-xl font-bold text-pth-navy mb-1">{story.name}</h3>
+                  <p className="text-sm text-slate-600">{story.role} at {story.company}</p>
                 </div>
-                <p className="text-lg italic text-slate-700 border-l-4 border-pth-green pl-5">"{story.quote}"</p>
+                <blockquote className="text-slate-700 mb-4 italic border-l-4 border-pth-cyan pl-4">
+                  "{story.quote}"
+                </blockquote>
+                <p className="text-xs text-slate-500">— {story.context}</p>
               </div>
             ))}
           </div>
