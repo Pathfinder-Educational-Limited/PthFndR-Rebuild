@@ -32,11 +32,126 @@
 }
 
 @layer base {
+  /* Base typography */
   body {
     @apply bg-pth-warm text-pth-navy font-sans;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+
+  h1 {
+    @apply font-heading font-extrabold tracking-tight;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply font-heading font-bold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h3, h4 {
+    @apply font-heading font-bold;
+    line-height: 1.3;
+  }
+
+  h5, h6 {
+    @apply font-heading font-semibold;
+    line-height: 1.4;
+  }
+
+  p {
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors duration-200;
+    text-decoration: none;
+  }
+
+  a:hover {
+    @apply text-pth-cyan;
+  }
+
+  /* Buttons - clean unified style */
+  button, [role="button"] {
+    @apply transition-all duration-200 ease-in-out;
+    border-radius: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Form elements */
+  input, textarea, select {
+    @apply transition-all duration-200;
+    border-radius: 0.75rem;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(64, 212, 120, 0.1);
+  }
+}
+
+/* Sections - clean spacing */
+@layer components {
+  .section-spacing {
+    @apply py-16 lg:py-24;
+  }
+
+  .section-spacing-sm {
+    @apply py-12 lg:py-16;
+  }
+
+  /* Cards - minimal shadow, clean borders */
+  .card {
+    @apply bg-white rounded-2xl transition-all duration-300;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Buttons - primary */
+  .btn-primary {
+    @apply bg-pth-green text-white px-6 py-3 rounded-xl font-bold;
+    box-shadow: 0 2px 8px rgba(64, 212, 120, 0.2);
+  }
+
+  .btn-primary:hover {
+    @apply bg-[#36b666];
+    box-shadow: 0 4px 12px rgba(64, 212, 120, 0.3);
+  }
+
+  /* Buttons - secondary */
+  .btn-secondary {
+    @apply bg-white text-pth-navy border-2 border-pth-navy px-6 py-3 rounded-xl font-bold;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-slate-50;
+  }
+
+  /* Focus states */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2;
+  }
+
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Spacing helpers */
+  .gap-section {
+    @apply gap-8 lg:gap-12;
   }
 }
 
