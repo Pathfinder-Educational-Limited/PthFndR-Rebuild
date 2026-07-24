@@ -99,6 +99,39 @@ export async function sendContactConfirmation(name: string, email: string, role:
   });
 }
 
+export async function sendGuardianConsentRequest(
+  guardianName: string,
+  guardianEmail: string,
+  minorName: string,
+  confirmUrl: string
+) {
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <h1 style="color: #0C2A5C;">PthFndR</h1>
+      <p>Hi ${guardianName},</p>
+      <p>${minorName} has been using PthFndR, a platform that helps 13-25 year olds build skills and find real opportunities.</p>
+      <p>Because ${minorName} is under 18, we need your confirmation before we can keep their details on file or get in touch with them about opportunities.</p>
+      <p>
+        <a href="${confirmUrl}"
+           style="display: inline-block; padding: 12px 24px; background-color: #40D478; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+          Confirm and give consent
+        </a>
+      </p>
+      <p>This link is valid for 14 days. If you weren't expecting this email or don't wish to proceed, you can simply ignore it — no details will be kept or used.</p>
+      <p>Questions? Just reply to this email.</p>
+      <p>Best regards,<br><strong>The PthFndR Team</strong></p>
+    </div>
+  `;
+
+  return sendEmail({
+    from: "noreply@pthfndr.org",
+    to: guardianEmail,
+    subject: `${minorName} would like to use PthFndR — your confirmation needed`,
+    html,
+    replyTo: "hello@pthfndr.org",
+  });
+}
+
 export async function sendContactNotification(
   name: string,
   email: string,

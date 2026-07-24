@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, CheckCircle2, ChevronRight, Loader2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronRight, Loader2, Mail, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-type Step = 'intro' | 'q1' | 'q2' | 'q3' | 'q4' | 'lead' | 'calculating' | 'result';
+type Step =
+  | 'intro'
+  | 'q1' | 'q2' | 'q3' | 'q4'
+  | 'age'
+  | 'lead'
+  | 'guardian'
+  | 'too-young'
+  | 'calculating'
+  | 'result';
 
-type Pattern = 'The Seeker' | 'The Powerhouse' | 'The Hidden Gem' | 'The Fragmented Professional' | 'The Aligned Leader';
+type Pattern = 'The Explorer' | 'The Grafter' | 'The Unseen' | 'The Work in Progress' | 'The All-Rounder';
 
 export default function Assessment() {
   const [step, setStep] = useState<Step>('intro');
@@ -17,7 +25,14 @@ export default function Assessment() {
     impact: 0,
   });
   const [leadData, setLeadData] = useState({ name: '', email: '' });
+  const [guardianData, setGuardianData] = useState({
+    minorName: '',
+    minorEmail: '',
+    guardianName: '',
+    guardianEmail: '',
+  });
   const [pattern, setPattern] = useState<Pattern | null>(null);
+  const [awaitingGuardianConsent, setAwaitingGuardianConsent] = useState(false);
 
   const handleScore = (domain: keyof typeof scores, value: number) => {
     setScores((prev) => ({ ...prev, [domain]: value }));
@@ -25,30 +40,88 @@ export default function Assessment() {
       q1: 'q2',
       q2: 'q3',
       q3: 'q4',
-      q4: 'lead',
+      q4: 'age',
     };
     setTimeout(() => setStep(nextSteps[step as string]), 400);
   };
 
-  const calculatePattern = () => {
+  const calculatePattern = (): Pattern => {
     const { identity: i, character: c, competence: comp, impact: imp } = scores;
-    
-    if (i >= 4 && c >= 4 && comp >= 4 && imp >= 4) return 'The Aligned Leader';
-    if (i >= 4 && (c <= 3 || comp <= 3 || imp <= 3)) return 'The Seeker';
-    if (i <= 3 && (c >= 4 || comp >= 4)) return 'The Powerhouse';
-    if (i >= 4 && c >= 4 && comp >= 4 && imp <= 3) return 'The Hidden Gem';
-    
-    return 'The Fragmented Professional';
+
+    if (i >= 4 && c >= 4 && comp >= 4 && imp >= 4) return 'The All-Rounder';
+    if (i >= 4 && (c <= 3 || comp <= 3 || imp <= 3)) return 'The Explorer';
+    if (i <= 3 && (c >= 4 || comp >= 4)) return 'The Grafter';
+    if (i >= 4 && c >= 4 && comp >= 4 && imp <= 3) return 'The Unseen';
+
+    return 'The Work in Progress';
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  // 18+ pathway: save directly, same as before.
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStep('calculating');
-    
+
+    const result = calculatePattern();
+    const start = Date.now();
+
+    try {
+      await fetch('/api/assessment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: leadData.name,
+          email: leadData.email,
+          pattern: result,
+          scores,
+        }),
+      });
+    } catch (err) {
+      console.warn('[Assessment] Failed to save lead:', err);
+    }
+
+    const elapsed = Date.now() - start;
+    const remaining = Math.max(0, 1200 - elapsed);
     setTimeout(() => {
-      setPattern(calculatePattern());
+      setPattern(result);
+      setAwaitingGuardianConsent(false);
       setStep('result');
-    }, 2500);
+    }, remaining);
+  };
+
+  // 13-17 pathway: request guardian consent, don't save/activate the young
+  // person's record yet. They still get to see their own result on screen —
+  // what's gated is us keeping their details or getting in touch.
+  const handleGuardianSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStep('calculating');
+
+    const result = calculatePattern();
+    const start = Date.now();
+
+    try {
+      await fetch('/api/consent/request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          minorName: guardianData.minorName,
+          minorEmail: guardianData.minorEmail,
+          guardianName: guardianData.guardianName,
+          guardianEmail: guardianData.guardianEmail,
+          source: 'assessment',
+          payload: { pattern: result, scores },
+        }),
+      });
+    } catch (err) {
+      console.warn('[Assessment] Failed to send guardian consent request:', err);
+    }
+
+    const elapsed = Date.now() - start;
+    const remaining = Math.max(0, 1200 - elapsed);
+    setTimeout(() => {
+      setPattern(result);
+      setAwaitingGuardianConsent(true);
+      setStep('result');
+    }, remaining);
   };
 
   const renderLikert = (domain: keyof typeof scores) => (
@@ -64,8 +137,8 @@ export default function Assessment() {
           key={option.val}
           onClick={() => handleScore(domain, option.val)}
           className={`w-full text-left px-6 py-4 rounded-xl border-2 transition-all flex items-center justify-between group
-            ${scores[domain] === option.val 
-              ? 'border-pth-cyan bg-pth-cyan/5' 
+            ${scores[domain] === option.val
+              ? 'border-pth-cyan bg-pth-cyan/5'
               : 'border-slate-200 hover:border-pth-cyan/50 hover:bg-slate-50'}`}
         >
           <span className="font-medium text-slate-700 group-hover:text-pth-navy">{option.label}</span>
@@ -80,14 +153,14 @@ export default function Assessment() {
 
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-slate-50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
-      <SEO 
-        title="Diagnostic Assessment | PthFndR" 
-        description="Discover your Professional Alignment. Take the 2-minute Trapezium Diagnostic."
+      <SEO
+        title="Free Assessment | PthFndR"
+        description="Take the free 2-minute assessment to find your starting point — see your strengths and what to focus on next."
       />
 
       <div className="w-full max-w-2xl relative">
         <AnimatePresence mode="wait">
-          
+
           {/* INTRO */}
           {step === 'intro' && (
             <motion.div
@@ -98,15 +171,15 @@ export default function Assessment() {
               className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100 text-center relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-pth-cyan/10 rounded-full blur-3xl"></div>
-              
+
               <span className="inline-block py-1 px-3 rounded-full bg-pth-cyan/10 text-pth-cyan font-bold text-xs tracking-wider uppercase mb-6">
-                Free Diagnostic Tool
+                Free · 2 minutes
               </span>
               <h1 className="text-3xl sm:text-4xl font-heading font-extrabold text-pth-navy mb-6">
-                Discover Your Professional Alignment
+                Find your starting point
               </h1>
               <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-                Are you a Seeker, a Powerhouse, or a Hidden Gem? Take the 2-minute Trapezium Model™ Diagnostic to uncover your alignment pattern and identify your exact next steps for career growth.
+                Answer 4 quick questions to see where your strengths already are — and exactly what to focus on next to move forward.
               </p>
               <button
                 onClick={() => setStep('q1')}
@@ -128,10 +201,10 @@ export default function Assessment() {
             >
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-10 h-10 rounded-full bg-identity-blue/10 text-identity-blue flex items-center justify-center font-bold">1</span>
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Identity (KNOW)</span>
+                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Direction</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy leading-tight">
-                "I have a clear understanding of my professional purpose and can easily articulate my unique value to others."
+                "I have a good idea of what I'm good at and what kind of work I want to do."
               </h2>
               {renderLikert('identity')}
             </motion.div>
@@ -148,10 +221,10 @@ export default function Assessment() {
             >
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-10 h-10 rounded-full bg-character-green/10 text-character-green flex items-center justify-center font-bold">2</span>
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Character (BE)</span>
+                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Staying power</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy leading-tight">
-                "I am able to maintain momentum, resilience, and 'staying power' during challenging professional transitions or setbacks."
+                "When things get hard or don't go to plan, I keep going instead of giving up."
               </h2>
               {renderLikert('character')}
             </motion.div>
@@ -168,10 +241,10 @@ export default function Assessment() {
             >
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-10 h-10 rounded-full bg-competence-orange/10 text-competence-orange flex items-center justify-center font-bold">3</span>
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Competence (BE)</span>
+                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Skills</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy leading-tight">
-                "I possess the technical skills and industry-specific 'vocational vocabulary' required to excel in my target sector."
+                "I've got real, practical skills I could show or prove to someone — not just things I've studied."
               </h2>
               {renderLikert('competence')}
             </motion.div>
@@ -188,16 +261,80 @@ export default function Assessment() {
             >
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-10 h-10 rounded-full bg-impact-purple/10 text-impact-purple flex items-center justify-center font-bold">4</span>
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Impact (DO)</span>
+                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Real-world chances</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy leading-tight">
-                "My current work allows me to create tangible results and influence outcomes beyond my immediate daily tasks."
+                "I've had real chances to actually use my skills on something that mattered — a project, a placement, a job."
               </h2>
               {renderLikert('impact')}
             </motion.div>
           )}
 
-          {/* LEAD CAPTURE */}
+          {/* AGE CHECK */}
+          {step === 'age' && (
+            <motion.div
+              key="age"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100 text-center"
+            >
+              <div className="w-14 h-14 bg-pth-cyan/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <ShieldCheck className="w-7 h-7 text-pth-cyan" aria-hidden="true" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy mb-4">
+                One quick thing before we show your results
+              </h2>
+              <p className="text-slate-600 mb-10 max-w-md mx-auto">
+                PthFndR is built for 16-25 year olds. For under-18s, we involve a parent or guardian — it's part of how we keep things safe, and something schools and local authorities we work with can rely on.
+              </p>
+              <div className="space-y-3 max-w-sm mx-auto">
+                <button
+                  onClick={() => setStep('lead')}
+                  className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
+                >
+                  I'm 18 or over
+                </button>
+                <button
+                  onClick={() => setStep('guardian')}
+                  className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
+                >
+                  I'm 16-17
+                </button>
+                <button
+                  onClick={() => setStep('too-young')}
+                  className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
+                >
+                  I'm under 16
+                </button>
+              </div>
+            </motion.div>
+          )}
+
+          {/* TOO YOUNG (outside PthFndR's 16-25 audience) */}
+          {step === 'too-young' && (
+            <motion.div
+              key="too-young"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100 text-center"
+            >
+              <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy mb-4">
+                PthFndR is for ages 16 and up
+              </h2>
+              <p className="text-slate-600 mb-8 max-w-md mx-auto">
+                We haven't saved any of your answers. If you're a parent, teacher, or guardian and want to find out more on behalf of a younger person, we'd love to hear from you.
+              </p>
+              <Link
+                to="/for-schools"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-navy/90 transition-all"
+              >
+                For schools &amp; educators <ArrowRight className="w-5 h-5" aria-hidden="true" />
+              </Link>
+            </motion.div>
+          )}
+
+          {/* LEAD CAPTURE (18+) */}
           {step === 'lead' && (
             <motion.div
               key="lead"
@@ -207,16 +344,16 @@ export default function Assessment() {
               className="bg-pth-navy-deep rounded-[2rem] p-8 sm:p-12 shadow-2xl text-center relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pth-cyan/20 via-pth-navy-deep to-pth-navy-deep"></div>
-              
+
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
                   <CheckCircle2 className="w-8 h-8 text-pth-lime" />
                 </div>
                 <h2 className="text-3xl font-heading font-bold text-white mb-4">
-                  Assessment Complete!
+                  Nearly there!
                 </h2>
                 <p className="text-slate-300 mb-8 max-w-md mx-auto">
-                  Enter your details below to unlock your personalized Trapezium Alignment Pattern and actionable next steps.
+                  Pop in your details to see your results and what to focus on next.
                 </p>
 
                 <form onSubmit={handleLeadSubmit} className="space-y-4 max-w-sm mx-auto text-left">
@@ -233,7 +370,7 @@ export default function Assessment() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Work Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Email</label>
                     <input
                       type="email"
                       id="email"
@@ -241,14 +378,96 @@ export default function Assessment() {
                       value={leadData.email}
                       onChange={(e) => setLeadData({ ...leadData, email: e.target.value })}
                       className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
-                      placeholder="jane@organization.com"
+                      placeholder="you@email.com"
                     />
                   </div>
                   <button
                     type="submit"
                     className="w-full flex justify-center items-center gap-2 py-4 px-4 rounded-xl bg-pth-gradient text-pth-navy font-bold hover:opacity-90 transition-all mt-6"
                   >
-                    Reveal My Results <ChevronRight className="w-5 h-5" />
+                    See My Results <ChevronRight className="w-5 h-5" />
+                  </button>
+                </form>
+              </div>
+            </motion.div>
+          )}
+
+          {/* GUARDIAN CONSENT (13-17) */}
+          {step === 'guardian' && (
+            <motion.div
+              key="guardian"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-pth-navy-deep rounded-[2rem] p-8 sm:p-12 shadow-2xl text-center relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pth-cyan/20 via-pth-navy-deep to-pth-navy-deep"></div>
+
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                  <Mail className="w-8 h-8 text-pth-lime" />
+                </div>
+                <h2 className="text-3xl font-heading font-bold text-white mb-4">
+                  Almost there!
+                </h2>
+                <p className="text-slate-300 mb-8 max-w-md mx-auto">
+                  Because you're under 18, we ask a parent or guardian to confirm before we save your details or get in touch. You'll still see your results now — this is just part of how we keep things safe.
+                </p>
+
+                <form onSubmit={handleGuardianSubmit} className="space-y-4 max-w-sm mx-auto text-left">
+                  <div>
+                    <label htmlFor="minorName" className="block text-sm font-medium text-slate-300 mb-1">Your first name</label>
+                    <input
+                      type="text"
+                      id="minorName"
+                      required
+                      value={guardianData.minorName}
+                      onChange={(e) => setGuardianData({ ...guardianData, minorName: e.target.value })}
+                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
+                      placeholder="Jane"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="minorEmail" className="block text-sm font-medium text-slate-300 mb-1">Your email</label>
+                    <input
+                      type="email"
+                      id="minorEmail"
+                      required
+                      value={guardianData.minorEmail}
+                      onChange={(e) => setGuardianData({ ...guardianData, minorEmail: e.target.value })}
+                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
+                      placeholder="you@email.com"
+                    />
+                  </div>
+                  <div className="pt-2 border-t border-white/10">
+                    <label htmlFor="guardianName" className="block text-sm font-medium text-slate-300 mb-1 mt-3">Parent/guardian name</label>
+                    <input
+                      type="text"
+                      id="guardianName"
+                      required
+                      value={guardianData.guardianName}
+                      onChange={(e) => setGuardianData({ ...guardianData, guardianName: e.target.value })}
+                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
+                      placeholder="Parent or guardian's name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="guardianEmail" className="block text-sm font-medium text-slate-300 mb-1">Parent/guardian email</label>
+                    <input
+                      type="email"
+                      id="guardianEmail"
+                      required
+                      value={guardianData.guardianEmail}
+                      onChange={(e) => setGuardianData({ ...guardianData, guardianEmail: e.target.value })}
+                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
+                      placeholder="parent@email.com"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full flex justify-center items-center gap-2 py-4 px-4 rounded-xl bg-pth-gradient text-pth-navy font-bold hover:opacity-90 transition-all mt-6"
+                  >
+                    See My Results <ChevronRight className="w-5 h-5" />
                   </button>
                 </form>
               </div>
@@ -265,8 +484,8 @@ export default function Assessment() {
               className="bg-white rounded-[2rem] p-16 shadow-xl border border-slate-100 text-center flex flex-col items-center justify-center min-h-[400px]"
             >
               <Loader2 className="w-12 h-12 text-pth-cyan animate-spin mb-6" />
-              <h2 className="text-2xl font-heading font-bold text-pth-navy mb-2">Analyzing your responses...</h2>
-              <p className="text-slate-500">Mapping against the Trapezium Model™</p>
+              <h2 className="text-2xl font-heading font-bold text-pth-navy mb-2">Working out your results...</h2>
+              <p className="text-slate-500">Just a moment</p>
             </motion.div>
           )}
 
@@ -279,47 +498,56 @@ export default function Assessment() {
               className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100 text-center"
             >
               <span className="inline-block py-1 px-3 rounded-full bg-pth-cyan/10 text-pth-cyan font-bold text-xs tracking-wider uppercase mb-6">
-                Your Alignment Pattern
+                Your Starting Point
               </span>
               <h1 className="text-4xl sm:text-5xl font-heading font-extrabold text-pth-navy mb-6">
                 {pattern}
               </h1>
-              
+
+              {awaitingGuardianConsent && (
+                <div className="bg-pth-cyan/5 border border-pth-cyan/20 rounded-2xl p-5 mb-6 text-left flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-pth-cyan shrink-0 mt-0.5" aria-hidden="true" />
+                  <p className="text-sm text-slate-700">
+                    We've emailed your parent/guardian to confirm before we save your details or get in touch. Once they confirm, you're all set.
+                  </p>
+                </div>
+              )}
+
               <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-10 text-left border border-slate-200">
-                {pattern === 'The Seeker' && (
+                {pattern === 'The Explorer' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>Clarity without Capacity.</strong> You have a strong sense of your professional identity and purpose, but you may be lacking the specific technical competencies or resilience strategies needed to translate that purpose into tangible impact. Your next step is to focus on the "BE" and "DO" pillars.
+                    <strong>You know what you want — now let's build the skills to back it up.</strong> You've got a clear sense of direction, but you might not have had the chance yet to build the practical skills or experience to get there. That's exactly what our Career Accelerators and hackathons are for.
                   </p>
                 )}
-                {pattern === 'The Powerhouse' && (
+                {pattern === 'The Grafter' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>Strength without Direction.</strong> You possess excellent technical skills and strong character, but you may be struggling to articulate your unique value proposition. You are highly capable, but without a clear "Identity" (KNOW), you risk being misaligned in your career.
+                    <strong>You've got the skills and the graft — let's help you point it somewhere.</strong> You're resilient and capable, but you might be unsure exactly what direction to aim all of that at. A bit of clarity on direction could unlock a lot for you.
                   </p>
                 )}
-                {pattern === 'The Hidden Gem' && (
+                {pattern === 'The Unseen' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>The Complete Package, Unrecognized.</strong> You have strong identity, character, and competence. However, you are currently in an environment (or lacking the network) that prevents you from creating measurable "Impact" (DO). You need a platform to showcase your value.
+                    <strong>You're ready — you just haven't had the chance yet.</strong> You've got direction, resilience and real skills. What's missing is the opportunity to actually show what you can do. That's exactly what our micro-opportunities and employer partners are for.
                   </p>
                 )}
-                {pattern === 'The Fragmented Professional' && (
+                {pattern === 'The Work in Progress' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>Inconsistent Alignment.</strong> Your scores indicate a mix of strengths and gaps across the Trapezium domains. You would benefit from a systematic, end-to-end development approach to build a cohesive professional narrative.
+                    <strong>You've got a mix of strengths and gaps — and that's completely normal.</strong> Most people starting out do. The good news is a structured next step can help you build across all of it at once.
                   </p>
                 )}
-                {pattern === 'The Aligned Leader' && (
+                {pattern === 'The All-Rounder' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>High Alignment.</strong> You score highly across Identity, Character, Competence, and Impact. You are well-positioned to not only succeed in your own career but to act as a mentor and leader for others navigating their professional journeys.
+                    <strong>You're in a strong position.</strong> You've got direction, resilience, real skills, and experience putting them to use. You're ready for bigger opportunities — and could even mentor others just starting out.
                   </p>
                 )}
               </div>
 
               <div className="space-y-4">
-                <p className="text-slate-600 font-medium">Ready to bridge your gaps?</p>
+                <p className="text-slate-600 font-medium">Ready for your next step?</p>
                 <Link
-                  to="/contact"
+                  to="/for-young-people"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-navy/90 transition-all shadow-md w-full sm:w-auto"
                 >
-                  Book a Framework Briefing
+                  See what's next for you
                 </Link>
               </div>
             </motion.div>

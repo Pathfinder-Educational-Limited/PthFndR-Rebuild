@@ -24,6 +24,7 @@ import SocialHackathon from './pages/SocialHackathon';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ForOrganisations from './pages/ForOrganisations';
+import ForYoungPeople from './pages/ForYoungPeople';
 import OrganisationDashboard from './pages/OrganisationDashboard';
 import Opportunities from './pages/Opportunities';
 import OpportunityDetail from './pages/OpportunityDetail';
@@ -62,6 +63,7 @@ export default function App() {
             <Route path="social-hackathons" element={<SocialHackathon />} />
             <Route path="privacy" element={<PrivacyPolicy />} />
             <Route path="terms" element={<TermsOfService />} />
+            <Route path="for-young-people" element={<ForYoungPeople />} />
             <Route path="for-organisations" element={<ForOrganisations />} />
             <Route path="for-organisations/create-opportunities" element={<CreateOpportunities />} />
             <Route path="for-organisations/partnerships" element={<OrganisationPartnership />} />
