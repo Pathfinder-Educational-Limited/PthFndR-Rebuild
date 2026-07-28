@@ -544,10 +544,10 @@ export default function Assessment() {
               <div className="space-y-4">
                 <p className="text-slate-600 font-medium">Ready for your next step?</p>
                 <Link
-                  to="/for-young-people"
+                  to="/programmes"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-navy/90 transition-all shadow-md w-full sm:w-auto"
                 >
-                  See what's next for you
+                  Explore our programmes
                 </Link>
               </div>
             </motion.div>
