@@ -9,6 +9,7 @@ import { HomePageSchema } from '../components/SEOSchemas';
 
 // Lazy load sections below the fold
 const ThreeStreamsSection = React.lazy(() => import('../components/ThreeStreamsSection'));
+const AssessmentPathwaysSection = React.lazy(() => import('../components/AssessmentPathwaysSection'));
 const WhosItForSection = React.lazy(() => import('../components/WhosItForSection'));
 const ImpactMetricsSection = React.lazy(() => import('../components/ImpactMetricsSection'));
 const FeaturedStoriesSection = React.lazy(() => import('../components/FeaturedStoriesSection'));
@@ -76,6 +77,7 @@ export default function Home() {
 
       <Suspense fallback={<div className="h-40 flex items-center justify-center text-slate-400">Loading...</div>}>
         <ThreeStreamsSection />
+        <AssessmentPathwaysSection />
         <WhosItForSection />
         <ImpactMetricsSection />
         <FeaturedStoriesSection />
