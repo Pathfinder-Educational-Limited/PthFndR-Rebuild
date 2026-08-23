@@ -10,9 +10,8 @@ export const storiesContent = {
 
   // Figures mirror the impact stats already published across the site.
   stats: [
-    { value: "500+", label: "young people supported" },
-    { value: "85%", label: "progress to employment or further study" },
-    { value: "30+", label: "school & organisation partners" },
-    { value: "95%", label: "of partners recommend us" },
+    { value: "223", label: "young people supported" },
+    { value: "95%", label: "progress to work or further education" },
+    { value: "8", label: "school & organisation partners" },
   ],
 };
