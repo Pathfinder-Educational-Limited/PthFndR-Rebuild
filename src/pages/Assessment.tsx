@@ -14,7 +14,7 @@ type Step =
   | 'calculating'
   | 'result';
 
-type Pattern = 'The Explorer' | 'The Grafter' | 'The Unseen' | 'The Work in Progress' | 'The All-Rounder';
+type Pattern = 'The Explorer' | 'The Spark' | 'The Builder' | 'The Regrouper' | 'The Pathfinder';
 
 export default function Assessment() {
   const [step, setStep] = useState<Step>('intro');
@@ -45,15 +45,17 @@ export default function Assessment() {
     setTimeout(() => setStep(nextSteps[step as string]), 400);
   };
 
+  // Finds the first weak domain, in Trapezium order (Identity -> Character -> Competence ->
+  // Impact) — a gap in an earlier layer matters more than strength in a later one, matching
+  // the real KNOW -> BE -> DO structure. Strong across all four = ready for what's next.
   const calculatePattern = (): Pattern => {
     const { identity: i, character: c, competence: comp, impact: imp } = scores;
 
-    if (i >= 4 && c >= 4 && comp >= 4 && imp >= 4) return 'The All-Rounder';
-    if (i >= 4 && (c <= 3 || comp <= 3 || imp <= 3)) return 'The Explorer';
-    if (i <= 3 && (c >= 4 || comp >= 4)) return 'The Grafter';
-    if (i >= 4 && c >= 4 && comp >= 4 && imp <= 3) return 'The Unseen';
-
-    return 'The Work in Progress';
+    if (i <= 3) return 'The Explorer';       // Ready to discover
+    if (c <= 3) return 'The Regrouper';      // Finding the way back
+    if (comp <= 3) return 'The Builder';     // Learning by doing
+    if (imp <= 3) return 'The Spark';        // Talent not yet lit
+    return 'The Pathfinder';                 // Ready for what's next
   };
 
   // 18+ pathway: save directly, same as before.
@@ -286,7 +288,7 @@ export default function Assessment() {
                 One quick thing before we show your results
               </h2>
               <p className="text-slate-600 mb-10 max-w-md mx-auto">
-                PthFndR is built for 16-25 year olds. For under-18s, we involve a parent or guardian — it's part of how we keep things safe, and something schools and local authorities we work with can rely on.
+                PthFndR is built for 16-24 year olds. For under-18s, we involve a parent or guardian — it's part of how we keep things safe, and something schools and local authorities we work with can rely on.
               </p>
               <div className="space-y-3 max-w-sm mx-auto">
                 <button
@@ -311,7 +313,7 @@ export default function Assessment() {
             </motion.div>
           )}
 
-          {/* TOO YOUNG (outside PthFndR's 16-25 audience) */}
+          {/* TOO YOUNG (outside PthFndR's 16-24 audience) */}
           {step === 'too-young' && (
             <motion.div
               key="too-young"
@@ -500,9 +502,18 @@ export default function Assessment() {
               <span className="inline-block py-1 px-3 rounded-full bg-pth-cyan/10 text-pth-cyan font-bold text-xs tracking-wider uppercase mb-6">
                 Your Starting Point
               </span>
-              <h1 className="text-4xl sm:text-5xl font-heading font-extrabold text-pth-navy mb-6">
+              <h1 className="text-4xl sm:text-5xl font-heading font-extrabold text-pth-navy mb-2">
                 {pattern}
               </h1>
+              <p className="text-lg font-semibold text-pth-cyan mb-6">
+                {{
+                  'The Explorer': 'Ready to discover',
+                  'The Regrouper': 'Finding the way back',
+                  'The Builder': 'Learning by doing',
+                  'The Spark': 'Talent not yet lit',
+                  'The Pathfinder': 'Ready for what’s next',
+                }[pattern as string]}
+              </p>
 
               {awaitingGuardianConsent && (
                 <div className="bg-pth-cyan/5 border border-pth-cyan/20 rounded-2xl p-5 mb-6 text-left flex items-start gap-3">
@@ -516,25 +527,25 @@ export default function Assessment() {
               <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-10 text-left border border-slate-200">
                 {pattern === 'The Explorer' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>You know what you want — now let's build the skills to back it up.</strong> You've got a clear sense of direction, but you might not have had the chance yet to build the practical skills or experience to get there. That's exactly what our Career Accelerators and hackathons are for.
+                    <strong>You're not sure yet what you want, and that's a completely normal place to start.</strong> Before skills or opportunity, it helps to know what you actually bring and what you value. Discover Bootcamp is built exactly for this — identity work first, direction second.
                   </p>
                 )}
-                {pattern === 'The Grafter' && (
+                {pattern === 'The Regrouper' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>You've got the skills and the graft — let's help you point it somewhere.</strong> You're resilient and capable, but you might be unsure exactly what direction to aim all of that at. A bit of clarity on direction could unlock a lot for you.
+                    <strong>You've got a sense of direction — right now, the hard part is staying with it.</strong> That's real, and it doesn't mean starting over. A bit of structure and the right support can help you find your footing again.
                   </p>
                 )}
-                {pattern === 'The Unseen' && (
+                {pattern === 'The Builder' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>You're ready — you just haven't had the chance yet.</strong> You've got direction, resilience and real skills. What's missing is the opportunity to actually show what you can do. That's exactly what our micro-opportunities and employer partners are for.
+                    <strong>You know who you are and you keep going when it's hard — now it's about building real skill.</strong> Our Upskill Accelerators are built for exactly this: practical, real-world skills in a track that fits where you want to go.
                   </p>
                 )}
-                {pattern === 'The Work in Progress' && (
+                {pattern === 'The Spark' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    <strong>You've got a mix of strengths and gaps — and that's completely normal.</strong> Most people starting out do. The good news is a structured next step can help you build across all of it at once.
+                    <strong>You're ready — you just haven't had the platform yet.</strong> You've got direction, resilience, and real skills. What's missing is the opportunity to actually show what you can do. That's exactly what our micro-opportunities and employer partners are for.
                   </p>
                 )}
-                {pattern === 'The All-Rounder' && (
+                {pattern === 'The Pathfinder' && (
                   <p className="text-lg text-slate-700 leading-relaxed">
                     <strong>You're in a strong position.</strong> You've got direction, resilience, real skills, and experience putting them to use. You're ready for bigger opportunities — and could even mentor others just starting out.
                   </p>
