@@ -10,18 +10,34 @@ export const programmesContent = {
     {
       id: 1,
       icon: "🚀",
-      name: "Career Accelerators",
+      name: "Upskill Accelerators",
       duration: "6 weeks",
-      description: "Intensive transformation programme combining self-discovery, skill-building, and real employer engagement.",
+      description: "Sector-specific skill-building across Cyber, Digital Marketing, Construction, or a General track for undecided young people.",
       highlights: [
         "Weekly facilitated sessions",
-        "Professional skills training",
+        "Named, credentialed tutors",
         "Real employer connections",
-        "Career clarity and direction"
+        "Certificate and reference letter"
       ],
       cta: "Learn More",
-      href: "/programmes/career-accelerators",
+      href: "/programmes/upskill-accelerators",
       badge: "Most Comprehensive"
+    },
+    {
+      id: 4,
+      icon: "🧭",
+      name: "Discover Bootcamp",
+      duration: "6 weeks",
+      description: "Identity work first: understand who you are, what you value, and where that turns into real opportunity.",
+      highlights: [
+        "Built on the Trapezium Model",
+        "Led by PthFndR's founding team",
+        "Job search strategy included",
+        "Free for the young person"
+      ],
+      cta: "Learn More",
+      href: "/programmes/discover-bootcamp",
+      badge: "Start Here"
     },
     {
       id: 2,
@@ -54,6 +70,22 @@ export const programmesContent = {
       cta: "Take Assessment",
       href: "/assessment",
       badge: "Free Assessment"
+    },
+    {
+      id: 5,
+      icon: "🌟",
+      name: "High School Accelerators",
+      duration: "1-2 week placement",
+      description: "Workplace exploration for Year 12 / sixth form students. Build clarity on your future with real experience and expert guidance.",
+      highlights: [
+        "Real workplace experience",
+        "Fits your school timetable",
+        "Career guidance included",
+        "Explore before deciding"
+      ],
+      cta: "Learn More",
+      href: "/programmes/high-school-accelerators",
+      badge: "Next Steps"
     }
   ],
 
@@ -62,7 +94,7 @@ export const programmesContent = {
     items: [
       {
         title: "Evidence-Based",
-        description: "Developed by career experts and tested with 500+ young people. Real outcomes, real impact."
+        description: "Developed by career experts and tested with 223 young people. Real outcomes, real impact."
       },
       {
         title: "Flexible",
@@ -74,7 +106,7 @@ export const programmesContent = {
       },
       {
         title: "Outcomes-Focused",
-        description: "85% of participants progress to employment, internship, or further study with clarity on direction."
+        description: "95% of young people progress to work or further education with clarity on direction."
       }
     ]
   },
