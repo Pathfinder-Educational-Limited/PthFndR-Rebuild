@@ -52,9 +52,11 @@ server.ts          Express server (SPA + /api/contact)
 
 ## Design system
 
-- **Type:** Fraunces (headings) + Inter (body).
-- **Palette:** navy `#004890`, deep navy `#0C2A5C`, cyan `#0097b2`, green `#40D478`,
-  warm ivory `#FBF4EC` — defined as `@theme` tokens in `src/index.css`.
+- **Type:** Fraunces (headings) + Inter (body). Wordmark specifically uses Futura
+  (Regular Italic for "Pth", Extra Bold for "FndR") — see brand assets, not a CSS font.
+- **Palette:** navy `#0C2A5C`, teal `#2B9E82`, green `#5DC26A`, white `#FFFFFF`,
+  amber `#F5A635` (accent, use sparingly), black `#000000` (background base for specific
+  contexts) — defined as `@theme` tokens in `src/index.css`.
 - Reusable primitives live in `src/components/ui/` (`Eyebrow`, `TriangleMotif`).
 
 ## SEO
