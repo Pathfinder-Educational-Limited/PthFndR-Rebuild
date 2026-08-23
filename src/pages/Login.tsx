@@ -5,9 +5,9 @@ import { Logo } from '../components/Logo';
 export default function Login() {
   return (
     <>
-      <SEO 
-        title="Sign In | PthFndR" 
-        description="Access the PthFndR portal for dignity-infused learning."
+      <SEO
+        title="Sign In | PthFndR"
+        description="Sign in to your PthFndR account."
       />
       <section className="relative flex min-h-[calc(100vh-4rem)] flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-pth-navy-deep overflow-hidden">
         {/* Background Decorative Elements */}
