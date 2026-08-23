@@ -22,7 +22,7 @@ const steps = [
 ];
 
 const faqs = [
-  { q: 'Who can join?', a: 'Anyone aged 16-25 who is ready to explore their potential and take action on their future.' },
+  { q: 'Who can join?', a: 'Anyone aged 16-24 who is ready to explore their potential and take action on their future.' },
   { q: 'Is it really free?', a: "Yes! Community membership is completely free. Some premium opportunities may have costs, but that's your choice." },
   { q: "What if I'm still in school?", a: 'Perfect! Many community members are school students. Join while you’re still exploring and building.' },
   { q: 'How do I get support?', a: 'Email support@pthfndr.org or message us on WhatsApp. We’re here to help.' },
@@ -142,7 +142,7 @@ export default function Community() {
                     </div>
                     <div>
                       <label htmlFor="age" className="block text-sm font-semibold text-pth-navy mb-1.5">Age *</label>
-                      <input id="age" type="number" name="age" value={formData.age} onChange={handleChange} required min="16" max="30" className={inputClass} placeholder="Your age" />
+                      <input id="age" type="number" name="age" value={formData.age} onChange={handleChange} required min="16" max="24" className={inputClass} placeholder="Your age" />
                     </div>
                   </div>
 
