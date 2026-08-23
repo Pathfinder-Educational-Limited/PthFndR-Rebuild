@@ -1,10 +1,9 @@
 import { Eyebrow } from './ui/Eyebrow';
 
 const metrics = [
-  { value: '500+', label: 'young people supported (2024)' },
-  { value: '30+', label: 'school partners' },
-  { value: '15+', label: 'organisations' },
-  { value: '85%', label: 'progress to employment or further study' },
+  { value: '223', label: 'young people supported' },
+  { value: '8', label: 'school & organisation partners' },
+  { value: '95%', label: 'progress to work or further education' },
 ];
 
 export default function ImpactMetricsSection() {
