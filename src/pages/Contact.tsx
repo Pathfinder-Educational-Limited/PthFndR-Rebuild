@@ -27,7 +27,7 @@ const TypeformStyleForm = () => {
   type Question = { id: string; label: string; type: 'text' | 'email' | 'select' | 'textarea'; placeholder?: string; options?: { value: string; label: string; }[]; };
   const roleQuestions: Question[] = [
     { id: 'role', label: "First, what best describes you?", type: 'select', options: [
-      { value: 'young_person', label: 'Young Person (16-25)' },
+      { value: 'young_person', label: 'Young Person (16-24)' },
       { value: 'educator', label: 'Educator / Teacher' },
       { value: 'institution', label: 'Institution / Local Authority' },
       { value: 'employer', label: 'Employer' },
@@ -211,7 +211,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contact Us | PthFndR"
-        description="Contact PthFndR at DiSH Manchester. Closing the underemployment gap through the Trapezium Model™ and dignity-infused learning at Heron House."
+        description="Contact PthFndR at Heron House, Manchester. We empower young people 16-24 through Discover. Develop. Deploy."
         url="https://pthfndr.org/contact"
       />
       <ContactPageSchema />
@@ -228,7 +228,7 @@ export default function Contact() {
               Connect with PthFndR at the <span className="text-pth-cyan">Digital Security Hub (DiSH)</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-xl leading-8 text-pth-navy font-bold">
-              Empowering Economic Dignity through Ginosko-Sterizo™
+              Discover. Develop. Deploy.
             </p>
             <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-pth-navy/80 font-medium">
               Pathfinder Educational Limited (trading as PthFndR) is headquartered in the heart of Manchester’s innovation district. Our presence within the Digital Security Hub (DiSH) at Heron House allows us to bridge the gap between high-level technical innovation and the human development needed to sustain it.
@@ -353,7 +353,7 @@ export default function Contact() {
                 Why "Place" Matters to Our Mission
               </h3>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                At PthFndR, we believe that Economic Dignity requires proximity to growth. By anchoring our operations at DiSH, we ensure that our Trapezium Model™ and Ginosko-Sterizo™ frameworks are developed in conversation with the UK’s leading digital and security experts.
+                At PthFndR, we believe that economic opportunity requires proximity to growth. By anchoring our operations at DiSH, we ensure our programmes are developed in conversation with Manchester’s leading digital and security experts.
               </p>
               
               <div className="space-y-6">
@@ -374,7 +374,7 @@ export default function Contact() {
                       <div className="h-2 w-2 rounded-full bg-pth-lime"></div>
                     </div>
                     <p className="text-slate-600">
-                      <strong className="text-pth-navy">Social Value Consultation:</strong> Deep dives into how we move 250,000 individuals out of the underemployment gap.
+                      <strong className="text-pth-navy">Social Value Consultation:</strong> Deep dives into our 10-year ambition: moving 250,000 young people out of the underemployment gap through technology, partnership, and people.
                     </p>
                   </li>
                   <li className="flex gap-3">
