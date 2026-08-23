@@ -6,28 +6,24 @@ import { TriangleMotif } from '../components/ui/TriangleMotif';
 import { AboutPageSchema } from '../components/SEOSchemas';
 
 const challenges = [
-  { title: 'Young People Feel Stuck', points: ['42% unsure about career direction', 'Limited access to real experience', 'No authentic employer connections', 'Applying for jobs without clarity'] },
+  { title: 'Young People Feel Stuck', points: ['Uncertain about career direction', 'Limited access to real experience', 'No authentic employer connections', 'Applying for jobs without clarity'] },
   { title: 'Schools Are Overwhelmed', points: ['Careers support stretched thin', 'Limited employer relationships', 'Difficulty measuring impact', 'Students progress without direction'] },
   { title: 'Employers Miss Talent', points: ['Talent pipeline broken', 'Diversity hiring challenges', 'Difficulty accessing entry-level talent', 'Limited time to invest'] },
 ];
 
 const streams = [
-  { tag: 'Know', title: 'Identity', icon: Fingerprint, accent: 'text-pth-cyan', wrap: 'bg-pth-cyan/10', desc: 'Help young people understand themselves—their strengths, values, interests, and what matters to them. Before you can own your future, you need to know yourself.' },
-  { tag: 'Build', title: 'Capability', icon: Wrench, accent: 'text-pth-green', wrap: 'bg-pth-green/10', desc: 'Develop practical skills employers want: communication, problem-solving, professional presence, sector-specific capability. Theory meets practice. Immediately.' },
-  { tag: 'Do', title: 'Opportunity', icon: Globe, accent: 'text-pth-navy', wrap: 'bg-pth-navy/10', desc: 'Connect with real work, real companies, real impact. Move from "someday" to "right now." Build portfolio evidence. Make employer connections. Earn if you can. Explore if you want.' },
+  { tag: 'Identity', title: 'Discover', icon: Fingerprint, accent: 'text-pth-cyan', wrap: 'bg-pth-cyan/10', desc: 'Understand who you are: your strengths, values, interests, and what matters to you. Before you can own your future, you need to know yourself.' },
+  { tag: 'Capability', title: 'Develop', icon: Wrench, accent: 'text-pth-green', wrap: 'bg-pth-green/10', desc: 'Build the practical skills employers want: communication, problem-solving, professional presence, and sector-specific ability. Theory meets practice, straight away.' },
+  { tag: 'Opportunity', title: 'Deploy', icon: Globe, accent: 'text-pth-navy', wrap: 'bg-pth-navy/10', desc: 'Connect with real work, real organisations, and real impact. Build evidence you can show. Make real connections. Earn if you can. Explore if you want.' },
 ];
 
 const stats = [
-  { value: '500+', label: 'young people supported (2024)' },
-  { value: '85%', label: 'progress to employment or further study' },
-  { value: '30+', label: 'school partners' },
+  { value: '223', label: 'young people reached to date' },
+  { value: '95%', label: 'progression rate to work or further education' },
+  { value: '72%', label: 'of young people surveyed are tired of generic employability advice' },
 ];
 
-const quotes = [
-  { text: "Our students didn't just get skills. They got confidence and real opportunity. The results speak for themselves.", who: 'School Leader' },
-  { text: 'We found emerging talent. We actually helped young people. We measured the impact. This is CSR that works.', who: 'Employer' },
-  { text: 'I went from lost to excited about my future. Real experience. Real contacts. Real confidence.', who: 'Young Person' },
-];
+const quotes: any[] = [];
 
 const values = [
   { icon: Target, title: 'Outcome-Obsessed', desc: 'We measure success by real impact: did they get hired? Did they progress? Are they confident? Not by engagement metrics or course completion.' },
@@ -35,7 +31,7 @@ const values = [
   { icon: LineChart, title: 'Evidence-Based', desc: "We test, measure, and iterate. Data informs every decision. We're transparent about what works and what doesn't." },
   { icon: Handshake, title: 'Partnership-Driven', desc: 'We work alongside organizations we respect. We invest financially and strategically. We share responsibility for outcomes.' },
   { icon: Users, title: 'Inclusive', desc: "Backgrounds, grades, locations—they don't matter. If you have potential and willingness, we're here." },
-  { icon: Compass, title: 'Mission-Driven', desc: 'Sterizo Research Group supports youth development organizations because social value matters more than profit.' },
+  { icon: Compass, title: 'Mission-Driven', desc: 'We\'re a mission-driven organisation. Social value matters more than profit, and every decision we make reflects that.' },
 ];
 
 export default function About() {
@@ -110,9 +106,9 @@ export default function About() {
           <div className="max-w-3xl mb-16">
             <Eyebrow className="mb-5">Our approach</Eyebrow>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02]">
-              Three core streams
+              Discover, Develop, Deploy
             </h2>
-            <p className="text-lg lg:text-xl text-slate-600 mt-6">We approach youth development through three interconnected streams:</p>
+            <p className="text-lg lg:text-xl text-slate-600 mt-6">Three stages. One journey. Here's how it works.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-10">
@@ -130,7 +126,7 @@ export default function About() {
 
           <div className="bg-pth-navy-deep rounded-3xl p-8 lg:p-10 text-center">
             <p className="text-white/90 text-lg lg:text-xl italic max-w-3xl mx-auto">
-              Identity without skill = confusion. Skill without opportunity = frustration. Opportunity without identity = random. <strong className="text-pth-green not-italic font-heading">Together? Transformation.</strong>
+              Discover without Develop is wasted potential. Develop without Deploy is untested skill. Deploy without Discover is just random effort. <strong className="text-pth-green not-italic font-heading">Together? Transformation.</strong>
             </p>
           </div>
         </div>
@@ -156,14 +152,6 @@ export default function About() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {quotes.map((q) => (
-              <blockquote key={q.who} className="bg-white/5 border border-white/10 p-8 rounded-2xl">
-                <p className="italic text-white/90 mb-4">"{q.text}"</p>
-                <footer className="text-pth-cyan font-bold text-sm">— {q.who}</footer>
-              </blockquote>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -201,7 +189,10 @@ export default function About() {
             PthFndR is shaped by our work with leading youth development organizations. We invest financially and strategically in organizations doing frontline work.
           </p>
           <p className="text-slate-600">
-            We partner with GIFT, Elevate Young Minds, BreakOut Charity, Loreto Schools, Prayer Storm, Flourish Together CIC, and 1 Million Mentor to ensure young people get the support they deserve.
+            We partner with GIFT, Elevate Young Minds, BreakOut Charity, Flourish Together CIC, New Wine Nation, and Creative Ideation Hub to ensure young people get the support they deserve.
+          </p>
+          <p className="text-slate-500 text-sm mt-4">
+            We're also proud to support Prayer Storm.
           </p>
         </div>
       </section>
@@ -216,7 +207,7 @@ export default function About() {
               <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-6 text-white text-balance">Ready to own your future?</h2>
               <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto">Or ready to partner with us to change how young people develop?</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to="/programmes/career-accelerators" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl">
+                <Link to="/programmes/upskill-accelerators" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl">
                   Explore programmes <ArrowRight size={20} aria-hidden="true" />
                 </Link>
                 <Link to="/for-organisations" className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
