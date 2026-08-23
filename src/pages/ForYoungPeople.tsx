@@ -9,7 +9,7 @@ export default function ForYoungPeople() {
     <>
       <SEO
         title="For Young People | PthFndR"
-        description="Build real skills, work on real projects, and get hired. PthFndR connects 16-25 year olds with hands-on opportunities and organisations that see your potential."
+        description="Build real skills, work on real projects, and get hired. PthFndR connects 16-24 year olds with hands-on opportunities and organisations that see your potential."
       />
 
       {/* HERO SECTION */}
@@ -18,7 +18,7 @@ export default function ForYoungPeople() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             <div className="lg:col-span-7">
-              <Eyebrow tone="cyan" className="mb-6">For young people (16-25)</Eyebrow>
+              <Eyebrow tone="cyan" className="mb-6">For young people (16-24)</Eyebrow>
               <h1 className="font-heading font-extrabold tracking-tight text-pth-navy text-balance text-5xl sm:text-6xl lg:text-[4.5rem] leading-[0.95] mb-8">
                 Build real skills. Do real work. <span className="text-pth-cyan">Get hired.</span>
               </h1>
@@ -28,7 +28,7 @@ export default function ForYoungPeople() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   to="/assessment"
-                  className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
                   Find your starting point <ArrowRight size={20} aria-hidden="true" />
                 </Link>
@@ -73,7 +73,7 @@ export default function ForYoungPeople() {
                 <Hammer size={24} />
               </div>
               <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Hands-on skills</h3>
-              <p className="text-slate-600">Career Accelerators and social hackathons where you build something real — not another course you'll never finish.</p>
+              <p className="text-slate-600">Upskill Accelerators and social hackathons where you build something real — not another course you'll never finish.</p>
             </div>
 
             <div className="group bg-pth-warm p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -108,7 +108,7 @@ export default function ForYoungPeople() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { n: '1', title: 'Find your starting point', desc: 'Take the free 2-minute assessment to see where your strengths are and what to focus on next.', to: '/assessment', cta: 'Take the assessment' },
-              { n: '2', title: 'Build real skills', desc: 'Join a Career Accelerator or social hackathon and work on something you can actually show people.', to: '/programmes/career-accelerators', cta: 'See Career Accelerators' },
+              { n: '2', title: 'Build real skills', desc: 'Join an Upskill Accelerator or social hackathon and work on something you can actually show people.', to: '/programmes/upskill-accelerators', cta: 'See Upskill Accelerators' },
               { n: '3', title: 'Get matched & get hired', desc: 'Apply for live micro-opportunities with organisations ready to hire people who\u2019ve proven themselves.', to: '/opportunities', cta: 'Browse opportunities' },
             ].map((step) => (
               <div key={step.n} className="bg-white rounded-3xl p-8 lg:p-10 border border-slate-100 shadow-sm flex flex-col">
@@ -135,7 +135,7 @@ export default function ForYoungPeople() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              "You're 16-25 and not sure what your next step is",
+              "You're 16-24 and not sure what your next step is",
               "You've got a degree (or you're studying) but can't get a foot in the door",
               "You want real experience, not another unpaid internship that goes nowhere",
               "You're figuring things out without a lot of family connections or support behind you",
@@ -160,7 +160,7 @@ export default function ForYoungPeople() {
               <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto">Takes 2 minutes. No sign-up needed to find out where to start.</p>
               <Link
                 to="/assessment"
-                className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl"
               >
                 Take the free assessment <ArrowRight size={20} aria-hidden="true" />
               </Link>
