@@ -23,7 +23,7 @@ export default function ForSchools() {
             </h1>
             <p className="text-xl lg:text-2xl text-slate-600 font-medium mb-6">{forSchoolsContent.hero.subheading}</p>
             <p className="text-lg text-slate-600 mb-10 max-w-2xl">{forSchoolsContent.hero.bodyCopy}</p>
-            <a href="#programmes" className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+            <a href="#programmes" className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
               {forSchoolsContent.hero.ctaButton} <ArrowRight size={20} aria-hidden="true" />
             </a>
           </div>
