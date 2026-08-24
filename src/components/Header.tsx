@@ -38,14 +38,14 @@ export default function Header() {
     }
   };
 
-  const navLinkClass = (active: boolean) => 
+  const navLinkClass = (active: boolean) =>
     `text-sm transition-colors duration-200 py-2 relative group rounded focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 ${
-      active ? 'text-pth-navy font-bold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#5FD4D4] after:w-full after:scale-x-100' : 'font-medium text-pth-navy hover:text-[#5FD4D4] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#5FD4D4] after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left'
+      active ? 'text-pth-navy font-bold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#2B9E82] after:w-full after:scale-x-100' : 'font-medium text-pth-navy hover:text-[#5FD4D4] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#2B9E82] after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left'
     }`;
 
-  const dropdownButtonClass = (active: boolean) => 
+  const dropdownButtonClass = (active: boolean) =>
     `flex items-center gap-1 text-sm transition-colors duration-200 py-2 relative group cursor-pointer rounded focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 ${
-      active ? 'text-pth-navy font-bold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#5FD4D4] after:w-full after:scale-x-100' : 'font-medium text-pth-navy hover:text-[#5FD4D4] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#5FD4D4] after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left'
+      active ? 'text-pth-navy font-bold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#2B9E82] after:w-full after:scale-x-100' : 'font-medium text-pth-navy hover:text-[#5FD4D4] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#2B9E82] after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left'
     }`;
 
   return (
@@ -68,7 +68,7 @@ export default function Header() {
                 aria-haspopup="true"
                 aria-controls="programmes-menu"
               >
-                Programmes <ChevronDown className={`w-4 h-4 transition-all duration-300 ${isProgrammesOpen ? 'text-[#40D478] rotate-180' : 'group-hover:text-[#40D478] group-hover:rotate-3'}`} aria-hidden="true" />
+                Programmes <ChevronDown className={`w-4 h-4 transition-all duration-300 ${isProgrammesOpen ? 'text-[#5DC26A] rotate-180' : 'group-hover:text-[#5DC26A] group-hover:rotate-3'}`} aria-hidden="true" />
               </button>
               
               <div 
@@ -82,25 +82,27 @@ export default function Header() {
                   <div className="col-span-2 space-y-4">
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-young-people">For Young People</h3>
                     <div className="space-y-1" role="group" aria-labelledby="menu-young-people">
-                      <Link to="/programmes/career-accelerators" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Career Accelerators</Link>
-                      <Link to="/opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Micro-Opportunities</Link>
-                      <Link to="/assessment" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Free Assessment (Trapezium Profile)</Link>
+                      <Link to="/programmes/discover-bootcamp" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Discover Bootcamp</Link>
+                      <Link to="/programmes/upskill-accelerators" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Upskill Accelerators</Link>
+                      <Link to="/programmes/high-school-accelerators" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">High School Accelerators</Link>
+                      <Link to="/opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Micro-Opportunities</Link>
+                      <Link to="/assessment" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Free Assessment (Trapezium Profile)</Link>
                     </div>
                   </div>
                   
                   <div className="space-y-4">
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-schools">For Schools</h3>
                     <div className="space-y-1" role="group" aria-labelledby="menu-schools">
-                      <Link to="/for-schools/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">School Partnership Programme</Link>
-                      <Link to="/for-schools/professional-development" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Professional Development</Link>
+                      <Link to="/for-schools/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">School Partnership Programme</Link>
+                      <Link to="/for-schools/professional-development" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Professional Development</Link>
                     </div>
                   </div>
 
                   <div className="space-y-4">
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-organisations">For Organisations</h3>
                     <div className="space-y-1" role="group" aria-labelledby="menu-organisations">
-                      <Link to="/for-organisations/create-opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Create Opportunities</Link>
-                      <Link to="/for-organisations/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#004890] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Organisation Partnership</Link>
+                      <Link to="/for-organisations/create-opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Create Opportunities</Link>
+                      <Link to="/for-organisations/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Organisation Partnership</Link>
                     </div>
                   </div>
                 </div>
@@ -117,7 +119,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center">
             <Link
               to="/signin"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-pth-green px-6 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:bg-[#36b666] hover:shadow-lg hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-pth-green px-6 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:bg-[#4ea858] hover:shadow-lg hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
             >
               Sign In
             </Link>
@@ -170,7 +172,9 @@ export default function Header() {
                   <div>
                     <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2" id="mobile-menu-young">For Young People</h3>
                     <div className="space-y-1" role="group" aria-labelledby="mobile-menu-young">
-                      <Link to="/programmes/career-accelerators" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Career Accelerators</Link>
+                      <Link to="/programmes/discover-bootcamp" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Discover Bootcamp</Link>
+                      <Link to="/programmes/upskill-accelerators" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Upskill Accelerators</Link>
+                      <Link to="/programmes/high-school-accelerators" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>High School Accelerators</Link>
                       <Link to="/opportunities" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Micro-Opportunities</Link>
                       <Link to="/assessment" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Free Assessment (Trapezium Profile)</Link>
                     </div>
