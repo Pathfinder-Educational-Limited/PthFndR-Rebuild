@@ -15,10 +15,10 @@ export default function ForSchoolsProfessionalDevelopment() {
           eyebrow: 'CPD for your team',
           heading: 'Confident facilitators, better outcomes',
           body: [
-            'The strongest careers provision is delivered by staff who feel equipped and supported. We train your team to facilitate identity, capability, and opportunity sessions using the Trapezium Model™ — so the work continues long after we do.',
+            'The strongest careers provision is delivered by staff who feel equipped and supported. We train your team to facilitate identity, capability, and opportunity sessions using the Trapezium Model® — so the work continues long after we do.',
           ],
           bullets: [
-            'Practical training in the Trapezium Model™ and Ginosko-Sterizo® approach',
+            'Practical training in the Trapezium Model® and Ginosko-Sterizo® approach',
             'Facilitator guides and ready-to-run session plans',
             'Student-facing materials and resources',
             'Ongoing check-ins and refreshers with your dedicated partner',
