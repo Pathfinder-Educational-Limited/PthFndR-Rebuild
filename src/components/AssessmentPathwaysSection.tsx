@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Compass, Zap, Star, Loader, Trophy } from 'lucide-react';
+import { ArrowRight, Compass, Zap, Hammer, RotateCcw, Trophy } from 'lucide-react';
 import { Eyebrow } from './ui/Eyebrow';
 
 const pathways = [
@@ -9,44 +9,44 @@ const pathways = [
     color: 'text-blue-500',
     bgColor: 'bg-blue-50',
     iconBg: 'bg-blue-100',
-    description: 'You know what you want — now let\'s build the skills to back it up.',
-    detail: 'You\'ve got direction but might be building practical skills and experience.',
+    description: 'Ready to discover.',
+    detail: 'Not sure yet what you want, and that\'s a completely normal place to start. Identity work first, direction second.',
   },
   {
-    name: 'The Grafter',
-    icon: Zap,
-    color: 'text-green-500',
-    bgColor: 'bg-green-50',
-    iconBg: 'bg-green-100',
-    description: 'You\'ve got the skills and graft — let\'s point it somewhere.',
-    detail: 'You\'re resilient and capable but might be unsure which direction to aim.',
-  },
-  {
-    name: 'The Unseen',
-    icon: Star,
-    color: 'text-amber-500',
-    bgColor: 'bg-amber-50',
-    iconBg: 'bg-amber-100',
-    description: 'You\'re ready — you just haven\'t had the chance yet.',
-    detail: 'You\'ve got skills and direction but need the opportunity to prove it.',
-  },
-  {
-    name: 'The Work in Progress',
-    icon: Loader,
+    name: 'The Regrouper',
+    icon: RotateCcw,
     color: 'text-purple-500',
     bgColor: 'bg-purple-50',
     iconBg: 'bg-purple-100',
-    description: 'You\'ve got a mix of strengths and gaps — and that\'s completely normal.',
-    detail: 'A structured next step can help you build across all areas at once.',
+    description: 'Finding the way back.',
+    detail: 'You\'ve got a sense of direction — right now, the hard part is staying with it. A bit of structure can help.',
   },
   {
-    name: 'The All-Rounder',
+    name: 'The Builder',
+    icon: Hammer,
+    color: 'text-teal-500',
+    bgColor: 'bg-teal-50',
+    iconBg: 'bg-teal-100',
+    description: 'Learning by doing.',
+    detail: 'You know who you are and you keep going when it\'s hard. Now it\'s about building real, practical skill.',
+  },
+  {
+    name: 'The Spark',
+    icon: Zap,
+    color: 'text-amber-500',
+    bgColor: 'bg-amber-50',
+    iconBg: 'bg-amber-100',
+    description: 'Talent not yet lit.',
+    detail: 'You\'re ready — you just haven\'t had the platform yet. What\'s missing is the opportunity to show it.',
+  },
+  {
+    name: 'The Pathfinder',
     icon: Trophy,
-    color: 'text-rose-500',
-    bgColor: 'bg-rose-50',
-    iconBg: 'bg-rose-100',
-    description: 'You\'re in a strong position.',
-    detail: 'You\'ve got direction, resilience, skills, and experience. You\'re ready for bigger opportunities.',
+    color: 'text-green-500',
+    bgColor: 'bg-green-50',
+    iconBg: 'bg-green-100',
+    description: 'Ready for what\'s next.',
+    detail: 'You\'ve got direction, resilience, and real skills. Ready for bigger opportunities — and to help others too.',
   },
 ];
 
@@ -103,7 +103,7 @@ export default function AssessmentPathwaysSection() {
           </p>
           <Link
             to="/assessment"
-            className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Start the assessment <ArrowRight size={20} aria-hidden="true" />
           </Link>
