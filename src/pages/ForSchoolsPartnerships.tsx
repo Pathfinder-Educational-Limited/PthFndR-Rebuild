@@ -15,7 +15,7 @@ export default function ForSchoolsPartnerships() {
           eyebrow: 'What a partnership looks like',
           heading: 'We work alongside your careers provision',
           body: [
-            "We don't parachute in and leave. We integrate our Career Accelerators and Micro-Opportunities into your existing PSHE or careers curriculum, train your team to facilitate, and stay involved throughout.",
+            "We don't parachute in and leave. We integrate our Upskill Accelerators, Discover Bootcamp, and Micro-Opportunities into your existing PSHE or careers curriculum, train your team to facilitate, and stay involved throughout.",
           ],
           bullets: [
             'A dedicated PthFndR partner for your school',
@@ -29,7 +29,7 @@ export default function ForSchoolsPartnerships() {
           eyebrow: 'Why schools partner with us',
           heading: 'Outcomes, not activity',
           body: [
-            '85% of young people completing our programmes progress to employment or further study. We measure success by real destinations — did they get hired, did they progress, are they confident about their future.',
+            '95% of young people progress to work or further education. We measure success by real destinations — did they get hired, did they progress, are they confident about their future.',
             'Flexible integration means the partnership fits your school: 6-week intensive, 12-week part-time, or a model tailored to your cohort and timetable.',
           ],
         },
