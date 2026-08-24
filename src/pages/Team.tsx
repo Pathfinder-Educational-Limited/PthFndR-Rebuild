@@ -19,29 +19,29 @@ interface Member {
 }
 
 const FOUNDERS: Member[] = [
-  { name: 'Olayiwola Iyiola', role: 'Founder', bio: 'Leading the vision for dignity-infused learning frameworks across the UK.', photo: 'olayiwola.jpg', linkedin: 'https://www.linkedin.com/in/oiyiolajacobs/' },
-  { name: 'Grace Iyiola-Jacobs', role: 'Co-Founder', bio: 'Driving People Strategy and Formation.', photo: 'grace.jpg', linkedin: 'https://www.linkedin.com/in/giyprofile/' },
+  { name: 'Olayiwola Iyiola', role: 'Founder', bio: '20+ years in leadership development and workforce management. Former FranklinCovey Education Implementation Specialist.', photo: 'olayiwola.jpg', linkedin: 'https://www.linkedin.com/in/oiyiolajacobs/' },
+  { name: 'Grace Iyiola-Jacobs', role: 'Co-Founder', bio: "16+ years in people development and workforce management. Current People Partner at Sainsbury's.", photo: 'grace.jpg', linkedin: 'https://www.linkedin.com/in/giyprofile/' },
   { name: 'Andyson Utomudo', role: 'Co-Founder', bio: 'Driving Technology and Software Engineering.', photo: 'andyson.jpg', linkedin: 'https://www.linkedin.com/in/andyson-utomudo/' },
 ];
 
 const BOARD: Member[] = [
   { name: 'Henry Ngawoofah', role: 'Board Director', title: 'Business Development & Legal', bio: 'Legal strategist focusing on commercial compliance and business expansion.', photo: 'henry.jpg', linkedin: 'https://www.linkedin.com/in/henry-ngawoofah-3752a427/' },
-  { name: 'Olayiwola Iyiola', role: 'Board Director', title: 'Product Development', bio: 'Directing product innovation with a focus on sustainable employment metrics.', photo: 'olayiwola.jpg', linkedin: 'https://www.linkedin.com/in/oiyiolajacobs/' },
+  { name: 'Olayiwola Iyiola', role: 'Board Director', title: 'Product Development', bio: 'Directing product innovation with a focus on real, measurable outcomes for young people.', photo: 'olayiwola.jpg', linkedin: 'https://www.linkedin.com/in/oiyiolajacobs/' },
 ];
 
 const ADVISORS: Member[] = [
   { name: 'Seun Sunmola', role: 'Board Advisor', title: 'Growth & Marketing Strategy', bio: 'Expert in scaling mission-driven organisations and orchestrating regional platform adoption through strategic marketing.', photo: 'seun.jpg', linkedin: 'https://www.linkedin.com/in/seun-sunmola/' },
   { name: 'Dayo Okoro', role: 'Board Advisor', title: 'Construction & Built Environment', bio: 'Expert in sustainable construction and built environment educational pathways.', photo: 'dayo.jpg' },
-  { name: 'Azeez Adebayo', role: 'Board Advisor', title: 'Product & Experience Design', bio: 'Lead strategist for human-centric digital products and vocational accessibility.', photo: 'azeez.jpg', linkedin: 'https://www.linkedin.com/in/azeez-adebayo-661b45b7/' },
+  { name: 'Azeez Adebayo', role: 'Board Advisor', title: 'Product & Experience Design', bio: 'Lead strategist for digital products people actually want to use, built to be genuinely accessible.', photo: 'azeez.jpg', linkedin: 'https://www.linkedin.com/in/azeez-adebayo-661b45b7/' },
   { name: 'Michael Fasipe', role: 'Board Advisor', title: 'Platform Engineering & Technical Architecture', bio: "Platform Engineer specialising in reliable, scalable and automated systems across the full software delivery lifecycle. Trustee of a Manchester-based children's charity, bringing governance experience and community commitment alongside deep technical expertise.", photo: 'michael.jpg', linkedin: 'https://www.linkedin.com/in/michael-fasipe-25961b19/' },
 ];
 
 const VACANCIES = [
-  { title: 'Psychology, Formation & Behavioural Science', desc: 'Psychologist or scientist focusing on identity formation, cognitive resilience, and the mechanics of human flourishing.' },
+  { title: 'Psychology, Formation & Behavioural Science', desc: 'Psychologist or scientist focusing on how young people build identity, resilience, and genuine wellbeing.' },
   { title: 'Strategic Narrative & Growth Stewardship', desc: 'Senior leader with expertise in mission-led storytelling, communications, and scaling regional impact.' },
   { title: 'Legal, Risk & Ethical Governance', desc: 'Solicitor or legal expert specialising in educational IP, ethical data use, and public sector trust.' },
   { title: 'Finance, Social Investment & Sustainability', desc: 'Finance leader or social investor with experience in EdTech sustainability and purpose-driven economic models.' },
-  { title: 'Digital Infrastructure & Platform Logic', desc: 'CTO or Product leader specialising in ethical AI, scalable software architecture, and dignity-first UI/UX.' },
+  { title: 'Digital Infrastructure & Platform Logic', desc: 'CTO or Product leader specialising in ethical AI, scalable software architecture, and genuinely usable design.' },
   { title: 'Industrial Alignment & Partnerships', desc: 'Expert in workforce development, regional skills gap analysis, and building corporate talent pipelines.' },
   { title: 'Policy, Public Sector & Systems Change', desc: 'Policy professional with experience in Local Authority, GMCA, and DWP commissioning cycles.' },
   { title: 'Impact Research & Data Integrity', desc: 'Data scientist or researcher focusing on social value measurement, retention metrics, and audit-ready proof.' },
@@ -145,7 +145,7 @@ export default function Team() {
     <>
       <SEO
         title="Our Team | PthFndR — Founders, Board & Advisors"
-        description="Meet the founders, board of directors and strategic advisors behind PthFndR's mission to close the underemployment gap through dignity-infused learning."
+        description="Meet the founders, board of directors and strategic advisors behind PthFndR's mission to empower young people 16-24 through Discover. Develop. Deploy."
       />
 
       {/* HERO */}
@@ -157,7 +157,7 @@ export default function Team() {
             Built by people who <span className="text-pth-cyan">believe in the work.</span>
           </h1>
           <p className="text-xl lg:text-2xl text-slate-600 font-medium max-w-2xl mx-auto">
-            PthFndR is led by founders, governed by a board of directors, and guided by a strategic advisory board — all united by one mission: enabling talent to close the underemployment gap.
+            PthFndR is led by founders, governed by a board of directors, and guided by a strategic advisory board — all united by one mission: empowering young people 16-24 to discover genuine opportunity.
           </p>
         </div>
       </section>
@@ -225,7 +225,7 @@ export default function Team() {
               Board of Advisors — open seats
             </h2>
             <p className="text-slate-500 lg:text-lg leading-relaxed">
-              We are building a diverse advisory board of sector experts who believe in dignity-infused learning. Nine seats are open. If your expertise aligns, we want to hear from you.
+              We are building a diverse advisory board of sector experts who believe in real, lasting change for young people. Nine seats are open. If your expertise aligns, we want to hear from you.
             </p>
           </div>
 
@@ -270,44 +270,11 @@ export default function Team() {
               Facilitators — open roles
             </h2>
             <p className="text-slate-500 lg:text-lg leading-relaxed">
-              We are looking for experienced facilitators to deliver PthFndR programmes across two specialist tracks. Both roles are based in Manchester and require a genuine commitment to dignity-infused learning.
+              We are looking for an experienced facilitator to deliver PthFndR programmes. Based in Manchester, this role requires a genuine commitment to helping young people build real, lasting confidence.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* ESOL */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative overflow-hidden bg-pth-warm rounded-3xl border border-pth-cyan/25 p-8 lg:p-10"
-            >
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-pth-navy to-pth-cyan" />
-              <div className="flex items-center gap-3 mb-5">
-                <span className="inline-flex items-center gap-1.5 bg-pth-cyan/15 rounded-full px-2.5 py-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-pth-cyan" />
-                  <span className="text-[8px] font-bold tracking-[0.14em] uppercase text-pth-cyan">Recruiting</span>
-                </span>
-                <span className="text-[9px] font-semibold tracking-[0.08em] uppercase text-slate-400">Facilitator</span>
-              </div>
-              <h3 className="font-heading font-extrabold text-pth-navy text-2xl mb-2">ESOL Facilitator</h3>
-              <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-pth-cyan mb-5">English for Speakers of Other Languages · Vocational Fluency</p>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                Deliver EmployaLingua-aligned ESOL sessions for adults in transition and career changers transitioning into employment. You will bridge conversational English with sector-specific Vocational Fluency across healthcare, digital, and construction pathways.
-              </p>
-              <ul className="space-y-2 mb-8">
-                {['CELTA, DELTA or equivalent ESOL qualification', 'Experience working with adults who face barriers to employment', 'Familiarity with vocational / workplace English', 'Commitment to dignity-infused facilitation'].map((req) => (
-                  <li key={req} className="flex items-start gap-3 text-sm text-slate-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-pth-cyan shrink-0 mt-2" />
-                    {req}
-                  </li>
-                ))}
-              </ul>
-              <Link to="/contact?role=applicant&for=ESOL%20Facilitator" className="inline-flex items-center gap-2 bg-pth-cyan text-white rounded-xl px-6 py-3 text-xs font-bold tracking-[0.09em] uppercase hover:opacity-90 transition-opacity">
-                Apply for ESOL role <ArrowRight size={14} aria-hidden="true" />
-              </Link>
-            </motion.div>
-
+          <div className="grid grid-cols-1 max-w-2xl mx-auto gap-6 lg:gap-8">
             {/* Leadership */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -327,7 +294,7 @@ export default function Team() {
               <h3 className="font-heading font-extrabold text-pth-navy text-2xl mb-2">Leadership Development Facilitator</h3>
               <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-pth-green mb-5">Identity · Character · Impact · Trapezium Model®</p>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Facilitate Social Hackathons, Employability Bootcamps and Trapezium Model™ workshops for young people and adults in transition. You will guide participants through identity formation, character development, and contribution-readiness using the Ginosko-Sterizo® methodology.
+                Facilitate Social Hackathons, Employability Bootcamps and Trapezium Model® workshops for young people aged 16 to 24. You will guide participants through identity, character, and building real, visible results.
               </p>
               <ul className="space-y-2 mb-8">
                 {['Background in coaching, youth work or L&D facilitation', 'Experience working with young people or adults facing career barriers', 'Understanding of identity-led development approaches', 'DBS clearance (or willingness to obtain)'].map((req) => (
