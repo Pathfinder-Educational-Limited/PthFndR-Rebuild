@@ -43,9 +43,11 @@ export default function Footer() {
               <ChevronDown className={`w-5 h-5 text-white/50 transition-transform md:hidden ${openSection === 'programmes' ? 'rotate-180' : ''}`} aria-hidden="true" />
             </button>
             <ul id="footer-programmes-list" className={`space-y-1 md:space-y-3 mt-4 md:mt-0 ${openSection === 'programmes' ? 'block' : 'hidden md:block'}`}>
-              <li><Link to="/assessment" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Discovery Path</Link></li>
-              <li><Link to="/programmes/career-accelerators" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Career Accelerator</Link></li>
-              <li><Link to="/community" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Mentorship</Link></li>
+              <li><Link to="/assessment" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#5DC26A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Discovery Path</Link></li>
+              <li><Link to="/programmes/discover-bootcamp" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#5DC26A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Discover Bootcamp</Link></li>
+              <li><Link to="/programmes/upskill-accelerators" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#5DC26A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Upskill Accelerators</Link></li>
+              <li><Link to="/programmes/high-school-accelerators" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#5DC26A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">High School Accelerators</Link></li>
+              <li><Link to="/community" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#5DC26A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Community</Link></li>
             </ul>
           </div>
 
@@ -109,9 +111,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-400">
-            &copy; {new Date().getFullYear()} Pathfinder Educational Limited. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4">
+            <p className="text-xs font-bold text-[#5DC26A] tracking-wide">Discover. Develop. Deploy.</p>
+            <p className="text-xs text-slate-400">
+              &copy; {new Date().getFullYear()} Pathfinder Educational Limited. All rights reserved.
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <Link to="/privacy" className="text-xs text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-1 -mx-1">Privacy Policy</Link>
             <Link to="/terms" className="text-xs text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-1 -mx-1">Terms of Service</Link>
