@@ -23,12 +23,12 @@ export default function SocialHackathon() {
     {
       name: 'The "Pitch" Authority',
       icon: Rocket,
-      description: 'Presenting solutions to industry leaders at DiSH, proving that your Contribution DNA is ready for the marketplace.',
+      description: "Presenting solutions to industry leaders at DiSH, proving you're ready for the marketplace.",
     },
     {
       name: 'Measurable ROI',
       icon: BarChart3,
-      description: 'Every solution is evaluated based on its potential for economic and social impact, aligning with the DO (Impact) pillar.',
+      description: 'Every solution is evaluated on its potential for real economic and social impact.',
     }
   ];
 
@@ -59,7 +59,7 @@ export default function SocialHackathon() {
                 <span className="text-pth-cyan">The Proving Ground</span>
               </h1>
               <p className="text-xl leading-8 text-slate-300 font-medium">
-                Where Contribution DNA Meets Real-World Challenges.
+                Where real skills meet real-world challenges.
               </p>
             </motion.div>
           </div>
@@ -83,7 +83,7 @@ export default function SocialHackathon() {
                 At PthFndR, we believe that competence is best proven through action. Our Social Hackathons are the bridge between "learning" and "doing."
               </p>
               <p>
-                Operating out of <strong>Heron House (DiSH)</strong>, these events bring together 16-25s, marginalized adults, and industry experts to solve "live" problems. This isn't a classroom exercise; it is a high-stakes simulation of the modern UK workplace. For our <strong>Unseen Contributors</strong>, the Hackathon is the moment their value becomes visible to the city.
+                Operating out of <strong>Heron House (DiSH)</strong>, these events bring together young people and industry experts to solve real problems. This isn't a classroom exercise; it is a high-stakes simulation of the modern UK workplace. This is the moment a young person's value becomes visible to the city.
               </p>
               
               <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">The Hackathon Methodology</h3>
@@ -91,17 +91,17 @@ export default function SocialHackathon() {
                 Most training programs end with a certificate. Ours ends with a solution. During a PthFndR Social Hackathon, participants are placed into multidisciplinary teams and handed a brief from a real-world partner—be it a tech firm in Manchester or a healthcare provider in the North West.
               </p>
               <p>
-                Using the <strong>Ginosko-Sterizo™</strong> framework, teams must navigate the friction of collaboration, the pressure of deadlines, and the technical requirements of the brief. By the end of the day, they don't just have a project; they have a track record of <strong>Economic Contribution</strong>.
+                Teams navigate the friction of collaboration, the pressure of deadlines, and the technical requirements of the brief, drawing on the same Ginosko-Sterizo® approach that shapes our programmes. By the end of the day, they don't just have a project; they have a real track record they can show.
               </p>
 
               <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Why Industry Partners Join Us</h3>
               <p>
-                For our partners at the <strong>Digital Security Hub</strong>, these hackathons are a direct pipeline to a new type of talent. They get to see potential "Agents" in action—witnessing their character, their grit, and their ability to solve problems before they even see a CV. This is how we dismantle systemic exclusion: by making excellence impossible to ignore.
+                Based at the <strong>Digital Security Hub</strong>, these hackathons give organisations a direct look at new talent. They get to see young people in action, their character, their grit, and their ability to solve problems, before they even see a CV.
               </p>
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
                 <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">Ready to Prove Your Value?</h4>
-                <p className="text-slate-600 mb-6">Join our next Social Hackathon at DiSH and move from an Unseen Contributor to a visible Value-Creator.</p>
+                <p className="text-slate-600 mb-6">Join our next Social Hackathon at DiSH and show what you can really do.</p>
                 <Link 
                   to="/contact" 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
