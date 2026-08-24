@@ -110,16 +110,33 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4">
             <p className="text-xs font-bold text-[#5DC26A] tracking-wide">Discover. Develop. Deploy.</p>
             <p className="text-xs text-slate-400">
               &copy; {new Date().getFullYear()} Pathfinder Educational Limited. All rights reserved.
             </p>
           </div>
-          <div className="flex items-center gap-6">
-            <Link to="/privacy" className="text-xs text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-1 -mx-1">Privacy Policy</Link>
-            <Link to="/terms" className="text-xs text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-1 -mx-1">Terms of Service</Link>
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <a
+              href="https://iasme.co.uk/cyber-essentials/ncsc-certificate-search/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Cyber Essentials certified — verify on the official IASME register"
+              className="inline-flex items-center focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded opacity-90 hover:opacity-100 transition-opacity"
+            >
+              <img
+                src="/badges/cyber-essentials-certified.png"
+                alt="Cyber Essentials certified"
+                width={48}
+                height={48}
+                loading="lazy"
+              />
+            </a>
+            <div className="flex items-center gap-6">
+              <Link to="/privacy" className="text-xs text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-1 -mx-1">Privacy Policy</Link>
+              <Link to="/terms" className="text-xs text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-1 -mx-1">Terms of Service</Link>
+            </div>
           </div>
         </div>
       </div>
