@@ -45,7 +45,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   to="/assessment"
-                  className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
                   Take the free assessment <ArrowRight size={20} aria-hidden="true" />
                 </Link>
