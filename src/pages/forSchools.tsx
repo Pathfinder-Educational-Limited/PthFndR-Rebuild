@@ -211,7 +211,7 @@ export default function ForSchools() {
                 {forSchoolsContent.cta.headline}
               </h2>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl">
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl">
                   {forSchoolsContent.cta.primaryButton} <ArrowRight size={20} aria-hidden="true" />
                 </Link>
                 <a href="/PthFndR-Capability-Statement.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
