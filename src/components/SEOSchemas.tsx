@@ -41,7 +41,7 @@ export function OrganizationSchema() {
           postalCode: 'M2 5LE',
           addressCountry: 'GB',
         },
-        foundingDate: '2023',
+        foundingDate: '2024-04-19',
         founder: [{ '@type': 'Person', name: 'Olayiwola Iyiola' }],
         areaServed: { '@type': 'Country', name: 'United Kingdom' },
         knowsAbout: ['Youth Development', 'Career Development', 'Employment Services', 'Mentorship', 'Skills Training'],
@@ -57,9 +57,9 @@ export function HomePageSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        name: 'PthFndR - Where Young Potential Becomes Real Impact',
+        name: 'PthFndR - Discover. Develop. Deploy.',
         description:
-          'Transform identity. Build capability. Get hired. Complete youth development platform with career programmes, real opportunities, and mentorship.',
+          'PthFndR helps young people aged 16 to 24 discover who they are, develop the skills and confidence to move forward, and deploy that potential into real opportunity.',
         url: `${ORIGIN}/`,
         isPartOf: { '@type': 'WebSite', name: 'PthFndR', url: ORIGIN },
         mainEntity: {
@@ -76,7 +76,7 @@ export function HomePageSchema() {
   );
 }
 
-// ── Career Accelerators (Course) ───────────────────────────────────────────────
+// ── Upskill Accelerators (Course) ──────────────────────────────────────────────
 // aggregateRating + review omitted on purpose: shipping fabricated ratings/reviews
 // violates Google's structured-data policy. Add real, verifiable data to re-enable.
 export function ProgrammeSchema() {
@@ -85,12 +85,12 @@ export function ProgrammeSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'Course',
-        name: 'Career Accelerators - 6-Week Intensive Programme',
+        name: 'Upskill Accelerators - 6-Week Intensive Programme',
         description:
-          'Transform identity, build capability, and get hired. 6-week intensive career development programme combining self-discovery, skill-building, and real employer engagement.',
-        url: `${ORIGIN}/programmes/career-accelerators`,
+          'Sector-specific skill-building across Cyber, Digital Marketing, Construction, or a General track. 6-week intensive programme combining self-discovery, skill-building, and real employer engagement.',
+        url: `${ORIGIN}/programmes/upskill-accelerators`,
         provider: { '@type': 'EducationalOrganization', name: 'PthFndR', sameAs: ORIGIN },
-        courseCode: 'CA-001',
+        courseCode: 'UA-001',
         timeRequired: 'P6W',
         educationalLevel: 'Secondary/PostSecondary',
         inLanguage: 'en-GB',
@@ -115,7 +115,7 @@ export function OpportunitiesListSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        name: 'Micro-Opportunities - Real Work Experience',
+        name: 'Opportunities - Real Work Experience',
         description:
           'Browse real work opportunities, internships, and micro-projects. Build portfolio evidence, earn experience, and connect with employers.',
         url: `${ORIGIN}/opportunities`,
@@ -165,8 +165,8 @@ export function AboutPageSchema() {
           name: 'PthFndR',
           description:
             'Youth development platform connecting young people with real opportunities and mentorship',
-          slogan: 'Transform identity. Build capability. Get hired.',
-          foundingDate: '2023',
+          slogan: 'Discover. Develop. Deploy.',
+          foundingDate: '2024-04-19',
           areaServed: 'United Kingdom',
         },
       }}
