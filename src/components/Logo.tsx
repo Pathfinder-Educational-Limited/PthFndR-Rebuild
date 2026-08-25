@@ -23,7 +23,7 @@ export function Logo({
   const { height, width } = sizeMap[size];
   
   // Color based on variant
-  const textColor = variant === 'light' ? '#004890' : '#FFFFFF';
+  const textColor = variant === 'light' ? '#0C2A5C' : '#FFFFFF';
   const navyTriangle = '#0C2A5C';
   
   // Font size is in viewBox units; the svg's width/height scale it per size
@@ -83,8 +83,8 @@ export function Logo({
             x2="100%"
             y2="0%"
           >
-            <stop offset="0%" stopColor="#0097b2" />
-            <stop offset="100%" stopColor="#7ed957" />
+            <stop offset="0%" stopColor="#2B9E82" />
+            <stop offset="100%" stopColor="#5DC26A" />
           </linearGradient>
         </defs>
 
@@ -110,7 +110,7 @@ export function Logo({
       <a 
         href={href}
         className="inline-flex items-center hover:opacity-80 transition-opacity duration-200"
-        aria-label="PthFndR - Where Potential Becomes Impact"
+        aria-label="PthFndR - Discover. Develop. Deploy."
       >
         {LogoContent}
       </a>
