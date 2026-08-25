@@ -60,7 +60,7 @@ export default function AssessmentPathwaysSection() {
             id="pathways-heading"
             className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-6"
           >
-            Take the free 2-minute assessment
+            Take the free <span className="whitespace-nowrap">2-minute</span> assessment
           </h2>
           <p className="text-lg lg:text-xl text-slate-600">
             Answer 4 quick questions to discover your starting point — and exactly what to focus on next. No experience needed.
