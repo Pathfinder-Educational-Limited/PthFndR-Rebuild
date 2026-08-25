@@ -74,7 +74,7 @@ export const programmesContent = {
     {
       id: 5,
       icon: "🌟",
-      name: "High School Accelerators",
+      name: "PthFndR Accelerator",
       duration: "1-2 week placement",
       description: "Workplace exploration for Year 12 / sixth form students. Build clarity on your future with real experience and expert guidance.",
       highlights: [
@@ -84,7 +84,7 @@ export const programmesContent = {
         "Explore before deciding"
       ],
       cta: "Learn More",
-      href: "/programmes/high-school-accelerators",
+      href: "/programmes/pthfndr-accelerator",
       badge: "Next Steps"
     }
   ],
