@@ -9,9 +9,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Methodology from './pages/Methodology';
 import Partners from './pages/Partners';
-import Insights from './pages/Insights';
-import InsightArticle from './pages/InsightArticle';
-import ImpactReport from './pages/ImpactReport';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -31,7 +28,7 @@ import OpportunityDetail from './pages/OpportunityDetail';
 import ParticipantFeedback from './pages/ParticipantFeedback';
 import ForSchools from './pages/forSchools';
 import Stories from './pages/Stories';
-import CareerAccelerators from './pages/CareerAccelerators';
+import PthFndRAccelerator from './pages/PthFndRAccelerator';
 import Programmes from './pages/Programmes';
 import Community from './pages/Community';
 import Team from './pages/Team';
@@ -50,9 +47,6 @@ export default function App() {
             <Route path="about" element={<About />} />
             <Route path="methodology" element={<Methodology />} />
             <Route path="partners" element={<Partners />} />
-            <Route path="insights" element={<Insights />} />
-            <Route path="insights/:id" element={<InsightArticle />} />
-            <Route path="impact-report" element={<ImpactReport />} />
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
             <Route path="signin" element={<Login />} />
@@ -74,7 +68,7 @@ export default function App() {
             <Route path="community" element={<Community />} />
             <Route path="team" element={<Team />} />
             <Route path="programmes" element={<Programmes />} />
-            <Route path="programmes/career-accelerators" element={<CareerAccelerators />} />
+            <Route path="programmes/pthfndr-accelerator" element={<PthFndRAccelerator />} />
             <Route path="opportunities" element={<Opportunities />} />
             <Route path="opportunities/:id" element={<OpportunityDetail />} />
             <Route path="opportunities/:id/feedback" element={<ParticipantFeedback />} />

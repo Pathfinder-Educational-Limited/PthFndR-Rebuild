@@ -19,6 +19,7 @@ export interface OfferingPageProps {
   headline: string;
   accent?: string;
   subhead: string;
+  atAGlance?: string[];
   sections: OfferingSection[];
   cta: {
     headline: string;
@@ -30,7 +31,7 @@ export interface OfferingPageProps {
   };
 }
 
-export function OfferingPage({ seoTitle, seoDescription, canonical, eyebrow, headline, accent, subhead, sections, cta }: OfferingPageProps) {
+export function OfferingPage({ seoTitle, seoDescription, canonical, eyebrow, headline, accent, subhead, atAGlance, sections, cta }: OfferingPageProps) {
   return (
     <>
       <SEO title={seoTitle} description={seoDescription} url={canonical} />
@@ -44,6 +45,16 @@ export function OfferingPage({ seoTitle, seoDescription, canonical, eyebrow, hea
             {headline} {accent && <span className="text-pth-cyan">{accent}</span>}
           </h1>
           <p className="text-xl lg:text-2xl text-slate-600 font-medium max-w-2xl">{subhead}</p>
+          {atAGlance && atAGlance.length > 0 && (
+            <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+              {atAGlance.map((item) => (
+                <li key={item} className="flex items-center gap-2 text-base font-semibold text-pth-navy">
+                  <CheckCircle2 size={18} className="text-pth-green shrink-0" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
 
@@ -81,7 +92,7 @@ export function OfferingPage({ seoTitle, seoDescription, canonical, eyebrow, hea
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-10 text-white text-balance">{cta.headline}</h2>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to={cta.primaryTo} className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl">
+                <Link to={cta.primaryTo} className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl">
                   {cta.primaryLabel} <ArrowRight size={20} aria-hidden="true" />
                 </Link>
                 {cta.secondaryLabel && cta.secondaryTo && (
