@@ -1,42 +1,42 @@
 import SEO from '../components/SEO';
 import { motion } from 'motion/react';
-import { Eye, TrendingUp, PieChart, HeartHandshake, ShieldCheck, ArrowRight, Building2, GraduationCap, MapPin } from 'lucide-react';
+import { Eye, TrendingUp, PieChart, HeartHandshake, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Impact() {
   const pillars = [
     {
-      name: 'Visible Contribution',
+      name: 'Getting Noticed',
       icon: Eye,
-      description: 'Moving from a "Hidden Gem" to a recognized Value-Creator whose economic contribution is seen, measured, and utilized by leadership.',
+      description: 'Moving from doing good work quietly to having that work actually seen and valued.',
     },
     {
-      name: 'Influential Outcomes',
+      name: 'Making a Real Difference',
       icon: TrendingUp,
-      description: 'The ability to affect change and deliver results that exceed the basic requirements of a job description, driving real growth.',
+      description: 'Going beyond the basic requirements of a role to actually move things forward.',
     },
     {
-      name: 'Value Creation',
+      name: 'Creating Real Value',
       icon: PieChart,
-      description: 'Directly contributing to the ROI of an organization, whether through innovation at DiSH or operational excellence in Healthcare.',
+      description: 'Directly contributing to the organisations you work with, whether that\u2019s a startup at DiSH or a healthcare team.',
     },
     {
-      name: 'Community Agency',
+      name: 'Lifting Others Up',
       icon: HeartHandshake,
-      description: 'Using your platform as a net contributor to mentor others and strengthen the local social fabric of Greater Manchester.',
+      description: 'Using what you\u2019ve built to support others coming up behind you, and strengthen your community.',
     },
     {
-      name: 'Economic Sustenance',
+      name: 'Staying in Demand',
       icon: ShieldCheck,
-      description: 'Achieving a level of vocational fluency that ensures long-term, high-value employment regardless of market shifts.',
+      description: 'Building skills solid enough that they hold up no matter how the job market shifts.',
     }
   ];
 
   return (
     <>
       <SEO 
-        title="Impact (DO) | The Evidence of Economic Contribution | PthFndR" 
-        description="Discover how PthFndR measures success through Impact (DO), the final domain of the Trapezium Model™ that shifts internal growth to external contribution."
+        title="Impact (Deploy) | Real, Measurable Change | PthFndR" 
+        description="Impact is the final stage of the Trapezium Model, where identity, character, and competence turn into real, visible results."
       />
       
       {/* Hero Section */}
@@ -52,14 +52,14 @@ export default function Impact() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-impact-purple/10 border border-impact-purple/20 text-impact-purple text-sm font-bold tracking-wide uppercase mb-6">
                 <span className="w-2 h-2 rounded-full bg-impact-purple"></span>
-                The Trapezium Model™
+                The Trapezium Model
               </div>
               <h1 className="text-4xl font-heading font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
-                Impact (DO): <br className="hidden sm:block" />
-                <span className="text-impact-purple">The Evidence of Economic Contribution</span>
+                Impact: <br className="hidden sm:block" />
+                <span className="text-impact-purple">From Potential to Proof</span>
               </h1>
               <p className="text-xl leading-8 text-slate-300 font-medium">
-                Moving from Potential to Measurable Value
+                Everything you've built, turned into something real.
               </p>
             </motion.div>
           </div>
@@ -80,63 +80,31 @@ export default function Impact() {
               className="prose prose-lg prose-slate"
             >
               <p className="lead text-xl text-slate-700 font-medium">
-                In the Trapezium Model™, Impact is the final domain. It represents the critical shift from internal growth to external contribution.
+                In the Trapezium Model, Impact is the last stage, where everything else comes together.
               </p>
               <p>
-                At Pathfinder Educational Limited (PthFndR), we teach that while Identity (KNOW), Character (BE), and Competence (BE) prepare the individual, Impact (DO) is the measurable evidence that a contributor is actively driving growth. For 16-25s and marginalised adults, this is the ultimate goal: moving from a state of dependency or underemployment to becoming a recognized, high-value asset in the UK economy.
+                At Pathfinder Educational Limited (PthFndR), Identity, Character, and Competence all prepare a young person. Impact is the proof: real, visible evidence that it's working.
               </p>
               <p>
-                We define impact not by the mere attainment of a job, but by the Economic Dignity achieved when an individual’s work solves complex problems and creates tangible value for their employer, their community, and the nation. It is about transitioning from an "income-seeker" to a true "Value-Creator."
+                We don't measure impact by whether someone got a job. We measure it by whether their work is actually solving problems, for their employer, for their community, for themselves.
               </p>
               
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Solving the "Hidden Gem" Profile</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Talented, but overlooked</h3>
               <p>
-                Our research and daily operations at Heron House show that many marginalised adults suffer from the "Hidden Gem" paradox. These are individuals who score exceptionally high in Character (Internal Muscle) and Competence (Vocational Fluency) but remain low in Impact. They possess the capacity to contribute significantly, yet they lack the platform, the network, or the strategic positioning to make their value known.
+                Some of the young people we work with are genuinely strong, resilient and skilled, but still get passed over. They're doing great work quietly in the background, without the platform or the visibility to get properly recognised for it.
               </p>
               <p>
-                They are often the "engine room" of companies—working tirelessly behind the scenes—but are frequently overlooked for promotion, leadership, or strategic roles. We use the Ginosko-Sterizo™ framework to provide the specific "External Strength" needed for these contributors to claim their seat at the table. By aligning their unique Contribution DNA with their output, we turn latent potential into <strong>Visible Contribution</strong>. We teach them how to ensure their work is not just done, but seen, measured, and valued by decision-makers.
-              </p>
-
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">The PthFndR Agent Program (PAP)</h3>
-              <p>
-                To facilitate this transition into Impact, we developed the PthFndR Agent Program (PAP). We do not view our participants as students or trainees; we view them as <strong>Ready-to-Contribute Agents</strong>. This program is designed to place these Agents into high-stakes environments—such as the tech startups at the Manchester DiSH or critical healthcare settings—where they can immediately apply their Vocational Fluency and Internal Muscle to solve real-world problems.
-              </p>
-              <p>
-                By treating them as Agents of change rather than passive learners, we accelerate their path to Economic Dignity. They learn to navigate complex organizational structures, advocate for their ideas, and deliver outcomes that directly impact the bottom line.
+                We help change that. Once someone knows what they bring and has built real skill, the next step is making sure that work actually gets seen, not just done.
               </p>
 
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Social Value & The UK Economy</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Where we're headed</h3>
               <p>
-                For our institutional partners in Local Government and Further Education (FE) Colleges, the Impact (DO) domain provides the longitudinal data required for Social Value Act 2012 compliance. It proves that our interventions are not just feel-good exercises, but rigorous economic strategies.
+                Our 10-year ambition is to help move 250,000 young people out of the underemployment gap. We're working toward that through three things: technology, partnership, and people, building the tools, the relationships, and the direct support to get there.
               </p>
-              
-              <div className="space-y-4 mt-6">
-                <div className="flex gap-4 items-start p-4 rounded-xl bg-slate-50 border border-slate-100">
-                  <GraduationCap className="w-6 h-6 text-impact-purple flex-shrink-0 mt-1" />
-                  <div>
-                    <strong className="block text-pth-navy">For FE Colleges:</strong>
-                    <span className="text-slate-600">We move learners from "curriculum completion" to "industrial contribution," ensuring that educational outcomes translate directly into economic value.</span>
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start p-4 rounded-xl bg-slate-50 border border-slate-100">
-                  <Building2 className="w-6 h-6 text-impact-purple flex-shrink-0 mt-1" />
-                  <div>
-                    <strong className="block text-pth-navy">For Employers:</strong>
-                    <span className="text-slate-600">We provide Ready-to-Contribute Agents who do not need extensive hand-holding, but instead bring immediate problem-solving capabilities and resilience to the team.</span>
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start p-4 rounded-xl bg-slate-50 border border-slate-100">
-                  <MapPin className="w-6 h-6 text-impact-purple flex-shrink-0 mt-1" />
-                  <div>
-                    <strong className="block text-pth-navy">For the Region:</strong>
-                    <span className="text-slate-600">We contribute to the Skills England mandate by creating a workforce that is not just "ready to work," but "ready to lead" and innovate from within.</span>
-                  </div>
-                </div>
-              </div>
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
-                <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">Complete the Trapezium Journey.</h4>
-                <p className="text-slate-600 mb-6">You have explored Identity, Character, Competence, and Impact. Now, discover where you stand.</p>
+                <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">You've made it through the whole model.</h4>
+                <p className="text-slate-600 mb-6">Identity, Character, Competence, Impact. Now find out where you actually stand.</p>
                 <Link 
                   to="/diagnostic" 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
@@ -154,9 +122,9 @@ export default function Impact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">The 5 Pillars of Impact (DO)</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">Five things we measure</h3>
               <p className="text-slate-600 mb-8">
-                To move 250,000 individuals out of the underemployment gap, we measure success through five core pillars of contribution:
+                Real impact, broken down into five practical areas:
               </p>
               <div className="space-y-6">
                 {pillars.map((pillar, index) => (

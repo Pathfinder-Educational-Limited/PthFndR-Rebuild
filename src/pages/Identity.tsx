@@ -1,42 +1,42 @@
 import SEO from '../components/SEO';
 import { motion } from 'motion/react';
-import { Fingerprint, Target, Heart, Globe, Key, ArrowRight, Sparkles } from 'lucide-react';
+import { Fingerprint, Target, Heart, Globe, Key, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Identity() {
   const pillars = [
     {
-      name: 'Unique Contribution DNA',
+      name: 'What Makes You, You',
       icon: Fingerprint,
-      description: 'Identifying the specific talent set and lived experiences that differentiate you as a high-value asset in the Manchester labor market.',
+      description: 'Your skills, your experiences, the things you\u2019re actually good at, even the ones you haven\u2019t thought to mention on a CV yet.',
     },
     {
-      name: 'Legacy Intent',
+      name: 'What You Want to Leave Behind',
       icon: Target,
-      description: 'Defining the long-term economic and social impact you intend to leave through your daily work and community engagement.',
+      description: 'A sense of the kind of impact you want your work to have, not just a job title, but what you actually want to change or build.',
     },
     {
-      name: 'Vocational Calling',
+      name: 'What You Care About',
       icon: Heart,
-      description: 'Aligning your inner passions and inherent strengths with the actual, pressing needs of critical sectors like Digital Security and Healthcare.',
+      description: 'Matching what you\u2019re naturally drawn to with real, in-demand fields, like cyber, healthcare, or construction, so work doesn\u2019t feel like a compromise.',
     },
     {
-      name: 'Cultural Fluency',
+      name: 'Where You Come From',
       icon: Globe,
-      description: 'Understanding how to navigate the operational norms of the UK workplace and industry environments without losing your authentic self.',
+      description: 'Your culture, your background, your beliefs, whatever they are. They\u2019ve shaped who you are, and that\u2019s something to build on, not hide.',
     },
     {
-      name: 'Ownership',
+      name: 'Taking Ownership',
       icon: Key,
-      description: 'Taking full, unapologetic command of your contribution pathway as an active, indispensable contributor to the UK economy.',
+      description: 'Treating your own path as something you\u2019re actively building, not something that happens to you.',
     }
   ];
 
   return (
     <>
       <SEO 
-        title="Identity (KNOW) | The Foundation of Contribution | PthFndR" 
-        description="Reframing identity from 'Status' to 'Economic Contribution'. Discover how PthFndR uses the Trapezium Model™ to build your Contribution DNA."
+        title="Identity (Discover) | Know Who You Are | PthFndR" 
+        description="Identity is the first stage of the Trapezium Model. Discover how PthFndR helps young people understand who they are before figuring out what's next."
       />
       
       {/* Hero Section */}
@@ -52,14 +52,14 @@ export default function Identity() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-identity-blue/10 border border-identity-blue/20 text-identity-blue text-sm font-bold tracking-wide uppercase mb-6">
                 <span className="w-2 h-2 rounded-full bg-identity-blue"></span>
-                The Trapezium Model™
+                The Trapezium Model
               </div>
               <h1 className="text-4xl font-heading font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
-                Identity (KNOW): <br className="hidden sm:block" />
-                <span className="text-identity-blue">The Foundation of Contribution</span>
+                Identity: <br className="hidden sm:block" />
+                <span className="text-identity-blue">Know Who You Are First</span>
               </h1>
               <p className="text-xl leading-8 text-slate-300 font-medium">
-                Contribution DNA: The Engine of Economic Contribution
+                Before you can decide where you're going, you need to know what you're working with.
               </p>
             </motion.div>
           </div>
@@ -80,37 +80,34 @@ export default function Identity() {
               className="space-y-6 text-lg text-slate-700"
             >
               <p className="text-xl font-semibold text-slate-900">
-                In the Trapezium Model™, Identity is not a passive concept; it is the fundamental "KNOW" (Ginosko) that precedes all high-value action. 
+                In the Trapezium Model, Identity comes first, before skills, before opportunity.
               </p>
               <p>
-                For the 16-25s and marginalised adults we serve at Heron House, establishing a robust Contribution DNA is the absolute first step in moving from merely seeking income to actively offering a substantial economic contribution. It fundamentally reframes the traditional, often limiting question of "Who am I?" into a far more powerful, forward-looking inquiry: <strong>"What is my Economic Value?"</strong>
+                For the young people we work with at Heron House, understanding what you bring is the first real step toward figuring out where you're going. It turns the question "who am I?" into something more useful: "what do I actually have to offer?"
               </p>
               
-              <h3 className="text-2xl font-heading font-bold text-pth-navy pt-4">The Crisis of the "Unseen Contributor"</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy pt-4">Why so many young people feel stuck</h3>
               <p>
-                Across the UK, a significant number of individuals find themselves severely underemployed, not due to a lack of capability, but because their Contribution DNA is fragmented. They have been conditioned to see themselves primarily through the lens of their barriers—whether that be their immigration status, a lack of traditional work experience, or systemic exclusion from mainstream opportunities. This fragmented, deficit-based view creates an artificial ceiling on their potential, turning highly capable individuals into "unseen contributors" who are unable to fully participate in and enrich the economy.
+                A lot of young people we meet are genuinely capable, but don't see it, because they've been taught to think about themselves in terms of what they're missing: no experience, no network, no "traditional" background. That way of thinking puts an artificial ceiling on what's actually possible.
               </p>
               <p>
-                At PthFndR, we deploy our proprietary <strong>Ginosko-Sterizo™</strong> framework to systematically reconstruct this identity. We help you move from being a passive "job seeker" to an active "Value-Creator." This shift is not merely a psychological exercise; it is deeply practical and economically vital. When an individual truly understands their Contributor Identity, they stop asking employers for a chance and start offering them a concrete solution. They begin to see how their unique background, lived experiences, and diverse perspectives are not liabilities to be hidden, but rather distinct assets that the modern UK workforce desperately needs to innovate and grow.
+                We work with young people to flip that. Instead of asking "what am I missing," we start with "what do I already have." Most people are carrying more real, usable strengths than they realise, they just haven't had the chance to name them properly.
               </p>
               <p>
-                Operating from our strategic base at the <strong>Manchester DiSH</strong> (Digital Security Hub), we witness firsthand the transformative power of identity clarity every single day. The rapidly expanding tech, healthcare, and sustainable construction sectors are not just looking for hands to do the work; they are actively seeking minds that understand their own worth and potential. By cultivating a strong, undeniable <strong>Contribution DNA</strong>, we empower individuals to step into these high-demand, high-value roles with unwavering confidence and clear purpose. This is the essence of Economic Dignity—knowing that your work matters and that your presence in the room is justified by the value you create.
-              </p>
-              <p>
-                For FE Colleges and Local Authorities, recognizing and nurturing this Contribution DNA is the key to unlocking regional economic growth. It shifts the paradigm from managing dependency to cultivating a thriving ecosystem of Value-Creators who drive innovation from the ground up.
+                Based at Manchester's Digital Security Hub, we see this shift happen constantly. The fastest-growing sectors, tech, healthcare, sustainable construction, aren't just looking for hands. They're looking for people who understand their own value and can explain it clearly.
               </p>
 
-              <h3 className="text-2xl font-heading font-bold text-pth-navy pt-4">Diagnostic Hook: Are you a "Powerhouse"?</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy pt-4">When energy and direction don't match</h3>
               <p>
-                Our comprehensive Unseen Contributor's Diagnostic often reveals a fascinating pattern: the "Powerhouse" profile. These are individuals equipped with immense internal strength (Character) and undeniable technical skill (Vocational Fluency), yet they fundamentally lack Identity Clarity. Without a clear, articulated "KNOW," their immense energy is diffused, their efforts are scattered, and their ultimate economic contribution is stalled. They work incredibly hard, but often in the wrong direction, leading to inevitable burnout, frustration, and a profound sense of underachievement.
+                Some of the most driven young people we work with are also the most stuck, not because they lack effort, but because that effort has nowhere clear to go. Real strength and real skill, without a clear sense of direction, gets scattered. People end up working hard in the wrong direction, and burning out from it.
               </p>
               <p>
-                The transformational journey, however, does not stop at simply knowing who you are. Once your Identity (KNOW) is firmly established, the next critical step in the Ginosko-Sterizo™ journey is building the fortitude to sustain it. We invite you to explore how <Link to="/character" className="text-pth-cyan hover:underline font-medium">Character (BE)</Link> forms the essential internal muscle required to maintain your trajectory as a Value-Creator in the face of inevitable adversity and industry challenges.
+                Once you're clear on who you are, the next step is building the resilience to hold onto that under pressure. Explore how <Link to="/character" className="text-pth-cyan hover:underline font-medium">Character</Link> builds the staying power to keep going when things get hard.
               </p>
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
-                <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">Unlock your Identity.</h4>
-                <p className="text-slate-600 mb-6">Start your diagnostic to discover your unique profile and begin your journey toward Economic Contribution.</p>
+                <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">Start with who you are.</h4>
+                <p className="text-slate-600 mb-6">Take the free assessment to get a clearer picture of what you bring, and where it could take you.</p>
                 <Link 
                   to="/diagnostic" 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
@@ -128,9 +125,9 @@ export default function Identity() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">The 5 Pillars of Identity (KNOW)</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">Five things we help you get clear on</h3>
               <p className="text-slate-600 mb-8">
-                To achieve true vocational fluency and economic dignity, we meticulously guide our participants through five core identity markers:
+                Understanding yourself isn't one big realisation, it's five smaller, practical ones:
               </p>
               <div className="space-y-6">
                 {pillars.map((pillar, index) => (

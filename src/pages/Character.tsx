@@ -6,37 +6,37 @@ import { Link } from 'react-router-dom';
 export default function Character() {
   const pillars = [
     {
-      name: 'Resilient Persistence',
+      name: 'Sticking With It',
       icon: RotateCcw,
-      description: 'The internal drive to maintain momentum when external pathways to contribution are temporarily blocked or challenged.',
+      description: 'The drive to keep going when the way forward isn\u2019t obvious, or gets blocked for a while.',
     },
     {
-      name: 'Contribution Courage',
+      name: 'Speaking Up',
       icon: Zap,
-      description: 'The boldness to offer your unique value in high-stakes environments, even when you feel underrepresented or unseen.',
+      description: 'The confidence to offer what you can do, even in a room where you feel like the odd one out.',
     },
     {
-      name: 'Emotional Self-Regulation',
+      name: 'Staying Steady',
       icon: Shield,
-      description: 'Developing the internal stability to navigate the pressures of a high-growth career without losing your sense of self.',
+      description: 'Handling pressure without losing your sense of who you are.',
     },
     {
-      name: 'Ethical Alignment',
+      name: 'Staying True to Yourself',
       icon: Scale,
-      description: 'The commitment to aligning your daily actions with your Contribution DNA and the mission of Economic Dignity.',
+      description: 'Making sure what you do day to day actually lines up with what you said mattered to you.',
     },
     {
-      name: 'Adaptable Fortitude',
+      name: 'Bending Without Breaking',
       icon: Anchor,
-      description: 'The "Sterizo" strength to pivot your tactics and approach without ever sacrificing your core identity or value.',
+      description: 'Being able to change your approach when something isn\u2019t working, without losing your footing.',
     }
   ];
 
   return (
     <>
       <SEO 
-        title="Character (BE) | Building Internal Muscle | PthFndR" 
-        description="Character is the internal scaffolding of the Trapezium Model™. Learn how PthFndR builds the resilience needed for long-term Economic Contribution."
+        title="Character (Develop) | Building Strength | PthFndR" 
+        description="Character is the second stage of the Trapezium Model. Learn how PthFndR helps young people build the resilience to keep going."
       />
       
       {/* Hero Section */}
@@ -52,14 +52,14 @@ export default function Character() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-character-purple/10 border border-character-purple/20 text-character-purple text-sm font-bold tracking-wide uppercase mb-6">
                 <span className="w-2 h-2 rounded-full bg-character-purple"></span>
-                The Trapezium Model™
+                The Trapezium Model
               </div>
               <h1 className="text-4xl font-heading font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
-                Character (BE): <br className="hidden sm:block" />
-                <span className="text-character-purple">The Internal Muscle of Grit</span>
+                Character: <br className="hidden sm:block" />
+                <span className="text-character-purple">The Strength to Keep Going</span>
               </h1>
               <p className="text-xl leading-8 text-slate-300 font-medium">
-                Sterizo: The Strength to Sustain Your Contribution
+                Knowing who you are gets you started. Character keeps you in the room.
               </p>
             </motion.div>
           </div>
@@ -80,33 +80,33 @@ export default function Character() {
               className="prose prose-lg prose-slate"
             >
               <p className="lead text-xl text-slate-700 font-medium">
-                In the Trapezium Model™, Character is not about following rules—it is about building the internal scaffolding that supports your talent.
+                In the Trapezium Model, Character isn't about following rules, it's about building the strength that supports your talent.
               </p>
               <p>
-                Knowing who you are (Identity) is the spark, but <strong>Character (BE)</strong> is the fuel that keeps you in the room. For 16-25s and marginalized adults, the path to Economic Dignity is rarely a straight line. It requires what we call <strong>Sterizo</strong>—a specific type of internal strengthening that turns "potential" into "permanence."
+                Knowing who you are gets you started. But the path from where you are to where you want to be is rarely straight. Character is what keeps you moving through the parts that are actually hard.
               </p>
               
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Beyond "Soft Skills"</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">More than "soft skills"</h3>
               <p>
-                The modern workplace often talks about "soft skills," but we find that term dismissive. What industries like Tech and Healthcare actually need are contributors with <strong>Internal Muscle</strong>. At PthFndR, we don't teach you how to "behave"; we teach you how to remain unshakable. 
+                People often call this stuff "soft skills," but that undersells it. What most workplaces actually need is someone who can stay steady when things get difficult. We're not trying to teach you how to "behave." We're helping you build the kind of strength that doesn't crack under pressure.
               </p>
               <p>
-                From our hub at <strong>Manchester DiSH</strong>, we see that the most successful contributors aren't necessarily the ones with the most certificates—they are the ones with the highest level of vocational grit. They are the ones who can handle a technical setback, a difficult feedback session, or a systemic barrier without their identity crumbling.
+                Based at Manchester's Digital Security Hub, we see it again and again: the young people who go furthest aren't always the ones with the most certificates. They're the ones who can take a setback, a hard piece of feedback, or a closed door, and keep going anyway.
               </p>
 
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">The "Powerhouse" in Motion</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">When strength and skill come together</h3>
               <p>
-                When a "Powerhouse" profile combines their <strong>Contribution DNA</strong> with <strong>Sterizo</strong> strength, they become unstoppable. They no longer look for permission to belong; they understand that their character is their permit. This is where we move from "training" to "transformation."
+                Someone who knows what they bring, and has the strength to keep showing up, becomes genuinely hard to stop. They stop waiting for permission and start trusting that they belong in the room. That's the shift from just training to real, lasting change.
               </p>
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
-                <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">Master the Language of Industry.</h4>
-                <p className="text-slate-600 mb-6">Once you have the character to sustain your path, the next step is mastering the specific skills needed to lead.</p>
+                <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">Build the skills to back it up.</h4>
+                <p className="text-slate-600 mb-6">Once you've got the strength to stay in the game, the next step is building the specific skills to lead in it.</p>
                 <Link 
                   to="/competence" 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
                 >
-                  Explore Competence (BE)
+                  Explore Competence
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -119,9 +119,9 @@ export default function Character() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">The 5 Pillars of Character (BE)</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">Five things we help you build</h3>
               <p className="text-slate-600 mb-8">
-                Building the internal resilience required for long-term economic contribution:
+                Building real staying power, piece by piece:
               </p>
               <div className="space-y-6">
                 {pillars.map((pillar, index) => (

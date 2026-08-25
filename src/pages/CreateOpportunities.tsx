@@ -28,7 +28,7 @@ export default function CreateOpportunities() {
           eyebrow: 'Why post with us',
           heading: 'More than a job board',
           body: [
-            'Every young person in our community is vetted and genuinely engaged. You get authentic feedback and real talent discovery — and you actively contribute to closing the underemployment gap, strengthening your ESG and social-value credentials.',
+            'Every young person in our community is vetted and genuinely engaged. You get authentic feedback and real talent discovery — and you actively contribute to creating genuine opportunities for young people, strengthening your ESG and social-value credentials.',
           ],
         },
         {
