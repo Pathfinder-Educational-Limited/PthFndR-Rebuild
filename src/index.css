@@ -6,23 +6,45 @@
   --font-serif: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-heading: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-  /* PthFndR Brand Colors — from the logo spec (src/config/colors.ts) */
-  --color-pth-navy: #004890;       /* Primary Navy — main text & UI anchor */
-  --color-pth-navy-deep: #0C2A5C;  /* Icon Navy — deep contrast fills (heroes, footer, CTA bands) */
-  --color-pth-green: #40D478;      /* Action green — CTAs, focus rings, accents */
-  --color-pth-teal: #5FD4D4;
+  /* PthFndR Brand Colors — CORRECTED Aug 2026 to match the real logo (src/config/colors.ts
+     should be updated to match). Confirmed by founder: Navy #0C2A5C, Green #5DC26A,
+     Teal #2B9E82, White #FFFFFF. Previous values (navy #004890, green #40D478, teal #5FD4D4,
+     cyan #0097b2) did not match the real logo and have been replaced below. */
+  --color-pth-navy: #0C2A5C;       /* Primary Navy — main text & UI anchor. Was #004890. */
+  --color-pth-navy-deep: #0C2A5C;  /* Same navy — only one confirmed navy shade exists. Was already #0C2A5C, unchanged. */
+  --color-pth-green: #5DC26A;      /* Action green — CTAs, focus rings, accents. Was #40D478. */
+  --color-pth-teal: #2B9E82;       /* Was #5FD4D4. */
   --color-pth-cream: #F5F5F5;
   --color-pth-warm: #FBF4EC;      /* Warm ivory — editorial hero/section fields (HEX-style warmth) */
 
   /* Canonical brand palette — keep in sync with src/config/colors.ts */
-  --color-pth-primary-blue: #004890;
-  --color-pth-cyan: #0097b2;
-  --color-pth-lime: #7ed957;
-  --color-pth-soft-cyan: #D6F0F5;
+  --color-pth-primary-blue: #0C2A5C; /* Was #004890. */
+  --color-pth-cyan: #2B9E82;         /* No separate cyan is part of the confirmed 4-colour palette
+                                         (Navy/Teal/Green/White) — mapped to teal rather than left as
+                                         a fifth, unconfirmed colour. Was #0097b2. FLAG: if a distinct
+                                         cyan accent (different from teal) is actually wanted for
+                                         variety, e.g. hover states, that needs a separate decision —
+                                         this consolidation assumes strictly 4 brand colours as given. */
+  --color-pth-lime: #7ed957;         /* Not part of the confirmed 4-colour palette — left unchanged,
+                                         worth a decision on whether this auxiliary tone should exist
+                                         at all or be replaced with a tint of the confirmed green. */
+  --color-pth-soft-cyan: #D6F0F5;    /* Not part of the confirmed 4-colour palette — left unchanged,
+                                         same flag as pth-lime above. */
 
-  /* Trapezium Model dimension colours */
-  --color-identity-blue: #004890;
-  --color-character-green: #40D478;
+  /* Confirmed Aug 2026: full color system finalized */
+  --color-pth-amber: #F5A635;   /* The one confirmed accent colour. Use sparingly — stat highlights,
+                                    badges, a single time-sensitive CTA variant. Never a large
+                                    background fill the way navy/teal/green are used. */
+  --color-pth-black: #000000;   /* Defined background base, distinct from navy. Used for contexts
+                                    like the logo/icon presentation file. Not a general UI replacement
+                                    for navy, which remains the primary dark tone for text/sections. */
+
+  /* Trapezium Model dimension colours — a separate functional palette for the Trapezium Tracker
+     UI (Identity/Character/Competence/Impact), not the core brand palette. Left unchanged
+     pending explicit review, since these are internal product wayfinding colours, not brand marks. */
+  --color-identity-blue: #0C2A5C;    /* Was #004890 — updated to match corrected navy for consistency,
+                                         since this was clearly meant to reference the brand navy. */
+  --color-character-green: #5DC26A;  /* Was #40D478 — updated to match corrected green, same reasoning. */
   --color-character-purple: #8B5CF6;
   --color-competence-orange: #F59E0B;
   --color-impact-purple: #7C3AED;
@@ -94,7 +116,7 @@
 
   input:focus, textarea:focus, select:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(64, 212, 120, 0.1);
+    box-shadow: 0 0 0 3px rgba(93, 194, 106, 0.1);
   }
 }
 
@@ -122,12 +144,12 @@
   /* Buttons - primary */
   .btn-primary {
     @apply bg-pth-green text-white px-6 py-3 rounded-xl font-bold;
-    box-shadow: 0 2px 8px rgba(64, 212, 120, 0.2);
+    box-shadow: 0 2px 8px rgba(93, 194, 106, 0.2);
   }
 
   .btn-primary:hover {
-    @apply bg-[#36b666];
-    box-shadow: 0 4px 12px rgba(64, 212, 120, 0.3);
+    @apply bg-[#4ea858];
+    box-shadow: 0 4px 12px rgba(93, 194, 106, 0.3);
   }
 
   /* Buttons - secondary */
@@ -161,6 +183,6 @@
   background-size: 22px 22px;
 }
 .dot-grid-navy {
-  background-image: radial-gradient(rgba(0, 72, 144, 0.09) 1.5px, transparent 1.6px);
+  background-image: radial-gradient(rgba(12, 42, 92, 0.09) 1.5px, transparent 1.6px);
   background-size: 22px 22px;
 }

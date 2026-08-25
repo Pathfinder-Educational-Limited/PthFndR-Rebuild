@@ -9,7 +9,7 @@ interface SEOProps {
 
 export default function SEO({
   title = 'Pathfinder Educational Limited (PthFndR)',
-  description = 'A mission-led Social Innovation Education Company closing the underemployment gap through dignity-infused learning.',
+  description = 'PthFndR empowers young people 16-24 through Discover. Develop. Deploy. A mission-led social enterprise for youth opportunity.',
   type = 'website',
   name = 'PthFndR',
   image = 'https://pthfndr.org/og-image.png',
