@@ -6,43 +6,43 @@ import { Link } from 'react-router-dom';
 export default function Competence() {
   const pillars = [
     {
-      name: 'Technical Mastery',
+      name: 'Real Technical Skill',
       icon: Wrench,
-      description: 'High-level proficiency in your chosen "Technical Route," ensuring you can execute complex tasks with precision and reliability.',
+      description: 'Being genuinely good at the specific thing you\u2019ve chosen, not just familiar with it.',
     },
     {
-      name: 'Sector Vocabulary',
+      name: 'Speaking the Language',
       icon: MessageSquare,
-      description: 'Speaking the specific, nuanced language of UK industry leaders to build immediate trust and operational alignment.',
+      description: 'Understanding the specific words and ideas people in your field actually use, so you\u2019re taken seriously from day one.',
     },
     {
-      name: 'Process Awareness',
+      name: 'Understanding How Things Work',
       icon: GitMerge,
-      description: 'Understanding the "How" behind the "What"—grasping the systemic workflows and methodologies that drive industry efficiency.',
+      description: 'Knowing not just what to do, but why it\u2019s done that way, so you can actually solve problems, not just follow steps.',
     },
     {
-      name: 'Technological Agility',
+      name: 'Keeping Up With the Tools',
       icon: Cpu,
-      description: 'Staying current with the digital tools of the modern economy and adapting rapidly to new software and hardware environments.',
+      description: 'Staying comfortable with the software and technology your field actually uses, and adapting as it changes.',
     },
     {
-      name: 'Collaborative Intelligence',
+      name: 'Working Well With Others',
       icon: Users,
-      description: 'The ability to contribute effectively within a multidisciplinary team, amplifying the value of your peers and driving collective success.',
+      description: 'Making the people around you better, not just doing your own part well.',
     }
   ];
 
   const sectors = [
-    "Healthcare & Life Sciences",
-    "Digital Security & Tech (DiSH Ecosystem)",
-    "Sustainable Construction & Infrastructure"
+    "Digital Security & Tech",
+    "Digital Marketing",
+    "Construction"
   ];
 
   return (
     <>
       <SEO 
-        title="Competence (BE) | The Language of Vocational Fluency | PthFndR" 
-        description="Discover how PthFndR develops Sector-Specific Fluency and technical mastery through the Trapezium Model™ and EmployaLingua."
+        title="Competence (Develop) | Real, Usable Skills | PthFndR" 
+        description="Competence sits between character and impact in the Trapezium Model. Discover how PthFndR builds real, sector-specific skills through Upskill Accelerators and EmployaLingua."
       />
       
       {/* Hero Section */}
@@ -58,14 +58,14 @@ export default function Competence() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-competence-orange/10 border border-competence-orange/20 text-competence-orange text-sm font-bold tracking-wide uppercase mb-6">
                 <span className="w-2 h-2 rounded-full bg-competence-orange"></span>
-                The Trapezium Model™
+                The Trapezium Model
               </div>
               <h1 className="text-4xl font-heading font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
-                Competence (BE): <br className="hidden sm:block" />
-                <span className="text-competence-orange">The Language of Vocational Fluency</span>
+                Competence: <br className="hidden sm:block" />
+                <span className="text-competence-orange">Skills That Actually Work</span>
               </h1>
               <p className="text-xl leading-8 text-slate-300 font-medium">
-                Competence: Mastering the Atoms of Industry
+                Real skills, built for the field you actually want to work in.
               </p>
             </motion.div>
           </div>
@@ -86,27 +86,21 @@ export default function Competence() {
               className="prose prose-lg prose-slate"
             >
               <p className="lead text-xl text-slate-700 font-medium">
-                In the Trapezium Model™, Competence is the bridge between internal strength and external impact.
+                In the Trapezium Model, Competence is the bridge between who you are and what you can actually do.
               </p>
               <p>
-                To be a net contributor to the UK economy, one must speak the "Language of the Sector." While Identity provides the foundational DNA and Character provides the resilience, Competence is the tangible toolkit required to execute your vision and deliver measurable value.
+                Identity gives you a starting point. Character gives you the staying power. Competence is the toolkit, the real, specific skills you need to actually deliver.
               </p>
               
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Vocational Fluency via EmployaLingua</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Skills, not just a certificate</h3>
               <p>
-                At our Manchester headquarters, we develop the "Learning Atoms" that define modern industry. Through our <a href="https://www.employalingua.com" target="_blank" rel="noopener noreferrer" className="text-pth-cyan hover:underline font-medium">EmployaLingua</a> platform, we move beyond generic training to provide Sector-Specific Fluency. We recognize that true competence is not just about holding a certificate; it is about possessing the Vocational Fluency to walk into a room and immediately understand the operational realities, the technical challenges, and the specific vocabulary of the environment.
+                Through our <a href="https://www.employalingua.com" target="_blank" rel="noopener noreferrer" className="text-pth-cyan hover:underline font-medium">EmployaLingua</a> platform, we go beyond generic training. Holding a certificate isn't the same as walking into a room and actually understanding what's going on around you, the specific challenges, the specific language, the way things actually get done.
               </p>
               <p>
-                For 16-25s and marginalised adults, the barrier to entry is often not a lack of intelligence or capability, but a lack of access to this specific industry language. They are kept on the periphery because they have not been taught how to translate their inherent potential into the precise technical formats required by employers. By focusing on Vocational Fluency, we demystify the workplace. We equip Value-Creators with the exact terminology, process awareness, and technological agility needed to integrate seamlessly into high-growth sectors.
+                For a lot of young people, the barrier isn't ability, it's never having had access to that specific industry knowledge. We help close that gap, so a young person can walk in and add value straight away, not spend months catching up.
               </p>
               <p>
-                This approach is fundamentally Dignity-Infused. It respects the intelligence of the learner by providing them with high-level, relevant skills rather than patronizing, low-tier training. When a contributor can speak the language of Digital Security or Healthcare with confidence, they are no longer asking for a favor; they are negotiating an exchange of value. They step into the economy not as dependents, but as highly capable agents of change.
-              </p>
-              <p>
-                For FE Colleges and Local Authorities, this shift from generic employability skills to targeted Vocational Fluency is the key to closing the regional skills gap. It ensures that educational outputs are directly aligned with economic needs, transforming cohorts of learners into highly sought-after Value-Creators who are ready to hit the ground running.
-              </p>
-              <p>
-                Once a Value-Creator has mastered this language, they are fully equipped to transition into the final phase of the Trapezium Model™: <Link to="/impact" className="text-pth-cyan hover:underline font-medium">Impact (DO)</Link>, where their potential is translated into visible, measurable economic contribution.
+                Once you've built real competence, you're ready for the last stage: <Link to="/impact" className="text-pth-cyan hover:underline font-medium">Impact</Link>, where everything you've built turns into something real and visible.
               </p>
               
               <ul className="list-none pl-0 space-y-3 mt-6 mb-8">
@@ -119,8 +113,8 @@ export default function Competence() {
               </ul>
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
-                <h4 className="text-lg font-heading font-bold text-pth-navy mb-4">Ready to build your vocational fluency?</h4>
-                <p className="text-slate-600 mb-6">Assess your current technical mastery and discover your path to Sector-Specific Fluency.</p>
+                <h4 className="text-lg font-heading font-bold text-pth-navy mb-4">Ready to build real skills?</h4>
+                <p className="text-slate-600 mb-6">Take the free assessment to find the right track for you.</p>
                 <Link 
                   to="/diagnostic" 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
@@ -138,9 +132,9 @@ export default function Competence() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">The 5 Pillars of Competence (BE)</h3>
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">Five things we help you build</h3>
               <p className="text-slate-600 mb-8">
-                To achieve true Vocational Fluency, we focus on developing these five critical areas of competence:
+                Real competence, broken down into five practical areas:
               </p>
               <div className="space-y-6">
                 {pillars.map((pillar, index) => (
