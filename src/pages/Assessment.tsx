@@ -3,6 +3,7 @@ import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Loader2, Mail, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Logo } from '../components/Logo';
 
 type Step =
   | 'intro'
@@ -188,6 +189,10 @@ export default function Assessment() {
             >
               <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-pth-cyan/10 rounded-full blur-3xl"></div>
 
+              <div className="flex justify-center mb-6">
+                <Logo size="sm" href="/" />
+              </div>
+
               <span className="inline-block py-1 px-3 rounded-full bg-pth-cyan/10 text-pth-cyan font-bold text-xs tracking-wider uppercase mb-6">
                 Free · 2 minutes
               </span>
@@ -221,9 +226,12 @@ export default function Assessment() {
               >
                 <ArrowLeft size={16} aria-hidden="true" /> Back
               </button>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-10 h-10 rounded-full bg-identity-blue/10 text-identity-blue flex items-center justify-center font-bold">1</span>
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Direction</span>
+              <div className="flex items-center justify-between gap-3 mb-8">
+                <div className="flex items-center gap-3">
+                  <span className="w-10 h-10 rounded-full bg-identity-blue/10 text-identity-blue flex items-center justify-center font-bold">1</span>
+                  <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Direction</span>
+                </div>
+                <Logo size="sm" href="/" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy leading-tight">
                 "I have a good idea of what I'm good at and what kind of work I want to do."
@@ -247,9 +255,12 @@ export default function Assessment() {
               >
                 <ArrowLeft size={16} aria-hidden="true" /> Back
               </button>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-10 h-10 rounded-full bg-character-green/10 text-character-green flex items-center justify-center font-bold">2</span>
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Staying power</span>
+              <div className="flex items-center justify-between gap-3 mb-8">
+                <div className="flex items-center gap-3">
+                  <span className="w-10 h-10 rounded-full bg-character-green/10 text-character-green flex items-center justify-center font-bold">2</span>
+                  <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Staying power</span>
+                </div>
+                <Logo size="sm" href="/" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy leading-tight">
                 "When things get hard or don't go to plan, I keep going instead of giving up."
@@ -273,9 +284,12 @@ export default function Assessment() {
               >
                 <ArrowLeft size={16} aria-hidden="true" /> Back
               </button>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-10 h-10 rounded-full bg-competence-orange/10 text-competence-orange flex items-center justify-center font-bold">3</span>
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Skills</span>
+              <div className="flex items-center justify-between gap-3 mb-8">
+                <div className="flex items-center gap-3">
+                  <span className="w-10 h-10 rounded-full bg-competence-orange/10 text-competence-orange flex items-center justify-center font-bold">3</span>
+                  <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Skills</span>
+                </div>
+                <Logo size="sm" href="/" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy leading-tight">
                 "I've got real, practical skills I could show or prove to someone — not just things I've studied."
@@ -299,9 +313,12 @@ export default function Assessment() {
               >
                 <ArrowLeft size={16} aria-hidden="true" /> Back
               </button>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-10 h-10 rounded-full bg-impact-purple/10 text-impact-purple flex items-center justify-center font-bold">4</span>
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Real-world chances</span>
+              <div className="flex items-center justify-between gap-3 mb-8">
+                <div className="flex items-center gap-3">
+                  <span className="w-10 h-10 rounded-full bg-impact-purple/10 text-impact-purple flex items-center justify-center font-bold">4</span>
+                  <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Real-world chances</span>
+                </div>
+                <Logo size="sm" href="/" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-pth-navy leading-tight">
                 "I've had real chances to actually use my skills on something that mattered — a project, a placement, a job."
@@ -325,6 +342,9 @@ export default function Assessment() {
               >
                 <ArrowLeft size={16} aria-hidden="true" /> Back
               </button>
+              <div className="flex justify-center mb-6">
+                <Logo size="sm" href="/" />
+              </div>
               <div className="w-14 h-14 bg-pth-cyan/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <ShieldCheck className="w-7 h-7 text-pth-cyan" aria-hidden="true" />
               </div>
@@ -543,6 +563,9 @@ export default function Assessment() {
               animate={{ opacity: 1, scale: 1 }}
               className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100 text-center"
             >
+              <div className="flex justify-center mb-6">
+                <Logo size="sm" href="/" />
+              </div>
               <span className="inline-block py-1 px-3 rounded-full bg-pth-cyan/10 text-pth-cyan font-bold text-xs tracking-wider uppercase mb-6">
                 Your Starting Point
               </span>
