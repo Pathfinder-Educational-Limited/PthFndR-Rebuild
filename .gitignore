@@ -2,7 +2,13 @@ node_modules/
 build/
 dist/
 coverage/
-.DS_Store
 *.log
 .env*
 !.env.example
+final_package/
+doc/
+CLAUDE.md
+REPO_STRUCTURE_SUMMARY.md
+pthfndr-changes.patch
+pthfndr_content.json
+.DS_Store
