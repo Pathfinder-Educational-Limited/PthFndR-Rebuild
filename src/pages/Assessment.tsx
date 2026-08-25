@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, CheckCircle2, ChevronRight, Loader2, Mail, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Loader2, Mail, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 type Step =
@@ -33,6 +33,16 @@ export default function Assessment() {
   });
   const [pattern, setPattern] = useState<Pattern | null>(null);
   const [awaitingGuardianConsent, setAwaitingGuardianConsent] = useState(false);
+  const [stepHistory, setStepHistory] = useState<Step[]>([]);
+
+  const goBack = () => {
+    setStepHistory((prev) => {
+      const history = [...prev];
+      const last = history.pop();
+      if (last) setStep(last);
+      return history;
+    });
+  };
 
   const handleScore = (domain: keyof typeof scores, value: number) => {
     setScores((prev) => ({ ...prev, [domain]: value }));
@@ -42,7 +52,11 @@ export default function Assessment() {
       q3: 'q4',
       q4: 'age',
     };
-    setTimeout(() => setStep(nextSteps[step as string]), 400);
+    const currentStep = step;
+    setTimeout(() => {
+      setStepHistory((prev) => [...prev, currentStep]);
+      setStep(nextSteps[currentStep as string]);
+    }, 400);
   };
 
   // Finds the first weak domain, in Trapezium order (Identity -> Character -> Competence ->
@@ -184,7 +198,7 @@ export default function Assessment() {
                 Answer 4 quick questions to see where your strengths already are — and exactly what to focus on next to move forward.
               </p>
               <button
-                onClick={() => setStep('q1')}
+                onClick={() => { setStepHistory((prev) => [...prev, 'intro']); setStep('q1'); }}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-pth-gradient text-pth-navy font-bold hover:opacity-90 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
                 Find Your Path <ArrowRight className="w-5 h-5" />
@@ -201,6 +215,12 @@ export default function Assessment() {
               exit={{ opacity: 0, x: -50 }}
               className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100"
             >
+              <button
+                onClick={goBack}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-pth-navy transition-colors mb-6"
+              >
+                <ArrowLeft size={16} aria-hidden="true" /> Back
+              </button>
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-10 h-10 rounded-full bg-identity-blue/10 text-identity-blue flex items-center justify-center font-bold">1</span>
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Direction</span>
@@ -221,6 +241,12 @@ export default function Assessment() {
               exit={{ opacity: 0, x: -50 }}
               className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100"
             >
+              <button
+                onClick={goBack}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-pth-navy transition-colors mb-6"
+              >
+                <ArrowLeft size={16} aria-hidden="true" /> Back
+              </button>
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-10 h-10 rounded-full bg-character-green/10 text-character-green flex items-center justify-center font-bold">2</span>
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Staying power</span>
@@ -241,6 +267,12 @@ export default function Assessment() {
               exit={{ opacity: 0, x: -50 }}
               className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100"
             >
+              <button
+                onClick={goBack}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-pth-navy transition-colors mb-6"
+              >
+                <ArrowLeft size={16} aria-hidden="true" /> Back
+              </button>
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-10 h-10 rounded-full bg-competence-orange/10 text-competence-orange flex items-center justify-center font-bold">3</span>
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Skills</span>
@@ -261,6 +293,12 @@ export default function Assessment() {
               exit={{ opacity: 0, x: -50 }}
               className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100"
             >
+              <button
+                onClick={goBack}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-pth-navy transition-colors mb-6"
+              >
+                <ArrowLeft size={16} aria-hidden="true" /> Back
+              </button>
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-10 h-10 rounded-full bg-impact-purple/10 text-impact-purple flex items-center justify-center font-bold">4</span>
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">Real-world chances</span>
@@ -281,6 +319,12 @@ export default function Assessment() {
               exit={{ opacity: 0, scale: 0.95 }}
               className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-xl border border-slate-100 text-center"
             >
+              <button
+                onClick={goBack}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-pth-navy transition-colors mb-6"
+              >
+                <ArrowLeft size={16} aria-hidden="true" /> Back
+              </button>
               <div className="w-14 h-14 bg-pth-cyan/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <ShieldCheck className="w-7 h-7 text-pth-cyan" aria-hidden="true" />
               </div>
@@ -292,19 +336,19 @@ export default function Assessment() {
               </p>
               <div className="space-y-3 max-w-sm mx-auto">
                 <button
-                  onClick={() => setStep('lead')}
+                  onClick={() => { setStepHistory((prev) => [...prev, 'age']); setStep('lead'); }}
                   className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
                 >
                   I'm 18 or over
                 </button>
                 <button
-                  onClick={() => setStep('guardian')}
+                  onClick={() => { setStepHistory((prev) => [...prev, 'age']); setStep('guardian'); }}
                   className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
                 >
                   I'm 16-17
                 </button>
                 <button
-                  onClick={() => setStep('too-young')}
+                  onClick={() => { setStepHistory((prev) => [...prev, 'age']); setStep('too-young'); }}
                   className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
                 >
                   I'm under 16
