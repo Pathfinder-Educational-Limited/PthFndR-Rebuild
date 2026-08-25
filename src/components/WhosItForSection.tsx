@@ -7,7 +7,7 @@ const audiences = [
     n: '01',
     icon: User,
     label: 'Young People',
-    sub: '(16-25)',
+    sub: '(16-24)',
     desc: 'Discover your potential, build real skills, and get hired by top organisations looking for your unique talent.',
     to: '/programmes',
     cta: 'Start your journey',
@@ -29,7 +29,7 @@ const audiences = [
     // deep navy card
     panel: 'bg-pth-navy-deep text-white',
     iconWrap: 'bg-white/10 text-pth-cyan',
-    button: 'bg-pth-green text-white hover:bg-[#36b666]',
+    button: 'bg-pth-green text-white hover:bg-[#4ea858]',
     body: 'text-white/80',
     num: 'text-white/15',
   },
