@@ -10,37 +10,37 @@ export default function Methodology() {
     {
       id: 'impact',
       title: 'Impact',
-      subtitle: 'Measurable Change',
+      subtitle: 'Real, Visible Results',
       color: 'bg-impact-purple',
       icon: Target,
-      description: 'Delivering measurable impact in their communities and careers. Transforming from learners to leaders who shape the future of work.',
+      description: 'Turning everything you\u2019ve built into something real: work that gets noticed, skills that get used, a genuine track record.',
       width: 'max-w-2xl',
     },
     {
       id: 'competence',
       title: 'Competence',
-      subtitle: 'Practical Skills',
+      subtitle: 'Real, Usable Skills',
       color: 'bg-competence-orange',
       icon: ShieldCheck,
-      description: 'Acquiring the practical skills, vocational fluency, and professional capabilities required to thrive in the modern workplace.',
+      description: 'Building the specific, practical skills a field actually needs, not just a certificate, but the real ability to do the work.',
       width: 'max-w-3xl',
     },
     {
       id: 'character',
       title: 'Character',
-      subtitle: 'Resilience & Mindset',
+      subtitle: 'Strength to Keep Going',
       color: 'bg-character-green',
       icon: Brain,
-      description: 'Developing resilience, integrity, and the mindset needed to navigate life and work. Building the inner strength to overcome systemic barriers.',
+      description: 'Building the staying power to keep moving when things get difficult, without losing your sense of who you are.',
       width: 'max-w-4xl',
     },
     {
       id: 'identity',
       title: 'Identity',
-      subtitle: 'Experiential Knowledge',
+      subtitle: 'Knowing Who You Are',
       color: 'bg-identity-blue',
       icon: Sparkles,
-      description: 'Recognising who you are. The critical foundation for 16-25s and marginalised adults to discover their inherent value and potential before they "do".',
+      description: 'The foundation: understanding your own strengths, background, and value, before figuring out what\u2019s next.',
       width: 'max-w-5xl',
     }
   ];
@@ -48,8 +48,8 @@ export default function Methodology() {
   return (
     <>
       <SEO 
-        title="Methodology & IP | PthFndR" 
-        description="Discover the Ginosko-Sterizo philosophy and the Trapezium Model™."
+        title="Our Approach | PthFndR" 
+        description="The Ginosko-Sterizo philosophy and the Trapezium Model: PthFndR's approach to helping young people discover who they are and build toward real opportunity."
       />
       
       {/* Ginosko-Sterizo Section */}
@@ -59,10 +59,10 @@ export default function Methodology() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-heading font-bold tracking-tight text-white sm:text-5xl">
-              The <span className="text-transparent bg-clip-text bg-pth-gradient">Ginosko-Sterizo</span> Philosophy
+              The <span className="text-transparent bg-clip-text bg-pth-gradient">Ginosko-Sterizo®</span> Approach
             </h2>
             <p className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto">
-              Our foundational framework for closing the underemployment gap through dignity-infused learning.
+              Our foundational approach to helping young people discover who they are and build toward real potential.
             </p>
           </div>
 
@@ -78,11 +78,11 @@ export default function Methodology() {
               <div className="absolute -right-10 -top-10 w-40 h-40 bg-pth-cyan/20 rounded-full blur-3xl group-hover:bg-pth-cyan/30 transition-all"></div>
               
               <h3 className="text-3xl font-heading font-bold text-white mb-2">Ginosko</h3>
-              <p className="text-pth-cyan font-medium tracking-wide uppercase text-sm mb-6">Experiential Knowledge</p>
+              <p className="text-pth-cyan font-medium tracking-wide uppercase text-sm mb-6">Knowing Yourself</p>
               
               <p className="text-slate-300 text-lg leading-relaxed">
                 The foundation of <strong className="text-white font-semibold">knowing who you are before you do</strong>. 
-                Ginosko is about deep, experiential understanding of one's own identity, inherent value, and potential. It is the critical first step for marginalised adults and youth to break through systemic barriers.
+                It's about real, honest understanding of your own identity, your background, and your potential. It's the first step to breaking through whatever's been holding you back.
               </p>
             </motion.div>
 
@@ -98,11 +98,11 @@ export default function Methodology() {
               <div className="absolute -right-10 -top-10 w-40 h-40 bg-pth-lime/20 rounded-full blur-3xl group-hover:bg-pth-lime/30 transition-all"></div>
               
               <h3 className="text-3xl font-heading font-bold text-white mb-2">Sterizo</h3>
-              <p className="text-pth-lime font-medium tracking-wide uppercase text-sm mb-6">Transformation & Establishment</p>
+              <p className="text-pth-lime font-medium tracking-wide uppercase text-sm mb-6">Standing Firm, Moving Forward</p>
               
               <p className="text-slate-300 text-lg leading-relaxed">
-                The transformation into <strong className="text-white font-semibold">Being and Doing</strong>. 
-                Once identity is established through Ginosko, Sterizo provides the structural support and practical competence to stand firm, act with purpose, and deliver measurable impact in the modern workforce.
+                The move into <strong className="text-white font-semibold">Being and Doing</strong>. 
+                Once you know who you are, Sterizo is the strength and skill to stand firm, act with purpose, and turn that identity into something real.
               </p>
             </motion.div>
           </div>
@@ -114,10 +114,10 @@ export default function Methodology() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-heading font-bold tracking-tight text-pth-navy sm:text-5xl">
-              The Trapezium Model™
+              The Trapezium Model&reg;
             </h2>
             <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
-              A structured journey for 16-25s and marginalised adults: from recognising Identity to delivering measurable Impact.
+              A structured journey for young people aged 16 to 24: from knowing who you are, to delivering real, visible results.
             </p>
           </div>
 
