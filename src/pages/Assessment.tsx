@@ -9,8 +9,6 @@ type Step =
   | 'intro'
   | 'q1' | 'q2' | 'q3' | 'q4'
   | 'age'
-  | 'lead'
-  | 'guardian'
   | 'too-young'
   | 'calculating'
   | 'result';
@@ -35,6 +33,8 @@ export default function Assessment() {
   const [pattern, setPattern] = useState<Pattern | null>(null);
   const [awaitingGuardianConsent, setAwaitingGuardianConsent] = useState(false);
   const [stepHistory, setStepHistory] = useState<Step[]>([]);
+  const [ageBracket, setAgeBracket] = useState<'18+' | '16-17' | null>(null);
+  const [detailsSubmitted, setDetailsSubmitted] = useState(false);
 
   const goBack = () => {
     setStepHistory((prev) => {
@@ -73,14 +73,22 @@ export default function Assessment() {
     return 'The Pathfinder';                 // Ready for what's next
   };
 
-  // 18+ pathway: save directly, same as before.
+  // Shows the result immediately for anyone 16+ — no email or guardian details required.
+  // Data collection (see handleLeadSubmit / handleGuardianSubmit below) is entirely optional
+  // and only ever offered AFTER the result is already visible.
+  const goToResult = () => {
+    setStepHistory((prev) => [...prev, 'age']);
+    setStep('calculating');
+    const result = calculatePattern();
+    setTimeout(() => {
+      setPattern(result);
+      setStep('result');
+    }, 1200);
+  };
+
+  // 18+ pathway: only runs if the person opts in to having their result emailed/saved.
   const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStep('calculating');
-
-    const result = calculatePattern();
-    const start = Date.now();
-
     try {
       await fetch('/api/assessment', {
         method: 'POST',
@@ -88,21 +96,14 @@ export default function Assessment() {
         body: JSON.stringify({
           name: leadData.name,
           email: leadData.email,
-          pattern: result,
+          pattern,
           scores,
         }),
       });
     } catch (err) {
       console.warn('[Assessment] Failed to save lead:', err);
     }
-
-    const elapsed = Date.now() - start;
-    const remaining = Math.max(0, 1200 - elapsed);
-    setTimeout(() => {
-      setPattern(result);
-      setAwaitingGuardianConsent(false);
-      setStep('result');
-    }, remaining);
+    setDetailsSubmitted(true);
   };
 
   // 13-17 pathway: request guardian consent, don't save/activate the young
@@ -110,11 +111,6 @@ export default function Assessment() {
   // what's gated is us keeping their details or getting in touch.
   const handleGuardianSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStep('calculating');
-
-    const result = calculatePattern();
-    const start = Date.now();
-
     try {
       await fetch('/api/consent/request', {
         method: 'POST',
@@ -125,20 +121,14 @@ export default function Assessment() {
           guardianName: guardianData.guardianName,
           guardianEmail: guardianData.guardianEmail,
           source: 'assessment',
-          payload: { pattern: result, scores },
+          payload: { pattern, scores },
         }),
       });
     } catch (err) {
       console.warn('[Assessment] Failed to send guardian consent request:', err);
     }
-
-    const elapsed = Date.now() - start;
-    const remaining = Math.max(0, 1200 - elapsed);
-    setTimeout(() => {
-      setPattern(result);
-      setAwaitingGuardianConsent(true);
-      setStep('result');
-    }, remaining);
+    setAwaitingGuardianConsent(true);
+    setDetailsSubmitted(true);
   };
 
   const renderLikert = (domain: keyof typeof scores) => (
@@ -356,13 +346,13 @@ export default function Assessment() {
               </p>
               <div className="space-y-3 max-w-sm mx-auto">
                 <button
-                  onClick={() => { setStepHistory((prev) => [...prev, 'age']); setStep('lead'); }}
+                  onClick={() => { setAgeBracket('18+'); goToResult(); }}
                   className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
                 >
                   I'm 18 or over
                 </button>
                 <button
-                  onClick={() => { setStepHistory((prev) => [...prev, 'age']); setStep('guardian'); }}
+                  onClick={() => { setAgeBracket('16-17'); goToResult(); }}
                   className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
                 >
                   I'm 16-17
@@ -397,146 +387,6 @@ export default function Assessment() {
               >
                 For schools &amp; educators <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
-            </motion.div>
-          )}
-
-          {/* LEAD CAPTURE (18+) */}
-          {step === 'lead' && (
-            <motion.div
-              key="lead"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-pth-navy-deep rounded-[2rem] p-8 sm:p-12 shadow-2xl text-center relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pth-cyan/20 via-pth-navy-deep to-pth-navy-deep"></div>
-
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                  <CheckCircle2 className="w-8 h-8 text-pth-lime" />
-                </div>
-                <h2 className="text-3xl font-heading font-bold text-white mb-4">
-                  Nearly there!
-                </h2>
-                <p className="text-slate-300 mb-8 max-w-md mx-auto">
-                  Pop in your details to see your results and what to focus on next.
-                </p>
-
-                <form onSubmit={handleLeadSubmit} className="space-y-4 max-w-sm mx-auto text-left">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-1">First Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      required
-                      value={leadData.name}
-                      onChange={(e) => setLeadData({ ...leadData, name: e.target.value })}
-                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
-                      placeholder="Jane"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      required
-                      value={leadData.email}
-                      onChange={(e) => setLeadData({ ...leadData, email: e.target.value })}
-                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
-                      placeholder="you@email.com"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full flex justify-center items-center gap-2 py-4 px-4 rounded-xl bg-pth-gradient text-pth-navy font-bold hover:opacity-90 transition-all mt-6"
-                  >
-                    See My Results <ChevronRight className="w-5 h-5" />
-                  </button>
-                </form>
-              </div>
-            </motion.div>
-          )}
-
-          {/* GUARDIAN CONSENT (13-17) */}
-          {step === 'guardian' && (
-            <motion.div
-              key="guardian"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-pth-navy-deep rounded-[2rem] p-8 sm:p-12 shadow-2xl text-center relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pth-cyan/20 via-pth-navy-deep to-pth-navy-deep"></div>
-
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                  <Mail className="w-8 h-8 text-pth-lime" />
-                </div>
-                <h2 className="text-3xl font-heading font-bold text-white mb-4">
-                  Almost there!
-                </h2>
-                <p className="text-slate-300 mb-8 max-w-md mx-auto">
-                  Because you're under 18, we ask a parent or guardian to confirm before we save your details or get in touch. You'll still see your results now — this is just part of how we keep things safe.
-                </p>
-
-                <form onSubmit={handleGuardianSubmit} className="space-y-4 max-w-sm mx-auto text-left">
-                  <div>
-                    <label htmlFor="minorName" className="block text-sm font-medium text-slate-300 mb-1">Your first name</label>
-                    <input
-                      type="text"
-                      id="minorName"
-                      required
-                      value={guardianData.minorName}
-                      onChange={(e) => setGuardianData({ ...guardianData, minorName: e.target.value })}
-                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
-                      placeholder="Jane"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="minorEmail" className="block text-sm font-medium text-slate-300 mb-1">Your email</label>
-                    <input
-                      type="email"
-                      id="minorEmail"
-                      required
-                      value={guardianData.minorEmail}
-                      onChange={(e) => setGuardianData({ ...guardianData, minorEmail: e.target.value })}
-                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
-                      placeholder="you@email.com"
-                    />
-                  </div>
-                  <div className="pt-2 border-t border-white/10">
-                    <label htmlFor="guardianName" className="block text-sm font-medium text-slate-300 mb-1 mt-3">Parent/guardian name</label>
-                    <input
-                      type="text"
-                      id="guardianName"
-                      required
-                      value={guardianData.guardianName}
-                      onChange={(e) => setGuardianData({ ...guardianData, guardianName: e.target.value })}
-                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
-                      placeholder="Parent or guardian's name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="guardianEmail" className="block text-sm font-medium text-slate-300 mb-1">Parent/guardian email</label>
-                    <input
-                      type="email"
-                      id="guardianEmail"
-                      required
-                      value={guardianData.guardianEmail}
-                      onChange={(e) => setGuardianData({ ...guardianData, guardianEmail: e.target.value })}
-                      className="w-full rounded-xl border-0 bg-white/5 py-3 px-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-pth-cyan"
-                      placeholder="parent@email.com"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full flex justify-center items-center gap-2 py-4 px-4 rounded-xl bg-pth-gradient text-pth-navy font-bold hover:opacity-90 transition-all mt-6"
-                  >
-                    See My Results <ChevronRight className="w-5 h-5" />
-                  </button>
-                </form>
-              </div>
             </motion.div>
           )}
 
@@ -582,7 +432,7 @@ export default function Assessment() {
                 }[pattern as string]}
               </p>
 
-              {awaitingGuardianConsent && (
+              {awaitingGuardianConsent && detailsSubmitted && (
                 <div className="bg-pth-cyan/5 border border-pth-cyan/20 rounded-2xl p-5 mb-6 text-left flex items-start gap-3">
                   <Mail className="w-5 h-5 text-pth-cyan shrink-0 mt-0.5" aria-hidden="true" />
                   <p className="text-sm text-slate-700">
@@ -618,6 +468,88 @@ export default function Assessment() {
                   </p>
                 )}
               </div>
+
+              {!detailsSubmitted && ageBracket === '18+' && (
+                <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-10 text-left border border-slate-200">
+                  <h4 className="font-heading font-bold text-pth-navy mb-1">Want this emailed to you?</h4>
+                  <p className="text-sm text-slate-600 mb-4">Along with your recommended next step. Totally optional.</p>
+                  <form onSubmit={handleLeadSubmit} className="space-y-3">
+                    <input
+                      type="text"
+                      required
+                      value={leadData.name}
+                      onChange={(e) => setLeadData({ ...leadData, name: e.target.value })}
+                      placeholder="First name"
+                      className="w-full rounded-xl border border-slate-300 py-3 px-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-pth-cyan focus:border-transparent"
+                    />
+                    <input
+                      type="email"
+                      required
+                      value={leadData.email}
+                      onChange={(e) => setLeadData({ ...leadData, email: e.target.value })}
+                      placeholder="you@email.com"
+                      className="w-full rounded-xl border border-slate-300 py-3 px-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-pth-cyan focus:border-transparent"
+                    />
+                    <button
+                      type="submit"
+                      className="w-full flex justify-center items-center gap-2 py-3 px-4 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-navy/90 transition-all"
+                    >
+                      Email me my result <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </form>
+                </div>
+              )}
+
+              {!detailsSubmitted && ageBracket === '16-17' && (
+                <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-10 text-left border border-slate-200">
+                  <p className="text-sm text-slate-600 mb-4">
+                    You can see this result without doing anything else, that part's just for you.
+                    If you want us to save it and be able to follow up about programmes, we'll ask a
+                    parent or guardian to confirm first. That's required for anyone under 18, so it's
+                    something schools and local authorities we work with can rely on.
+                  </p>
+                  <form onSubmit={handleGuardianSubmit} className="space-y-3">
+                    <input
+                      type="text"
+                      required
+                      value={guardianData.minorName}
+                      onChange={(e) => setGuardianData({ ...guardianData, minorName: e.target.value })}
+                      placeholder="Your first name"
+                      className="w-full rounded-xl border border-slate-300 py-3 px-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-pth-cyan focus:border-transparent"
+                    />
+                    <input
+                      type="email"
+                      required
+                      value={guardianData.minorEmail}
+                      onChange={(e) => setGuardianData({ ...guardianData, minorEmail: e.target.value })}
+                      placeholder="Your email"
+                      className="w-full rounded-xl border border-slate-300 py-3 px-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-pth-cyan focus:border-transparent"
+                    />
+                    <input
+                      type="text"
+                      required
+                      value={guardianData.guardianName}
+                      onChange={(e) => setGuardianData({ ...guardianData, guardianName: e.target.value })}
+                      placeholder="Parent/guardian name"
+                      className="w-full rounded-xl border border-slate-300 py-3 px-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-pth-cyan focus:border-transparent"
+                    />
+                    <input
+                      type="email"
+                      required
+                      value={guardianData.guardianEmail}
+                      onChange={(e) => setGuardianData({ ...guardianData, guardianEmail: e.target.value })}
+                      placeholder="Parent/guardian email"
+                      className="w-full rounded-xl border border-slate-300 py-3 px-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-pth-cyan focus:border-transparent"
+                    />
+                    <button
+                      type="submit"
+                      className="w-full flex justify-center items-center gap-2 py-3.5 px-4 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-navy/90 transition-all"
+                    >
+                      Send for approval <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </form>
+                </div>
+              )}
 
               <div className="space-y-4">
                 <p className="text-slate-600 font-medium">Ready for your next step?</p>
