@@ -58,16 +58,22 @@ export default function Stories() {
         </div>
       </section>
 
-      {/* Impact Stats */}
-      <section className="py-20 bg-pth-navy-deep text-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center">Our Impact</h2>
-          
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+      {/* Impact Stats — matches ImpactMetricsSection.tsx styling for consistency with home page */}
+      <section aria-label="Impact Metrics" className="relative bg-pth-navy-deep py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0 dot-grid pointer-events-none" aria-hidden="true"></div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-16">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white text-balance leading-[1.02] text-center mx-auto">
+              Our Impact
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-12 gap-y-12 max-w-3xl mx-auto text-center">
             {storiesContent.stats && storiesContent.stats.map((stat, i) => (
-              <div key={i}>
-                <div className="text-5xl font-bold text-green-400 mb-2">{stat.value}</div>
-                <p className="text-gray-300">{stat.label}</p>
+              <div key={i} className="border-t border-white/15 pt-6">
+                <p className="font-heading font-extrabold text-pth-green text-6xl lg:text-8xl leading-none mb-4 tracking-tight">
+                  {stat.value}
+                </p>
+                <p className="text-white/80 font-medium lg:text-lg">{stat.label}</p>
               </div>
             ))}
           </div>
