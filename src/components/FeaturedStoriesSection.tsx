@@ -17,96 +17,19 @@ export default function FeaturedStoriesSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Story 1 */}
-          <article>
-            <Link to="/stories" className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-slate-100 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 cursor-pointer h-full">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" 
-                  alt="A group of young professionals collaborating around a laptop in a modern office space" 
-                  loading="lazy"
-                  width="800"
-                  height="533"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-8 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                  <span>Success Story</span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300" aria-hidden="true"></span>
-                  <span>5 min read</span>
-                </div>
-                <h3 className="text-xl font-bold text-[#004890] mb-3 group-hover:text-[#40D478] transition-colors duration-300">From Classroom to Tech Career</h3>
-                <p className="text-slate-600 mb-6 flex-1 line-clamp-3">
-                  How Sarah transitioned from feeling lost after graduation to landing her dream role as a junior developer through the Activation Lab.
-                </p>
-                <div className="flex items-center text-[#004890] font-bold text-sm transition-colors duration-300 group-hover:text-[#40D478]">
-                  Read story <ArrowUpRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
-                </div>
-              </div>
-            </Link>
-          </article>
-
-          {/* Story 2 */}
-          <article>
-            <Link to="/stories" className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-slate-100 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 cursor-pointer h-full">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" 
-                  alt="Business professionals engaging in a lively discussion around a meeting table" 
-                  loading="lazy"
-                  width="800"
-                  height="533"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-8 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                  <span>Employer Insight</span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300" aria-hidden="true"></span>
-                  <span>4 min read</span>
-                </div>
-                <h3 className="text-xl font-bold text-[#004890] mb-3 group-hover:text-[#40D478] transition-colors duration-300">Why Early Career Hiring Needs a Reset</h3>
-                <p className="text-slate-600 mb-6 flex-1 line-clamp-3">
-                  Traditional CVs are failing both young people and employers. Here's how shifting to capability-based hiring changes everything.
-                </p>
-                <div className="flex items-center text-[#004890] font-bold text-sm transition-colors duration-300 group-hover:text-[#40D478]">
-                  Read story <ArrowUpRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
-                </div>
-              </div>
-            </Link>
-          </article>
-
-          {/* Story 3 */}
-          <article>
-            <Link to="/stories" className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-slate-100 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 cursor-pointer h-full">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" 
-                  alt="Students collaborating and brainstorming ideas during an interactive workshop session" 
-                  loading="lazy"
-                  width="800"
-                  height="533"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-8 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                  <span>Programme Update</span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300" aria-hidden="true"></span>
-                  <span>3 min read</span>
-                </div>
-                <h3 className="text-xl font-bold text-[#004890] mb-3 group-hover:text-[#40D478] transition-colors duration-300">Inside the New Design Accelerator</h3>
-                <p className="text-slate-600 mb-6 flex-1 line-clamp-3">
-                  A look at our latest 8-week intensive designed to turn creative potential into portfolio-ready product design skills.
-                </p>
-                <div className="flex items-center text-[#004890] font-bold text-sm transition-colors duration-300 group-hover:text-[#40D478]">
-                  Read story <ArrowUpRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
-                </div>
-              </div>
-            </Link>
-          </article>
+        <div className="py-16 px-6 max-w-3xl mx-auto text-center">
+          <h3 className="text-2xl font-bold text-pth-navy mb-4">
+            Real stories are on their way
+          </h3>
+          <p className="text-lg text-slate-600 mb-8">
+            We're collecting authentic stories from real people transforming their potential through PthFndR. Check back soon, or read about our approach in the meantime.
+          </p>
+          <Link
+            to="/about"
+            className="inline-flex items-center bg-pth-navy text-white px-6 py-3 rounded-lg font-bold hover:bg-pth-green transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
+          >
+            Learn about our methodology <ArrowRight size={18} className="ml-2" aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>
