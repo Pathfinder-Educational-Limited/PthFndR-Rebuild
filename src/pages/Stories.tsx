@@ -51,9 +51,6 @@ export default function Stories() {
                   <h3 className="text-xl font-bold text-pth-navy mb-2">{story.name}, {story.age}</h3>
                   <p className="text-green-600 font-semibold text-sm mb-3">{story.role}</p>
                   <p className="text-gray-700 text-sm mb-4">{story.summary}</p>
-                  <button className="text-blue-600 hover:text-blue-800 font-semibold text-sm">
-                    Read Full Story →
-                  </button>
                 </div>
               </div>
             ))}
