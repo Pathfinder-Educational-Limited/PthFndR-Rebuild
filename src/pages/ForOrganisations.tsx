@@ -27,7 +27,7 @@ export default function ForOrganisations() {
                 Partner with PthFndR to develop young people, test products, or hire talent who know their purpose.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/for-organisations/create-opportunities" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2">
+                <Link to="/for-organisations/create-opportunities" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2">
                   Post an opportunity <ArrowRight size={20} aria-hidden="true" />
                 </Link>
                 <a href="#partnership" className="border-2 border-pth-navy text-pth-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-pth-navy hover:text-white transition-all inline-flex items-center">
@@ -55,7 +55,7 @@ export default function ForOrganisations() {
           <div className="max-w-3xl mb-16">
             <Eyebrow className="mb-5">Why partner</Eyebrow>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-6">Why partner with us?</h2>
-            <p className="text-lg lg:text-xl text-slate-600">Connect with a vetted community of over 500 engaged young people ready to contribute to your organisation.</p>
+            <p className="text-lg lg:text-xl text-slate-600">Connect with a vetted community of 223 engaged young people ready to contribute to your organisation.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -158,7 +158,7 @@ export default function ForOrganisations() {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
                     <div>
-                      <span className="font-bold text-pth-navy">Investment:</span> <span className="text-slate-600">Based on scale (Bronze/Silver/Gold tiers).</span>
+                      <span className="font-bold text-pth-navy">Investment:</span> <span className="text-slate-600">Based on scope and scale — get in touch to discuss.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -178,43 +178,6 @@ export default function ForOrganisations() {
               </div>
             </div>
 
-            {/* MODEL 3 */}
-            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col lg:flex-row">
-              <div className="p-10 lg:p-16 lg:w-1/2 flex flex-col justify-center">
-                <span className="text-xs font-bold tracking-widest text-pth-green uppercase mb-4 block">Model 3</span>
-                <h3 className="text-3xl lg:text-4xl font-heading font-bold text-pth-navy mb-4">Research & Insight Partnerships</h3>
-                <p className="text-lg text-slate-600 mb-6">Contribute to the annual Formation Index research and access exclusive youth insights.</p>
-                
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
-                    <div>
-                      <span className="font-bold text-pth-navy">For:</span> <span className="text-slate-600">Organisations tracking youth formation and development.</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
-                    <div>
-                      <span className="font-bold text-pth-navy">Cost:</span> <span className="text-slate-600">Free or data-sharing partnership.</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
-                    <div>
-                      <span className="font-bold text-pth-navy">Benefits:</span> <span className="text-slate-600">Benchmark data, thought leadership, exclusive research access.</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <Link to="/contact" className="bg-pth-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-[#0C2A5C] transition-colors w-fit">
-                  Join Formation Index
-                </Link>
-              </div>
-              <div className="lg:w-1/2 bg-slate-100 relative min-h-[300px]">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Research and data" className="absolute inset-0 w-full h-full object-cover" />
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
@@ -229,26 +192,17 @@ export default function ForOrganisations() {
             <p className="text-lg lg:text-xl text-white/75">See the impact of partnering with PthFndR.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             <div className="bg-white/10 p-8 rounded-2xl border border-white/10">
-              <div className="text-pth-green font-bold text-sm tracking-wider uppercase mb-2">Google</div>
-              <h4 className="text-xl font-bold mb-4">Hosted a 2-Day Hackathon</h4>
-              <p className="text-slate-300 mb-6">Engaged 50 young people in solving a real product challenge, resulting in 3 direct hires.</p>
-              <p className="italic text-slate-400">"Authentic feedback and incredible talent discovery."</p>
+              <div className="text-pth-green font-bold text-sm tracking-wider uppercase mb-2">MEaP (Making Education a Priority)</div>
+              <h4 className="text-xl font-bold mb-4">Social Hackathon: Redesign and Rethink</h4>
+              <p className="text-slate-300">"Redesign and Rethink – Own Your City" brought young people together to develop real solutions, with £640 in prize funding disbursed to 5 youth-led projects.</p>
             </div>
-            
+
             <div className="bg-white/10 p-8 rounded-2xl border border-white/10">
-              <div className="text-pth-green font-bold text-sm tracking-wider uppercase mb-2">Local Authority</div>
-              <h4 className="text-xl font-bold mb-4">District-wide Activation Lab</h4>
-              <p className="text-slate-300 mb-6">Implemented our identity curriculum across 12 schools, increasing engagement by 40%.</p>
-              <p className="italic text-slate-400">"Transformed how our students view their potential."</p>
-            </div>
-            
-            <div className="bg-white/10 p-8 rounded-2xl border border-white/10">
-              <div className="text-pth-green font-bold text-sm tracking-wider uppercase mb-2">Fintech Startup</div>
-              <h4 className="text-xl font-bold mb-4">Gen-Z Beta Testing</h4>
-              <p className="text-slate-300 mb-6">Hosted a focus group to test a new financial literacy app, leading to critical UI improvements.</p>
-              <p className="italic text-slate-400">"The insights saved us months of misguided development."</p>
+              <div className="text-pth-green font-bold text-sm tracking-wider uppercase mb-2">Flourish Together CIC</div>
+              <h4 className="text-xl font-bold mb-4">Youth Programme Partnership</h4>
+              <p className="text-slate-300">A confirmed partner supporting real youth-facing programme delivery alongside PthFndR.</p>
             </div>
           </div>
         </div>
@@ -264,7 +218,7 @@ export default function ForOrganisations() {
               <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-6 text-white text-balance">Ready to get started?</h2>
               <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto">Let's discuss how we can build a partnership that drives real impact.</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="mailto:partnerships@pthfndr.org" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#36b666] transition-all shadow-lg hover:shadow-xl">
+                <a href="mailto:partnerships@pthfndr.org" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl">
                   Email us
                 </a>
                 <a href={PHONE_TEL_HREF} className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-pth-navy transition-all">
