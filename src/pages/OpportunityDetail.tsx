@@ -1,79 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import SEO from '../components/SEO';
+import OpportunityApplicationForm from '../components/OpportunityApplicationForm';
 import { ArrowLeft, Bookmark, Share2, MapPin, Calendar, Briefcase, CheckCircle, MessageSquare, BriefcaseBusiness } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
+import { opportunities } from '../content/pages/opportunitiesData';
 
 // ============================================================================
-// OpportunityDetail.tsx — CLEAN SLATE REBUILD (Aug 2026)
-// Previous version hardcoded a completely fabricated listing ("TechFuture
-// Startup", named/aged fake testimonials "Jamie, 19" / "Amira, 21", fake
-// stats — 4.8 stars, £50 voucher, slot counts, deadlines) and never actually
-// used the `id` route param, so every opportunity showed identical fake data.
+// OpportunityDetail.tsx — CLEAN SLATE REBUILD (Aug 2026), wired to local
+// data (Aug 27 2026 launch fix).
 //
-// This version is structurally honest: it reads `id` from the route and
-// expects real data from an API call. NOTE FOR WHOEVER WIRES THIS UP NEXT:
-// there is no confirmed backend endpoint for fetching a single opportunity
-// by id yet (server.ts currently only has /api/contact, /api/assessment,
-// and /api/consent/* — no /api/opportunities/:id). This component is built
-// to consume that data once it exists (see the `Opportunity` type and the
-// commented fetch call below) but cannot render real content until that
-// endpoint is built. Do not hardcode fabricated data back in to "fill the
-// gap" — leave the empty/loading state as-is until real data is wired up.
+// Previously hardcoded a fabricated listing and never used the `id` route
+// param. That was fixed by making the component structurally honest, but
+// with no backend endpoint (/api/opportunities/:id doesn't exist in
+// server.ts), it always showed "not found."
+//
+// LAUNCH-DAY FIX: reads from a local, verified data file
+// (content/pages/opportunitiesData.ts) instead of a live API call. Every
+// listing there is real, not fabricated — this is a stopgap for going live
+// before the real backend endpoint exists, not a return to hardcoding fake
+// data. Replace the local lookup below with a real fetch once
+// /api/opportunities/:id is built.
 // ============================================================================
-
-interface Opportunity {
-  id: string;
-  title: string;
-  organisationName: string;
-  organisationSlug?: string;
-  category: string;
-  duration: string;
-  location: string;
-  reward?: string;
-  skillsDeveloped: string[];
-  whatYoullDo: string;
-  whatYoullLearn: string[];
-  whyThisMatters?: string;
-  requirements: string[];
-  applyBy?: string;
-}
 
 export default function OpportunityDetail() {
   const { id } = useParams();
-  const [opportunity, setOpportunity] = useState<Opportunity | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const opportunity = opportunities.find((o) => o.id === id) ?? null;
+  const [applying, setApplying] = useState(false);
+  const [applied, setApplied] = useState(false);
+  const applyFormRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!id) return;
-    setLoading(true);
-    setError(false);
-
-    // TODO: replace with a real API call once /api/opportunities/:id exists.
-    // fetch(`/api/opportunities/${id}`)
-    //   .then((res) => {
-    //     if (!res.ok) throw new Error('Not found');
-    //     return res.json();
-    //   })
-    //   .then((data) => setOpportunity(data))
-    //   .catch(() => setError(true))
-    //   .finally(() => setLoading(false));
-
-    // Until that endpoint exists, this always resolves to "not found" rather
-    // than showing fabricated data.
-    setError(true);
-    setLoading(false);
-  }, [id]);
-
-  if (loading) {
-    return (
-      <div className="bg-pth-cream min-h-screen flex items-center justify-center">
-        <p className="text-slate-500">Loading opportunity...</p>
-      </div>
-    );
-  }
-
-  if (error || !opportunity) {
+  if (!opportunity) {
     return (
       <div className="bg-pth-cream min-h-screen flex flex-col items-center justify-center px-4 text-center">
         <h1 className="text-2xl font-heading font-bold text-pth-navy mb-4">
@@ -202,6 +158,29 @@ export default function OpportunityDetail() {
                   </section>
                 )}
               </div>
+
+              {applying && !applied && (
+                <div ref={applyFormRef} className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+                  <OpportunityApplicationForm
+                    opportunityId={opportunity.id}
+                    opportunityTitle={opportunity.title}
+                    onSuccess={() => {
+                      setApplied(true);
+                      setApplying(false);
+                    }}
+                  />
+                </div>
+              )}
+
+              {applied && (
+                <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm text-center">
+                  <CheckCircle className="text-pth-green mx-auto mb-4" size={40} />
+                  <h3 className="text-xl font-heading font-bold text-pth-navy mb-2">Application sent</h3>
+                  <p className="text-slate-600">
+                    Thanks for applying to {opportunity.title}. We'll be in touch soon.
+                  </p>
+                </div>
+              )}
             </div>
 
             <div className="w-full lg:w-80 shrink-0 space-y-6">
@@ -212,9 +191,17 @@ export default function OpportunityDetail() {
                   </div>
                 )}
 
-                <button className="w-full bg-pth-green text-white px-6 py-3.5 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-colors shadow-sm mb-4">
-                  Apply Now
-                </button>
+                {!applying && !applied && (
+                  <button
+                    onClick={() => {
+                      setApplying(true);
+                      setTimeout(() => applyFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+                    }}
+                    className="w-full bg-pth-green text-white px-6 py-3.5 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-colors shadow-sm mb-4"
+                  >
+                    Apply Now
+                  </button>
+                )}
 
                 <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl flex items-start gap-3">
                   <Briefcase className="text-pth-navy shrink-0 mt-0.5" size={18} />
@@ -225,9 +212,12 @@ export default function OpportunityDetail() {
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-slate-100">
-                  <button className="w-full flex items-center justify-center gap-2 text-sm font-bold text-pth-navy hover:text-pth-green transition-colors border-2 border-slate-100 hover:border-pth-green py-2.5 rounded-xl">
+                  <Link
+                    to="/contact"
+                    className="w-full flex items-center justify-center gap-2 text-sm font-bold text-pth-navy hover:text-pth-green transition-colors border-2 border-slate-100 hover:border-pth-green py-2.5 rounded-xl"
+                  >
                     <MessageSquare size={16} /> Ask a Question
-                  </button>
+                  </Link>
                 </div>
               </div>
 

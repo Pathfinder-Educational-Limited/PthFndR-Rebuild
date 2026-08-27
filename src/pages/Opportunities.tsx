@@ -1,75 +1,12 @@
 import SEO from '../components/SEO';
 import { OpportunitiesListSchema } from '../components/SEOSchemas';
-import { Search, MapPin, Clock, Calendar, Bookmark, Filter, ChevronDown, CheckSquare, Square } from 'lucide-react';
+import { Search, Filter, CheckSquare, ArrowRight, MapPin, Calendar } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { opportunities } from '../content/pages/opportunitiesData';
 
 export default function Opportunities() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-
-  // Mock opportunities data
-  const opportunities = [
-    {
-      id: 1,
-      org: "TechFuture Startup",
-      title: "Product Design Beta Testing Session",
-      type: "Beta Testing",
-      typeColor: "bg-purple-100 text-purple-700",
-      duration: "1 day",
-      dates: "Oct 24, 2026",
-      location: "London (In-person)",
-      compensation: "£50 Amazon Voucher",
-      skills: ["UX Design", "Feedback", "Product"],
-      desc: "Join our product team for an exclusive early look at our new educational platform. We need honest feedback on the user interface before we launch.",
-      deadline: "Apply by Oct 20",
-      bookmarked: true
-    },
-    {
-      id: 2,
-      org: "Global Marketing Agency",
-      title: "Gen-Z Brand Focus Group",
-      type: "Focus Group",
-      typeColor: "bg-blue-100 text-blue-700",
-      duration: "3 hours",
-      dates: "Nov 5, 2026",
-      location: "Remote",
-      compensation: "£40",
-      skills: ["Marketing", "Communication", "Trends"],
-      desc: "Share your perspective on upcoming marketing campaigns for major retail brands. We want to know what resonates with your generation.",
-      deadline: "Apply by Oct 28",
-      bookmarked: false
-    },
-    {
-      id: 3,
-      org: "EcoInnovate",
-      title: "Sustainability Hackathon",
-      type: "Competition",
-      typeColor: "bg-orange-100 text-orange-700",
-      duration: "2 days",
-      dates: "Nov 12-13, 2026",
-      location: "Manchester",
-      compensation: "Prizes up to £1000",
-      skills: ["Problem Solving", "Teamwork", "Innovation"],
-      desc: "Work in teams to design sustainable solutions for urban environments. Mentorship provided by industry experts throughout the weekend.",
-      deadline: "Apply by Nov 1",
-      bookmarked: false
-    },
-    {
-      id: 4,
-      org: "Local Tech Council",
-      title: "Junior Web Developer Micro-Internship",
-      type: "Micro-Internship",
-      typeColor: "bg-green-100 text-green-700",
-      duration: "2 weeks",
-      dates: "Dec 1-14, 2026",
-      location: "Hybrid (London)",
-      compensation: "£400 Stipend",
-      skills: ["HTML/CSS", "React", "Git"],
-      desc: "Shadow our development team and contribute to a real open-source community project. Perfect for boot camp grads or self-taught coders.",
-      deadline: "Apply by Nov 15",
-      bookmarked: false
-    }
-  ];
 
   return (
     <>
@@ -90,7 +27,7 @@ export default function Opportunities() {
             <p className="text-xl text-slate-300 mb-8">
               1-day events, projects, micro-internships, and more to build your capability portfolio.
             </p>
-            
+
             <div className="relative max-w-2xl">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-slate-400" />
@@ -100,7 +37,7 @@ export default function Opportunities() {
                 placeholder="Search by title, organisation, or keyword..."
                 className="block w-full pl-12 pr-4 py-4 rounded-xl border-none ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-pth-green sm:text-lg shadow-sm placeholder:text-white"
               />
-              <button className="absolute inset-y-2 right-2 bg-pth-green text-white px-6 rounded-lg font-bold hover:bg-[#36b666] transition-colors">
+              <button className="absolute inset-y-2 right-2 bg-pth-green text-white px-6 rounded-lg font-bold hover:bg-[#4ea858] transition-colors">
                 Search
               </button>
             </div>
@@ -110,9 +47,9 @@ export default function Opportunities() {
 
       <section className="bg-pth-cream py-12 min-h-screen">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          
+
           <div className="md:hidden mb-6">
-            <button 
+            <button
               onClick={() => setIsFilterOpen(!isFilterOpen)}
               className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-slate-200 font-bold text-pth-navy shadow-sm w-full justify-center"
             >
@@ -122,11 +59,11 @@ export default function Opportunities() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-8">
-            
+
             {/* FILTERS (Left Sidebar) */}
             <div className={`w-full md:w-64 shrink-0 ${isFilterOpen ? 'block' : 'hidden md:block'}`}>
               <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 md:sticky md:top-24 space-y-8">
-                
+
                 {/* Type Filter */}
                 <div>
                   <h3 className="font-bold text-pth-navy mb-4 flex items-center justify-between">
@@ -170,106 +107,57 @@ export default function Opportunities() {
                   </div>
                 </div>
 
+                <p className="text-xs text-slate-400 pt-2 border-t border-slate-100">
+                  Filters are for browsing only right now — every current opportunity is shown below.
+                </p>
               </div>
             </div>
 
             {/* RESULTS (Main) */}
             <div className="flex-1">
-              
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                <p className="text-slate-600 font-medium">
-                  <span className="font-bold text-pth-navy">23</span> opportunities match your filters
-                </p>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-slate-500">Sort by:</span>
-                  <select className="bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-pth-green text-pth-navy shadow-sm">
-                    <option>Newest</option>
-                    <option>Deadline Soon</option>
-                    <option>Soonest Start</option>
-                  </select>
-                </div>
-              </div>
+              <p className="text-slate-600 mb-6">
+                {opportunities.length} open {opportunities.length === 1 ? 'opportunity' : 'opportunities'} right now.
+              </p>
 
-              <div className="grid grid-cols-1 gap-4">
-                {opportunities.map(opp => (
-                  <div key={opp.id} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow group relative">
-                    
-                    <button className="absolute top-6 right-6 text-slate-400 hover:text-pth-green transition-colors">
-                      <Bookmark size={24} fill={opp.bookmarked ? 'currentColor' : 'none'} className={opp.bookmarked ? 'text-pth-green' : ''} />
-                    </button>
-
-                    <div className="mb-4 pr-10">
-                      <p className="text-sm font-medium text-slate-500 mb-1">{opp.org}</p>
-                      <h3 className="text-xl font-bold text-pth-navy mb-3 group-hover:text-pth-green transition-colors">
-                        <Link to={`/opportunities/${opp.id}`} className="focus:outline-none">
-                          <span className="absolute inset-0" aria-hidden="true" />
-                          {opp.title}
-                        </Link>
-                      </h3>
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${opp.typeColor}`}>
-                        {opp.type}
-                      </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {opportunities.map((opp) => (
+                  <Link
+                    key={opp.id}
+                    to={`/opportunities/${opp.id}`}
+                    className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 flex flex-col"
+                  >
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700 w-fit mb-4">
+                      {opp.category}
+                    </span>
+                    <h3 className="text-lg font-heading font-bold text-pth-navy mb-2 group-hover:text-pth-green transition-colors">
+                      {opp.title}
+                    </h3>
+                    <p className="text-sm text-slate-500 mb-4">{opp.organisationName}</p>
+                    <div className="flex items-center gap-4 text-sm text-slate-500 mb-4">
+                      <span className="flex items-center gap-1.5"><Calendar size={14} /> {opp.duration}</span>
+                      <span className="flex items-center gap-1.5"><MapPin size={14} /> Manchester</span>
                     </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 mb-4 text-sm text-slate-600">
-                      <div className="flex items-center gap-2">
-                        <Clock size={16} className="text-slate-400" />
-                        <span>{opp.duration} <span className="text-slate-300 mx-1">•</span> {opp.dates}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin size={16} className="text-slate-400" />
-                        <span>{opp.location}</span>
-                      </div>
-                      <div className="flex items-center gap-2 sm:col-span-2">
-                        <span className="font-medium text-pth-navy">Compensation:</span> {opp.compensation}
-                      </div>
+                    <div className="mt-auto flex items-center gap-1 text-sm font-bold text-pth-navy group-hover:text-pth-green transition-colors">
+                      View details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </div>
-
-                    <p className="text-slate-600 text-sm mb-6 line-clamp-2">
-                      {opp.desc}
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-4 border-t border-slate-100">
-                      <div className="flex flex-wrap gap-2">
-                        {opp.skills.map(skill => (
-                          <span key={skill} className="px-2.5 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-md">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
-                        <span className="text-xs font-bold text-red-500">{opp.deadline}</span>
-                        <span className="text-sm font-bold text-pth-navy group-hover:text-pth-green transition-colors flex items-center gap-1 relative z-10">
-                          View Details
-                        </span>
-                      </div>
-                    </div>
-
-                  </div>
+                  </Link>
                 ))}
               </div>
 
-              {/* Pagination */}
-              <div className="mt-8 flex justify-center">
-                <nav className="flex items-center gap-2">
-                  <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:border-pth-green hover:text-pth-green transition-colors">
-                    &lt;
-                  </button>
-                  <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-pth-navy text-white font-bold">
-                    1
-                  </button>
-                  <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:border-pth-green hover:text-pth-green transition-colors font-bold">
-                    2
-                  </button>
-                  <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:border-pth-green hover:text-pth-green transition-colors font-bold">
-                    3
-                  </button>
-                  <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:border-pth-green hover:text-pth-green transition-colors">
-                    &gt;
-                  </button>
-                </nav>
+              <div className="mt-12 bg-white rounded-2xl border border-slate-100 shadow-sm p-8 text-center">
+                <h2 className="text-xl font-heading font-bold text-pth-navy mb-2">
+                  Not sure which one fits you?
+                </h2>
+                <p className="text-slate-600 mb-6">
+                  Take the free 2-minute assessment to see what direction fits you best.
+                </p>
+                <Link
+                  to="/assessment"
+                  className="inline-block bg-pth-navy text-white px-6 py-3 rounded-xl font-semibold hover:bg-pth-navy/90 transition-colors"
+                >
+                  Start your free assessment
+                </Link>
               </div>
-
             </div>
 
           </div>
