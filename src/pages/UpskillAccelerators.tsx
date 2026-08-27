@@ -61,7 +61,7 @@ export default function UpskillAccelerators() {
       cta={{
         headline: 'Find the right track',
         primaryLabel: 'Book a Conversation',
-        primaryTo: '/contact',
+        primaryTo: '/contact?for=Upskill+Accelerators',
         secondaryLabel: 'See PthFndR Accelerator',
         secondaryTo: '/programmes/pthfndr-accelerator',
       }}

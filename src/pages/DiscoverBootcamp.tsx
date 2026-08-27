@@ -62,7 +62,7 @@ export default function DiscoverBootcamp() {
       cta={{
         headline: 'Bring Discover Bootcamp to your organisation',
         primaryLabel: 'Book a Conversation',
-        primaryTo: '/contact',
+        primaryTo: '/contact?for=Discover+Bootcamp',
         secondaryLabel: 'See all Upskill Accelerators',
         secondaryTo: '/programmes/upskill-accelerators',
       }}

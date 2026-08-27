@@ -70,7 +70,7 @@ export const pthfndrAcceleratorContent = {
   cta: {
     headline: "Bring this to your school",
     primaryLabel: "Book a Conversation",
-    primaryTo: "/contact",
+    primaryTo: "/contact?for=PthFndR+Accelerator",
     secondaryLabel: "Explore school partnerships",
     secondaryTo: "/for-schools/partnerships"
   }
