@@ -4,9 +4,9 @@ import { motion } from 'motion/react';
 export default function TermsOfService() {
   return (
     <>
-      <SEO 
-        title="Terms of Service | PthFndR" 
-        description="Terms of Service for Pathfinder Educational Limited (PthFndR). Our commitment to dignity and professional standards."
+      <SEO
+        title="Terms of Service | PthFndR"
+        description="Terms of Service for Pathfinder Educational Limited (PthFndR). Our terms for using our website and services."
       />
       
       <div className="bg-white py-24 sm:py-32">

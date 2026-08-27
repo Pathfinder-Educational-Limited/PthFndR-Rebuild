@@ -4,9 +4,9 @@ import { motion } from 'motion/react';
 export default function PrivacyPolicy() {
   return (
     <>
-      <SEO 
-        title="Privacy Policy | PthFndR" 
-        description="Privacy Policy for Pathfinder Educational Limited (PthFndR). How we handle your data with dignity and security."
+      <SEO
+        title="Privacy Policy | PthFndR"
+        description="Privacy Policy for Pathfinder Educational Limited (PthFndR). How we handle your data securely and transparently."
       />
       
       <div className="bg-white py-24 sm:py-32">
