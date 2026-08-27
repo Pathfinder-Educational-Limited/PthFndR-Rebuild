@@ -49,9 +49,13 @@ const TypeformStyleForm = () => {
 
     if (!isApplicant) {
       q.push({ id: 'interest_in', label: "What are you most interested in?", type: 'select', options: [
-        { value: 'find-your-path', label: 'Find Your Path Assessment' },
-        { value: 'institutional-solution', label: 'Institutional Solutions & Bootcamps' },
-        { value: 'employalingua', label: 'EmployaLingua Platform' },
+        { value: 'free-assessment', label: 'Free Assessment' },
+        { value: 'discover-bootcamp', label: 'Discover Bootcamp' },
+        { value: 'upskill-accelerators', label: 'Upskill Accelerators' },
+        { value: 'pthfndr-accelerator', label: 'PthFndR Accelerator' },
+        { value: 'micro-opportunities', label: 'Micro-Opportunities' },
+        { value: 'school-partnership', label: 'School Partnership' },
+        { value: 'organisation-partnership', label: 'Organisation Partnership' },
       ]});
     }
 
