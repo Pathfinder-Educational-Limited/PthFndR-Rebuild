@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './components/MainLayout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -29,6 +29,8 @@ import ParticipantFeedback from './pages/ParticipantFeedback';
 import ForSchools from './pages/forSchools';
 import Stories from './pages/Stories';
 import PthFndRAccelerator from './pages/PthFndRAccelerator';
+import DiscoverBootcamp from './pages/DiscoverBootcamp';
+import UpskillAccelerators from './pages/UpskillAccelerators';
 import Programmes from './pages/Programmes';
 import Community from './pages/Community';
 import Team from './pages/Team';
@@ -37,6 +39,10 @@ import ForSchoolsProfessionalDevelopment from './pages/ForSchoolsProfessionalDev
 import CreateOpportunities from './pages/CreateOpportunities';
 import OrganisationPartnership from './pages/OrganisationPartnership';
 import NotFound from './pages/NotFound';
+import AdminGuard from './components/AdminGuard';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminApplications from './pages/admin/AdminApplications';
 
 export default function App() {
   return (
@@ -69,6 +75,8 @@ export default function App() {
             <Route path="team" element={<Team />} />
             <Route path="programmes" element={<Programmes />} />
             <Route path="programmes/pthfndr-accelerator" element={<PthFndRAccelerator />} />
+            <Route path="programmes/discover-bootcamp" element={<DiscoverBootcamp />} />
+            <Route path="programmes/upskill-accelerators" element={<UpskillAccelerators />} />
             <Route path="opportunities" element={<Opportunities />} />
             <Route path="opportunities/:id" element={<OpportunityDetail />} />
             <Route path="opportunities/:id/feedback" element={<ParticipantFeedback />} />
@@ -76,9 +84,14 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/methodology/diagnostic" element={<Assessment />} />
+          <Route path="/methodology/diagnostic" element={<Navigate to="/assessment" replace />} />
           <Route path="/assessment" element={<Assessment />} />
-          <Route path="/diagnostic" element={<Assessment />} />
+          <Route path="/diagnostic" element={<Navigate to="/assessment" replace />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminGuard />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="applications" element={<AdminApplications />} />
+          </Route>
         </Routes>
     </Router>
   );
