@@ -7,7 +7,7 @@ import { TriangleMotif } from '../components/ui/TriangleMotif';
 import { CommunitySchema } from '../components/SEOSchemas';
 
 const benefits = [
-  { icon: Users, title: 'Peer Network', desc: 'Connect with hundreds of young people on similar journeys. Share experiences, celebrate wins, and support each other.' },
+  { icon: Users, title: 'Peer Network', desc: 'Connect with 223 young people on similar journeys. Share experiences, celebrate wins, and support each other.' },
   { icon: Briefcase, title: 'Real Opportunities', desc: 'Access exclusive micro-opportunities, internships, and work placements with real employers. Build your portfolio.' },
   { icon: HeartHandshake, title: 'Mentorship', desc: 'Get matched with mentors from leading organisations. Get guidance, advice, and support on your journey.' },
   { icon: BookOpen, title: 'Resources & Learning', desc: 'Access exclusive resources, guides, and learning materials to develop your skills and boost your career.' },
