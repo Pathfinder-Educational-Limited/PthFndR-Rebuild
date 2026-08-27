@@ -18,8 +18,7 @@ export default function OrganisationPartnership() {
             'Whatever your goal — developing young people, gathering insight, or hiring emerging talent — there is a partnership model that fits.',
           ],
           bullets: [
-            'Long-term programmes — custom facilitation, training, and curriculum design (Bronze / Silver / Gold tiers by scale)',
-            'Research & insight — contribute to the annual Formation Index and access exclusive youth insights',
+            'Long-term programmes — custom facilitation, training, and curriculum design, based on scope and scale',
             'Talent pipeline — hire graduates and build an early pipeline of self-aware young professionals',
           ],
         },
