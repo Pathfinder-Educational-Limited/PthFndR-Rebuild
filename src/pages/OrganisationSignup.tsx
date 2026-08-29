@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { getSupabaseClient } from '../services/supabaseClient';
@@ -16,7 +16,7 @@ export default function OrganisationSignup() {
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
     setLoading(true);
@@ -176,7 +176,7 @@ export default function OrganisationSignup() {
 
             <p className="text-xs text-slate-400 text-center pt-2">
               Already have an account?{' '}
-              <Link to="/login" className="text-pth-green font-semibold hover:underline">
+              <Link to="/login?redirect=/for-organisations/post-opportunity" className="text-pth-green font-semibold hover:underline">
                 Sign in
               </Link>
             </p>
