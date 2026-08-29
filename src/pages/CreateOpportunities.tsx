@@ -42,7 +42,7 @@ export default function CreateOpportunities() {
       cta={{
         headline: 'Post your first opportunity',
         primaryLabel: 'Get started',
-        primaryTo: '/contact',
+        primaryTo: '/for-organisations/signup',
         secondaryLabel: 'Explore partnerships',
         secondaryTo: '/for-organisations/partnerships',
       }}

@@ -38,6 +38,8 @@ import ForSchoolsPartnerships from './pages/ForSchoolsPartnerships';
 import ForSchoolsProfessionalDevelopment from './pages/ForSchoolsProfessionalDevelopment';
 import CreateOpportunities from './pages/CreateOpportunities';
 import OrganisationPartnership from './pages/OrganisationPartnership';
+import OrganisationSignup from './pages/OrganisationSignup';
+import SchoolSignup from './pages/SchoolSignup';
 import NotFound from './pages/NotFound';
 import AdminGuard from './components/AdminGuard';
 import AdminLogin from './pages/admin/AdminLogin';
@@ -67,9 +69,11 @@ export default function App() {
             <Route path="for-organisations" element={<ForOrganisations />} />
             <Route path="for-organisations/create-opportunities" element={<CreateOpportunities />} />
             <Route path="for-organisations/partnerships" element={<OrganisationPartnership />} />
+            <Route path="for-organisations/signup" element={<OrganisationSignup />} />
             <Route path="for-schools" element={<ForSchools />} />
             <Route path="for-schools/partnerships" element={<ForSchoolsPartnerships />} />
             <Route path="for-schools/professional-development" element={<ForSchoolsProfessionalDevelopment />} />
+            <Route path="for-schools/signup" element={<SchoolSignup />} />
             <Route path="stories" element={<Stories />} />
             <Route path="community" element={<Community />} />
             <Route path="team" element={<Team />} />
