@@ -5,7 +5,7 @@ import "dotenv/config";
 
 // Import all services
 import { initSentry, captureException, Sentry } from "./src/services/sentry";
-import { getResend, sendContactConfirmation, sendContactNotification, sendGuardianConsentRequest } from "./src/services/resend";
+import { getResend, sendContactConfirmation, sendContactNotification, sendGuardianConsentRequest, sendEmail } from "./src/services/resend";
 import { saveContact, getContacts, createGuardianConsentRequest, confirmGuardianConsent } from "./src/services/supabase";
 import { initializeCronJobs, stopAllCronJobs } from "./src/services/cron";
 import { getDeploymentInfo } from "./src/services/azure";
@@ -247,6 +247,36 @@ async function startServer() {
       console.error("[API] Guardian consent confirm error:", error);
       captureException(error as Error, { endpoint: "/api/consent/confirm" });
       return res.status(500).send(page("Something went wrong", "Please try again shortly, or reply to the original email for help."));
+    }
+  });
+
+  // Opportunity application confirmation
+  app.post("/api/opportunities/confirm", async (req: Request, res: Response) => {
+    try {
+      const { firstName, email, opportunityTitle } = req.body;
+      if (!firstName || !email || !opportunityTitle) {
+        return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      await sendEmail({
+        from: "noreply@pthfndr.org",
+        to: email,
+        subject: `Your application for ${opportunityTitle} — received`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h1 style="color: #0C2A5C;">PthFndR</h1>
+            <p>Hi ${firstName},</p>
+            <p>Thanks for applying to <strong>${opportunityTitle}</strong>. We've received your application and will be in touch soon.</p>
+            <p>Best regards,<br><strong>The PthFndR Team</strong></p>
+          </div>
+        `,
+        replyTo: "hello@pthfndr.org",
+      });
+      res.json({ success: true });
+    } catch (err) {
+      console.warn("[API] Opportunity confirmation email failed:", (err as Error).message);
+      captureException(err as Error, { endpoint: "/api/opportunities/confirm" });
+      res.status(500).json({ error: "Failed to send confirmation" });
     }
   });
 
