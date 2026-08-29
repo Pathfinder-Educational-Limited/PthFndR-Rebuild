@@ -142,7 +142,7 @@ export default function PostOpportunity() {
           You need an organisation account to post opportunities.
         </p>
         <div className="flex gap-4">
-          <Link to="/login" className="inline-flex items-center gap-2 bg-pth-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-pth-navy/90 transition-colors">
+          <Link to="/login?redirect=/for-organisations/post-opportunity" className="inline-flex items-center gap-2 bg-pth-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-pth-navy/90 transition-colors">
             Sign in
           </Link>
           <Link to="/for-organisations/signup" className="inline-flex items-center gap-2 bg-pth-green text-white px-6 py-3 rounded-xl font-bold hover:bg-[#4ea858] transition-colors">

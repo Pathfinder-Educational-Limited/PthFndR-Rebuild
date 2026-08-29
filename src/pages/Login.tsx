@@ -1,8 +1,44 @@
+import { useState, type FormEvent } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { motion } from 'motion/react';
 import { Logo } from '../components/Logo';
+import { getSupabaseClient } from '../services/supabaseClient';
 
 export default function Login() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    try {
+      const supabase = getSupabaseClient();
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (signInError) {
+        setError('Incorrect email or password.');
+        setLoading(false);
+        return;
+      }
+
+      navigate(searchParams.get('redirect') || '/');
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+      console.error('Login error:', err);
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <SEO
@@ -13,8 +49,8 @@ export default function Login() {
         {/* Background Decorative Elements */}
         <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-pth-cyan/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[400px] h-[400px] bg-pth-lime/20 rounded-full blur-3xl"></div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -28,7 +64,13 @@ export default function Login() {
               Sign in to your account
             </h2>
 
-            <form className="space-y-6" action="#" method="POST">
+            {error && (
+              <div className="mb-6 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg p-3">
+                {error}
+              </div>
+            )}
+
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-slate-700">
                   Email address
@@ -40,12 +82,13 @@ export default function Login() {
                     type="email"
                     autoComplete="email"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="block w-full rounded-xl border-0 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-pth-cyan sm:text-sm sm:leading-6 px-4 transition-shadow"
                     placeholder="you@example.com"
                   />
                 </div>
               </div>
-
               <div>
                 <div className="flex items-center justify-between">
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-slate-700">
@@ -64,26 +107,32 @@ export default function Login() {
                     type="password"
                     autoComplete="current-password"
                     required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="block w-full rounded-xl border-0 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-pth-cyan sm:text-sm sm:leading-6 px-4 transition-shadow"
                     placeholder="••••••••"
                   />
                 </div>
               </div>
-
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-xl bg-pth-gradient px-4 py-3 text-sm font-bold leading-6 text-pth-navy shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pth-cyan transition-all"
+                  disabled={loading}
+                  className="flex w-full justify-center rounded-xl bg-pth-gradient px-4 py-3 text-sm font-bold leading-6 text-pth-navy shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pth-cyan transition-all disabled:opacity-50"
                 >
-                  Sign in
+                  {loading ? 'Signing in...' : 'Sign in'}
                 </button>
               </div>
             </form>
-            
+
             <p className="mt-8 text-center text-sm text-slate-500">
               Not a member?{' '}
-              <a href="/contact" className="font-semibold leading-6 text-pth-cyan hover:text-pth-primary-blue transition-colors">
-                Contact us to enroll
+              <a href="/for-organisations/signup" className="font-semibold leading-6 text-pth-cyan hover:text-pth-primary-blue transition-colors">
+                Sign up as an organisation
+              </a>
+              {' · '}
+              <a href="/for-schools/signup" className="font-semibold leading-6 text-pth-cyan hover:text-pth-primary-blue transition-colors">
+                as a school
               </a>
             </p>
           </div>
