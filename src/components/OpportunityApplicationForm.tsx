@@ -62,6 +62,16 @@ export default function OpportunityApplicationForm({
       return;
     }
 
+    fetch('/api/opportunities/confirm', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName: form.first_name,
+        email: form.email,
+        opportunityTitle: opportunityTitle,
+      }),
+    }).catch((err) => console.warn('Confirmation email request failed:', err));
+
     onSuccess();
   };
 
