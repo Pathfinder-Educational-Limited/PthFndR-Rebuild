@@ -40,6 +40,7 @@ import CreateOpportunities from './pages/CreateOpportunities';
 import OrganisationPartnership from './pages/OrganisationPartnership';
 import OrganisationSignup from './pages/OrganisationSignup';
 import SchoolSignup from './pages/SchoolSignup';
+import PostOpportunity from './pages/PostOpportunity';
 import NotFound from './pages/NotFound';
 import AdminGuard from './components/AdminGuard';
 import AdminLogin from './pages/admin/AdminLogin';
@@ -70,6 +71,7 @@ export default function App() {
             <Route path="for-organisations/create-opportunities" element={<CreateOpportunities />} />
             <Route path="for-organisations/partnerships" element={<OrganisationPartnership />} />
             <Route path="for-organisations/signup" element={<OrganisationSignup />} />
+            <Route path="for-organisations/post-opportunity" element={<PostOpportunity />} />
             <Route path="for-schools" element={<ForSchools />} />
             <Route path="for-schools/partnerships" element={<ForSchoolsPartnerships />} />
             <Route path="for-schools/professional-development" element={<ForSchoolsProfessionalDevelopment />} />
