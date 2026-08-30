@@ -169,9 +169,9 @@ export default function ForOrganisations() {
                   </div>
                 </div>
                 
-                <a href="https://calendly.com/pthfndr" target="_blank" rel="noopener noreferrer" className="bg-pth-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-[#0C2A5C] transition-colors w-fit">
-                  Schedule a Partnership Call
-                </a>
+                <Link to="/contact?for=Organisation+Partnership" className="bg-pth-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-[#0C2A5C] transition-colors w-fit">
+                  Book a Conversation
+                </Link>
               </div>
               <div className="lg:w-1/2 bg-slate-100 relative min-h-[300px]">
                 <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Long-term partnership" className="absolute inset-0 w-full h-full object-cover" />
