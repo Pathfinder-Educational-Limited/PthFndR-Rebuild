@@ -301,6 +301,10 @@ export default function Contact() {
                       <a href="mailto:support@employalingua.com" className="hover:text-pth-cyan font-medium transition-colors">
                         support@employalingua.com
                       </a>
+                      <br />
+                      <a href="https://employalingua.com" target="_blank" rel="noopener noreferrer" className="hover:text-pth-cyan font-medium transition-colors text-sm text-slate-500">
+                        employalingua.com
+                      </a>
                     </div>
                   </dd>
                 </div>
