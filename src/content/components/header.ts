@@ -18,7 +18,6 @@ export const headerContent = {
         {
           title: "For Young People",
           links: [
-            { label: "Career Accelerators", href: "/programmes/career-accelerators" },
             { label: "Micro-Opportunities", href: "/opportunities" },
             { label: "Free Assessment", href: "/assessment" }
           ]
