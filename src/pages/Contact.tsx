@@ -233,7 +233,7 @@ export default function Contact() {
       <ContactPageSchema />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-pth-soft-cyan py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-pth-teal/10 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
