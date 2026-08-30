@@ -1,9 +1,10 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import SEO from '../components/SEO';
 import OpportunityApplicationForm from '../components/OpportunityApplicationForm';
 import { ArrowLeft, Bookmark, Share2, MapPin, Calendar, Briefcase, CheckCircle, MessageSquare, BriefcaseBusiness } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { opportunities } from '../content/pages/opportunitiesData';
+import { getSupabaseClient } from '../services/supabaseClient';
 
 // ============================================================================
 // OpportunityDetail.tsx — CLEAN SLATE REBUILD (Aug 2026), wired to local
@@ -24,10 +25,54 @@ import { opportunities } from '../content/pages/opportunitiesData';
 
 export default function OpportunityDetail() {
   const { id } = useParams();
-  const opportunity = opportunities.find((o) => o.id === id) ?? null;
+  const staticMatch = opportunities.find((o) => o.id === id) ?? null;
+  const [dbMatch, setDbMatch] = useState<typeof opportunities[number] | null>(null);
+  const [checkedDb, setCheckedDb] = useState(false);
+
+  useEffect(() => {
+    if (staticMatch || !id) {
+      setCheckedDb(true);
+      return;
+    }
+    const supabase = getSupabaseClient();
+    supabase
+      .from('opportunities')
+      .select('*, organisations(name)')
+      .eq('id', id)
+      .eq('status', 'approved')
+      .single()
+      .then(({ data, error }) => {
+        if (!error && data) {
+          setDbMatch({
+            id: data.id,
+            title: data.title,
+            organisationName: data.organisations?.name ?? 'Organisation',
+            category: data.category,
+            duration: data.duration,
+            location: data.location,
+            reward: data.reward ?? undefined,
+            skillsDeveloped: data.skills_developed ?? [],
+            whatYoullDo: data.description,
+            whatYoullLearn: [],
+            requirements: data.requirements ?? [],
+          });
+        }
+        setCheckedDb(true);
+      });
+  }, [id, staticMatch]);
+
+  const opportunity = staticMatch ?? dbMatch;
   const [applying, setApplying] = useState(false);
   const [applied, setApplied] = useState(false);
   const applyFormRef = useRef<HTMLDivElement>(null);
+
+  if (!checkedDb) {
+    return (
+      <div className="bg-pth-cream min-h-screen flex items-center justify-center">
+        <p className="text-slate-500">Loading...</p>
+      </div>
+    );
+  }
 
   if (!opportunity) {
     return (
