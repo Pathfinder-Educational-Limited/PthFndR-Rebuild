@@ -163,6 +163,7 @@ export default function Assessment() {
       <SEO
         title="Free Assessment | PthFndR"
         description="Take the free 2-minute assessment to find your starting point — see your strengths and what to focus on next."
+        url="https://pthfndr.org/assessment"
       />
 
       <div className="w-full max-w-2xl relative">
