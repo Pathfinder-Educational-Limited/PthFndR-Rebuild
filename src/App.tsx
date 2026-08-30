@@ -18,6 +18,7 @@ import Competence from './pages/Competence';
 import Identity from './pages/Identity';
 import Impact from './pages/Impact';
 import SocialHackathon from './pages/SocialHackathon';
+import SocialValue from './pages/SocialValue';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ForOrganisations from './pages/ForOrganisations';
@@ -74,6 +75,7 @@ export default function App() {
             <Route path="for-organisations/partnerships" element={<OrganisationPartnership />} />
             <Route path="for-organisations/signup" element={<OrganisationSignup />} />
             <Route path="for-organisations/post-opportunity" element={<PostOpportunity />} />
+            <Route path="for-organisations/social-value" element={<SocialValue />} />
             <Route path="for-schools" element={<ForSchools />} />
             <Route path="for-schools/partnerships" element={<ForSchoolsPartnerships />} />
             <Route path="for-schools/professional-development" element={<ForSchoolsProfessionalDevelopment />} />

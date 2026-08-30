@@ -56,6 +56,7 @@ const TypeformStyleForm = () => {
         { value: 'micro-opportunities', label: 'Micro-Opportunities' },
         { value: 'school-partnership', label: 'School Partnership' },
         { value: 'organisation-partnership', label: 'Organisation Partnership' },
+        { value: 'social-value-commissioning', label: 'Social Value Commissioning' },
       ]});
     }
 
