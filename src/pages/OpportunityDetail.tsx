@@ -178,7 +178,25 @@ export default function OpportunityDetail() {
                 <section>
                   <h3 className="text-xl font-heading font-bold text-pth-navy mb-4">What you'll do</h3>
                   <div className="prose prose-slate max-w-none text-slate-600">
-                    <p>{opportunity.whatYoullDo}</p>
+                    {(() => {
+                      const lines = opportunity.whatYoullDo
+                        .split('\n')
+                        .map((l) => l.replace(/^[-•]\s*/, '').trim())
+                        .filter(Boolean);
+                      if (lines.length > 1) {
+                        return (
+                          <ul className="space-y-2 list-none pl-0">
+                            {lines.map((line) => (
+                              <li key={line} className="flex items-start gap-3">
+                                <CheckCircle className="text-pth-green shrink-0 mt-1" size={16} />
+                                <span>{line}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      }
+                      return <p>{opportunity.whatYoullDo}</p>;
+                    })()}
                   </div>
                 </section>
 
