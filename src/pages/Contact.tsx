@@ -48,7 +48,7 @@ const TypeformStyleForm = () => {
     }
 
     if (!isApplicant) {
-      q.push({ id: 'interest_in', label: "What are you most interested in?", type: 'select', options: [
+      const ALL_INTEREST_OPTIONS = [
         { value: 'free-assessment', label: 'Free Assessment' },
         { value: 'discover-bootcamp', label: 'Discover Bootcamp' },
         { value: 'upskill-accelerators', label: 'Upskill Accelerators' },
@@ -57,7 +57,18 @@ const TypeformStyleForm = () => {
         { value: 'school-partnership', label: 'School Partnership' },
         { value: 'organisation-partnership', label: 'Organisation Partnership' },
         { value: 'social-value-commissioning', label: 'Social Value Commissioning' },
-      ]});
+      ];
+      const INTEREST_OPTIONS_BY_ROLE: Record<string, string[]> = {
+        young_person: ['free-assessment', 'discover-bootcamp', 'upskill-accelerators', 'pthfndr-accelerator', 'micro-opportunities'],
+        educator: ['school-partnership', 'discover-bootcamp', 'upskill-accelerators', 'free-assessment'],
+        institution: ['social-value-commissioning', 'organisation-partnership', 'school-partnership'],
+        employer: ['organisation-partnership', 'micro-opportunities', 'social-value-commissioning'],
+      };
+      const allowedValues = INTEREST_OPTIONS_BY_ROLE[formData.role];
+      const filteredOptions = allowedValues
+        ? ALL_INTEREST_OPTIONS.filter((opt) => allowedValues.includes(opt.value))
+        : ALL_INTEREST_OPTIONS;
+      q.push({ id: 'interest_in', label: "What are you most interested in?", type: 'select', options: filteredOptions });
     }
 
     q.push({
