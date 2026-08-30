@@ -46,6 +46,7 @@ import AdminGuard from './components/AdminGuard';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminApplications from './pages/admin/AdminApplications';
+import AdminOpportunities from './pages/admin/AdminOpportunities';
 
 export default function App() {
   return (
@@ -97,6 +98,7 @@ export default function App() {
           <Route path="/admin" element={<AdminGuard />}>
             <Route index element={<AdminDashboard />} />
             <Route path="applications" element={<AdminApplications />} />
+            <Route path="opportunities" element={<AdminOpportunities />} />
           </Route>
         </Routes>
     </Router>
