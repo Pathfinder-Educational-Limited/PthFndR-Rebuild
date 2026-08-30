@@ -12,6 +12,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [resetSent, setResetSent] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -37,6 +38,23 @@ export default function Login() {
       console.error('Login error:', err);
       setLoading(false);
     }
+  };
+
+  const handleForgotPassword = async () => {
+    if (!email) {
+      setError('Enter your email address first, then click "Forgot password?"');
+      return;
+    }
+    setError(null);
+    const supabase = getSupabaseClient();
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    if (resetError) {
+      setError(resetError.message);
+      return;
+    }
+    setResetSent(true);
   };
 
   return (
@@ -70,6 +88,12 @@ export default function Login() {
               </div>
             )}
 
+            {resetSent && (
+              <div className="mb-6 bg-green-50 border border-green-200 text-green-700 text-sm rounded-lg p-3">
+                Check your email for a password reset link.
+              </div>
+            )}
+
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-slate-700">
@@ -95,9 +119,13 @@ export default function Login() {
                     Password
                   </label>
                   <div className="text-sm">
-                    <a href="#" className="font-semibold text-pth-cyan hover:text-pth-primary-blue transition-colors">
+                    <button
+                      type="button"
+                      onClick={handleForgotPassword}
+                      className="font-semibold text-pth-cyan hover:text-pth-primary-blue transition-colors"
+                    >
                       Forgot password?
-                    </a>
+                    </button>
                   </div>
                 </div>
                 <div className="mt-2">

@@ -41,6 +41,7 @@ import OrganisationPartnership from './pages/OrganisationPartnership';
 import OrganisationSignup from './pages/OrganisationSignup';
 import SchoolSignup from './pages/SchoolSignup';
 import PostOpportunity from './pages/PostOpportunity';
+import ResetPassword from './pages/ResetPassword';
 import NotFound from './pages/NotFound';
 import AdminGuard from './components/AdminGuard';
 import AdminLogin from './pages/admin/AdminLogin';
@@ -88,6 +89,7 @@ export default function App() {
             <Route path="opportunities/:id" element={<OpportunityDetail />} />
             <Route path="opportunities/:id/feedback" element={<ParticipantFeedback />} />
             <Route path="organisation/dashboard" element={<OrganisationDashboard />} />
+            <Route path="reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="/dashboard" element={<Dashboard />} />
