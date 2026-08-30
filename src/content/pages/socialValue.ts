@@ -41,6 +41,13 @@ export const socialValueContent = {
       ],
     },
     {
+      eyebrow: "Custom ESOL + work experience programmes",
+      heading: "Combining language support with real opportunity",
+      body: [
+        "For Local Authorities working with ESOL learners aged 16-24, we can design custom programmes combining EmployaLingua (employalingua.com) — our platform helping ESOL learners build employability skills in English and in their own language, currently available in Arabic, Urdu, Tigrinya, Farsi, and English — with hands-on work experience through PthFndR. Ask us about this.",
+      ],
+    },
+    {
       eyebrow: "Where we deliver",
       heading: "Based in Manchester, working across Greater Manchester",
       body: [
