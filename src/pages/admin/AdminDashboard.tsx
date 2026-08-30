@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { getSupabaseClient } from '../../services/supabaseClient';
+import { Logo } from '../../components/Logo';
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -13,7 +14,10 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-[#0C2A5C] text-white px-6 py-4 flex justify-between items-center">
-        <span className="font-bold">PthFndR Admin</span>
+        <div className="flex items-center gap-2">
+          <Logo size="sm" variant="dark" />
+          <span className="font-bold">Admin</span>
+        </div>
         <button onClick={handleSignOut} className="text-sm text-white/70 hover:text-white">
           Sign out
         </button>

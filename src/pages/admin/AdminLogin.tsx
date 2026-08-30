@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getSupabaseClient } from '../../services/supabaseClient';
+import { Logo } from '../../components/Logo';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -33,7 +34,10 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0C2A5C]">
       <div className="bg-white rounded-lg p-8 w-full max-w-sm shadow-lg">
-        <h1 className="text-xl font-bold text-[#0C2A5C] mb-6">PthFndR Admin</h1>
+        <div className="flex justify-center mb-4">
+          <Logo size="md" variant="light" />
+        </div>
+        <h1 className="text-xl font-bold text-[#0C2A5C] mb-6 text-center">Admin</h1>
 
         <div className="space-y-4">
           <div>
