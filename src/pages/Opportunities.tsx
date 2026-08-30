@@ -1,12 +1,36 @@
 import SEO from '../components/SEO';
 import { OpportunitiesListSchema } from '../components/SEOSchemas';
 import { Search, Filter, CheckSquare, ArrowRight, MapPin, Calendar } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { opportunities } from '../content/pages/opportunitiesData';
+import { getSupabaseClient } from '../services/supabaseClient';
 
 export default function Opportunities() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [dbOpportunities, setDbOpportunities] = useState<typeof opportunities>([]);
+
+  useEffect(() => {
+    const supabase = getSupabaseClient();
+    supabase
+      .from('opportunities')
+      .select('id, title, category, duration, organisations(name)')
+      .eq('status', 'approved')
+      .then(({ data }) => {
+        if (data) {
+          const mapped = data.map((o: any) => ({
+            id: o.id,
+            title: o.title,
+            organisationName: o.organisations?.name ?? 'Organisation',
+            category: o.category,
+            duration: o.duration,
+          }));
+          setDbOpportunities(mapped as any);
+        }
+      });
+  }, []);
+
+  const allOpportunities = [...opportunities, ...dbOpportunities];
 
   return (
     <>
@@ -116,11 +140,11 @@ export default function Opportunities() {
             {/* RESULTS (Main) */}
             <div className="flex-1">
               <p className="text-slate-600 mb-6">
-                {opportunities.length} open {opportunities.length === 1 ? 'opportunity' : 'opportunities'} right now.
+                {allOpportunities.length} open {allOpportunities.length === 1 ? 'opportunity' : 'opportunities'} right now.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {opportunities.map((opp) => (
+                {allOpportunities.map((opp) => (
                   <Link
                     key={opp.id}
                     to={`/opportunities/${opp.id}`}
