@@ -27,15 +27,5 @@ export const partnerships = {
       logoUrl: "/logos/breakout.png",
       website: "https://www.breakoutcharity.co.uk/"
     },
-    {
-      name: "Loreto Schools",
-      logoUrl: "/logos/loreto-schools.png",
-      website: "https://www.loretochorlton.co.uk/"
-    },
-    {
-      name: "One Million Mentors",
-      logoUrl: "/logos/1-million-mentor.png",
-      website: "https://onemillionmentors.org.uk/"
-    }
   ]
 };
