@@ -3,7 +3,7 @@ export const forSchoolsContent = {
   hero: {
     headline: "Transform Your Students' Futures",
     subheading: "Give young people the skills, confidence, and real-world experience they need to succeed in work and life.",
-    bodyCopy: "Your students have potential. PthFndR helps them unlock it—through proven career development programmes, meaningful work experiences, and the confidence to take control of their future. We measure success by real outcomes: progression to employment and further study.",
+    bodyCopy: "Your students have potential. PthFndR helps them unlock it, through proven programmes, real work experience, and the confidence to take control of their future. We are a social enterprise, not a charity, and we measure success by real outcomes: did they get hired, did they progress, are they confident about what comes next.",
     ctaButton: "Explore Our School Programmes"
   },
 
@@ -13,11 +13,11 @@ export const forSchoolsContent = {
     cards: [
       {
         headline: "Your Students Actually Get Hired",
-        copy: "85% of young people completing PthFndR programmes progress to employment or further study. We track real outcomes, not just engagement metrics."
+        copy: "95% of young people who complete PthFndR programmes progress to work or further education. We track real outcomes, not just engagement metrics."
       },
       {
         headline: "Proven Model",
-        copy: "Developed by career experts and tested with 500+ young people. Our approach builds genuine employability skills: identity clarity, practical capability, and real-world opportunity."
+        copy: "Developed by career experts and tested with 223 young people to date. Our approach builds genuine employability skills: identity clarity, practical capability, and real-world opportunity."
       },
       {
         headline: "Teacher Support",
@@ -31,25 +31,15 @@ export const forSchoolsContent = {
   },
 
   // Social Proof Section
+  // Quotes intentionally empty — PthFndR is collecting real, consented testimonials from
+  // school partners. Do not add placeholder or fabricated quotes here; populate this array
+  // only when real testimonials exist. Same pattern already in use in stories.ts.
   socialProof: {
     sectionHeadline: "Schools Trust PthFndR",
-    quotes: [
-      {
-        text: "Our students came back transformed. Not just with skills, but with real confidence in their future. The results speak for themselves.",
-        author: "Sarah Mitchell",
-        role: "Head of Careers, Manchester High School"
-      },
-      {
-        text: "The employer connections are invaluable. Real companies, real internships, real pathways to work. This is careers education that actually works.",
-        author: "James Chen",
-        role: "Deputy Head, South London Academy"
-      }
-    ],
+    quotes: [],
     stats: [
-      { value: "30+", label: "school partners across UK" },
-      { value: "500+", label: "young people supported (Since 2024)" },
-      { value: "85%", label: "progress to employment/further study" },
-      { value: "95%", label: "of schools recommend to peers" }
+      { value: "223", label: "young people reached to date" },
+      { value: "95%", label: "progression rate to work or further education" }
     ]
   },
 
@@ -58,10 +48,10 @@ export const forSchoolsContent = {
     sectionHeadline: "Your Programme Options",
     items: [
       {
-        name: "Career Accelerators",
+        name: "Upskill Accelerators",
         duration: "6 weeks",
-        description: "Intensive careers programme combining self-discovery, skill-building, and employer engagement",
-        who: "Year 10-11 students, Year 12-13 students, or school leavers",
+        description: "Sector-specific skill-building across Cyber, Digital Marketing, Construction, or a General track for undecided young people",
+        who: "Year 12 / sixth form students, or school leavers aged 16-24",
         howItWorks: [
           "Weekly facilitated sessions (90 mins each)",
           "Self-assessment and career exploration",
@@ -75,11 +65,48 @@ export const forSchoolsContent = {
           "Real employer connections",
           "Strong applications for jobs/universities"
         ],
-        cost: "Custom quote based on cohort size"
+        cost: "Custom quote based on cohort size (no cost to students)"
+      },
+      {
+        name: "Discover Bootcamp",
+        duration: "6 weeks",
+        description: "Identity work first: understand who you are, what you value, and where that turns into direction, before building skills",
+        who: "Year 12 / sixth form students, or school leavers aged 16-24",
+        howItWorks: [
+          "Weekly facilitated sessions led by PthFndR's founding team",
+          "Identity and strengths work in the first weeks",
+          "Practical skills and job-search strategy in later weeks",
+          "Certificate and personalised reference letter on completion"
+        ],
+        outcomes: [
+          "Clarity on direction before committing to a path",
+          "Real, transferable skills",
+          "A completed job-search strategy module"
+        ],
+        cost: "Free for the student, every time"
+      },
+      {
+        name: "PthFndR Accelerator",
+        duration: "1-2 week placement",
+        description: "A taster placement for Year 12 / sixth form students to explore a career direction before committing to a longer programme",
+        who: "Year 12 / sixth form students, referred by your school",
+        howItWorks: [
+          "Student is referred by your school",
+          "Matched to a placement suited to their interests",
+          "1-2 weeks of real workplace experience",
+          "Guided reflection and next-step planning"
+        ],
+        outcomes: [
+          "Real workplace experience",
+          "Clarity on whether a sector is the right fit",
+          "A concrete next step, whether that's Upskill Accelerators or something else"
+        ],
+        cost: "Free — no cost to the school or the student"
       },
       {
         name: "Micro-Opportunities",
-        description: "Access to one-off meaningful work experiences (3-5 days) throughout the year",
+        duration: "3-5 days",
+        description: "Access to one-off meaningful work experiences throughout the year",
         who: "All young people in your school",
         howItWorks: [
           "Browse current opportunities (coding projects, event management, content creation, etc.)",
@@ -99,7 +126,7 @@ export const forSchoolsContent = {
     ]
   },
 
-  // Additional Sections (continue pattern...)
+  // Additional Sections
   difference: {
     headline: "Why PthFndR Is Different",
     copy: "Most careers programmes talk AT young people about career skills. PthFndR works WITH them to discover their identity, build real capability, and make genuine connections with employers who are hiring.\n\nWe don't explain frameworks. We deliver outcomes.\n\nWe measure success by: Did they get hired? Did they progress? Are they confident about their future?"
@@ -123,7 +150,7 @@ export const forSchoolsContent = {
       {
         number: 3,
         title: "Launch Your Programme",
-        description: "When you're ready, launch with your full cohort. We support every step—training, resources, check-ins, results.",
+        description: "When you're ready, launch with your full cohort. We support every step — training, resources, check-ins, results.",
         isFlexible: true
       }
     ]
@@ -132,12 +159,20 @@ export const forSchoolsContent = {
   faq: [
     {
       question: "How much time do teachers need to dedicate?",
-      answer: "Varies by programme. Career Accelerators require facilitator to deliver weekly sessions. Micro-Opportunities can be integrated into existing provision or run as standalone."
+      answer: "It varies by programme. Upskill Accelerators and Discover Bootcamp need a facilitator to deliver weekly sessions. Micro-Opportunities and PthFndR Accelerator placements can be integrated into existing provision or run as standalone, with lighter staff involvement."
     },
     {
       question: "Can you integrate with our existing careers provision?",
-      answer: "Absolutely. We've done this at 20+ schools. Usually supplements existing PSHE or careers curriculum."
+      answer: "Absolutely. It usually supplements existing PSHE or careers curriculum rather than replacing it."
     },
+    {
+      question: "Does this cost the school or the students anything?",
+      answer: "The young person never pays, for any PthFndR programme. Upskill Accelerators and Discover Bootcamp are quoted based on cohort size for the school or organisation where applicable; PthFndR Accelerator and Micro-Opportunities are free."
+    },
+    {
+      question: "What age groups can take part?",
+      answer: "PthFndR programmes are for young people aged 16-24. PthFndR Accelerator is currently open to Year 12 / sixth form students specifically."
+    }
     // ... more FAQs
   ],
 
