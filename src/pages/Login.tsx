@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { motion } from 'motion/react';
 import { Logo } from '../components/Logo';
-import { getSupabaseClient } from '../services/supabaseClient';
+import { getSupabaseClient, getUserRole } from '../services/supabaseClient';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -32,7 +32,15 @@ export default function Login() {
         return;
       }
 
-      navigate(searchParams.get('redirect') || '/');
+      const redirectParam = searchParams.get('redirect');
+      if (redirectParam) {
+        navigate(redirectParam);
+        return;
+      }
+
+      const role = await getUserRole();
+      const dashboardPath = role === 'admin' ? '/admin' : role === 'school' ? '/school/dashboard' : role === 'organisation' ? '/organisation/dashboard' : '/';
+      navigate(dashboardPath);
     } catch (err) {
       setError('Something went wrong. Please try again.');
       console.error('Login error:', err);
