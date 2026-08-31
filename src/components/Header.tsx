@@ -2,13 +2,13 @@ import { useLocation, Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, User } from 'lucide-react';
 import { useState, useRef, useEffect, KeyboardEvent } from 'react';
 import { Logo } from './Logo';
-import { getSupabaseClient } from '../services/supabaseClient';
+import { getSupabaseClient, getUserRole } from '../services/supabaseClient';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const [isProgrammesOpen, setIsProgrammesOpen] = useState(false);
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [userRole, setUserRole] = useState<'admin' | 'organisation' | 'school' | null>(null);
   const [checkingAuth, setCheckingAuth] = useState(true);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -37,11 +37,16 @@ export default function Header() {
 
   useEffect(() => {
     const supabase = getSupabaseClient();
-    supabase.auth.getSession().then(({ data }) => {
-      setIsSignedIn(!!data.session);
+    supabase.auth.getSession().then(async ({ data }) => {
+      if (data.session) {
+        const role = await getUserRole();
+        setUserRole(role);
+      }
       setCheckingAuth(false);
     });
   }, []);
+
+  const dashboardPath = userRole === 'admin' ? '/admin' : userRole === 'school' ? '/school/dashboard' : '/organisation/dashboard';
 
   const handleDropdownKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -129,9 +134,9 @@ export default function Header() {
 
           {/* Right Side: Action Button */}
           <div className="hidden lg:flex items-center">
-            {!checkingAuth && isSignedIn ? (
+            {!checkingAuth && userRole ? (
               <Link
-                to="/organisation/dashboard"
+                to={dashboardPath}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-pth-green px-6 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:bg-[#4ea858] hover:shadow-lg hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
               >
                 My Dashboard
@@ -149,9 +154,9 @@ export default function Header() {
           {/* Mobile Actions */}
           <div className="flex md:hidden items-center gap-2">
             <Link
-              to={!checkingAuth && isSignedIn ? "/organisation/dashboard" : "/signin"}
+              to={!checkingAuth && userRole ? dashboardPath : "/signin"}
               className="inline-flex items-center justify-center rounded-md p-2 text-pth-navy hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
-              aria-label={!checkingAuth && isSignedIn ? "My Dashboard" : "Sign In"}
+              aria-label={!checkingAuth && userRole ? "My Dashboard" : "Sign In"}
             >
               <User className="h-6 w-6" aria-hidden="true" />
             </Link>
