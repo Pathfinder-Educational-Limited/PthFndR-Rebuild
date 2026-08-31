@@ -40,12 +40,6 @@ export default function Partners() {
               </span>
             ))}
           </div>
-          <div className="mx-auto mt-10 text-center">
-            <p className="text-sm text-slate-500">We're also proud to support:</p>
-            <span className="inline-block mt-2 bg-slate-50 border border-slate-200 text-pth-navy font-bold text-sm px-4 py-2 rounded-full">
-              Prayer Storm
-            </span>
-          </div>
         </div>
       </section>
     </>
