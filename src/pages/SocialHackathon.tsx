@@ -102,8 +102,8 @@ export default function SocialHackathon() {
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
                 <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">Ready to Prove Your Value?</h4>
                 <p className="text-slate-600 mb-6">Join our next Social Hackathon at DiSH and show what you can really do.</p>
-                <Link 
-                  to="/contact" 
+                <Link
+                  to="/contact?for=Social+Hackathon"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
                 >
                   Register for the Next Event
