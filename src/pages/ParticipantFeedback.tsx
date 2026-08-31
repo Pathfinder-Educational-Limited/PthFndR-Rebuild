@@ -1,17 +1,33 @@
 import SEO from '../components/SEO';
-import { Star, Check, CheckCircle2, ChevronRight, Briefcase } from 'lucide-react';
-import React, { useState } from 'react';
+import { Star, Check, CheckCircle2, Briefcase } from 'lucide-react';
+import { useState, type FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { getSupabaseClient } from '../services/supabaseClient';
+
+// ============================================================================
+// ParticipantFeedback.tsx — CLEAN REBUILD (Aug 2026)
+// Previous version's handleSubmit had a literal comment "Here we would
+// typically send data to a backend" — it never actually submitted anywhere.
+// Despite that, the success screen falsely told the person their reflection
+// "has been submitted to the organisation" and "automatically added to your
+// portfolio" — neither of which happened, and no portfolio feature exists at
+// all in this app. This version genuinely submits to a real
+// opportunity_feedback table, and the success screen only claims what's
+// actually true. Do not reintroduce the portfolio claim until a real
+// portfolio feature exists.
+// ============================================================================
 
 export default function ParticipantFeedback() {
   const { id } = useParams();
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
+  const [reflection, setReflection] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
   const skills = [
-    "Product Design",
     "User Testing",
     "Communication",
     "Teamwork",
@@ -27,33 +43,69 @@ export default function ParticipantFeedback() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // Here we would typically send data to a backend
-    setIsSubmitted(true);
+    if (!id) {
+      setError('Missing opportunity reference — please use the link from your original opportunity page.');
+      return;
+    }
+    setError(null);
+    setIsSubmitting(true);
+
+    try {
+      const supabase = getSupabaseClient();
+      const { error: insertError } = await supabase
+        .from('opportunity_feedback')
+        .insert([
+          {
+            opportunity_id: id,
+            rating,
+            reflection,
+            skills_developed: selectedSkills,
+          },
+        ]);
+
+      if (insertError) {
+        setError('Something went wrong submitting your feedback. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+      console.error('Feedback submission error:', err);
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Post-Opportunity Reflection | PthFndR"
-        description="Reflect on your experience and add it to your portfolio."
+        description="Reflect on your experience."
       />
 
       <div className="bg-pth-cream min-h-screen py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          
+
           <div className="mb-8">
             <h1 className="text-3xl font-heading font-bold text-pth-navy mb-2">Reflect on your experience</h1>
             <p className="text-slate-600">
-              Please share your feedback on <span className="font-bold text-pth-navy">Product Design Beta Testing Session</span>
+              Please share your feedback on your recent PthFndR opportunity.
             </p>
           </div>
 
           {!isSubmitted ? (
             <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100">
               <form onSubmit={handleSubmit} className="space-y-10">
-                
+
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg p-3">
+                    {error}
+                  </div>
+                )}
+
                 {/* Rating */}
                 <div>
                   <label className="block text-lg font-bold text-pth-navy mb-4">Rate your experience</label>
@@ -67,10 +119,10 @@ export default function ParticipantFeedback() {
                         onMouseLeave={() => setHoverRating(0)}
                         className="focus:outline-none transition-transform hover:scale-110"
                       >
-                        <Star 
-                          size={40} 
+                        <Star
+                          size={40}
                           fill={(hoverRating || rating) >= star ? '#F59E0B' : 'transparent'}
-                          className={(hoverRating || rating) >= star ? 'text-[#F59E0B]' : 'text-slate-300'} 
+                          className={(hoverRating || rating) >= star ? 'text-[#F59E0B]' : 'text-slate-300'}
                         />
                       </button>
                     ))}
@@ -85,6 +137,8 @@ export default function ParticipantFeedback() {
                   <textarea
                     id="reflection"
                     rows={5}
+                    value={reflection}
+                    onChange={(e) => setReflection(e.target.value)}
                     className="w-full px-5 py-4 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pth-green resize-none text-slate-700 bg-slate-50 focus:bg-white transition-colors"
                     placeholder="Share your thoughts, challenges you overcame, and key takeaways..."
                     required
@@ -123,14 +177,14 @@ export default function ParticipantFeedback() {
                 <div className="pt-6 border-t border-slate-100">
                   <button
                     type="submit"
-                    disabled={rating === 0}
+                    disabled={rating === 0 || isSubmitting}
                     className={`w-full py-4 rounded-xl font-bold text-lg transition-all shadow-sm ${
-                      rating === 0 
-                        ? 'bg-slate-200 text-slate-400 cursor-not-allowed' 
-                        : 'bg-pth-green text-white hover:bg-[#36b666] hover:shadow-md'
+                      rating === 0 || isSubmitting
+                        ? 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                        : 'bg-pth-green text-white hover:bg-[#4ea858] hover:shadow-md'
                     }`}
                   >
-                    Submit Reflection
+                    {isSubmitting ? 'Submitting...' : 'Submit Reflection'}
                   </button>
                   {rating === 0 && (
                     <p className="text-center text-sm text-red-500 mt-3">Please provide a rating before submitting.</p>
@@ -146,15 +200,12 @@ export default function ParticipantFeedback() {
               </div>
               <h2 className="text-3xl font-heading font-bold text-pth-navy mb-4">Thanks for your feedback!</h2>
               <p className="text-lg text-slate-600 mb-8 max-w-md">
-                Your reflection has been submitted to the organisation and this experience has been <span className="font-bold text-pth-navy">automatically added to your portfolio</span>.
+                Your reflection has been saved. We really appreciate you taking the time to share it.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm justify-center">
-                <Link to="/dashboard" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold hover:bg-[#36b666] transition-colors shadow-sm flex items-center justify-center gap-2">
-                  <Briefcase size={20} /> View in your portfolio
-                </Link>
-                <Link to="/opportunities" className="bg-slate-100 text-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors flex items-center justify-center">
-                  Find more
+                <Link to="/opportunities" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold hover:bg-[#4ea858] transition-colors shadow-sm flex items-center justify-center gap-2">
+                  <Briefcase size={20} /> Find more opportunities
                 </Link>
               </div>
             </div>
