@@ -67,12 +67,14 @@ export default function Partners() {
               />
             </div>
           </div>
-          <div className="mx-auto mt-12 flex flex-wrap justify-center gap-3">
-            {['Creative Ideation Hub'].map((name) => (
-              <span key={name} className="bg-white border border-slate-200 text-pth-navy font-bold text-sm px-4 py-2 rounded-full">
-                {name}
-              </span>
-            ))}
+          <div className="mx-auto mt-12 flex flex-wrap justify-center items-center gap-12">
+            <div className="flex items-center justify-center">
+              <img
+                src="/logos/creative-ideation-hub.png"
+                alt="Creative Ideation Hub Partner Logo"
+                className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>
