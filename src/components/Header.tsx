@@ -2,11 +2,14 @@ import { useLocation, Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, User } from 'lucide-react';
 import { useState, useRef, useEffect, KeyboardEvent } from 'react';
 import { Logo } from './Logo';
+import { getSupabaseClient } from '../services/supabaseClient';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const [isProgrammesOpen, setIsProgrammesOpen] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const location = useLocation();
@@ -30,6 +33,14 @@ export default function Header() {
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const supabase = getSupabaseClient();
+    supabase.auth.getSession().then(({ data }) => {
+      setIsSignedIn(!!data.session);
+      setCheckingAuth(false);
+    });
   }, []);
 
   const handleDropdownKeyDown = (e: KeyboardEvent) => {
@@ -118,20 +129,29 @@ export default function Header() {
 
           {/* Right Side: Action Button */}
           <div className="hidden lg:flex items-center">
-            <Link
-              to="/signin"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-pth-green px-6 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:bg-[#4ea858] hover:shadow-lg hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
-            >
-              Sign In
-            </Link>
+            {!checkingAuth && isSignedIn ? (
+              <Link
+                to="/organisation/dashboard"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-pth-green px-6 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:bg-[#4ea858] hover:shadow-lg hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
+              >
+                My Dashboard
+              </Link>
+            ) : (
+              <Link
+                to="/signin"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-pth-green px-6 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:bg-[#4ea858] hover:shadow-lg hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
 
           {/* Mobile Actions */}
           <div className="flex md:hidden items-center gap-2">
             <Link
-              to="/signin"
+              to={!checkingAuth && isSignedIn ? "/organisation/dashboard" : "/signin"}
               className="inline-flex items-center justify-center rounded-md p-2 text-pth-navy hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2"
-              aria-label="Sign In"
+              aria-label={!checkingAuth && isSignedIn ? "My Dashboard" : "Sign In"}
             >
               <User className="h-6 w-6" aria-hidden="true" />
             </Link>
