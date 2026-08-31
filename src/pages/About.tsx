@@ -191,9 +191,6 @@ export default function About() {
           <p className="text-slate-600">
             We partner with GIFT, Elevate Young Minds, BreakOut Charity, Flourish Together CIC, New Wine Nation, and Creative Ideation Hub to ensure young people get the support they deserve.
           </p>
-          <p className="text-slate-500 text-sm mt-4">
-            We're also proud to support Prayer Storm.
-          </p>
         </div>
       </section>
 
