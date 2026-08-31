@@ -33,3 +33,14 @@ export async function checkIsAdmin(): Promise<boolean> {
     return false;
   }
 }
+
+export async function getUserRole(): Promise<'admin' | 'organisation' | 'school' | null> {
+  try {
+    const supabase = getSupabaseClient();
+    const { data, error } = await supabase.rpc('get_user_role');
+    if (error || !data) return null;
+    return data as 'admin' | 'organisation' | 'school';
+  } catch {
+    return null;
+  }
+}
