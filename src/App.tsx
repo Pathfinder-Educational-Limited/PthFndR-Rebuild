@@ -51,6 +51,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminApplications from './pages/admin/AdminApplications';
 import AdminOpportunities from './pages/admin/AdminOpportunities';
 import AdminEvidence from './pages/admin/AdminEvidence';
+import Passport from './pages/Passport';
 
 export default function App() {
   return (
@@ -93,6 +94,7 @@ export default function App() {
             <Route path="opportunities/:id" element={<OpportunityDetail />} />
             <Route path="opportunities/:id/feedback" element={<ParticipantFeedback />} />
             <Route path="organisation/dashboard" element={<OrganisationDashboard />} />
+            <Route path="passport" element={<Passport />} />
             <Route path="reset-password" element={<ResetPassword />} />
             <Route path="signup" element={<YoungPersonSignup />} />
             <Route path="*" element={<NotFound />} />
