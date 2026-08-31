@@ -50,6 +50,7 @@ import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminApplications from './pages/admin/AdminApplications';
 import AdminOpportunities from './pages/admin/AdminOpportunities';
+import AdminEvidence from './pages/admin/AdminEvidence';
 
 export default function App() {
   return (
@@ -105,6 +106,7 @@ export default function App() {
             <Route index element={<AdminDashboard />} />
             <Route path="applications" element={<AdminApplications />} />
             <Route path="opportunities" element={<AdminOpportunities />} />
+            <Route path="evidence" element={<AdminEvidence />} />
           </Route>
         </Routes>
     </Router>

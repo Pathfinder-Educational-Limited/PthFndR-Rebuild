@@ -39,6 +39,13 @@ export default function AdminDashboard() {
             <p className="font-semibold text-[#0C2A5C]">Opportunities</p>
             <p className="text-sm text-gray-500 mt-1">Review and approve organisation-submitted opportunities</p>
           </Link>
+          <Link
+            to="/admin/evidence"
+            className="block p-5 bg-white rounded-lg border border-gray-200 hover:border-[#2B9E82] transition-colors"
+          >
+            <p className="font-semibold text-[#0C2A5C]">Skills Evidence</p>
+            <p className="text-sm text-gray-500 mt-1">Log skill evidence for young people</p>
+          </Link>
         </div>
       </div>
     </div>
