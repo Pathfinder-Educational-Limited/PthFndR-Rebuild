@@ -34,9 +34,9 @@ export default function SocialHackathon() {
 
   return (
     <>
-      <SEO 
-        title="Social Hackathons | The Proving Ground | PthFndR" 
-        description="PthFndR Social Hackathons move Unseen Contributors from theory to action. Join us at Manchester DiSH to solve real-world industry briefs."
+      <SEO
+        title="Social Hackathons | The Proving Ground | PthFndR"
+        description="PthFndR Social Hackathons move young people from theory to action. Join us at Manchester DiSH to solve real-world industry briefs."
       />
       
       {/* Hero Section */}
