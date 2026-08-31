@@ -26,15 +26,49 @@ export default function Partners() {
             </div>
             <div className="flex items-center justify-center">
               <img
-                src="https://i0.wp.com/meap.org.uk/wp-content/uploads/2023/05/New-Project-3.png?w=639&ssl=1"
+                src="/logos/meap.png"
                 alt="Making Education a Priority Partner Logo"
                 className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                src="/logos/flourish-together-cic.png"
+                alt="Flourish Together CIC Partner Logo"
+                className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                src="/logos/gift.png"
+                alt="GIFT Partner Logo"
+                className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                src="/logos/elevate-young-minds.png"
+                alt="Elevate Young Minds Partner Logo"
+                className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                src="/logos/breakout-charity.png"
+                alt="BreakOut Charity Partner Logo"
+                className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                src="/logos/new-wine-nation.png"
+                alt="New Wine Nation Partner Logo"
+                className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
               />
             </div>
           </div>
           <div className="mx-auto mt-12 flex flex-wrap justify-center gap-3">
-            {['Flourish Together CIC', 'GIFT', 'Elevate Young Minds', 'BreakOut Charity', 'New Wine Nation', 'Creative Ideation Hub'].map((name) => (
+            {['Creative Ideation Hub'].map((name) => (
               <span key={name} className="bg-white border border-slate-200 text-pth-navy font-bold text-sm px-4 py-2 rounded-full">
                 {name}
               </span>
