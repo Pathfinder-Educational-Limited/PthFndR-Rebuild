@@ -128,7 +128,6 @@ export default function Header() {
             <Link to="/about" className={navLinkClass(isActive('/about'))}>Our Mission</Link>
             <Link to="/opportunities" className={navLinkClass(isActive('/opportunities'))}>Opportunities</Link>
             <Link to="/community" className={navLinkClass(isActive('/community'))}>Community</Link>
-            <Link to="/stories" className={navLinkClass(isActive('/stories'))}>Stories</Link>
             <Link to="/contact" className={navLinkClass(isActive('/contact'))}>Contact</Link>
           </nav>
 
@@ -228,7 +227,6 @@ export default function Header() {
             <Link to="/opportunities" className="block rounded-md px-3 py-3 text-base font-medium text-pth-navy hover:bg-slate-50 hover:text-pth-green focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Opportunities</Link>
             <Link to="/about" className="block rounded-md px-3 py-3 text-base font-medium text-pth-navy hover:bg-slate-50 hover:text-pth-green focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Our Mission</Link>
             <Link to="/community" className="block rounded-md px-3 py-3 text-base font-medium text-pth-navy hover:bg-slate-50 hover:text-pth-green focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Community</Link>
-            <Link to="/stories" className="block rounded-md px-3 py-3 text-base font-medium text-pth-navy hover:bg-slate-50 hover:text-pth-green focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Stories</Link>
             <Link to="/contact" className="block rounded-md px-3 py-3 text-base font-medium text-pth-navy hover:bg-slate-50 hover:text-pth-green focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
           </div>
         </nav>
