@@ -20,6 +20,14 @@ export const socialValueContent = {
       ],
     },
     {
+      eyebrow: "Backed by national policy direction",
+      heading: "Solving the exact gap Skills England has identified",
+      body: [
+        "In April 2026, Skills England published findings from its Youth Employability Summits: the core problem isn't that young people lack skills, it's that the skills they already have go unrecognised, and that no shared language exists between employers and young people to describe them. Skills England named this — building a common skills language and improving skills passports — as a direct priority.",
+        "PthFndR's 25-skill taxonomy and Skills Passport are a working answer to this, already built and in use, not a proposal.",
+      ],
+    },
+    {
       eyebrow: "Ready for procurement",
       heading: "We understand what commissioners need to see",
       body: [
