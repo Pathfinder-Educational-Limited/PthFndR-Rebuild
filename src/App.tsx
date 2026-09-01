@@ -41,6 +41,7 @@ import CreateOpportunities from './pages/CreateOpportunities';
 import OrganisationPartnership from './pages/OrganisationPartnership';
 import OrganisationSignup from './pages/OrganisationSignup';
 import SchoolSignup from './pages/SchoolSignup';
+import SchoolDashboard from './pages/SchoolDashboard';
 import YoungPersonSignup from './pages/YoungPersonSignup';
 import PostOpportunity from './pages/PostOpportunity';
 import ResetPassword from './pages/ResetPassword';
@@ -83,6 +84,7 @@ export default function App() {
             <Route path="for-schools/partnerships" element={<ForSchoolsPartnerships />} />
             <Route path="for-schools/professional-development" element={<ForSchoolsProfessionalDevelopment />} />
             <Route path="for-schools/signup" element={<SchoolSignup />} />
+            <Route path="school/dashboard" element={<SchoolDashboard />} />
             <Route path="stories" element={<Stories />} />
             <Route path="community" element={<Community />} />
             <Route path="team" element={<Team />} />
