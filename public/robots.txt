@@ -1,10 +1,16 @@
 User-agent: *
 Allow: /
-
-# Application / authenticated areas — no SEO value
+# Application / authenticated / transactional areas — no SEO value, some are
+# genuinely private and should never be indexed or discoverable via search.
+Disallow: /admin
 Disallow: /dashboard
 Disallow: /organisation/dashboard
+Disallow: /passport
 Disallow: /login
 Disallow: /signin
-
+Disallow: /signup
+Disallow: /for-organisations/signup
+Disallow: /for-organisations/post-opportunity
+Disallow: /for-schools/signup
+Disallow: /reset-password
 Sitemap: https://pthfndr.org/sitemap.xml
