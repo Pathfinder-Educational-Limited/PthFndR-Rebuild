@@ -13,4 +13,6 @@ export interface Opportunity {
   whyThisMatters?: string;
   requirements: string[];
   applyBy?: string;
+  closed?: boolean;
+  eventDate?: string;
 }

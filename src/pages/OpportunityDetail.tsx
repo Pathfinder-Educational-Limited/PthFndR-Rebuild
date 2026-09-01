@@ -254,16 +254,22 @@ export default function OpportunityDetail() {
                   </div>
                 )}
 
-                {!applying && !applied && (
-                  <button
-                    onClick={() => {
-                      setApplying(true);
-                      setTimeout(() => applyFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-                    }}
-                    className="w-full bg-pth-green text-white px-6 py-3.5 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-colors shadow-sm mb-4"
-                  >
-                    Apply Now
-                  </button>
+                {opportunity.closed ? (
+                  <div className="w-full bg-slate-100 text-slate-500 px-6 py-3.5 rounded-xl font-bold text-lg text-center mb-4">
+                    This opportunity has closed
+                  </div>
+                ) : (
+                  !applying && !applied && (
+                    <button
+                      onClick={() => {
+                        setApplying(true);
+                        setTimeout(() => applyFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+                      }}
+                      className="w-full bg-pth-green text-white px-6 py-3.5 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-colors shadow-sm mb-4"
+                    >
+                      Apply Now
+                    </button>
+                  )
                 )}
 
                 <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl flex items-start gap-3">

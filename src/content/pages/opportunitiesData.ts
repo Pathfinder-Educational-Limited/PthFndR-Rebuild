@@ -40,6 +40,7 @@ export const opportunities: Opportunity[] = [
       'Aged 16-24',
       'Based in or able to travel to Manchester for the day',
     ],
+    closed: true,
   },
   {
     id: 'wholeness-index-placement-01',
@@ -70,5 +71,34 @@ export const opportunities: Opportunity[] = [
       'Based in or able to travel to Manchester for the three days',
       'Unpaid — this is a voluntary placement',
     ],
+    closed: true,
+  },
+  {
+    id: 'social-hackathon-redesign-rethink-feb26',
+    title: 'Social Hackathon: Redesign and Rethink – Own Your City',
+    organisationName: 'PthFndR & MEaP',
+    category: 'Social Hackathon',
+    duration: '3 days',
+    location: 'Digital Security Hub (DiSH), Manchester',
+    reward: 'Prize fund for winning teams (£640 total, shared across 5 youth-led projects)',
+    skillsDeveloped: [
+      'Research',
+      'Problem solving',
+      'Teamwork',
+      'Presentation & pitching',
+      'Rapid prototyping',
+    ],
+    whatYoullDo:
+      'Young people came together in teams to develop real solutions to a live civic challenge, "Own Your City." Teams worked intensively over three days, from research and problem definition through to a final pitch to judges.',
+    whatYoullLearn: [
+      'How to research and develop a real solution under real time pressure',
+      'How to work effectively in a team toward a shared deadline',
+    ],
+    whyThisMatters:
+      "The five winning teams received real funding, £640 in total, to help bring their ideas closer to implementation, not just a certificate.",
+    requirements: [
+      'Aged 16-24',
+    ],
+    closed: true,
   },
 ];
