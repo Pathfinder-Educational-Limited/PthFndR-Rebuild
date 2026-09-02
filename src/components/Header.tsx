@@ -98,6 +98,7 @@ export default function Header() {
                   <div className="col-span-2 space-y-4">
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-young-people">For Young People</h3>
                     <div className="space-y-1" role="group" aria-labelledby="menu-young-people">
+                      <Link to="/for-young-people" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Overview</Link>
                       <Link to="/programmes/discover-bootcamp" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Discover Bootcamp</Link>
                       <Link to="/programmes/upskill-accelerators" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Upskill Accelerators</Link>
                       <Link to="/programmes/pthfndr-accelerator" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">PthFndR Accelerator</Link>
@@ -119,6 +120,7 @@ export default function Header() {
                     <div className="space-y-1" role="group" aria-labelledby="menu-organisations">
                       <Link to="/for-organisations/create-opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Create Opportunities</Link>
                       <Link to="/for-organisations/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Organisation Partnership</Link>
+                      <Link to="/for-organisations/social-value" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Social Value & Commissioning</Link>
                     </div>
                   </div>
                 </div>
