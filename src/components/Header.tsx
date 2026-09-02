@@ -199,6 +199,7 @@ export default function Header() {
                   <div>
                     <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2" id="mobile-menu-young">For Young People</h3>
                     <div className="space-y-1" role="group" aria-labelledby="mobile-menu-young">
+                      <Link to="/for-young-people" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Overview</Link>
                       <Link to="/programmes/discover-bootcamp" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Discover Bootcamp</Link>
                       <Link to="/programmes/upskill-accelerators" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Upskill Accelerators</Link>
                       <Link to="/programmes/pthfndr-accelerator" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>PthFndR Accelerator</Link>
@@ -220,6 +221,7 @@ export default function Header() {
                     <div className="space-y-1" role="group" aria-labelledby="mobile-menu-orgs">
                       <Link to="/for-organisations/create-opportunities" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Create Opportunities</Link>
                       <Link to="/for-organisations/partnerships" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Organisation Partnership</Link>
+                      <Link to="/for-organisations/social-value" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Social Value & Commissioning</Link>
                     </div>
                   </div>
                 </div>
