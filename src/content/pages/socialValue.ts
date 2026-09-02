@@ -23,7 +23,8 @@ export const socialValueContent = {
       eyebrow: "Backed by national policy direction",
       heading: "Solving the exact gap Skills England has identified",
       body: [
-        "In April 2026, Skills England published findings from its Youth Employability Summits: the core problem isn't that young people lack skills, it's that the skills they already have go unrecognised, and that no shared language exists between employers and young people to describe them. Skills England named this — building a common skills language and improving skills passports — as a direct priority.",
+        "Skills England's 2026 annual report confirms the scale of the challenge: youth unemployment stands at 16.2%, the highest since 2015 and over three times the national average, with 957,000 young people aged 16-24 currently NEET.",
+        "The same report includes a dedicated case study on skills passports — Skills England convened a summit of over 60 stakeholders in early 2026 to explore exactly this, and will publish formal findings later this year. Their own findings are clear that work experience only builds real employability skills when placements involve genuine responsibility, not simulated tasks.",
         "PthFndR's 25-skill taxonomy and Skills Passport are a working answer to this, already built and in use, not a proposal.",
       ],
     },
