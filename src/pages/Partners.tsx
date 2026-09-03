@@ -58,8 +58,6 @@ export default function Partners() {
                 className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
               />
             </div>
-          </div>
-          <div className="mx-auto mt-12 flex flex-wrap justify-center items-center gap-12">
             <div className="flex items-center justify-center">
               <img
                 src="/logos/creative-ideation-hub.png"
