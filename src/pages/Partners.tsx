@@ -18,14 +18,6 @@ export default function Partners() {
           <div className="mx-auto mt-16 flex flex-wrap justify-center items-center gap-12 sm:gap-16 lg:gap-24">
             <div className="flex items-center justify-center">
               <img
-                src="https://portal.cpduk.co.uk/storage/20170720145208_eql.JPG"
-                alt="eQL Partner Logo"
-                className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="flex items-center justify-center">
-              <img
                 src="/logos/meap.png"
                 alt="Making Education a Priority Partner Logo"
                 className="max-h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
