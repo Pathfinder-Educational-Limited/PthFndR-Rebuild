@@ -132,7 +132,7 @@ async function startServer() {
           await saveContact({
             name,
             email,
-            role: "young-person",
+            role: "young_person",
             source: "website-assessment",
             interest_in: pattern,
             message: scores ? `Assessment scores — Identity: ${scores.identity}, Character: ${scores.character}, Competence: ${scores.competence}, Impact: ${scores.impact}` : undefined,
@@ -146,7 +146,7 @@ async function startServer() {
 
       if (process.env.RESEND_API_KEY) {
         try {
-          await sendContactConfirmation(name, email, "young-person");
+          await sendContactConfirmation(name, email, "young_person");
           console.log(`[API] Assessment confirmation email sent to ${email}`);
         } catch (err: any) {
           console.warn("[API] Resend email failed:", err.message);
