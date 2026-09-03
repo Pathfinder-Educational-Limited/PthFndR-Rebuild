@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Loader2, Mail, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../components/Logo';
+import { getSupabaseClient } from '../services/supabaseClient';
 
 type Step =
   | 'intro'
@@ -14,6 +15,14 @@ type Step =
   | 'result';
 
 type Pattern = 'The Explorer' | 'The Spark' | 'The Builder' | 'The Regrouper' | 'The Pathfinder';
+
+const ARCHETYPE_CTA: Record<Pattern, { label: string; to: string }> = {
+  'The Explorer': { label: 'Explore what fits you', to: '/programmes/discover-bootcamp' },
+  'The Regrouper': { label: 'Take your next step', to: '/programmes/discover-bootcamp' },
+  'The Builder': { label: 'Build something real', to: '/programmes/upskill-accelerators' },
+  'The Spark': { label: 'Show what you can do', to: '/opportunities' },
+  'The Pathfinder': { label: 'Find your next challenge', to: '/opportunities' },
+};
 
 export default function Assessment() {
   const [step, setStep] = useState<Step>('intro');
@@ -35,6 +44,8 @@ export default function Assessment() {
   const [stepHistory, setStepHistory] = useState<Step[]>([]);
   const [ageBracket, setAgeBracket] = useState<'18+' | '16-17' | null>(null);
   const [detailsSubmitted, setDetailsSubmitted] = useState(false);
+  const [resultId, setResultId] = useState<string | null>(null);
+  const [showDimensions, setShowDimensions] = useState(false);
 
   const goBack = () => {
     setStepHistory((prev) => {
@@ -76,10 +87,36 @@ export default function Assessment() {
   // Shows the result immediately for anyone 16+ — no email or guardian details required.
   // Data collection (see handleLeadSubmit / handleGuardianSubmit below) is entirely optional
   // and only ever offered AFTER the result is already visible.
-  const goToResult = () => {
+  const goToResult = (bracket: '18+' | '16-17') => {
     setStepHistory((prev) => [...prev, 'age']);
     setStep('calculating');
     const result = calculatePattern();
+    // Save a real, structured, anonymous assessment result immediately — no name or email
+    // required. If this person registers later, YoungPersonSignup.tsx links this row to
+    // their real account using the id stored in localStorage below.
+    (async () => {
+      try {
+        const supabase = getSupabaseClient();
+        const { data, error } = await supabase
+          .from('assessment_result')
+          .insert([{
+            pattern: result,
+            identity_score: scores.identity,
+            character_score: scores.character,
+            competence_score: scores.competence,
+            impact_score: scores.impact,
+            age_bracket: bracket,
+          }])
+          .select('id')
+          .single();
+        if (!error && data) {
+          setResultId(data.id);
+          localStorage.setItem('pthfndr_assessment_result_id', data.id);
+        }
+      } catch (err) {
+        console.warn('[Assessment] Failed to save structured result:', err);
+      }
+    })();
     setTimeout(() => {
       setPattern(result);
       setStep('result');
@@ -347,13 +384,13 @@ export default function Assessment() {
               </p>
               <div className="space-y-3 max-w-sm mx-auto">
                 <button
-                  onClick={() => { setAgeBracket('18+'); goToResult(); }}
+                  onClick={() => { setAgeBracket('18+'); goToResult('18+'); }}
                   className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
                 >
                   I'm 18 or over
                 </button>
                 <button
-                  onClick={() => { setAgeBracket('16-17'); goToResult(); }}
+                  onClick={() => { setAgeBracket('16-17'); goToResult('16-17'); }}
                   className="w-full px-6 py-4 rounded-xl border-2 border-slate-200 hover:border-pth-cyan hover:bg-pth-cyan/5 font-bold text-pth-navy transition-all"
                 >
                   I'm 16-17
@@ -552,15 +589,50 @@ export default function Assessment() {
                 </div>
               )}
 
-              <div className="space-y-4">
-                <p className="text-slate-600 font-medium">Ready for your next step?</p>
+              {(() => {
+                const signals: string[] = [];
+                if (scores.identity >= 4) signals.push('A clear sense of direction');
+                if (scores.character >= 4) signals.push('Real staying power');
+                if (scores.competence >= 4) signals.push('Practical skills to build on');
+                if (scores.impact >= 4) signals.push('Some real-world experience already');
+                return signals.length > 0 ? (
+                  <div className="mb-8 text-left">
+                    <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">You already have</h3>
+                    <ul className="space-y-2">
+                      {signals.map((signal) => (
+                        <li key={signal} className="flex items-center gap-2 text-slate-700">
+                          <CheckCircle2 className="w-5 h-5 text-pth-cyan shrink-0" aria-hidden="true" />
+                          {signal}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null;
+              })()}
+              <div className="space-y-4 mb-6">
+                <p className="text-slate-600 font-medium">Your next move</p>
                 <Link
-                  to="/programmes"
+                  to={ARCHETYPE_CTA[pattern as Pattern].to}
                   className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-navy/90 transition-all shadow-md w-full sm:w-auto"
                 >
-                  Explore our programmes
+                  {ARCHETYPE_CTA[pattern as Pattern].label}
                 </Link>
               </div>
+              <button
+                type="button"
+                onClick={() => setShowDimensions((v) => !v)}
+                className="text-sm text-slate-400 hover:text-pth-navy underline transition-colors"
+              >
+                {showDimensions ? 'Hide' : 'See how we got this result'}
+              </button>
+              {showDimensions && (
+                <div className="mt-4 grid grid-cols-2 gap-3 text-left">
+                  <div className="text-sm"><span className="font-bold text-pth-navy">Direction:</span> {scores.identity}/5</div>
+                  <div className="text-sm"><span className="font-bold text-pth-navy">Staying power:</span> {scores.character}/5</div>
+                  <div className="text-sm"><span className="font-bold text-pth-navy">Skills:</span> {scores.competence}/5</div>
+                  <div className="text-sm"><span className="font-bold text-pth-navy">Real-world chances:</span> {scores.impact}/5</div>
+                </div>
+              )}
             </motion.div>
           )}
 
