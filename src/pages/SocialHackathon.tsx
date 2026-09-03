@@ -77,26 +77,25 @@ export default function SocialHackathon() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="prose prose-lg prose-slate"
+              className=""
             >
-              <p className="lead text-xl text-slate-700 font-medium">
+              <p className="text-xl text-slate-700 font-medium leading-relaxed mb-6">
                 At PthFndR, we believe that competence is best proven through action. Our Social Hackathons are the bridge between "learning" and "doing."
               </p>
-              <p>
-                Operating out of <strong>Heron House (DiSH)</strong>, these events bring together young people and industry experts to solve real problems. This isn't a classroom exercise; it is a high-stakes simulation of the modern UK workplace. This is the moment a young person's value becomes visible to the city.
-              </p>
-              
-              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">The Hackathon Methodology</h3>
-              <p>
-                Most training programs end with a certificate. Ours ends with a solution. During a PthFndR Social Hackathon, participants are placed into multidisciplinary teams and handed a brief from a real-world partner—be it a tech firm in Manchester or a healthcare provider in the North West.
-              </p>
-              <p>
-                Teams navigate the friction of collaboration, the pressure of deadlines, and the technical requirements of the brief, drawing on the same Ginosko-Sterizo® approach that shapes our programmes. By the end of the day, they don't just have a project; they have a real track record they can show.
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Operating out of <strong className="text-pth-navy font-semibold">Heron House (DiSH)</strong>, these events bring together young people and industry experts to solve real problems. This isn't a classroom exercise; it is a high-stakes simulation of the modern UK workplace. This is the moment a young person's value becomes visible to the city.
               </p>
 
+              <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">The Hackathon Methodology</h3>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Most training programs end with a certificate. Ours ends with a solution. During a PthFndR Social Hackathon, participants are placed into multidisciplinary teams and handed a brief from a real-world partner, be it a tech firm in Manchester or a healthcare provider in the North West.
+              </p>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Teams navigate the friction of collaboration, the pressure of deadlines, and the technical requirements of the brief, drawing on the same Ginosko-Sterizo® approach that shapes our programmes. By the end of the day, they don't just have a project; they have a real track record they can show.
+              </p>
               <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Why Industry Partners Join Us</h3>
-              <p>
-                Based at the <strong>Digital Security Hub</strong>, these hackathons give organisations a direct look at new talent. They get to see young people in action, their character, their grit, and their ability to solve problems, before they even see a CV.
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Based at the <strong className="text-pth-navy font-semibold">Digital Security Hub</strong>, these hackathons give organisations a direct look at new talent. They get to see young people in action, their character, their grit, and their ability to solve problems, before they even see a CV.
               </p>
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
