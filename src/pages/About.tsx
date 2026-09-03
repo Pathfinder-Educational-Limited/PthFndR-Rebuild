@@ -189,7 +189,7 @@ export default function About() {
             PthFndR is shaped by our work with leading youth development organizations. We invest financially and strategically in organizations doing frontline work.
           </p>
           <p className="text-slate-600">
-            We partner with GIFT, Elevate Young Minds, BreakOut Charity, Flourish Together CIC, New Wine Nation, and Creative Ideation Hub to ensure young people get the support they deserve.
+            We partner with MEaP, GIFT, Elevate Young Minds, BreakOut Charity, Flourish Together CIC, New Wine Nation, and Creative Ideation Hub to ensure young people get the support they deserve.
           </p>
         </div>
       </section>
