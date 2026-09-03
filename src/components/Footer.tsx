@@ -30,6 +30,8 @@ export default function Footer() {
               <li><Link to="/team" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Our Team</Link></li>
               <li><Link to="/partners" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Our Partners</Link></li>
               <li><Link to="/community" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Stories & Community</Link></li>
+              <li><Link to="/methodology" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Our Approach</Link></li>
+              <li><Link to="/social-hackathons" className="block py-3 md:py-0 text-sm text-slate-300 hover:text-[#40D478] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-2 -mx-2 md:px-0 md:mx-0">Social Hackathons</Link></li>
             </ul>
           </div>
 
