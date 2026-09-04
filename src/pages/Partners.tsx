@@ -10,7 +10,7 @@ export default function Partners() {
       <section className="py-24 sm:py-32 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-heading font-bold tracking-tight text-pth-navy sm:text-4xl">Our Partners</h2>
+            <h1 className="text-3xl font-heading font-bold tracking-tight text-pth-navy sm:text-4xl">Our Partners</h1>
             <p className="mt-6 text-lg leading-8 text-slate-600">
               We work with organisations who share our commitment to helping young people find real opportunity.
             </p>

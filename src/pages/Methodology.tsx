@@ -59,9 +59,9 @@ export default function Methodology() {
         
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-heading font-bold tracking-tight text-white sm:text-5xl">
+            <h1 className="text-3xl font-heading font-bold tracking-tight text-white sm:text-5xl">
               The <span className="text-transparent bg-clip-text bg-pth-gradient">Ginosko-Sterizo®</span> Approach
-            </h2>
+            </h1>
             <p className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto">
               Our foundational approach to helping young people discover who they are and build toward real potential.
             </p>
