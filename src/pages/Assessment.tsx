@@ -14,9 +14,9 @@ type Step =
   | 'calculating'
   | 'result';
 
-type Pattern = 'The Explorer' | 'The Spark' | 'The Builder' | 'The Regrouper' | 'The Pathfinder';
+export type Pattern = 'The Explorer' | 'The Spark' | 'The Builder' | 'The Regrouper' | 'The Pathfinder';
 
-const ARCHETYPE_CTA: Record<Pattern, { label: string; to: string }> = {
+export const ARCHETYPE_CTA: Record<Pattern, { label: string; to: string }> = {
   'The Explorer': { label: 'Explore what fits you', to: '/programmes/discover-bootcamp' },
   'The Regrouper': { label: 'Take your next step', to: '/programmes/discover-bootcamp' },
   'The Builder': { label: 'Build something real', to: '/programmes/upskill-accelerators' },
