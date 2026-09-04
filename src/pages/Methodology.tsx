@@ -1,7 +1,8 @@
 import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
-import { ChevronDown, Sparkles, Brain, Target, ShieldCheck } from 'lucide-react';
+import { ChevronDown, Sparkles, Brain, Target, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Methodology() {
   const [activeLayer, setActiveLayer] = useState<string | null>('identity');
@@ -177,6 +178,14 @@ export default function Methodology() {
               );
             })}
           </div>
+        </div>
+      </section>
+      <section className="py-16 bg-pth-cream border-t border-slate-200">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <p className="text-slate-600 mb-4">Want to go deeper into each layer?</p>
+          <Link to="/identity" className="inline-flex items-center gap-2 text-lg font-heading font-bold text-pth-navy hover:text-identity-blue transition-colors">
+            Start with Identity <ArrowRight size={20} />
+          </Link>
         </div>
       </section>
     </>
