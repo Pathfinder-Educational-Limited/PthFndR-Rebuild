@@ -30,7 +30,7 @@ export default function UpskillAccelerators() {
           heading: 'Cybersecurity for Beginners',
           body: [
             'What cybersecurity actually is, real threats explained in plain terms, and where cybersecurity careers actually exist. Hands-on work through real, simplified scenarios, ending in a practical security assessment project.',
-            'Tutor: Tim Konu, Senior Network Manager at F5.',
+            'Delivered by an experienced, credentialed tutor — session dates to be confirmed.',
           ],
         },
         {
@@ -38,7 +38,7 @@ export default function UpskillAccelerators() {
           heading: 'Digital Marketing',
           body: [
             'What digital marketing actually covers, content, social, SEO, paid, email, and how organisations really think about audience, message, and channel. Ends with a real campaign concept for a portfolio.',
-            'Tutor: Seun Sunmola, ex-Growth Manager at Binance & MoonPay.',
+            'Delivered by an experienced, credentialed tutor — session dates to be confirmed.',
           ],
         },
         {
@@ -46,7 +46,7 @@ export default function UpskillAccelerators() {
           heading: 'Careers in Construction',
           body: [
             'What the construction industry actually includes, far wider than "on a building site", covering design, project management, trades, and surveying. Real pathways in: apprenticeships, trades, and technical routes.',
-            'Tutor: Dayo Okoro, Senior Quantity Surveyor, Freelance with Manchester City Council.',
+            'Delivered by an experienced, credentialed tutor — session dates to be confirmed.',
           ],
         },
         {
