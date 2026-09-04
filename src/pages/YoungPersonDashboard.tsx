@@ -5,7 +5,7 @@ import { getSupabaseClient } from '../services/supabaseClient';
 import { DashboardCard } from '../components/dashboard/DashboardCard';
 import { JourneyIndicator } from '../components/dashboard/JourneyIndicator';
 import { ARCHETYPE_CTA, type Pattern } from './Assessment';
-import { ArrowRight, Award } from 'lucide-react';
+import { ArrowRight, Award, Compass, Target, Briefcase, TrendingUp } from 'lucide-react';
 
 interface Profile {
   first_name: string;
@@ -144,7 +144,7 @@ export default function YoungPersonDashboard() {
 
             <div className="lg:col-span-2 space-y-6">
 
-              <DashboardCard title="Starting Point">
+              <DashboardCard title="Starting Point" icon={Compass} accentColor="text-pth-cyan">
                 {pattern ? (
                   <>
                     <h2 className="text-2xl font-heading font-bold text-pth-navy mb-1">{pattern}</h2>
@@ -160,15 +160,17 @@ export default function YoungPersonDashboard() {
                 )}
               </DashboardCard>
 
-              {pattern && cta && (
-                <DashboardCard title="Your next move">
+              <DashboardCard title="Your next move" icon={Target} accentColor="text-pth-green">
+                {pattern && cta ? (
                   <Link to={cta.to} className="inline-flex items-center gap-2 bg-pth-navy text-white px-6 py-3.5 rounded-xl font-bold hover:bg-pth-navy/90 transition-colors">
                     {cta.label} <ArrowRight size={18} />
                   </Link>
-                </DashboardCard>
-              )}
+                ) : (
+                  <p className="text-slate-500">Take your Starting Point assessment to see a recommended next move here.</p>
+                )}
+              </DashboardCard>
 
-              <DashboardCard title="Things you can try">
+              <DashboardCard title="Things you can try" icon={Briefcase} accentColor="text-competence-orange">
                 {opportunities.length === 0 ? (
                   <p className="text-slate-500">No opportunities available right now — check back soon.</p>
                 ) : (
@@ -196,36 +198,37 @@ export default function YoungPersonDashboard() {
 
             <div className="space-y-6">
 
-              <DashboardCard title="Skills Passport">
-                <div className="flex items-center gap-3 mb-4">
-                  <Award className="text-pth-green" size={28} />
-                  <div>
-                    <p className="text-2xl font-heading font-extrabold text-pth-navy">
-                      {passportSummary?.skillsCount ?? 0}
-                    </p>
-                    <p className="text-xs text-slate-500">skills evidenced</p>
-                  </div>
+              <DashboardCard title="Skills Passport" icon={Award} accentColor="text-pth-green">
+                <div className="flex items-center gap-4 mb-4">
+                  <p className="text-4xl font-heading font-extrabold text-pth-green">
+                    {passportSummary?.skillsCount ?? 0}
+                  </p>
+                  <p className="text-sm text-slate-500 leading-tight">skills<br />evidenced</p>
                 </div>
-                {passportSummary?.mostRecentSkillName && (
+                {passportSummary?.mostRecentSkillName ? (
                   <p className="text-sm text-slate-600 mb-4">
                     Most recent: <span className="font-semibold text-pth-navy">{passportSummary.mostRecentSkillName}</span>
                   </p>
+                ) : (
+                  <p className="text-sm text-slate-500 mb-4">Nothing evidenced yet — it'll show up here once you complete an opportunity.</p>
                 )}
                 <Link to="/passport" className="inline-flex items-center gap-1.5 text-sm font-bold text-pth-navy hover:text-pth-green transition-colors">
                   View full Passport <ArrowRight size={14} />
                 </Link>
               </DashboardCard>
 
-              {assessmentResult && (
-                <DashboardCard title="Journey">
+              <DashboardCard title="Journey" icon={TrendingUp} accentColor="text-impact-purple">
+                {assessmentResult ? (
                   <JourneyIndicator
                     identityScore={assessmentResult.identity_score}
                     characterScore={assessmentResult.character_score}
                     competenceScore={assessmentResult.competence_score}
                     impactScore={assessmentResult.impact_score}
                   />
-                </DashboardCard>
-              )}
+                ) : (
+                  <p className="text-sm text-slate-500">Your Identity, Character, Competence, and Impact signals will show here once you've taken the assessment.</p>
+                )}
+              </DashboardCard>
             </div>
           </div>
         </div>
