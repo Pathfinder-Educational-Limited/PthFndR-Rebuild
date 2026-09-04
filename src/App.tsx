@@ -6,6 +6,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './components/MainLayout';
+import CookieConsent from './components/CookieConsent';
 import Home from './pages/Home';
 import AdminGuard from './components/AdminGuard';
 
@@ -67,6 +68,7 @@ function RouteLoading() {
 export default function App() {
   return (
     <Router>
+      <CookieConsent />
       <Suspense fallback={<RouteLoading />}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
