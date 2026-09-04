@@ -11,7 +11,7 @@ import Methodology from './pages/Methodology';
 import Partners from './pages/Partners';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import YoungPersonDashboard from './pages/YoungPersonDashboard';
 import Assessment from './pages/Assessment';
 import Character from './pages/Character';
 import Competence from './pages/Competence';
@@ -101,7 +101,7 @@ export default function App() {
             <Route path="signup" element={<YoungPersonSignup />} />
             <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<YoungPersonDashboard />} />
           <Route path="/methodology/diagnostic" element={<Navigate to="/assessment" replace />} />
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/diagnostic" element={<Navigate to="/assessment" replace />} />
