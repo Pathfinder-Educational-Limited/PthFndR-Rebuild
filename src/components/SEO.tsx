@@ -5,6 +5,7 @@ interface SEOProps {
   name?: string;
   image?: string;
   url?: string;
+  noindex?: boolean;
 }
 
 export default function SEO({
@@ -14,6 +15,7 @@ export default function SEO({
   name = 'PthFndR',
   image = 'https://pthfndr.org/og-image.png',
   url,
+  noindex = false,
 }: SEOProps) {
   // React 19 hoists <title>, <meta> and <link> rendered here into <head>.
   return (
@@ -21,6 +23,7 @@ export default function SEO({
       {/* Standard metadata tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       {url && <link rel="canonical" href={url} />}
 
       {/* OpenGraph tags */}
