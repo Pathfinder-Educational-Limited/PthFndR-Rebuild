@@ -32,6 +32,26 @@ export default function Login() {
         return;
       }
 
+      // Link any anonymous assessment result taken before this account existed or before
+      // email confirmation completed. Genuinely optional — never blocks sign-in.
+      try {
+        const storedResultId = localStorage.getItem('pthfndr_assessment_result_id');
+        if (storedResultId) {
+          const { data: sessionData } = await supabase.auth.getSession();
+          const userId = sessionData.session?.user.id;
+          if (userId) {
+            await supabase
+              .from('assessment_result')
+              .update({ young_person_id: userId })
+              .eq('id', storedResultId)
+              .is('young_person_id', null);
+          }
+          localStorage.removeItem('pthfndr_assessment_result_id');
+        }
+      } catch (linkErr) {
+        console.warn('Failed to link assessment result on sign-in:', linkErr);
+      }
+
       const redirectParam = searchParams.get('redirect');
       if (redirectParam) {
         navigate(redirectParam);

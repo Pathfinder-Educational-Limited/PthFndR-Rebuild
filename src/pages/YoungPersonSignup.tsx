@@ -51,6 +51,27 @@ export default function YoungPersonSignup() {
         return;
       }
 
+      // Link any anonymous assessment result taken before signing up. Genuinely optional:
+      // if this fails or there's nothing stored, signup itself still succeeds — never block
+      // account creation on this.
+      try {
+        const storedResultId = localStorage.getItem('pthfndr_assessment_result_id');
+        if (storedResultId) {
+          const { data: sessionData } = await supabase.auth.getSession();
+          const newUserId = sessionData.session?.user.id;
+          if (newUserId) {
+            await supabase
+              .from('assessment_result')
+              .update({ young_person_id: newUserId })
+              .eq('id', storedResultId)
+              .is('young_person_id', null);
+          }
+          localStorage.removeItem('pthfndr_assessment_result_id');
+        }
+      } catch (linkErr) {
+        console.warn('Failed to link assessment result to new account:', linkErr);
+      }
+
       setSubmitted(true);
     } catch (err) {
       setError('Something went wrong. Please try again.');
