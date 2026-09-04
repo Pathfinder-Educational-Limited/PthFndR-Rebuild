@@ -72,39 +72,38 @@ export default function Impact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
             {/* Left Column: Narrative */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="prose prose-lg prose-slate"
             >
-              <p className="lead text-xl text-slate-700 font-medium">
+              <p className="text-xl text-slate-700 font-medium leading-relaxed mb-6">
                 In the Trapezium Model, Impact is the last stage, where everything else comes together.
               </p>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 At Pathfinder Educational Limited (PthFndR), Identity, Character, and Competence all prepare a young person. Impact is the proof: real, visible evidence that it's working.
               </p>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 We don't measure impact by whether someone got a job. We measure it by whether their work is actually solving problems, for their employer, for their community, for themselves.
               </p>
-              
+
               <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Talented, but overlooked</h3>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Some of the young people we work with are genuinely strong, resilient and skilled, but still get passed over. They're doing great work quietly in the background, without the platform or the visibility to get properly recognised for it.
               </p>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 We help change that. Once someone knows what they bring and has built real skill, the next step is making sure that work actually gets seen, not just done.
               </p>
 
               <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Where we're headed</h3>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Our 10-year ambition is to help move 250,000 young people out of the underemployment gap. We're working toward that through three things: technology, partnership, and people, building the tools, the relationships, and the direct support to get there.
               </p>
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
                 <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">You've made it through the whole model.</h4>
-                <p className="text-slate-600 mb-6">Identity, Character, Competence, Impact. Now find out where you actually stand.</p>
+                <p className="text-slate-600 leading-relaxed mb-6">Identity, Character, Competence, Impact. Now find out where you actually stand.</p>
                 <Link 
                   to="/diagnostic" 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
@@ -123,7 +122,7 @@ export default function Impact() {
               transition={{ duration: 0.8 }}
             >
               <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">Five things we measure</h3>
-              <p className="text-slate-600 mb-8">
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Real impact, broken down into five practical areas:
               </p>
               <div className="space-y-6">
@@ -144,7 +143,7 @@ export default function Impact() {
                     </div>
                     <div>
                       <h4 className="text-lg font-heading font-bold text-pth-navy mb-2">{pillar.name}</h4>
-                      <p className="text-slate-600 leading-relaxed">
+                      <p className="text-slate-600 leading-relaxed mb-6">
                         {pillar.description}
                       </p>
                     </div>
