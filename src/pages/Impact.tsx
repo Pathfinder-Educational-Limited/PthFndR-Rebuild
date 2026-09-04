@@ -155,6 +155,15 @@ export default function Impact() {
           </div>
         </div>
       </section>
+      <section className="py-16 bg-pth-cream border-t border-slate-200">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">You've reached the end of the Trapezium Model</p>
+          <p className="text-slate-600 mb-6">Ready to put it into practice?</p>
+          <Link to="/programmes" className="inline-flex items-center gap-2 text-lg font-heading font-bold text-pth-navy hover:text-impact-purple transition-colors">
+            Explore our programmes <ArrowRight size={20} />
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

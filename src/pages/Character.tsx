@@ -152,6 +152,14 @@ export default function Character() {
           </div>
         </div>
       </section>
+      <section className="py-16 bg-pth-cream border-t border-slate-200">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Next in the Trapezium Model</p>
+          <Link to="/competence" className="inline-flex items-center gap-2 text-lg font-heading font-bold text-pth-navy hover:text-competence-orange transition-colors">
+            Competence <ArrowRight size={20} />
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
