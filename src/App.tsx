@@ -3,10 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './components/MainLayout';
 import CookieConsent from './components/CookieConsent';
+import { initAnalytics } from './services/analytics';
 import Home from './pages/Home';
 import AdminGuard from './components/AdminGuard';
 
@@ -66,6 +67,10 @@ function RouteLoading() {
 }
 
 export default function App() {
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
   return (
     <Router>
       <CookieConsent />
