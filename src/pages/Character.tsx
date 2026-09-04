@@ -72,36 +72,35 @@ export default function Character() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
             {/* Left Column: Narrative */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="prose prose-lg prose-slate"
             >
-              <p className="lead text-xl text-slate-700 font-medium">
+              <p className="text-xl text-slate-700 font-medium leading-relaxed mb-6">
                 In the Trapezium Model, Character isn't about following rules, it's about building the strength that supports your talent.
               </p>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Knowing who you are gets you started. But the path from where you are to where you want to be is rarely straight. Character is what keeps you moving through the parts that are actually hard.
               </p>
-              
+
               <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">More than "soft skills"</h3>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 People often call this stuff "soft skills," but that undersells it. What most workplaces actually need is someone who can stay steady when things get difficult. We're not trying to teach you how to "behave." We're helping you build the kind of strength that doesn't crack under pressure.
               </p>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Based at Manchester's Digital Security Hub, we see it again and again: the young people who go furthest aren't always the ones with the most certificates. They're the ones who can take a setback, a hard piece of feedback, or a closed door, and keep going anyway.
               </p>
 
               <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">When strength and skill come together</h3>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Someone who knows what they bring, and has the strength to keep showing up, becomes genuinely hard to stop. They stop waiting for permission and start trusting that they belong in the room. That's the shift from just training to real, lasting change.
               </p>
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
                 <h4 className="text-xl font-heading font-bold text-pth-navy mb-4">Build the skills to back it up.</h4>
-                <p className="text-slate-600 mb-6">Once you've got the strength to stay in the game, the next step is building the specific skills to lead in it.</p>
+                <p className="text-slate-600 leading-relaxed mb-6">Once you've got the strength to stay in the game, the next step is building the specific skills to lead in it.</p>
                 <Link 
                   to="/competence" 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
@@ -120,7 +119,7 @@ export default function Character() {
               transition={{ duration: 0.8 }}
             >
               <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">Five things we help you build</h3>
-              <p className="text-slate-600 mb-8">
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Building real staying power, piece by piece:
               </p>
               <div className="space-y-6">
@@ -141,7 +140,7 @@ export default function Character() {
                     </div>
                     <div>
                       <h4 className="text-lg font-heading font-bold text-pth-navy mb-2">{pillar.name}</h4>
-                      <p className="text-slate-600 leading-relaxed">
+                      <p className="text-slate-600 leading-relaxed mb-6">
                         {pillar.description}
                       </p>
                     </div>
