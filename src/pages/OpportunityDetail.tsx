@@ -80,7 +80,7 @@ export default function OpportunityDetail() {
         <h1 className="text-2xl font-heading font-bold text-pth-navy mb-4">
           We couldn't find that opportunity
         </h1>
-        <p className="text-slate-600 mb-8 max-w-md">
+        <p className="text-slate-600 leading-relaxed mb-8 max-w-md">
           It may have closed, or the link might be out of date. Take a look at what's currently open instead.
         </p>
         <Link
@@ -177,7 +177,7 @@ export default function OpportunityDetail() {
               <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm space-y-10">
                 <section>
                   <h3 className="text-xl font-heading font-bold text-pth-navy mb-4">What you'll do</h3>
-                  <div className="prose prose-slate max-w-none text-slate-600">
+                  <div className="max-w-none text-slate-600">
                     {(() => {
                       const lines = opportunity.whatYoullDo
                         .split('\n')
@@ -195,7 +195,7 @@ export default function OpportunityDetail() {
                           </ul>
                         );
                       }
-                      return <p>{opportunity.whatYoullDo}</p>;
+                      return <p className="text-slate-600 leading-relaxed mb-6">{opportunity.whatYoullDo}</p>;
                     })()}
                   </div>
                 </section>
@@ -239,7 +239,7 @@ export default function OpportunityDetail() {
                 <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm text-center">
                   <CheckCircle className="text-pth-green mx-auto mb-4" size={40} />
                   <h3 className="text-xl font-heading font-bold text-pth-navy mb-2">Application sent</h3>
-                  <p className="text-slate-600">
+                  <p className="text-slate-600 leading-relaxed mb-6">
                     Thanks for applying to {opportunity.title}. We'll be in touch soon.
                   </p>
                 </div>
