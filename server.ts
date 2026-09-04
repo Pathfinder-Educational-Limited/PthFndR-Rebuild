@@ -146,7 +146,7 @@ async function startServer() {
 
       if (process.env.RESEND_API_KEY) {
         try {
-          await sendContactConfirmation(name, email, "young_person");
+          await sendContactConfirmation(name, email, "young_person", pattern);
           console.log(`[API] Assessment confirmation email sent to ${email}`);
         } catch (err: any) {
           console.warn("[API] Resend email failed:", err.message);

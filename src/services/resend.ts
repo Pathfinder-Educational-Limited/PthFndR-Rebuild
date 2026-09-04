@@ -37,7 +37,7 @@ export async function sendEmail(options: EmailOptions) {
   }
 }
 
-export async function sendContactConfirmation(name: string, email: string, role: string) {
+export async function sendContactConfirmation(name: string, email: string, role: string, pattern?: string) {
   const roleLabel = role.replace(/_/g, " ");
   let subject = "Thank you for reaching out to PthFndR!";
   let html = `
@@ -49,7 +49,33 @@ export async function sendContactConfirmation(name: string, email: string, role:
     </div>
   `;
 
-  if (role === "young_person") {
+  if (role === "young_person" && pattern) {
+    const ARCHETYPE_EMAIL_CTA: Record<string, { label: string; to: string; strapline: string }> = {
+      'The Explorer': { label: 'Explore what fits you', to: '/programmes/discover-bootcamp', strapline: 'Ready to discover' },
+      'The Regrouper': { label: 'Take your next step', to: '/programmes/discover-bootcamp', strapline: 'Finding the way back' },
+      'The Builder': { label: 'Build something real', to: '/programmes/upskill-accelerators', strapline: 'Learning by doing' },
+      'The Spark': { label: 'Show what you can do', to: '/opportunities', strapline: 'Talent not yet lit' },
+      'The Pathfinder': { label: 'Find your next challenge', to: '/opportunities', strapline: "Ready for what's next" },
+    };
+    const cta = ARCHETYPE_EMAIL_CTA[pattern] ?? { label: 'Explore our programmes', to: '/programmes', strapline: '' };
+    subject = `Your result: ${pattern}`;
+    html = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h1 style="color: #0C2A5C;">PthFndR</h1>
+        <p>Hi ${name},</p>
+        <p>Here's your Starting Point result, as promised.</p>
+        <h2 style="color: #0C2A5C; margin-bottom: 0;">${pattern}</h2>
+        <p style="color: #2B9E82; font-weight: bold; margin-top: 4px;">${cta.strapline}</p>
+        <p>
+          <a href="https://pthfndr.org${cta.to}"
+             style="display: inline-block; padding: 12px 24px; background-color: #5DC26A; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+            ${cta.label}
+          </a>
+        </p>
+        <p>Best regards,<br><strong>The PthFndR Team</strong></p>
+      </div>
+    `;
+  } else if (role === "young_person") {
     subject = "Your Find Your Path link is ready";
     html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -58,7 +84,7 @@ export async function sendContactConfirmation(name: string, email: string, role:
         <p>Thanks for your interest in PthFndR. Ready to discover your path?</p>
         <p>
           <a href="https://pthfndr.org/assessment"
-             style="display: inline-block; padding: 12px 24px; background-color: #40D478; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+             style="display: inline-block; padding: 12px 24px; background-color: #5DC26A; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
             Start Your Assessment
           </a>
         </p>
