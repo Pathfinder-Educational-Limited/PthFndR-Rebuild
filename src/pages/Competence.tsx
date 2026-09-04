@@ -78,28 +78,27 @@ export default function Competence() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
             {/* Left Column: Narrative */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="prose prose-lg prose-slate"
             >
-              <p className="lead text-xl text-slate-700 font-medium">
+              <p className="text-xl text-slate-700 font-medium leading-relaxed mb-6">
                 In the Trapezium Model, Competence is the bridge between who you are and what you can actually do.
               </p>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Identity gives you a starting point. Character gives you the staying power. Competence is the toolkit, the real, specific skills you need to actually deliver.
               </p>
-              
+
               <h3 className="text-2xl font-heading font-bold text-pth-navy mt-12 mb-6">Skills, not just a certificate</h3>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Through our <a href="https://www.employalingua.com" target="_blank" rel="noopener noreferrer" className="text-pth-cyan hover:underline font-medium">EmployaLingua</a> platform, we go beyond generic training. Holding a certificate isn't the same as walking into a room and actually understanding what's going on around you, the specific challenges, the specific language, the way things actually get done.
               </p>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 For a lot of young people, the barrier isn't ability, it's never having had access to that specific industry knowledge. We help close that gap, so a young person can walk in and add value straight away, not spend months catching up.
               </p>
-              <p>
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Once you've built real competence, you're ready for the last stage: <Link to="/impact" className="text-pth-cyan hover:underline font-medium">Impact</Link>, where everything you've built turns into something real and visible.
               </p>
               
@@ -114,7 +113,7 @@ export default function Competence() {
 
               <div className="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
                 <h4 className="text-lg font-heading font-bold text-pth-navy mb-4">Ready to build real skills?</h4>
-                <p className="text-slate-600 mb-6">Take the free assessment to find the right track for you.</p>
+                <p className="text-slate-600 leading-relaxed mb-6">Take the free assessment to find the right track for you.</p>
                 <Link 
                   to="/diagnostic" 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-pth-navy text-white font-bold hover:bg-pth-cyan transition-colors"
@@ -133,7 +132,7 @@ export default function Competence() {
               transition={{ duration: 0.8 }}
             >
               <h3 className="text-2xl font-heading font-bold text-pth-navy mb-8">Five things we help you build</h3>
-              <p className="text-slate-600 mb-8">
+              <p className="text-slate-600 leading-relaxed mb-6">
                 Real competence, broken down into five practical areas:
               </p>
               <div className="space-y-6">
@@ -153,7 +152,7 @@ export default function Competence() {
                     </div>
                     <div>
                       <h4 className="text-lg font-heading font-bold text-pth-navy mb-2">{pillar.name}</h4>
-                      <p className="text-slate-600 leading-relaxed">
+                      <p className="text-slate-600 leading-relaxed mb-6">
                         {pillar.description}
                       </p>
                     </div>
