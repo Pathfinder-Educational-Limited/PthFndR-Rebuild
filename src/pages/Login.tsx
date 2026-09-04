@@ -59,7 +59,7 @@ export default function Login() {
       }
 
       const role = await getUserRole();
-      const dashboardPath = role === 'admin' ? '/admin' : role === 'school' ? '/school/dashboard' : role === 'organisation' ? '/organisation/dashboard' : role === 'young_person' ? '/passport' : '/';
+      const dashboardPath = role === 'admin' ? '/admin' : role === 'school' ? '/school/dashboard' : role === 'organisation' ? '/organisation/dashboard' : role === 'young_person' ? '/dashboard' : '/';
       navigate(dashboardPath);
     } catch (err) {
       setError('Something went wrong. Please try again.');

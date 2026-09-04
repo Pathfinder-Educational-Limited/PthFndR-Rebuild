@@ -46,7 +46,7 @@ export default function Header() {
     });
   }, []);
 
-  const dashboardPath = userRole === 'admin' ? '/admin' : userRole === 'school' ? '/school/dashboard' : userRole === 'young_person' ? '/passport' : '/organisation/dashboard';
+  const dashboardPath = userRole === 'admin' ? '/admin' : userRole === 'school' ? '/school/dashboard' : userRole === 'young_person' ? '/dashboard' : '/organisation/dashboard';
 
   const handleDropdownKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
