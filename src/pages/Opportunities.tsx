@@ -31,6 +31,7 @@ export default function Opportunities() {
   }, []);
 
   const allOpportunities = [...opportunities, ...dbOpportunities];
+  const openOpportunities = allOpportunities.filter((opp: any) => !opp.closed);
 
   return (
     <>
@@ -140,19 +141,26 @@ export default function Opportunities() {
             {/* RESULTS (Main) */}
             <div className="flex-1">
               <p className="text-slate-600 mb-6">
-                {allOpportunities.length} open {allOpportunities.length === 1 ? 'opportunity' : 'opportunities'} right now.
+                {openOpportunities.length} open {openOpportunities.length === 1 ? 'opportunity' : 'opportunities'} right now.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {allOpportunities.map((opp) => (
+                {allOpportunities.map((opp: any) => (
                   <Link
                     key={opp.id}
                     to={`/opportunities/${opp.id}`}
-                    className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 flex flex-col"
+                    className={`group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 flex flex-col ${opp.closed ? 'opacity-60' : ''}`}
                   >
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700 w-fit mb-4">
-                      {opp.category}
-                    </span>
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700 w-fit">
+                        {opp.category}
+                      </span>
+                      {opp.closed && (
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-slate-200 text-slate-600 w-fit">
+                          Closed
+                        </span>
+                      )}
+                    </div>
                     <h3 className="text-lg font-heading font-bold text-pth-navy mb-2 group-hover:text-pth-green transition-colors">
                       {opp.title}
                     </h3>
