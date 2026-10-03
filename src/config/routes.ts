@@ -23,6 +23,7 @@ export const ROUTES = {
   IMPACT: '/impact',
   SOCIAL_HACKATHONS: '/social-hackathons',
   PRIVACY: '/privacy',
+  BALANCE_PRIVACY: '/balance/privacy',
   TERMS: '/terms',
   TEAM: '/team',
   STORIES: '/stories',

@@ -25,6 +25,7 @@ const Impact = lazy(() => import('./pages/Impact'));
 const SocialHackathon = lazy(() => import('./pages/SocialHackathon'));
 const SocialValue = lazy(() => import('./pages/SocialValue'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const BalancePrivacy = lazy(() => import('./pages/BalancePrivacy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const ForOrganisations = lazy(() => import('./pages/ForOrganisations'));
 const ForYoungPeople = lazy(() => import('./pages/ForYoungPeople'));
@@ -90,6 +91,7 @@ export default function App() {
             <Route path="impact" element={<Impact />} />
             <Route path="social-hackathons" element={<SocialHackathon />} />
             <Route path="privacy" element={<PrivacyPolicy />} />
+            <Route path="balance/privacy" element={<BalancePrivacy />} />
             <Route path="terms" element={<TermsOfService />} />
             <Route path="for-young-people" element={<ForYoungPeople />} />
             <Route path="for-organisations" element={<ForOrganisations />} />
