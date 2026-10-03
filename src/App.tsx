@@ -22,6 +22,7 @@ import Identity from './pages/Identity';
 import Impact from './pages/Impact';
 import SocialHackathon from './pages/SocialHackathon';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import BalancePrivacy from './pages/BalancePrivacy';
 import TermsOfService from './pages/TermsOfService';
 import ForOrganisations from './pages/ForOrganisations';
 import OrganisationDashboard from './pages/OrganisationDashboard';
@@ -60,6 +61,7 @@ export default function App() {
             <Route path="impact" element={<Impact />} />
             <Route path="social-hackathons" element={<SocialHackathon />} />
             <Route path="privacy" element={<PrivacyPolicy />} />
+            <Route path="balance/privacy" element={<BalancePrivacy />} />
             <Route path="terms" element={<TermsOfService />} />
             <Route path="for-organisations" element={<ForOrganisations />} />
             <Route path="for-organisations/create-opportunities" element={<CreateOpportunities />} />
