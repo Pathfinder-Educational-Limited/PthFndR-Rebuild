@@ -10,6 +10,7 @@ export const ROUTES = {
   FOR_ORGANISATIONS: '/for-organisations',
   CONTACT: '/contact',
   PRIVACY: '/privacy',
+  BALANCE_PRIVACY: '/balance/privacy',
   TERMS: '/terms',
   SIGN_IN: '/signin',
   FOR_YOUNG_PEOPLE: '/for-young-people',
