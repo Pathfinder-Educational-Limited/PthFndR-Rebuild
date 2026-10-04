@@ -19,3 +19,10 @@ export function validateBoard(values: number[], anchors: number[], target: numbe
 }
 export const dayKey = () => new Date().toISOString().slice(0, 10);
 export const formatTime = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+
+// Keep the original daily mapping through 3 October so saved runs remain valid.
+export function dailyPuzzleIndex(date: string, bankSize: number): number {
+  const day = Math.floor(Date.parse(date) / 86400000);
+  const launch = Math.floor(Date.parse('2026-10-04') / 86400000);
+  return day < launch ? ((day % 3) + 3) % 3 : ((day - launch + 3) % bankSize + bankSize) % bankSize;
+}

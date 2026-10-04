@@ -30,6 +30,7 @@ jobs:
           VITE_BALANCE_SUPABASE_URL: ${{ vars.VITE_BALANCE_SUPABASE_URL }}
           VITE_BALANCE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_BALANCE_SUPABASE_PUBLISHABLE_KEY }}
           VITE_BALANCE_LINKEDIN_ENABLED: ${{ vars.VITE_BALANCE_LINKEDIN_ENABLED }}
+          VITE_BALANCE_RANKED_ENABLED: ${{ vars.VITE_BALANCE_RANKED_ENABLED }}
         run: |
           npm install
           npm run build --if-present

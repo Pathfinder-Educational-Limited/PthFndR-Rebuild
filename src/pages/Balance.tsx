@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import BalanceAccount from '../features/balance/BalanceAccount';
+import RankedDaily from '../features/balance/RankedDaily';
 import { puzzles } from '../features/balance/puzzles';
-import { dayKey, formatTime, validateBoard } from '../features/balance/logic';
+import { dayKey, formatTime, validateBoard, dailyPuzzleIndex } from '../features/balance/logic';
 
 type Run = { assignment: number[]; started: number | null; seconds: number; done: boolean; revealed: boolean };
 const letters = ['A', 'B', 'C', 'D'];
@@ -11,10 +12,10 @@ const tones = ['bg-[#d7e8dd]', 'bg-[#e9dfce]', 'bg-[#dddfee]', 'bg-[#efdad5]'];
 const control = 'min-h-11 rounded-xl border border-slate-300 px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 disabled:opacity-40';
 
 export default function Balance() {
-  const [mode, setMode] = useState<'daily' | 'practice'>('daily');
+  const [mode, setMode] = useState<'daily' | 'ranked' | 'practice'>('daily');
   const [level, setLevel] = useState(0);
   const [date, setDate] = useState(dayKey());
-  const index = mode === 'daily' ? Math.floor(Date.parse(date) / 86400000) % puzzles.length : level;
+  const index = mode === 'daily' ? dailyPuzzleIndex(date, puzzles.length) : level;
   const puzzle = puzzles[index];
   const key = `balance:v1:${mode === 'daily' ? date : `practice-${level}`}`;
   const blank = (): Run => ({ assignment: Array.from({ length: 16 }, (_, i) => puzzle.anchors.includes(i) ? puzzle.anchors.indexOf(i) : -1), started: null, seconds: 0, done: false, revealed: false });
@@ -81,8 +82,9 @@ export default function Balance() {
       <div className="mx-auto max-w-md">
         <header className="flex items-center justify-between gap-4"><div className="flex items-center gap-3"><img src="/logos/balance-logo.png" alt="" width="40" height="40" className="rounded-xl" /><h1 className="text-3xl font-semibold tracking-tight">balance</h1></div><span className="text-sm">Pilot edition</span></header>
         <BalanceAccount />
-        <div className="mt-6 flex gap-2" aria-label="Game mode">{(['daily', 'practice'] as const).map(m => <button key={m} type="button" aria-pressed={mode === m} onClick={() => { if (mode !== m) { setReady(false); setMode(m); } }} className={`${control} flex-1 ${mode === m ? 'bg-[#24342f] text-white' : 'bg-white'}`}>{m === 'daily' ? 'Daily' : 'Practice'}</button>)}</div>
-        {mode === 'practice' ? <label className="mt-4 flex items-center justify-between gap-3 text-sm">Board<select value={level} onChange={e => { setReady(false); setLevel(Number(e.target.value)); }} className={`${control} bg-white`}>{['Easy', 'Medium', 'Hard'].map((label, i) => <option key={i} value={i}>{label} · provisional</option>)}</select></label> : <p className="mt-4 text-sm">{date} · Resets at midnight UTC</p>}
+        <div className="mt-6 flex gap-2" aria-label="Game mode">{(['daily', 'ranked', 'practice'] as const).map(m => <button key={m} type="button" aria-pressed={mode === m} onClick={() => { if (mode !== m) { setReady(false); setMode(m); } }} className={`${control} flex-1 ${mode === m ? 'bg-[#24342f] text-white' : 'bg-white'}`}>{m === 'daily' ? 'Daily' : m === 'ranked' ? 'Saved daily' : 'Practice'}</button>)}</div>
+        {mode === 'ranked' ? <RankedDaily /> : <>
+        {mode === 'practice' ? <label className="mt-4 flex items-center justify-between gap-3 text-sm">Board<select value={level} onChange={e => { setReady(false); setLevel(Number(e.target.value)); }} className={`${control} bg-white`}>{puzzles.map((p, i) => <option key={p.id} value={i}>Board {i+1} · {p.difficulty} (provisional)</option>)}</select></label> : <p className="mt-4 text-sm">{date} · Resets at midnight UTC</p>}
         <h2 className="mt-7 text-2xl font-semibold">Find your balance.</h2>
         <p className="mt-2 leading-relaxed">Make four connected regions, each totalling <strong>{puzzle.target}</strong>. Each region contains its matching ★ anchor. Use every cell.</p>
         <div className="mt-5 flex items-center justify-between text-sm"><span>Target: {puzzle.target}</span><span className="tabular-nums" aria-label="Elapsed time">{formatTime(run.seconds)}</span></div>
@@ -91,10 +93,11 @@ export default function Balance() {
         <div className="mt-4 grid grid-cols-4 gap-2 text-center text-sm" aria-label="Region totals">{letters.map((l, r) => <span key={l}>{l}: {puzzle.nums.reduce((s, n, i) => s + (run.assignment[i] === r ? n : 0), 0)}/{puzzle.target}</span>)}</div>
         <div className="mt-6 flex gap-2"><button type="button" className={`${control} flex-1 bg-white`} disabled={!history.length || run.done} onClick={() => { const previous = history[history.length - 1]; setRun(r => ({ ...r, assignment: previous })); setHistory(h => h.slice(0, -1)); setMessage('Move undone.'); }}>Undo</button><button type="button" className={`${control} flex-1 bg-[#24342f] text-white`} disabled={!ready || run.done} onClick={check}>Check balance</button></div>
         <p className="mt-4 min-h-12 text-sm" role="status">{message}</p>
-        {run.done && <div className="rounded-2xl border border-slate-300 bg-white p-5"><h2 className="text-xl font-semibold">{run.revealed ? 'Solution explored' : 'Balance found'}</h2><p className="mt-2">{!run.revealed && `Your time: ${formatTime(run.seconds)}. `}Global rankings and account-based score syncing are coming later.</p><button className={`${control} mt-4 w-full bg-[#24342f] text-white`} type="button" onClick={share}>Copy share result</button>{shareText && <textarea aria-label="Share result" readOnly value={shareText} className="mt-3 min-h-28 w-full rounded-lg border border-slate-300 p-3 text-base" />}</div>}
+        {run.done && <div className="rounded-2xl border border-slate-300 bg-white p-5"><h2 className="text-xl font-semibold">{run.revealed ? 'Solution explored' : 'Balance found'}</h2><p className="mt-2">{!run.revealed && `Your time: ${formatTime(run.seconds)}. `}For a server-timed score and leaderboard, use Saved daily.</p><button className={`${control} mt-4 w-full bg-[#24342f] text-white`} type="button" onClick={share}>Copy share result</button>{shareText && <textarea aria-label="Share result" readOnly value={shareText} className="mt-3 min-h-28 w-full rounded-lg border border-slate-300 p-3 text-base" />}</div>}
         {mode === 'practice' && <div className="mt-4 flex flex-wrap gap-2"><button type="button" className={control} onClick={() => { setRun(blank()); setHistory([]); setShareText(''); setMessage('Practice restarted.'); }}>Restart</button><button type="button" className={control} disabled={run.done} onClick={() => { setRun(r => ({ ...r, assignment: [...puzzle.solution], revealed: true, done: true })); setMessage('Solution revealed. Restart to try again.'); }}>Reveal solution</button></div>}
-        <p className="mt-6 text-sm text-slate-600">Pilot: three verified puzzles rotate daily. Daily progress stays in this browser; it is not an account-enforced competitive score. The timer includes time away after your first move.</p>
+        <p className="mt-6 text-sm text-slate-600">Pilot: 30 verified puzzles rotate daily. Daily progress stays in this browser; it is not an account-enforced competitive score. The timer includes time away after your first move.</p>
         {!storageAvailable && <p role="alert" className="mt-3 text-sm">Browser storage is unavailable. Progress cannot be saved.</p>}
+        </>}
         <footer className="mt-8 border-t border-slate-300 pt-4 text-sm"><Link className="underline underline-offset-4" to="/balance/privacy">Balance privacy</Link><p className="mt-2">By Pathfinder Educational Limited</p></footer>
       </div>
     </div>
