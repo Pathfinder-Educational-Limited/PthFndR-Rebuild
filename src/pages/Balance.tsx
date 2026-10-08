@@ -1,3 +1,4 @@
+import BalanceHowTo from '../features/balance/BalanceHowTo';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
@@ -83,10 +84,11 @@ export default function Balance() {
         <header className="flex items-center justify-between gap-4"><div className="flex items-center gap-3"><img src="/logos/balance-logo.png" alt="" width="40" height="40" className="rounded-xl" /><h1 className="text-3xl font-semibold tracking-tight">balance</h1></div><span className="text-sm">Pilot edition</span></header>
         <BalanceAccount />
         <div className="mt-6 flex gap-2" aria-label="Game mode">{(['daily', 'ranked', 'practice'] as const).map(m => <button key={m} type="button" aria-pressed={mode === m} onClick={() => { if (mode !== m) { setReady(false); setMode(m); } }} className={`${control} flex-1 ${mode === m ? 'bg-[#24342f] text-white' : 'bg-white'}`}>{m === 'daily' ? 'Daily' : m === 'ranked' ? 'Saved daily' : 'Practice'}</button>)}</div>
+        <BalanceHowTo />
         {mode === 'ranked' ? <RankedDaily /> : <>
         {mode === 'practice' ? <label className="mt-4 flex items-center justify-between gap-3 text-sm">Board<select value={level} onChange={e => { setReady(false); setLevel(Number(e.target.value)); }} className={`${control} bg-white`}>{puzzles.map((p, i) => <option key={p.id} value={i}>Board {i+1} · {p.difficulty} (provisional)</option>)}</select></label> : <p className="mt-4 text-sm">{date} · Resets at midnight UTC</p>}
         <h2 className="mt-7 text-2xl font-semibold">Find your balance.</h2>
-        <p className="mt-2 leading-relaxed">Make four connected regions, each totalling <strong>{puzzle.target}</strong>. Each region contains its matching ★ anchor. Use every cell.</p>
+        <p className="mt-2 leading-relaxed">Make four connected regions, each totalling <strong>{puzzle.target}</strong>. Each group includes its matching ★ square. Join squares along edges, not diagonals, and use every square.</p>
         <div className="mt-5 flex items-center justify-between text-sm"><span>Target: {puzzle.target}</span><span className="tabular-nums" aria-label="Elapsed time">{formatTime(run.seconds)}</span></div>
         <div className="mt-4 grid grid-cols-4 gap-2" aria-label="Select region">{letters.map((l, r) => <button type="button" key={l} aria-pressed={selected === r} onClick={() => setSelected(r)} className={`${control} font-semibold ${selected === r ? 'bg-[#24342f] text-white' : tones[r]}`}>{l}</button>)}</div>
         <div className="mt-4 grid grid-cols-4 gap-2" role="group" aria-label="Puzzle board">{puzzle.nums.map((n, i) => <button type="button" key={i} disabled={!ready || run.done} onClick={() => assign(i)} aria-label={`Row ${Math.floor(i / 4) + 1}, column ${i % 4 + 1}, value ${n}, ${letters[run.assignment[i]] ?? 'unassigned'}${puzzle.anchors.includes(i) ? ', fixed anchor' : ''}`} className={`relative aspect-square rounded-xl border border-slate-300 text-2xl font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${run.assignment[i] >= 0 ? tones[run.assignment[i]] : 'bg-white'}`}><span className="absolute left-2 top-1 text-xs">{letters[run.assignment[i]]}{puzzle.anchors.includes(i) ? ' ★' : ''}</span>{n}</button>)}</div>
