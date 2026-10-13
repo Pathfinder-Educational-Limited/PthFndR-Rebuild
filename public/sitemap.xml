@@ -81,11 +81,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://pthfndr.org/stories</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://pthfndr.org/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -155,6 +150,21 @@
     <loc>https://pthfndr.org/balance</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pthfndr.org/opportunities/employalingua-ux-review-01</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pthfndr.org/opportunities/wholeness-index-placement-01</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pthfndr.org/opportunities/social-hackathon-redesign-rethink-feb26</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>
