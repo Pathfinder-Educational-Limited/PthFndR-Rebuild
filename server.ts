@@ -1,3 +1,5 @@
+import compression from 'compression';
+import { redirectCanonicalHost } from './src/server/httpMiddleware';
 import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
@@ -18,6 +20,8 @@ async function startServer() {
   const PORT = Number(process.env.PORT) || 3000;
 
   // Middleware
+  app.use(redirectCanonicalHost);
+  app.use(compression());
   app.use(express.json());
 
   // Note: Sentry error handling is applied via captureException in routes
