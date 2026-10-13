@@ -1,3 +1,4 @@
+import BalanceNextSteps, { trackBalanceLink } from '../features/balance/BalanceNextSteps';
 import BalanceHowTo from '../features/balance/BalanceHowTo';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -81,6 +82,10 @@ export default function Balance() {
     <SEO title="Balance | Daily logic puzzle" description="Four connected regions. One equal total. Play Balance by Pathfinder Educational Limited." url="https://pthfndr.org/balance" image="https://pthfndr.org/logos/balance-logo.png" />
     <div className="bg-[#fcfaf6] px-4 py-12 text-[#24342f]">
       <div className="mx-auto max-w-md">
+        <nav aria-label="PthFndR navigation" className="mb-6 flex flex-wrap items-center justify-between gap-3 text-sm">
+          <Link to="/" aria-label="PthFndR home" onClick={() => trackBalanceLink('/', 'header')} className="inline-flex min-h-11 items-center gap-2 rounded-lg font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"><img src="/logos/pthfndr-favicon.png" alt="" width="28" height="28" />PthFndR</Link>
+          <Link to="/about" onClick={() => trackBalanceLink('/about', 'header')} className="inline-flex min-h-11 items-center underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800">About PthFndR</Link>
+        </nav>
         <header className="flex items-center justify-between gap-4"><div className="flex items-center gap-3"><img src="/logos/balance-logo.png" alt="" width="40" height="40" className="rounded-xl" /><h1 className="text-3xl font-semibold tracking-tight">balance</h1></div><span className="text-sm">Pilot edition</span></header>
         <BalanceAccount />
         <div className="mt-6 flex gap-2" aria-label="Game mode">{(['daily', 'ranked', 'practice'] as const).map(m => <button key={m} type="button" aria-pressed={mode === m} onClick={() => { if (mode !== m) { setReady(false); setMode(m); } }} className={`${control} flex-1 ${mode === m ? 'bg-[#24342f] text-white' : 'bg-white'}`}>{m === 'daily' ? 'Daily' : m === 'ranked' ? 'Saved daily' : 'Practice'}</button>)}</div>
@@ -96,6 +101,7 @@ export default function Balance() {
         <div className="mt-6 flex gap-2"><button type="button" className={`${control} flex-1 bg-white`} disabled={!history.length || run.done} onClick={() => { const previous = history[history.length - 1]; setRun(r => ({ ...r, assignment: previous })); setHistory(h => h.slice(0, -1)); setMessage('Move undone.'); }}>Undo</button><button type="button" className={`${control} flex-1 bg-[#24342f] text-white`} disabled={!ready || run.done} onClick={check}>Check balance</button></div>
         <p className="mt-4 min-h-12 text-sm" role="status">{message}</p>
         {run.done && <div className="rounded-2xl border border-slate-300 bg-white p-5"><h2 className="text-xl font-semibold">{run.revealed ? 'Solution explored' : 'Balance found'}</h2><p className="mt-2">{!run.revealed && `Your time: ${formatTime(run.seconds)}. `}For a server-timed score and leaderboard, use Saved daily.</p><button className={`${control} mt-4 w-full bg-[#24342f] text-white`} type="button" onClick={share}>Copy share result</button>{shareText && <textarea aria-label="Share result" readOnly value={shareText} className="mt-3 min-h-28 w-full rounded-lg border border-slate-300 p-3 text-base" />}</div>}
+        {run.done && <BalanceNextSteps />}
         {mode === 'practice' && <div className="mt-4 flex flex-wrap gap-2"><button type="button" className={control} onClick={() => { setRun(blank()); setHistory([]); setShareText(''); setMessage('Practice restarted.'); }}>Restart</button><button type="button" className={control} disabled={run.done} onClick={() => { setRun(r => ({ ...r, assignment: [...puzzle.solution], revealed: true, done: true })); setMessage('Solution revealed. Restart to try again.'); }}>Reveal solution</button></div>}
         <p className="mt-6 text-sm text-slate-600">Pilot: 30 verified puzzles rotate daily. Daily progress stays in this browser; it is not an account-enforced competitive score. The timer includes time away after your first move.</p>
         {!storageAvailable && <p role="alert" className="mt-3 text-sm">Browser storage is unavailable. Progress cannot be saved.</p>}
