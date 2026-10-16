@@ -108,18 +108,18 @@ export default function Header() {
                   </div>
                   
                   <div className="space-y-4">
-                    <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-schools">For Schools</h3>
+                    <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-schools">For Education & Youth Providers</h3>
                     <div className="space-y-1" role="group" aria-labelledby="menu-schools">
-                      <Link to="/for-schools/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">School Partnership Programme</Link>
+                      <Link to="/for-schools/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Cohort Employability Programme</Link>
                       <Link to="/for-schools/professional-development" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Professional Development</Link>
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-organisations">For Organisations</h3>
+                    <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider" id="menu-organisations">For Employers & Commissioners</h3>
                     <div className="space-y-1" role="group" aria-labelledby="menu-organisations">
-                      <Link to="/for-organisations/create-opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Create Opportunities</Link>
-                      <Link to="/for-organisations/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Organisation Partnership</Link>
+                      <Link to="/for-organisations/create-opportunities" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Host an Employer Project</Link>
+                      <Link to="/for-organisations/partnerships" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Commission a Programme</Link>
                       <Link to="/for-organisations/social-value" role="menuitem" onClick={() => setIsProgrammesOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-pth-navy rounded-lg hover:bg-[#E8F8F0] hover:text-[#0C2A5C] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset">Social Value & Commissioning</Link>
                     </div>
                   </div>
@@ -209,18 +209,18 @@ export default function Header() {
                   </div>
 
                   <div>
-                    <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2" id="mobile-menu-schools">For Schools</h3>
+                    <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2" id="mobile-menu-schools">For Education & Youth Providers</h3>
                     <div className="space-y-1" role="group" aria-labelledby="mobile-menu-schools">
-                      <Link to="/for-schools/partnerships" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>School Partnership Programme</Link>
+                      <Link to="/for-schools/partnerships" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Cohort Employability Programme</Link>
                       <Link to="/for-schools/professional-development" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Professional Development</Link>
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2" id="mobile-menu-orgs">For Organisations</h3>
+                    <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2" id="mobile-menu-orgs">For Employers & Commissioners</h3>
                     <div className="space-y-1" role="group" aria-labelledby="mobile-menu-orgs">
-                      <Link to="/for-organisations/create-opportunities" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Create Opportunities</Link>
-                      <Link to="/for-organisations/partnerships" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Organisation Partnership</Link>
+                      <Link to="/for-organisations/create-opportunities" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Host an Employer Project</Link>
+                      <Link to="/for-organisations/partnerships" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Commission a Programme</Link>
                       <Link to="/for-organisations/social-value" role="menuitem" className="block rounded-md px-3 py-2 text-sm font-medium text-pth-navy hover:text-pth-green hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-inset" onClick={() => setIsMobileMenuOpen(false)}>Social Value & Commissioning</Link>
                     </div>
                   </div>

@@ -10,7 +10,7 @@ export default function ForOrganisations() {
     <>
       <SEO 
         title="For Organisations | PthFndR"
-        description="Access emerging talent, gather real-world insights, and build impactful partnerships with PthFndR."
+        description="Commission a managed employability programme or host a short employer project with PthFndR."
       />
 
       {/* HERO SECTION */}
@@ -21,17 +21,17 @@ export default function ForOrganisations() {
             <div className="lg:col-span-7">
               <Eyebrow tone="cyan" className="mb-6">For Organisations</Eyebrow>
               <h1 className="font-heading font-extrabold tracking-tight text-pth-navy text-balance text-5xl sm:text-6xl lg:text-[4.5rem] leading-[0.95] mb-8">
-                Access emerging talent &amp; <span className="text-pth-cyan">real-world insights.</span>
+                Real projects.<span className="text-pth-cyan"> Demonstrable capability.</span>
               </h1>
               <p className="text-xl lg:text-2xl text-slate-600 font-medium max-w-xl mb-10">
-                Partner with PthFndR to develop young people, test products, or hire talent who know their purpose.
+                Commission an employability programme for your cohort, or bring an employer brief. We connect preparation, practical experience and feedback for young people aged 16–24.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/for-organisations/create-opportunities" className="bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2">
-                  Post an opportunity <ArrowRight size={20} aria-hidden="true" />
+                  Explore employer projects <ArrowRight size={20} aria-hidden="true" />
                 </Link>
                 <a href="#partnership" className="border-2 border-pth-navy text-pth-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-pth-navy hover:text-white transition-all inline-flex items-center">
-                  Build a partnership
+                  Commission a programme
                 </a>
               </div>
             </div>
@@ -54,8 +54,8 @@ export default function ForOrganisations() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16">
             <Eyebrow className="mb-5">Why partner</Eyebrow>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-6">Why partner with us?</h2>
-            <p className="text-lg lg:text-xl text-slate-600">Connect with a vetted community of 223 engaged young people ready to contribute to your organisation.</p>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-6">What the service delivers</h2>
+            <p className="text-lg lg:text-xl text-slate-600">A coordinated route from learner preparation to useful project outputs, with responsibilities and reporting agreed before delivery.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -63,32 +63,32 @@ export default function ForOrganisations() {
               <div className="h-14 w-14 bg-pth-green/10 rounded-2xl flex items-center justify-center text-pth-green mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
                 <Users size={24} />
               </div>
-              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Engaged Demographic</h3>
-              <p className="text-slate-600">Direct access to diverse, vetted young people eager for real-world experience.</p>
+              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Prepared participants</h3>
+              <p className="text-slate-600">Preparation and participant selection shaped around the brief, interests and readiness.</p>
             </div>
             
             <div className="group bg-pth-warm p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               <div className="h-14 w-14 bg-pth-green/10 rounded-2xl flex items-center justify-center text-pth-green mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
                 <BrainCircuit size={24} />
               </div>
-              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Real-World Feedback</h3>
-              <p className="text-slate-600">Authentic user testing, focus groups, and beta testing from your future customers.</p>
+              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Useful outputs</h3>
+              <p className="text-slate-600">Agree a practical output, such as research findings, content ideas or website feedback.</p>
             </div>
             
             <div className="group bg-pth-warm p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               <div className="h-14 w-14 bg-pth-green/10 rounded-2xl flex items-center justify-center text-pth-green mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
                 <TrendingUp size={24} />
               </div>
-              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Talent Pipeline</h3>
-              <p className="text-slate-600">Hire graduates and build an early talent pipeline of self-aware young professionals.</p>
+              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Evidence of skills</h3>
+              <p className="text-slate-600">Help participants explain their contribution through work examples, reflection and host feedback.</p>
             </div>
             
             <div className="group bg-pth-warm p-8 rounded-3xl border border-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               <div className="h-14 w-14 bg-pth-green/10 rounded-2xl flex items-center justify-center text-pth-green mb-6 transition-colors duration-300 group-hover:bg-pth-green/20">
                 <Handshake size={24} />
               </div>
-              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Social Impact</h3>
-              <p className="text-slate-600">Fulfill ESG credentials while actively contributing to youth development.</p>
+              <h3 className="text-xl font-heading font-bold text-pth-navy mb-3">Coordinated delivery</h3>
+              <p className="text-slate-600">Define the schedule, support, supervision and measures with a named programme contact.</p>
             </div>
           </div>
         </div>
@@ -99,8 +99,8 @@ export default function ForOrganisations() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16">
             <Eyebrow className="mb-5">Collaboration models</Eyebrow>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-6">Three ways to collaborate</h2>
-            <p className="text-lg lg:text-xl text-slate-600">Choose the engagement model that best fits your organisation's goals.</p>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02] mb-6">Two ways to work with us</h2>
+            <p className="text-lg lg:text-xl text-slate-600">Choose a cohort programme or an employer project. Each has a clear scope and an agreed delivery plan.</p>
           </div>
 
           <div className="space-y-12">
@@ -108,32 +108,32 @@ export default function ForOrganisations() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col lg:flex-row">
               <div className="p-10 lg:p-16 lg:w-1/2 flex flex-col justify-center">
                 <span className="text-xs font-bold tracking-widest text-pth-green uppercase mb-4 block">Model 1</span>
-                <h3 className="text-3xl lg:text-4xl font-heading font-bold text-pth-navy mb-4">Post Micro-Opportunities</h3>
-                <p className="text-lg text-slate-600 mb-6">Host 1-day events, 2-5 day projects, micro-internships, or beta testing sessions.</p>
+                <h3 className="text-3xl lg:text-4xl font-heading font-bold text-pth-navy mb-4">Host an employer project</h3>
+                <p className="text-lg text-slate-600 mb-6">Bring a short brief that gives young people real experience and produces something useful for your organisation.</p>
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
                     <div>
-                      <span className="font-bold text-pth-navy">For:</span> <span className="text-slate-600">Tech companies, nonprofits, agencies, startups.</span>
+                      <span className="font-bold text-pth-navy">For:</span> <span className="text-slate-600">Employers, agencies, startups and community organisations.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
                     <div>
-                      <span className="font-bold text-pth-navy">Cost:</span> <span className="text-slate-600">Free to post (premium features coming soon).</span>
+                      <span className="font-bold text-pth-navy">Cost:</span> <span className="text-slate-600">Submit a brief; managed delivery support is scoped and quoted separately.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
                     <div>
-                      <span className="font-bold text-pth-navy">Benefits:</span> <span className="text-slate-600">Real feedback, authentic user testing, social impact.</span>
+                      <span className="font-bold text-pth-navy">Benefits:</span> <span className="text-slate-600">An agreed output, fresh perspectives and a repeatable project format.</span>
                     </div>
                   </div>
                 </div>
                 
                 <Link to="/for-organisations/create-opportunities" className="bg-pth-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-[#0C2A5C] transition-colors w-fit">
-                  Post Your First Opportunity
+                  Plan an employer project
                 </Link>
               </div>
               <div className="lg:w-1/2 bg-slate-100 relative min-h-[300px]">
@@ -145,32 +145,32 @@ export default function ForOrganisations() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col lg:flex-row-reverse">
               <div className="p-10 lg:p-16 lg:w-1/2 flex flex-col justify-center">
                 <span className="text-xs font-bold tracking-widest text-pth-green uppercase mb-4 block">Model 2</span>
-                <h3 className="text-3xl lg:text-4xl font-heading font-bold text-pth-navy mb-4">Build Long-Term Partnerships</h3>
-                <p className="text-lg text-slate-600 mb-6">Custom programmes, facilitation, training, and curriculum design tailored to your context.</p>
+                <h3 className="text-3xl lg:text-4xl font-heading font-bold text-pth-navy mb-4">Commission a cohort programme</h3>
+                <p className="text-lg text-slate-600 mb-6">A managed micro-opportunity programme combining assessment, preparation, short employer projects and guided reflection.</p>
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
                     <div>
-                      <span className="font-bold text-pth-navy">For:</span> <span className="text-slate-600">Schools, colleges, local authorities.</span>
+                      <span className="font-bold text-pth-navy">For:</span> <span className="text-slate-600">Colleges, schools, youth providers and public commissioners.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
                     <div>
-                      <span className="font-bold text-pth-navy">Investment:</span> <span className="text-slate-600">Based on scope and scale — get in touch to discuss.</span>
+                      <span className="font-bold text-pth-navy">Investment:</span> <span className="text-slate-600">A programme fee based on cohort size, delivery and reporting.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-pth-green shrink-0 mt-1" size={20} />
                     <div>
-                      <span className="font-bold text-pth-navy">Benefits:</span> <span className="text-slate-600">Holistic youth development, policy-aligned outcomes, certified facilitators.</span>
+                      <span className="font-bold text-pth-navy">Benefits:</span> <span className="text-slate-600">Practical work evidence, learner feedback and an agreed outcomes report.</span>
                     </div>
                   </div>
                 </div>
                 
-                <Link to="/contact?for=Organisation+Partnership" className="bg-pth-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-[#0C2A5C] transition-colors w-fit">
-                  Book a Conversation
+                <Link to="/for-organisations/partnerships" className="bg-pth-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-[#0C2A5C] transition-colors w-fit">
+                  See what the programme includes
                 </Link>
               </div>
               <div className="lg:w-1/2 bg-slate-100 relative min-h-[300px]">
@@ -216,7 +216,7 @@ export default function ForOrganisations() {
             <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-pth-green/10 blur-3xl" aria-hidden="true"></div>
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-6 text-white text-balance">Ready to get started?</h2>
-              <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto">Let's discuss how we can build a partnership that drives real impact.</p>
+              <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto">Tell us about your cohort or project brief. We will discuss suitability, scope, costs and the next step.</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="mailto:partnerships@pthfndr.org" className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl">
                   Email us

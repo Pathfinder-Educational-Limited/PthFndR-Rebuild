@@ -1,43 +1,65 @@
 import { OfferingPage } from '../components/OfferingPage';
 
+export function CohortProgramme({ canonical = "https://pthfndr.org/for-organisations/partnerships" }: { canonical?: string }) {
+  return <OfferingPage
+    seoTitle={"Managed Employability Programmes | PthFndR"}
+    seoDescription={"A managed employability programme connecting guided development with short employer projects, practical work evidence and a clear next step."}
+    canonical={canonical}
+    eyebrow={"For colleges, schools, youth providers & commissioners"}
+    headline={"Real experience for"}
+    accent={"your next cohort."}
+    subhead={"A managed employability programme connecting guided development with short employer projects, practical work evidence and a clear next step."}
+    atAGlance={[
+      "Ages 16–24",
+      "Agreed cohort and delivery period",
+      "Quoted to your scope"
+    ]}
+    sections={[
+      {
+        "eyebrow": "The programme",
+        "heading": "From starting point to work evidence",
+        "body": [
+          "Commission a managed micro-opportunity programme for a cohort aged 16–24. We agree the group size, delivery period, project scope and reporting requirements before you book."
+        ],
+        "bullets": [
+          "Discover: starting-point assessment, strengths and interests, and individual learning goals.",
+          "Develop: facilitated preparation, practical resources and supported skills practice.",
+          "Deploy: short employer projects selected for the cohort’s interests and readiness, subject to host availability.",
+          "Reflect: participant work examples, host feedback and next-step planning."
+        ]
+      },
+      {
+        "eyebrow": "What you buy",
+        "heading": "A defined delivery package",
+        "bullets": [
+          "Programme planning and coordination with a named PthFndR contact.",
+          "Agreed facilitated sessions and learner materials.",
+          "Employer brief development and project coordination.",
+          "An outcomes report covering agreed measures such as participation, completion, work produced and learner reflection."
+        ],
+        "body": [
+          "Delivery may combine in-person sessions, online preparation and practical project work. Your proposal sets out responsibilities, supervision, accessibility arrangements and any participant payments or expenses."
+        ]
+      },
+      {
+        "eyebrow": "Investment",
+        "heading": "A scoped programme fee",
+        "body": [
+          "We quote for the cohort size, facilitation, employer coordination and reporting you need. The proposal makes clear what is included, any additional costs and how learner places are funded.",
+          "Start with a defined pilot, review the evidence together, then decide whether to repeat or extend. Employment and placement availability are not guaranteed."
+        ]
+      }
+    ]}
+    cta={{
+      "headline": "Plan a programme for your cohort",
+      "primaryLabel": "Request a programme proposal",
+      "primaryTo": "/contact?for=Micro-Opportunity+Programme",
+      "secondaryLabel": "Explore employer projects",
+      "secondaryTo": "/for-organisations/create-opportunities"
+    }}
+  />;
+}
+
 export default function OrganisationPartnership() {
-  return (
-    <OfferingPage
-      seoTitle="Organisation Partnership | PthFndR"
-      seoDescription="Build a long-term partnership with PthFndR — custom programmes, research collaboration, and an early talent pipeline of self-aware young professionals."
-      canonical="https://pthfndr.org/for-organisations/partnerships"
-      eyebrow="For Organisations"
-      headline="Organisation"
-      accent="Partnership."
-      subhead="Go beyond one-off opportunities. Build a long-term partnership with custom programmes, research collaboration, and a pipeline of ready-to-contribute talent."
-      sections={[
-        {
-          eyebrow: 'Ways to partner',
-          heading: 'Three ways to go deeper',
-          body: [
-            'Whatever your goal — developing young people, gathering insight, or hiring emerging talent — there is a partnership model that fits.',
-          ],
-          bullets: [
-            'Long-term programmes — custom facilitation, training, and curriculum design, based on scope and scale',
-            'Talent pipeline — hire graduates and build an early pipeline of self-aware young professionals',
-          ],
-        },
-        {
-          eyebrow: 'Who partners with us',
-          heading: 'For organisations that mean it',
-          body: [
-            'We work with schools, colleges, local authorities, and employers who want measurable interventions — holistic youth development, policy-aligned outcomes, and certified facilitators.',
-            'Every partnership is built around real impact: did young people progress, did they get hired, are they contributing.',
-          ],
-        },
-      ]}
-      cta={{
-        headline: "Let's build something lasting",
-        primaryLabel: 'Start a conversation',
-        primaryTo: '/contact',
-        secondaryLabel: 'Post an opportunity',
-        secondaryTo: '/for-organisations/create-opportunities',
-      }}
-    />
-  );
+  return <CohortProgramme />;
 }

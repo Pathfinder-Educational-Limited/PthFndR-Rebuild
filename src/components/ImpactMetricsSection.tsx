@@ -3,7 +3,6 @@ import { Eyebrow } from './ui/Eyebrow';
 const metrics = [
   { value: '223', label: 'young people supported' },
   { value: '8', label: 'school & organisation partners' },
-  { value: '95%', label: 'progress to work or further education' },
 ];
 
 export default function ImpactMetricsSection() {
@@ -14,11 +13,11 @@ export default function ImpactMetricsSection() {
         <div className="max-w-3xl mb-16">
           <Eyebrow tone="cyan" className="mb-5">Our impact</Eyebrow>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white text-balance leading-[1.02]">
-            Numbers that mean something
+            Experience to build on
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
           {metrics.map((m) => (
             <div key={m.label} className="border-t border-white/15 pt-6">
               <p className="font-heading font-extrabold text-pth-green text-6xl lg:text-8xl leading-none mb-4 tracking-tight">

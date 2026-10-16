@@ -1,7 +1,7 @@
 export const programmesContent = {
   hero: {
     headline: "Build Your Future",
-    subheading: "Explore our programmes designed to transform identity, build capability, and create real opportunities.",
+    subheading: "Discover your direction, prepare for short employer projects and build evidence of your skills.",
     bodyCopy: "From intensive career accelerators to real-world micro-opportunities, we offer flexible pathways tailored to where you are in your journey.",
     ctaButton: "Explore Programmes"
   },
@@ -94,7 +94,7 @@ export const programmesContent = {
     items: [
       {
         title: "Evidence-Based",
-        description: "Developed by career experts and tested with 223 young people. Real outcomes, real impact."
+        description: "Guided reflection, practical preparation and employer projects bring learning into real situations."
       },
       {
         title: "Flexible",
@@ -102,11 +102,11 @@ export const programmesContent = {
       },
       {
         title: "Employer-Connected",
-        description: "Direct partnerships with leading organisations. Real work, real connections, real opportunities."
+        description: "Short employer briefs give participants opportunities to contribute. Availability varies by programme and host."
       },
       {
         title: "Outcomes-Focused",
-        description: "95% of young people progress to work or further education with clarity on direction."
+        description: "We agree learning goals and review participation, project completion, work evidence and next steps."
       }
     ]
   },

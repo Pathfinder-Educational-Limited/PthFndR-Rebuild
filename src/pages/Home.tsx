@@ -9,7 +9,7 @@ import { HomePageSchema } from '../components/SEOSchemas';
 
 // Lazy load sections below the fold
 const ThreeStreamsSection = React.lazy(() => import('../components/ThreeStreamsSection'));
-const AssessmentPathwaysSection = React.lazy(() => import('../components/AssessmentPathwaysSection'));
+const CoreOffersSection = React.lazy(() => import('../components/CoreOffersSection'));
 const WhosItForSection = React.lazy(() => import('../components/WhosItForSection'));
 const ImpactMetricsSection = React.lazy(() => import('../components/ImpactMetricsSection'));
 const FeaturedStoriesSection = React.lazy(() => import('../components/FeaturedStoriesSection'));
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Home | PthFndR"
+        title="Employer Projects & Employability Programmes | PthFndR"
         description={COPY.HERO.SUBHEADING}
         url="https://pthfndr.org/"
       />
@@ -31,7 +31,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             <div className="lg:col-span-7">
-              <Eyebrow tone="cyan" className="mb-6">For young people · schools · organisations</Eyebrow>
+              <Eyebrow tone="cyan" className="mb-6">Real projects · Practical skills · Evidence of capability</Eyebrow>
               <h1
                 id="hero-heading"
                 className="font-heading font-extrabold tracking-tight text-pth-navy text-balance text-5xl sm:text-6xl lg:text-[5.5rem] leading-[0.95] mb-8"
@@ -50,10 +50,10 @@ export default function Home() {
                   Take the free assessment <ArrowRight size={20} aria-hidden="true" />
                 </Link>
                 <Link
-                  to="/for-organisations"
+                  to="/for-organisations/partnerships"
                   className="inline-flex items-center gap-2 border-2 border-pth-navy text-pth-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-pth-navy hover:text-white transition-all"
                 >
-                  For organisations
+                  Commission a programme
                 </Link>
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function Home() {
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
                   srcSet="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=70 600w, https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80 1200w"
                   sizes="(max-width: 1024px) 100vw, 42vw"
-                  alt="PthFndR participant interacting"
+                  alt="People collaborating on a project around a table"
                   width="1200"
                   height="1500"
                   className="absolute inset-0 w-full h-full object-cover"
@@ -78,8 +78,8 @@ export default function Home() {
       </section>
 
       <Suspense fallback={<div className="h-40 flex items-center justify-center text-slate-400">Loading...</div>}>
+        <CoreOffersSection />
         <ThreeStreamsSection />
-        <AssessmentPathwaysSection />
         <WhosItForSection />
         <ImpactMetricsSection />
         <FeaturedStoriesSection />

@@ -7,21 +7,21 @@ const streams = [
     tag: 'Identity',
     title: 'Discover',
     icon: Fingerprint,
-    desc: 'Understand who you are: your strengths, values, interests, and what matters to you. Before you can own your future, you need to know yourself.',
+    desc: 'Identify your strengths, interests and starting point through guided reflection. Choose a direction to explore and agree what you want to practise.',
   },
   {
     n: '02',
     tag: 'Capability',
     title: 'Develop',
     icon: Wrench,
-    desc: 'Build the practical skills employers want: communication, problem-solving, professional presence, and sector-specific ability. Theory meets practice, straight away.',
+    desc: 'Prepare for a real brief with practical learning, supported exercises and feedback. Practise communication, teamwork and problem-solving in context.',
   },
   {
     n: '03',
     tag: 'Opportunity',
     title: 'Deploy',
     icon: Globe,
-    desc: 'Connect with real work, real organisations, and real impact. Build evidence you can show. Make real connections. Earn if you can. Explore if you want.',
+    desc: 'Contribute to a short employer project. Reflect on your work, gather feedback and build examples you can discuss in applications and interviews.',
   },
 ];
 
@@ -38,7 +38,7 @@ export default function ThreeStreamsSection() {
             Discover.<span className="text-pth-teal"> Develop.</span><span className="text-pth-green"> Deploy.</span>
           </h2>
           <p className="text-lg lg:text-xl text-slate-600 mt-6 max-w-2xl">
-            Our approach ensures young people are not just prepared for jobs, but ready to thrive in their careers and lives.
+            One connected journey: understand your direction, prepare to contribute, then put your skills to work. Each project informs your next step.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">

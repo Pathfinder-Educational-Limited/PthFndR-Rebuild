@@ -59,13 +59,13 @@ export function HomePageSchema() {
         '@type': 'WebPage',
         name: 'PthFndR - Discover. Develop. Deploy.',
         description:
-          'PthFndR helps young people aged 16 to 24 discover who they are, develop the skills and confidence to move forward, and deploy that potential into real opportunity.',
+          'PthFndR delivers managed employability programmes for 16–24-year-olds, connecting preparation, short employer projects and evidence of practical skills.',
         url: `${ORIGIN}/`,
         isPartOf: { '@type': 'WebSite', name: 'PthFndR', url: ORIGIN },
         mainEntity: {
           '@type': 'EducationalOrganization',
           name: 'PthFndR',
-          description: 'Youth development and career acceleration platform',
+          description: 'Managed employability programmes and short employer projects',
         },
         breadcrumb: {
           '@type': 'BreadcrumbList',

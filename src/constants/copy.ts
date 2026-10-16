@@ -1,8 +1,8 @@
 export const COPY = {
   HERO: {
-    HEADING_1: 'Where Young Potential',
-    HEADING_2: 'Becomes Real Impact.',
-    SUBHEADING: 'Transform identity. Build capability. Get hired.',
+    HEADING_1: 'Build real experience.',
+    HEADING_2: 'Show what you can do.',
+    SUBHEADING: 'PthFndR helps 16–24-year-olds discover their direction, build practical skills and demonstrate their capability through short employer projects.',
   },
   STREAMS: {
     HEADING: 'Three Core Streams',

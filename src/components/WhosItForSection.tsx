@@ -8,7 +8,7 @@ const audiences = [
     icon: User,
     label: 'Young People',
     sub: '(16-24)',
-    desc: 'Discover your potential, build real skills, and get hired by top organisations looking for your unique talent.',
+    desc: 'Explore your interests, prepare for real projects and build evidence of what you can do. Opportunities depend on current availability.',
     to: '/programmes',
     cta: 'Start your journey',
     // bold cyan card
@@ -21,11 +21,11 @@ const audiences = [
   {
     n: '02',
     icon: GraduationCap,
-    label: 'Schools',
+    label: 'Education & youth providers',
     sub: '',
-    desc: "Transform your students' career readiness with proven outcomes, structured programmes, and measurable impact tracking.",
+    desc: "Commission a supported programme for your 16–24 cohort, combining preparation, employer projects, reflection and an agreed outcomes report.",
     to: '/for-schools',
-    cta: 'Partner with us',
+    cta: 'Explore cohort programmes',
     // deep navy card
     panel: 'bg-pth-navy-deep text-white',
     iconWrap: 'bg-white/10 text-pth-cyan',
@@ -36,10 +36,10 @@ const audiences = [
   {
     n: '03',
     icon: Briefcase,
-    label: 'Organisations',
+    label: 'Employers',
     sub: '',
-    desc: 'Connect with vetted talent, measure your social impact, and build a culture of mentorship and growth.',
-    to: '/for-organisations',
+    desc: 'Bring a useful project brief. We help shape the experience, coordinate participants and collect outputs and feedback.',
+    to: '/for-organisations/create-opportunities',
     cta: 'Create opportunities',
     // warm light card
     panel: 'bg-pth-warm text-pth-navy border border-black/5',
@@ -60,10 +60,10 @@ export default function WhosItForSection() {
             id="audience-heading"
             className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-pth-navy text-balance leading-[1.02]"
           >
-            Built for everyone in your journey
+            A clear next step for each of you
           </h2>
           <p className="text-lg lg:text-xl text-slate-600 mt-6 max-w-2xl">
-            Whether you're starting your career, guiding students, or building a team, PthFndR provides the platform to succeed.
+            Young people build experience. Providers commission programmes. Employers create projects with practical value.
           </p>
         </div>
 
