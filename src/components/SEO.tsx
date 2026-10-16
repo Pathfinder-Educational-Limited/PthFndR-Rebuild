@@ -1,5 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { marketingPages } from '../content/seo/pages';
 
 interface SEOProps {
   title?: string;
@@ -21,6 +22,10 @@ export default function SEO({
   noindex = false,
 }: SEOProps) {
   const { pathname } = useLocation();
+  const metadata = marketingPages[pathname.replace(/\/+$/, '') || '/'];
+  title = metadata?.title || title;
+  description = metadata?.description || description;
+  url = metadata?.canonical || url;
   // Use one production origin and omit query parameters used to prefill forms.
   const canonicalPath = new URL(url || pathname, 'https://pthfndr.org').pathname;
   const canonical = `https://pthfndr.org${canonicalPath === '/' ? '/' : canonicalPath.replace(/\/+$/, '')}`;

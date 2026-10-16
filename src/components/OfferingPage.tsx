@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import SEO from './SEO';
+import { track } from '../services/analytics';
 import { Eyebrow } from './ui/Eyebrow';
 import { TriangleMotif } from './ui/TriangleMotif';
 
@@ -45,6 +46,9 @@ export function OfferingPage({ seoTitle, seoDescription, canonical, eyebrow, hea
             {headline} {accent && <span className="text-pth-cyan">{accent}</span>}
           </h1>
           <p className="text-xl lg:text-2xl text-slate-600 font-medium max-w-2xl">{subhead}</p>
+          <Link to={cta.primaryTo} onClick={() => track('programme_enquiry_click', { page: new URL(canonical).pathname, placement: 'hero' })} className="mt-8 inline-flex items-center gap-2 bg-pth-navy text-white px-7 py-4 rounded-xl font-bold hover:bg-pth-navy-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+            {cta.primaryLabel} <ArrowRight size={20} aria-hidden="true" />
+          </Link>
           {atAGlance && atAGlance.length > 0 && (
             <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
               {atAGlance.map((item) => (
@@ -92,7 +96,7 @@ export function OfferingPage({ seoTitle, seoDescription, canonical, eyebrow, hea
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-heading font-extrabold mb-10 text-white text-balance">{cta.headline}</h2>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to={cta.primaryTo} className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl">
+                <Link to={cta.primaryTo} onClick={() => track('programme_enquiry_click', { page: new URL(canonical).pathname, placement: 'footer' })} className="inline-flex items-center justify-center gap-2 bg-pth-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4ea858] transition-all shadow-lg hover:shadow-xl">
                   {cta.primaryLabel} <ArrowRight size={20} aria-hidden="true" />
                 </Link>
                 {cta.secondaryLabel && cta.secondaryTo && (

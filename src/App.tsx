@@ -11,6 +11,7 @@ import { initAnalytics } from './services/analytics';
 import Home from './pages/Home';
 import AdminGuard from './components/AdminGuard';
 
+const YouthEmployabilityManchester = lazy(() => import('./pages/YouthEmployabilityManchester'));
 const About = lazy(() => import('./pages/About'));
 const Methodology = lazy(() => import('./pages/Methodology'));
 const Partners = lazy(() => import('./pages/Partners'));
@@ -102,6 +103,7 @@ export default function App() {
             <Route path="for-organisations/signup" element={<OrganisationSignup />} />
             <Route path="for-organisations/post-opportunity" element={<PostOpportunity />} />
             <Route path="for-organisations/social-value" element={<SocialValue />} />
+            <Route path="youth-employability-programmes-manchester" element={<YouthEmployabilityManchester />} />
             <Route path="for-schools" element={<ForSchools />} />
             <Route path="for-schools/partnerships" element={<ForSchoolsPartnerships />} />
             <Route path="for-schools/professional-development" element={<ForSchoolsProfessionalDevelopment />} />

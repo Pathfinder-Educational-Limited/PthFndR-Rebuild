@@ -22,6 +22,7 @@ export default function CoreOffersSection() {
           <Link to={offer.to} className="mt-auto inline-flex items-center gap-2 font-bold text-pth-navy underline underline-offset-4">{offer.cta}<ArrowRight size={18} aria-hidden="true" /></Link>
         </article>)}
       </div>
+      <p className="mt-8 text-lg text-slate-700">Planning a local pilot? <Link to="/youth-employability-programmes-manchester" className="font-bold text-pth-navy underline underline-offset-4">Explore our six-week youth employability programme in Greater Manchester</Link>.</p>
       <aside className="mt-10 rounded-2xl border border-pth-navy/10 p-6 lg:p-8">
         <p className="text-sm font-bold text-pth-teal uppercase tracking-wide mb-3">Illustrative project · Website review</p>
         <p className="text-lg text-slate-700">A small team tests a website, identifies confusing steps and presents recommendations to the host. Participants practise research, teamwork and communication, then use their findings and host feedback as work evidence.</p>

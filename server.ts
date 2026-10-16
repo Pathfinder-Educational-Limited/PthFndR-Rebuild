@@ -2,6 +2,9 @@ import compression from 'compression';
 import { redirectCanonicalHost } from './src/server/httpMiddleware';
 import express, { Request, Response, NextFunction } from "express";
 import path from "path";
+import { readFileSync, existsSync } from "node:fs";
+import { marketingPages } from "./src/content/seo/pages";
+import { marketingHtml } from "./src/server/marketingHtml";
 import { createServer as createViteServer } from "vite";
 import "dotenv/config";
 
@@ -296,6 +299,14 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
+    const shell = readFileSync(path.join(distPath, "index.html"), "utf8");
+    for (const [route, metadata] of Object.entries(marketingPages)) {
+      const snapshot = path.join(distPath, "prerender", route, "index.html");
+      app.get(route, (_req: Request, res: Response) => {
+        if (existsSync(snapshot)) return res.sendFile(snapshot);
+        res.type("html").send(marketingHtml(shell, route, metadata));
+      });
+    }
     app.use(express.static(distPath));
     app.get("*", (req: Request, res: Response) => {
       res.sendFile(path.join(distPath, "index.html"));

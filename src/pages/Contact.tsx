@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { track } from '../services/analytics';
+import { enquiryContext } from '../content/enquiry';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Mail, Phone, MessageCircle, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import { PHONE_TEL_HREF, PHONE_WHATSAPP_HREF } from '../constants/contact';
@@ -8,21 +10,23 @@ import { ContactPageSchema } from '../components/SEOSchemas';
 
 const TypeformStyleForm = () => {
   const [searchParams] = useSearchParams();
-  const applyRole = searchParams.get('role');   // e.g. 'applicant' (from the Team page)
+  const context = enquiryContext(searchParams);
+  const applyRole = context.role;   // e.g. 'applicant' (from the Team page)
   const applyFor = searchParams.get('for');      // e.g. 'ESOL Facilitator'
   const isApplyFlow = applyRole === 'applicant';
 
   const [step, setStep] = useState(isApplyFlow ? 1 : 0);
   const [formData, setFormData] = useState({
-    role: isApplyFlow ? 'applicant' : '',
+    role: context.role,
     name: '',
     email: '',
     organisation: '',
-    interest_in: applyFor || '',
-    message: applyFor ? `I'd like to apply for: ${applyFor}.` : '',
+    interest_in: context.interest,
+    message: isApplyFlow && applyFor ? `I'd like to apply for: ${applyFor}.` : '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   type Question = { id: string; label: string; type: 'text' | 'email' | 'select' | 'textarea'; placeholder?: string; options?: { value: string; label: string; }[]; };
   const roleQuestions: Question[] = [
@@ -49,6 +53,8 @@ const TypeformStyleForm = () => {
 
     if (!isApplicant) {
       const ALL_INTEREST_OPTIONS = [
+        { value: 'youth-employability-pilot', label: 'Commission a Youth Employability Pilot' },
+        { value: 'employer-project', label: 'Host a Short Employer Project' },
         { value: 'free-assessment', label: 'Free Assessment' },
         { value: 'discover-bootcamp', label: 'Discover Bootcamp' },
         { value: 'upskill-accelerators', label: 'Upskill Accelerators' },
@@ -60,9 +66,9 @@ const TypeformStyleForm = () => {
       ];
       const INTEREST_OPTIONS_BY_ROLE: Record<string, string[]> = {
         young_person: ['free-assessment', 'discover-bootcamp', 'upskill-accelerators', 'pthfndr-accelerator', 'micro-opportunities'],
-        educator: ['school-partnership', 'discover-bootcamp', 'upskill-accelerators', 'free-assessment'],
-        institution: ['social-value-commissioning', 'organisation-partnership', 'school-partnership'],
-        employer: ['organisation-partnership', 'micro-opportunities', 'social-value-commissioning'],
+        educator: ['youth-employability-pilot', 'school-partnership', 'discover-bootcamp', 'upskill-accelerators', 'free-assessment'],
+        institution: ['youth-employability-pilot', 'social-value-commissioning', 'organisation-partnership', 'school-partnership'],
+        employer: ['employer-project', 'youth-employability-pilot', 'organisation-partnership', 'micro-opportunities', 'social-value-commissioning'],
       };
       const allowedValues = INTEREST_OPTIONS_BY_ROLE[formData.role];
       const filteredOptions = allowedValues
@@ -95,6 +101,7 @@ const TypeformStyleForm = () => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
+    setSubmitError('');
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -107,11 +114,12 @@ const TypeformStyleForm = () => {
       
       if (response.ok) {
         setIsSuccess(true);
+        track('contact_enquiry_submitted', { role: formData.role, interest: ['youth-employability-pilot', 'employer-project', 'social-value-commissioning'].includes(formData.interest_in) ? formData.interest_in : 'other' });
       } else {
-        console.error("Form submission failed");
+        setSubmitError('Your enquiry could not be sent. Please try again or email hello@pthfndr.org.');
       }
     } catch (error) {
-      console.error("Error submitting form", error);
+      setSubmitError('Your enquiry could not be sent. Please check your connection and try again, or email hello@pthfndr.org.');
     } finally {
       setIsSubmitting(false);
     }
@@ -133,6 +141,7 @@ const TypeformStyleForm = () => {
 
   return (
     <div className="relative bg-slate-50 rounded-3xl p-8 sm:p-12 md:p-16 border border-slate-200 shadow-sm overflow-hidden min-h-[400px] flex flex-col justify-center">
+      {submitError && <p role="alert" className="mb-6 text-red-700">{submitError}</p>}
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-2 bg-slate-200">
         <div 
@@ -241,7 +250,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl font-heading font-extrabold tracking-tight text-pth-navy sm:text-5xl lg:text-6xl">
-              Connect with PthFndR at the <span className="text-pth-cyan">Digital Security Hub (DiSH)</span>
+              Discuss your cohort, project or <span className="text-pth-cyan">next step.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-xl leading-8 text-pth-navy font-bold">
               Discover. Develop. Deploy.
