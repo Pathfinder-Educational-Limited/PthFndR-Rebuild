@@ -299,6 +299,8 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
+    // Historical mission page still appears in public search results.
+    app.get('/vision', (_req: Request, res: Response) => res.redirect(301, '/about'));
     const shell = readFileSync(path.join(distPath, "index.html"), "utf8");
     for (const [route, metadata] of Object.entries(marketingPages)) {
       const snapshot = path.join(distPath, "prerender", route, "index.html");

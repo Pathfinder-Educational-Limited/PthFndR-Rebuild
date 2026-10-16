@@ -17,7 +17,9 @@ export function OrganizationSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'EducationalOrganization',
+        '@id': `${ORIGIN}/#organization`,
         name: 'PthFndR',
+        legalName: 'Pathfinder Educational Limited',
         description:
           'Youth development platform connecting young people with real opportunities, mentorship, and career pathways. We help young people discover their identity, build skills, and access employment.',
         url: ORIGIN,
@@ -48,6 +50,19 @@ export function OrganizationSchema() {
       }}
     />
   );
+}
+
+export function WebsiteSchema() {
+  return <JsonLd data={{
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${ORIGIN}/#website`,
+    url: `${ORIGIN}/`,
+    name: 'PthFndR',
+    alternateName: 'PthFndR by Pathfinder Educational Limited',
+    publisher: { '@id': `${ORIGIN}/#organization` },
+    inLanguage: 'en-GB',
+  }} />;
 }
 
 // ── Home ───────────────────────────────────────────────────────────────────────

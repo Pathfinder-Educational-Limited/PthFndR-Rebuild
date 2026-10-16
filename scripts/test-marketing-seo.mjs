@@ -37,3 +37,17 @@ test('built buyer pages contain visible content, internal links and correct meta
   assert.match(sitemap, /youth-employability-programmes-manchester/);
   assert.doesNotMatch(sitemap, /<loc>https:\/\/pthfndr.org\/for-schools<\/loc>/);
 });
+
+
+test('homepage has visible brand identity and one explicit WebSite entity before JavaScript', () => {
+  const html = readFileSync('dist/prerender/index.html', 'utf8');
+  assert.match(html, /Build real experience/);
+  assert.match(html, /Pathfinder Educational Limited/);
+  assert.match(html, /<h1/);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+  const website = schemas.filter(schema => schema['@type'] === 'WebSite');
+  assert.equal(website.length, 1);
+  assert.equal(website[0].name, 'PthFndR');
+  assert.equal(website[0].url, 'https://pthfndr.org/');
+  assert.equal(schemas.find(schema => schema['@type'] === 'EducationalOrganization').legalName, 'Pathfinder Educational Limited');
+});

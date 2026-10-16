@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 import { COPY } from '../constants/copy';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
-import { HomePageSchema } from '../components/SEOSchemas';
+import { HomePageSchema, WebsiteSchema } from '../components/SEOSchemas';
 
 // Lazy load sections below the fold
 const ThreeStreamsSection = React.lazy(() => import('../components/ThreeStreamsSection'));
@@ -23,6 +23,7 @@ export default function Home() {
         url="https://pthfndr.org/"
       />
       <HomePageSchema />
+      <WebsiteSchema />
       
       {/* HERO SECTION */}
       <section aria-labelledby="hero-heading" className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
@@ -78,6 +79,9 @@ export default function Home() {
       </section>
 
       <Suspense fallback={<div className="h-40 flex items-center justify-center text-slate-400">Loading...</div>}>
+        <section aria-label="About PthFndR" className="bg-white py-8">
+          <p className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-slate-600"><strong className="text-pth-navy">PthFndR</strong> is operated by Pathfinder Educational Limited, based in Manchester. We deliver employability programmes and short employer projects for young people aged 16–24. <Link to="/about" className="font-bold underline underline-offset-4 text-pth-navy">Meet PthFndR</Link>.</p>
+        </section>
         <CoreOffersSection />
         <ThreeStreamsSection />
         <WhosItForSection />
