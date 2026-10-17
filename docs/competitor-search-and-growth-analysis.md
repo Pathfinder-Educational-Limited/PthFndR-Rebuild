@@ -39,7 +39,7 @@ Reviewed public search results, competitor-owned landing pages, primary distribu
 
 PthFndR: Manchester-based, supported employability cohorts for 16–24-year-olds who need preparation and sustained guidance to turn a short employer project into useful evidence and a next step.
 
-Initial purchasable offer: six weeks, 10–15 participants, two or three team briefs, agreed support and outcomes reporting. Target colleges, independent training providers and local commissioning teams. This is a focus to validate, not a proven moat. Competitors can also serve disadvantaged learners and public-sector buyers.
+Initial purchasable offer: six weeks, 15–20 participants, two or three team briefs, agreed support and outcomes reporting. Target colleges, independent training providers and local commissioning teams. This is a focus to validate, not a proven moat. Competitors can also serve disadvantaged learners and public-sector buyers.
 
 Discovery, identity and reflection can strengthen the learning design; they become a market advantage only when buyers/participants value them and delivery evidence supports the claim.
 

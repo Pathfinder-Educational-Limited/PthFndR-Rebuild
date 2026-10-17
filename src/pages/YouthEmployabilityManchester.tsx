@@ -3,13 +3,13 @@ import { OfferingPage } from '../components/OfferingPage';
 export default function YouthEmployabilityManchester() {
   return <OfferingPage
     seoTitle="Youth Employability Programmes Manchester | PthFndR"
-    seoDescription="Commission a six-week employability pilot for 10–15 young people aged 16–24 in Greater Manchester: preparation, employer projects and an outcomes report."
+    seoDescription="Commission a six-week employability pilot for 15–20 young people aged 16–24 in Greater Manchester: preparation, employer projects and an outcomes report."
     canonical="https://pthfndr.org/youth-employability-programmes-manchester"
     eyebrow="For commissioners, colleges & training providers"
     headline="Youth employability programmes"
     accent="in Greater Manchester."
-    subhead="Commission a six-week pilot for 10–15 young people aged 16–24. Connect practical preparation with short employer projects, work evidence and an agreed next step."
-    atAGlance={['6 weeks', '10–15 participants', 'Ages 16–24', 'Scoped programme fee']}
+    subhead="Commission a six-week pilot for 15–20 young people aged 16–24. Connect practical preparation with short employer projects, work evidence and an agreed next step."
+    atAGlance={['6 weeks', '15–20 participants', 'Ages 16–24', 'Scoped programme fee']}
     sections={[
       { eyebrow: 'Who commissions this?', heading: 'A delivery partner for your next cohort', body: ['For local authority employment and skills teams, youth service commissioners, FE colleges, independent training providers and youth organisations looking for a defined employability intervention.', 'Based in Manchester, PthFndR works with partners to agree the cohort, referral route, delivery location and support requirements. The pilot can complement existing careers provision or employment support.'] },
       { eyebrow: 'Youth employment and NEET prevention', heading: 'Practical experience at a transition point', body: ['The pilot is designed for young people who need clearer direction, practical experience and support to explain their skills. We can discuss cohorts who are not in education, employment or training (NEET), or at risk of disengagement, where the agreed support is appropriate.', 'Eligibility, additional support and safeguarding responsibilities are agreed with the referring organisation. This is an employability programme; specialist or statutory services remain with the appropriate partners.'] },

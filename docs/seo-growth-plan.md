@@ -37,7 +37,7 @@ NEET is buyer terminology. Use people-first wording for participants. Do not tar
 
 ## Implementation
 
-- One substantial Greater Manchester landing page with the agreed six-week, 10–15-person pilot; eligibility, weekly journey, purchase scope, questions and clear enquiry action. No unapproved fixed price published.
+- One substantial Greater Manchester landing page with the agreed six-week, 15–20-person pilot; eligibility, weekly journey, purchase scope, questions and clear enquiry action. No unapproved fixed price published.
 - Metadata aligned to intent on home, buyer, employer and participant entry pages.
 - Static HTML for six buyer pages, generated from the actual React page components at build time, served identically to all user agents. Other mapped pages get initial-response metadata. This is not full-site SSR.
 - Identical school/cohort variants canonicalise to /for-organisations/partnerships; duplicate variants removed from sitemap.
