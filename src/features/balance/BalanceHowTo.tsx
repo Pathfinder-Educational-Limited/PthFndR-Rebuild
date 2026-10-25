@@ -5,8 +5,8 @@ export default function BalanceHowTo() {
   const [added, setAdded] = useState(false);
   const [message, setMessage] = useState('First, choose group A below.');
   const control = 'min-h-11 rounded-xl border border-slate-300 px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800';
-  return <details className="mt-5 rounded-2xl border border-slate-300 bg-white p-4" open>
-    <summary className="cursor-pointer text-lg font-semibold">How to play · try a quick example</summary>
+  return <details className="mt-3 rounded-2xl border border-slate-300 bg-white p-3 sm:p-4">
+    <summary className="min-h-11 cursor-pointer content-center text-sm font-semibold">How to play · quick example</summary>
     <p className="mt-3 text-sm">Divide the board into four groups: <strong>A, B, C and D</strong>. The numbers in each group must add up to the target.</p>
     <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm">
       <li>Choose a letter above the board, then tap squares to add them to that group.</li>
