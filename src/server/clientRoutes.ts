@@ -1,0 +1,62 @@
+// Client routes accepted by the production server. Keep in sync with App.tsx;
+// the HTTP test checks that all declared routes remain reachable.
+import { matchPath } from 'react-router-dom';
+
+export const clientRoutes = [
+  "/",
+  "/about",
+  "/methodology",
+  "/partners",
+  "/contact",
+  "/login",
+  "/signin",
+  "/identity",
+  "/character",
+  "/competence",
+  "/impact",
+  "/social-hackathons",
+  "/privacy",
+  "/balance/privacy",
+  "/balance",
+  "/terms",
+  "/for-young-people",
+  "/for-organisations",
+  "/for-organisations/create-opportunities",
+  "/for-organisations/partnerships",
+  "/for-organisations/signup",
+  "/for-organisations/post-opportunity",
+  "/for-organisations/social-value",
+  "/youth-employability-programmes-manchester",
+  "/for-schools",
+  "/for-schools/partnerships",
+  "/for-schools/professional-development",
+  "/for-schools/signup",
+  "/school/dashboard",
+  "/stories",
+  "/community",
+  "/team",
+  "/programmes",
+  "/programmes/pthfndr-accelerator",
+  "/programmes/discover-bootcamp",
+  "/programmes/upskill-accelerators",
+  "/opportunities",
+  "/opportunities/:id",
+  "/opportunities/:id/feedback",
+  "/organisation/dashboard",
+  "/passport",
+  "/reset-password",
+  "/signup",
+  "/dashboard",
+  "/methodology/diagnostic",
+  "/assessment",
+  "/diagnostic",
+  "/admin/login",
+  "/admin",
+  "/admin/applications",
+  "/admin/evidence",
+  "/admin/opportunities"
+] as const;
+
+export function isClientRoute(pathname: string) {
+  return clientRoutes.some(path => matchPath({ path, end: true }, pathname));
+}
