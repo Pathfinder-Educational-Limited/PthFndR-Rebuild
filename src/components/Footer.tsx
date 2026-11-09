@@ -108,6 +108,12 @@ export default function Footer() {
 
         </div>
 
+        <div className="border-t border-white/10 py-6 text-sm text-slate-300 leading-relaxed">
+          <p className="font-semibold text-white">PthFndR is the employability brand of Pathfinder Educational Limited.</p>
+          <p>Registered in England and Wales. Company number 15659558.</p>
+          <p>Registered office: 47 Lloyd Street, DiSH Floor 2, Manchester, England, M2 5LE.</p>
+        </div>
+
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-400">
             &copy; {new Date().getFullYear()} Pathfinder Educational Limited. All rights reserved.

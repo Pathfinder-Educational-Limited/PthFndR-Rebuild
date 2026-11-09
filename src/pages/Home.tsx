@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 import { COPY } from '../constants/copy';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
-import { HomePageSchema } from '../components/SEOSchemas';
+import { HomePageSchema, WebSiteSchema } from '../components/SEOSchemas';
 
 // Lazy load sections below the fold
 const ThreeStreamsSection = React.lazy(() => import('../components/ThreeStreamsSection'));
@@ -17,11 +17,12 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Home | PthFndR"
-        description={COPY.HERO.SUBHEADING}
+        title="PthFndR | Pathfinder Educational Limited | Youth Employability"
+        description="PthFndR is the employability brand of Pathfinder Educational Limited, based in Manchester. Practical skills, supported programmes and real work experience for young people."
         url="https://pthfndr.org/"
       />
       <HomePageSchema />
+      <WebSiteSchema />
       
       {/* HERO SECTION */}
       <section aria-labelledby="hero-heading" className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
@@ -71,6 +72,16 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section aria-label="About Pathfinder Educational Limited" className="bg-white py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading font-bold text-pth-navy text-xl mb-3">PthFndR — Pathfinder Educational Limited</h2>
+          <p className="text-slate-600 leading-relaxed max-w-4xl">
+            PthFndR is the employability brand of Pathfinder Educational Limited, a Manchester-based company helping young people build practical skills, gain experience and progress towards meaningful work.{' '}
+            <Link to="/about" className="font-semibold text-pth-navy underline underline-offset-4">About our company</Link>.
+          </p>
         </div>
       </section>
 
