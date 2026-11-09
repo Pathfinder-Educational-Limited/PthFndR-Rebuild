@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { XCircle, Fingerprint, Wrench, Globe, Target, Heart, LineChart, Handshake, Users, Compass, ArrowRight } from 'lucide-react';
+import { marketingPages } from '../content/seo/pages';
 import SEO from '../components/SEO';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
@@ -38,8 +39,8 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Us | PthFndR"
-        description="We're building the career development system every young person deserves — connecting young people with the support, skills, and real opportunities they need to own their future."
+        title={marketingPages['/about'].title}
+        description={marketingPages['/about'].description}
         url="https://pthfndr.org/about"
       />
       <AboutPageSchema />
@@ -48,13 +49,26 @@ export default function About() {
       <section className="relative bg-pth-warm pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
         <TriangleMotif className="pointer-events-none absolute -top-10 -right-16 w-[380px] lg:w-[520px] text-pth-cyan/15" />
         <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <Eyebrow tone="cyan" className="mb-6">About PthFndR</Eyebrow>
+          <Eyebrow tone="cyan" className="mb-6">Pathfinder Educational Limited</Eyebrow>
           <h1 className="font-heading font-extrabold tracking-tight text-pth-navy text-balance text-5xl sm:text-6xl lg:text-7xl leading-[0.95] mb-8">
             Where young potential becomes <span className="text-pth-cyan">real impact.</span>
           </h1>
           <p className="text-xl lg:text-2xl text-slate-600 font-medium max-w-2xl mx-auto">
-            We're building the career development system every young person deserves.
+            PthFndR is the employability brand of Pathfinder Educational Limited, based in Manchester.
           </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="company-heading" className="bg-white py-16 lg:py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h2 id="company-heading" className="text-3xl sm:text-4xl font-heading font-bold text-pth-navy mb-6">The company behind our work</h2>
+          <p className="text-lg text-slate-600 leading-relaxed mb-6">Pathfinder Educational Limited was incorporated in England and Wales on 19 April 2024 (company number 15659558). We help people develop their capabilities and move towards meaningful contribution through education, employability and leadership development.</p>
+          <dl className="space-y-6 text-slate-600">
+            <div><dt className="font-bold text-pth-navy">PthFndR</dt><dd>Our employability brand connects young people with practical skills, supported programmes and work experience.</dd></div>
+            <div><dt><a href="https://sterizogroup.com/" className="font-bold text-pth-navy underline underline-offset-4">Sterizo®</a></dt><dd>Our leadership and personal development brand brings together reflection, assessment and tools for meaningful contribution, including the <a href="https://www.wholenessindex.com/" className="underline underline-offset-4">Wholeness Index®</a>.</dd></div>
+            <div><dt><a href="https://employalingua.com/" className="font-bold text-pth-navy underline underline-offset-4">EmployaLingua®</a></dt><dd>Our language and employability product connects workplace language with the skills people need for work.</dd></div>
+          </dl>
+          <p className="mt-8 text-slate-600"><Link to="/team" className="font-semibold text-pth-navy underline underline-offset-4">Meet our team</Link> or <Link to="/contact" className="font-semibold text-pth-navy underline underline-offset-4">talk to us about working together</Link>.</p>
         </div>
       </section>
 

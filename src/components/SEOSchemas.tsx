@@ -20,6 +20,7 @@ export function OrganizationSchema() {
         '@id': `${ORIGIN}/#organization`,
         name: 'PthFndR',
         legalName: 'Pathfinder Educational Limited',
+        alternateName: 'Pathfinder Educational',
         description:
           'Youth development platform connecting young people with real opportunities, mentorship, and career pathways. We help young people discover their identity, build skills, and access employment.',
         url: ORIGIN,
@@ -72,7 +73,7 @@ export function HomePageSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        name: 'PthFndR - Discover. Develop. Deploy.',
+        name: 'PthFndR | Pathfinder Educational Limited | Youth Employability',
         description:
           'PthFndR delivers managed employability programmes for 16–24-year-olds, connecting preparation, short employer projects and evidence of practical skills.',
         url: `${ORIGIN}/`,
@@ -171,19 +172,11 @@ export function AboutPageSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'AboutPage',
-        name: 'About PthFndR',
+        name: 'About Pathfinder Educational Limited | PthFndR',
         description:
           "Learn about PthFndR's mission to help young people own their futures through identity discovery, skill development, and real opportunities.",
         url: `${ORIGIN}/about`,
-        mainEntity: {
-          '@type': 'EducationalOrganization',
-          name: 'PthFndR',
-          description:
-            'Youth development platform connecting young people with real opportunities and mentorship',
-          slogan: 'Discover. Develop. Deploy.',
-          foundingDate: '2024-04-19',
-          areaServed: 'United Kingdom',
-        },
+        mainEntity: { '@id': `${ORIGIN}/#organization` },
       }}
     />
   );

@@ -3,6 +3,7 @@ import React from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
 import { PassThrough } from 'node:stream';
 import Home from '../src/pages/Home';
+import About from '../src/pages/About';
 import { OrganizationSchema } from '../src/components/SEOSchemas';
 import { MemoryRouter } from 'react-router-dom';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -15,6 +16,7 @@ import { marketingHtml } from '../src/server/marketingHtml';
 
 const pages = {
   '/': <Home />,
+  '/about': <About />,
   '/youth-employability-programmes-manchester': <YouthEmployabilityManchester />,
   '/for-organisations/partnerships': <CohortProgramme />,
   '/for-schools': <CohortProgramme />,

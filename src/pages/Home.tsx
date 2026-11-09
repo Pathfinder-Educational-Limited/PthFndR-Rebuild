@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import { marketingPages } from '../content/seo/pages';
 import { COPY } from '../constants/copy';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TriangleMotif } from '../components/ui/TriangleMotif';
@@ -18,8 +19,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Employer Projects & Employability Programmes | PthFndR"
-        description={COPY.HERO.SUBHEADING}
+        title={marketingPages['/'].title}
+        description={marketingPages['/'].description}
         url="https://pthfndr.org/"
       />
       <HomePageSchema />
@@ -78,10 +79,17 @@ export default function Home() {
         </div>
       </section>
 
+      <section aria-label="About Pathfinder Educational Limited" className="bg-white py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading font-bold text-pth-navy text-xl mb-3">PthFndR — Pathfinder Educational Limited</h2>
+          <p className="text-slate-600 leading-relaxed max-w-4xl">
+            PthFndR is the employability brand of Pathfinder Educational Limited, a Manchester-based company helping young people build practical skills, gain experience and progress towards meaningful work.{' '}
+            <Link to="/about" className="font-semibold text-pth-navy underline underline-offset-4">About our company</Link>.
+          </p>
+        </div>
+      </section>
+
       <Suspense fallback={<div className="h-40 flex items-center justify-center text-slate-400">Loading...</div>}>
-        <section aria-label="About PthFndR" className="bg-white py-8">
-          <p className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-slate-600"><strong className="text-pth-navy">PthFndR</strong> is operated by Pathfinder Educational Limited, based in Manchester. We deliver employability programmes and short employer projects for young people aged 16–24. <Link to="/about" className="font-bold underline underline-offset-4 text-pth-navy">Meet PthFndR</Link>.</p>
-        </section>
         <CoreOffersSection />
         <ThreeStreamsSection />
         <WhosItForSection />

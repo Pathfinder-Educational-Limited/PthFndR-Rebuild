@@ -6,6 +6,14 @@ closing the underemployment gap through dignity-infused learning.
 Built with **Vite + React 19 + TypeScript + Tailwind CSS v4**, with a small **Express** server
 (`server.ts`) that serves the SPA and handles the contact API (Resend + Supabase).
 
+## Production source
+
+The live `pthfndr.org` website deploys from **`content-fixes-aug-2026`**, not `main`.
+Target website pull requests at that branch. Its push workflow builds and deploys
+Azure App Service **`pthfndr-app`** using Node.js 22. The latest successful deployment
+was verified on 9 November 2026. Changes made in any editor must reach this branch
+to publish through the existing pipeline.
+
 ## Run locally
 
 **Prerequisites:** Node.js 20+
