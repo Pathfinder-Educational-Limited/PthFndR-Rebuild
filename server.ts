@@ -1,5 +1,6 @@
 import compression from 'compression';
-import { redirectCanonicalHost } from './src/server/httpMiddleware';
+import { clientFallback } from './src/server/clientFallback';
+import { redirectCanonicalHost, redirectLegacyPage } from './src/server/httpMiddleware';
 import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import { readFileSync, existsSync } from "node:fs";
@@ -300,6 +301,7 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), "dist");
     // Historical mission page still appears in public search results.
+    app.use(redirectLegacyPage);
     app.get('/vision', (_req: Request, res: Response) => res.redirect(301, '/about'));
     const shell = readFileSync(path.join(distPath, "index.html"), "utf8");
     for (const [route, metadata] of Object.entries(marketingPages)) {
@@ -310,9 +312,7 @@ async function startServer() {
       });
     }
     app.use(express.static(distPath));
-    app.get("*", (req: Request, res: Response) => {
-      res.sendFile(path.join(distPath, "index.html"));
-    });
+    app.get("*", clientFallback(shell));
   }
 
   // Error handling middleware (must be last)
