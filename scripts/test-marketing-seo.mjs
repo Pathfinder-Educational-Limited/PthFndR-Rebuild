@@ -51,3 +51,15 @@ test('homepage has visible brand identity and one explicit WebSite entity before
   assert.equal(website[0].url, 'https://pthfndr.org/');
   assert.equal(schemas.find(schema => schema['@type'] === 'EducationalOrganization').legalName, 'Pathfinder Educational Limited');
 });
+
+
+test('corporate landing page exposes company identity and brand links without JavaScript', () => {
+  const html = readFileSync('dist/prerender/about/index.html', 'utf8');
+  assert.match(html, /<title>About Pathfinder Educational Limited \| PthFndR<\/title>/);
+  assert.match(html, /rel="canonical" href="https:\/\/pthfndr.org\/about"/);
+  assert.match(html, /15659558/);
+  assert.match(html, /href="https:\/\/sterizogroup.com\/"/);
+  assert.match(html, /href="https:\/\/employalingua.com\/"/);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+  assert.equal(schemas.find(schema => schema['@type'] === 'AboutPage').mainEntity['@id'], 'https://pthfndr.org/#organization');
+});
