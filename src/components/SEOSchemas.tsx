@@ -17,7 +17,10 @@ export function OrganizationSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'EducationalOrganization',
+        '@id': `${ORIGIN}/#organization`,
         name: 'PthFndR',
+        legalName: 'Pathfinder Educational Limited',
+        alternateName: 'Pathfinder Educational',
         description:
           'Youth development platform connecting young people with real opportunities, mentorship, and career pathways. We help young people discover their identity, build skills, and access employment.',
         url: ORIGIN,
@@ -41,7 +44,7 @@ export function OrganizationSchema() {
           postalCode: 'M2 5LE',
           addressCountry: 'GB',
         },
-        foundingDate: '2023',
+        foundingDate: '2024-04-19',
         founder: [{ '@type': 'Person', name: 'Olayiwola Iyiola' }],
         areaServed: { '@type': 'Country', name: 'United Kingdom' },
         knowsAbout: ['Youth Development', 'Career Development', 'Employment Services', 'Mentorship', 'Skills Training'],
@@ -57,7 +60,7 @@ export function HomePageSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        name: 'PthFndR - Where Young Potential Becomes Real Impact',
+        name: 'PthFndR | Pathfinder Educational Limited | Youth Employability',
         description:
           'Transform identity. Build capability. Get hired. Complete youth development platform with career programmes, real opportunities, and mentorship.',
         url: `${ORIGIN}/`,
@@ -74,6 +77,19 @@ export function HomePageSchema() {
       }}
     />
   );
+}
+
+export function WebSiteSchema() {
+  return <JsonLd data={{
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${ORIGIN}/#website`,
+    url: `${ORIGIN}/`,
+    name: 'PthFndR',
+    alternateName: 'PthFndR — Pathfinder Educational Limited',
+    publisher: { '@id': `${ORIGIN}/#organization` },
+    inLanguage: 'en-GB',
+  }} />;
 }
 
 // ── Career Accelerators (Course) ───────────────────────────────────────────────
@@ -156,19 +172,11 @@ export function AboutPageSchema() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'AboutPage',
-        name: 'About PthFndR',
+        name: 'About Pathfinder Educational Limited | PthFndR',
         description:
           "Learn about PthFndR's mission to help young people own their futures through identity discovery, skill development, and real opportunities.",
         url: `${ORIGIN}/about`,
-        mainEntity: {
-          '@type': 'EducationalOrganization',
-          name: 'PthFndR',
-          description:
-            'Youth development platform connecting young people with real opportunities and mentorship',
-          slogan: 'Transform identity. Build capability. Get hired.',
-          foundingDate: '2023',
-          areaServed: 'United Kingdom',
-        },
+        mainEntity: { '@id': `${ORIGIN}/#organization` },
       }}
     />
   );
