@@ -19,6 +19,7 @@ export const clientRoutes = [
   "/balance/privacy",
   "/balance",
   "/terms",
+  "/sitemap",
   "/for-young-people",
   "/for-organisations",
   "/for-organisations/create-opportunities",

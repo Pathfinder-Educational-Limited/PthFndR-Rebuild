@@ -53,6 +53,7 @@ const SchoolDashboard = lazy(() => import('./pages/SchoolDashboard'));
 const YoungPersonSignup = lazy(() => import('./pages/YoungPersonSignup'));
 const PostOpportunity = lazy(() => import('./pages/PostOpportunity'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+const Sitemap = lazy(() => import('./pages/Sitemap'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
@@ -96,6 +97,7 @@ export default function App() {
             <Route path="balance/privacy" element={<BalancePrivacy />} />
             <Route path="balance" element={<Balance />} />
             <Route path="terms" element={<TermsOfService />} />
+            <Route path="sitemap" element={<Sitemap />} />
             <Route path="for-young-people" element={<ForYoungPeople />} />
             <Route path="for-organisations" element={<ForOrganisations />} />
             <Route path="for-organisations/create-opportunities" element={<CreateOpportunities />} />
