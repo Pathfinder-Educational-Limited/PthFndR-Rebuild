@@ -39,6 +39,7 @@ import ForSchoolsProfessionalDevelopment from './pages/ForSchoolsProfessionalDev
 import CreateOpportunities from './pages/CreateOpportunities';
 import OrganisationPartnership from './pages/OrganisationPartnership';
 import NotFound from './pages/NotFound';
+import Sitemap from './pages/Sitemap';
 
 export default function App() {
   return (
@@ -63,6 +64,7 @@ export default function App() {
             <Route path="privacy" element={<PrivacyPolicy />} />
             <Route path="balance/privacy" element={<BalancePrivacy />} />
             <Route path="terms" element={<TermsOfService />} />
+            <Route path="sitemap" element={<Sitemap />} />
             <Route path="for-organisations" element={<ForOrganisations />} />
             <Route path="for-organisations/create-opportunities" element={<CreateOpportunities />} />
             <Route path="for-organisations/partnerships" element={<OrganisationPartnership />} />
