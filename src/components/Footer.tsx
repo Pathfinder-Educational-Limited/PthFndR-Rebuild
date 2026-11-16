@@ -118,7 +118,8 @@ export default function Footer() {
           <p className="text-xs text-slate-400">
             &copy; {new Date().getFullYear()} Pathfinder Educational Limited. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <Link to="/sitemap" className="inline-flex min-h-11 items-center text-sm text-slate-300 hover:text-white underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white rounded px-1">Sitemap</Link>
             <Link to="/privacy" className="text-xs text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-1 -mx-1">Privacy Policy</Link>
             <Link to="/terms" className="text-xs text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pth-green focus:ring-offset-2 focus:ring-offset-[#0C2A5C] rounded px-1 -mx-1">Terms of Service</Link>
           </div>
