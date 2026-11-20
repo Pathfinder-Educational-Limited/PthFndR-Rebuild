@@ -39,7 +39,7 @@ export function OrganizationSchema() {
         },
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Heron House (DiSH), 47 Lloyd Street',
+          streetAddress: 'GM Digital Security Hub, 47 Lloyd Street',
           addressLocality: 'Manchester',
           postalCode: 'M2 5LE',
           addressCountry: 'GB',
@@ -204,7 +204,7 @@ export function ContactPageSchema() {
           },
           address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Heron House (DiSH), 47 Lloyd Street',
+            streetAddress: 'GM Digital Security Hub, 47 Lloyd Street',
             addressLocality: 'Manchester',
             postalCode: 'M2 5LE',
             addressCountry: 'GB',
