@@ -271,7 +271,7 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="hover:text-pth-cyan transition-colors"
                     >
-                      Heron House, Digital Security Hub (DiSH)<br />
+                      GM Digital Security Hub<br />
                       47 Lloyd Street,<br />
                       Manchester, M2 5LE
                     </a>
